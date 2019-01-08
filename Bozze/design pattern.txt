@@ -1,2 +1,0 @@
-object pool pattern
-factory
