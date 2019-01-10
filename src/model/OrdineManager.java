@@ -1,7 +1,10 @@
 package model;
 
+import connectionPool.*;
 
 public class OrdineManager {
+	
+	static final private String NOME_TABELLA= "ordine";
 
 	/**
 	 * 
@@ -9,8 +12,8 @@ public class OrdineManager {
 	 * @param quantità
 	 */
 	public void aggiungiAlCarrello(String isbn, int quantità) {
-		// TODO - implement OrdineManager.aggiungiAlCarrello
-		throw new UnsupportedOperationException();
+		
+		
 	}
 
 	/**
