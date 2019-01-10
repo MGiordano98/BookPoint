@@ -44,7 +44,7 @@
       <div class="content">
         <div class="content-txt">
           <h1>Espande il tuo vocabolario</h1>
-          <h2>Questo è uno dei vantaggi più importanti: più leggi, più il tuo modo di esporti migliora. Le parole nuove inoltre si andranno ad aggiungere a quelle che costituiscono il tuo vocabolario quotidiano.Esprimersi bene e in modo articolato può esserti d’aiuto anche in ambito lavorativo e sapere che tu parli con sicurezza davanti ad una persona importante, può essere stimolante per la tua autostima.Può esserti persino d’aiuto nella tua carriera lavorativa, poiché se tu sei un buon lettore, sai parlare bene e hai un bagaglio di conoscenze molto vasto, sarà più facile avanzare da un livello più basso ad uno più alto, rispetto a chi ha un vocabolario molto più ristretto e ha lacune in ambito scientifico e letterario.</h2>
+          <h2>Questo è uno dei vantaggi più importanti: più leggi, più il tuo modo di esporti migliora. Le parole nuove inoltre si andranno ad aggiungere a quelle che costituiscono il tuo vocabolario quotidiano.Esprimersi bene e in modo articolato può esserti d’aiuto anche in ambito lavorativo e sapere che tu parli con sicurezza davanti ad una persona importante, può essere stimolante per la tua autostima.</h2>
         </div>
       </div>
       <div class="image">
@@ -55,12 +55,12 @@
       <div class="legend"></div>
       <div class="content">
         <div class="content-txt">
-          <h1>Pomodori San Marzano</h1>
-          <h2>Il pomodoro di San Marzano dell'agro sarnese-nocerino (DOP) è una varietà di pomodoro riconosciuta come prodotto ortofrutticolo italiano a Denominazione di origine protetta</h2>
+          <h1>Migliora la memoria</h1>
+          <h2> Quando leggi un libro, devi ricordarti di un certo numero di personaggi, dei loro retroscena, delle loro ambizioni, delle loro storie e sfumature, dato che tutti i dentagli s’intrecciano con la trama. Anche la memoria ha un limite, ma il cervello è qualcosa di meraviglioso e può ricordare tutto ciò con una certa disinvoltura. Inoltre è straordinario come ogni memoria che si crea dentro di te, dà vita ad una nuova sinapsi,rafforzando quelle esistenti.</h2>
         </div>
       </div>
       <div class="image">
-        <img src="image/pomodoro.jpg">
+        <img src="image/memoria.jpg">
       </div>
     </div>
   </div>
