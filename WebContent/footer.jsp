@@ -13,37 +13,37 @@
 
 
 
-<footer class="page-footer font-small blue pt-4 mt-4 footer">
+<footer class="page-footer font-small blue pt-4  footer">
 
         <div class="container-fluid text-center text-md-left">
             <div class="divfooter">
     
                 <div class="col-md-6">
                     <h5 class="footerstyle">Indirizzi & Recapiti</h5>
-                    <p>   Pizza Point    Napoli     Email: info@pizzapoint.it</p>
-                    <p>   Telefono: (+39) 348 952 60 42</p>
+                    <p>   Book Point    Napoli     Email: info@bookpoint.it</p>
+                    <p>   Telefono: (+39) 348 952 00 02</p>
                     <p>   Indirizzo Postale: Nocera Superiore - 84015 Salerno (SA)</p>
-                    <p>   Indirizzo Email Agriturismo: agritur@pizzapoint.com</p>
+                    <p>   Indirizzo Email libreria: libreria@bookpoint.com</p>
                 </div>
      
                 <div class="col-md-6">
                     <h5 class="footerstyle">Links</h5>
                     <ul class="list-unstyled">
                         <li>
-                            <a class="link" href="facebook.it"><i class="fab fa-facebook-square"></i>  Facebook.it/PizzaPoint</a>
+                            <a class="link" href="facebook.it"><i class="fab fa-facebook-square"></i>  Facebook.it/BookPoint</a>
                         </li>
                         <li>
-                            <a class="link" href="instagram.it"><i class="fab fa-instagram"></i>  Instagram.it/PizzaPoint</a>
+                            <a class="link" href="instagram.it"><i class="fab fa-instagram"></i>  Instagram.it/BookPoint</a>
                         </li>
                         <li>
-                            <a class="link" href="youtube.it"><i class="fab fa-youtube"></i>  Youtube.it/PizzaPoint</a>
+                            <a class="link" href="youtube.it"><i class="fab fa-youtube"></i>  Youtube.it/BookPoint</a>
                         </li>
                     </ul>
                 </div>
                     
             </div>
             <div class="footer-copyright py-3 text-center">
-                    ©2017 Pizza Point S.r.l. P.IVA 07201791212 | All Rights Reserved | Policy
+                    ©2017 Book Point S.r.l. P.IVA 07201791212 | All Rights Reserved | Policy
             </div>
         </div>
 

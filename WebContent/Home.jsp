@@ -17,13 +17,13 @@
       <div class="legend"></div>
       <div class="content">
         <div class="content-txt">
-          <h1>Vesuvio</h1>
-          <h2>Il Vesuvio è un vulcano situato in Italia, in posizione dominante rispetto al golfo di Napoli. È uno dei due vulcani attivi dell'Europa continentale nonché uno dei più studiati e pericolosi al mondo a causa dell'elevata popolazione delle zone circostanti e le sue caratteristiche esplosive.</h2>
+          <h1>Riduce lo stress</h1>
+          <h2>Non ha importanza quanto stress ti provocano il lavoro, le relazioni o le altre problematiche che incontri nella quotidianità: quando sei immerso in una storia, ti ritrovi in un’altra dimensione, una sorta di mondo parallelo, in cui ti dimenticherai dei tuoi problemi. Un romanzo scritto bene, ti trasporterà in un altro regno: mentre un articolo impegnativo ti distrae solo momentaneamente e ti fa vivere il presente, lasciando al di fuori le tensioni e concedendoti un po’ di relax.</h2>
 
         </div>
       </div>
       <div class="image">
-        <img src="image/napoli.jpeg">
+        <img src="image/stress.jpg">
       </div>
     </div>
     
@@ -32,23 +32,23 @@
       <div class="content">
         <div class="content-txt">
           <h1>Stimola la mente</h1>
-          <h2>Degli studi hanno dimostrato che stimolare la mente aiuta a prevenire o rallentare lo sviluppo di malattie come l’Alzheimer e la demenza senile, poiché mantenere il tuo cervello sempre attivo e impegnato serve a non fargli perdere colpi. Come tutti gli altri muscoli del corpo anche il cervello ha bisogno di fare esercizi per mantenersi in forma perciò la frase “o lo usi o lo perdi” è particolarmente adatta quando si parla del tuo cervello. Anche fare puzzle e giocare a scacchi posso essere d’aiuto per la stimolazione celebrale.</h2>
+          <h2>Degli studi hanno dimostrato che stimolare la mente aiuta a prevenire o rallentare lo sviluppo di malattie come l’Alzheimer e la demenza senile, poiché mantenere il tuo cervello sempre attivo e impegnato serve a non fargli perdere colpi. Come tutti gli altri muscoli del corpo anche il cervello ha bisogno di fare esercizi per mantenersi in forma perciò la frase “o lo usi o lo perdi” è particolarmente adatta quando si parla del tuo cervello.</h2>
         </div>
       </div>
       <div class="image">
-        <img src="image/forno.jpg">
+        <img src="image/mente.jpg">
       </div>
     </div>
     <div class="slider">
       <div class="legend"></div>
       <div class="content">
         <div class="content-txt">
-          <h1>Mozzarella Campana</h1>
-          <h2>La mozzarella di bufala campana è un prodotto caseario dell'Italia Meridionale, prodotto tradizionalmente in Campania, soprattutto nelle province di Caserta e Salerno. La produzione di questo formaggio tipico si svolge anche in altre parti della Campania nonché nel Lazio meridionale</h2>
+          <h1>Espande il tuo vocabolario</h1>
+          <h2>Questo è uno dei vantaggi più importanti: più leggi, più il tuo modo di esporti migliora. Le parole nuove inoltre si andranno ad aggiungere a quelle che costituiscono il tuo vocabolario quotidiano.Esprimersi bene e in modo articolato può esserti d’aiuto anche in ambito lavorativo e sapere che tu parli con sicurezza davanti ad una persona importante, può essere stimolante per la tua autostima.Può esserti persino d’aiuto nella tua carriera lavorativa, poiché se tu sei un buon lettore, sai parlare bene e hai un bagaglio di conoscenze molto vasto, sarà più facile avanzare da un livello più basso ad uno più alto, rispetto a chi ha un vocabolario molto più ristretto e ha lacune in ambito scientifico e letterario.</h2>
         </div>
       </div>
       <div class="image">
-        <img src="image/mozz.jpg">
+        <img src="image/vocabolario.jpg">
       </div>
     </div>
     <div class="slider">
