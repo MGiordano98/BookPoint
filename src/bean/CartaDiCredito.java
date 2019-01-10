@@ -50,17 +50,15 @@ public class CartaDiCredito implements Serializable{
 	}
 
 	public Date getData() {
-		// TODO - implement CartaDiCredito.getDate
-		throw new UnsupportedOperationException();
+		return data;
 	}
 
 	/**
 	 * 
-	 * @param Date
+	 * @param data
 	 */
-	public void setDate(Date data) {
-		// TODO - implement CartaDiCredito.setDate
-		throw new UnsupportedOperationException();
+	public void setData(Date data) {
+		this.data= data;
 	}
 
 	public int getCvv() {
