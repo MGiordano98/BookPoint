@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
- <%@ page language="java" contentType="text/html; charset=ISO-8859-1" import="java.util.*, control.*, model.*" %>
+ <%@ page language="java" contentType="text/html; charset=utf-8" import="java.util.*, control.*, model.*" %>
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="style.css"> 
@@ -43,7 +43,7 @@
                     
             </div>
             <div class="footer-copyright py-3 text-center">
-                    ©2017 Pizza Point S.r.l. P.IVA 07201791212 | All Rights Reserved | Policy
+                    Â©2017 Pizza Point S.r.l. P.IVA 07201791212 | All Rights Reserved | Policy
             </div>
         </div>
 
