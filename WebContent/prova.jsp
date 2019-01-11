@@ -5,85 +5,171 @@
 <head>
 <meta charset="utf-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="style.css"> 
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<style>
+
+img {
+  width: 100%;
+  height: auto;
+	padding: 5px;
+}
+
+.responsive{
+	display:-webkit-box;
+}
+h2 {
+  text-align:center;
+	padding-bottom: 1em;
+}
+
+.slick-dots {
+	text-align: center;
+  margin: 0 0 10px 0;
+  padding: 0;
+  li {
+    display:inline-block;
+    margin-left: 4px;
+    margin-right: 4px;
+    
+    }
+    .slick-active {
+      button { background-color:black;
+      }
+    }
+    button {
+      
+      text-shadow: none;
+      color: transparent;
+      background-color:black;
+      border:none;
+      width: 15px;
+      height: 15px;
+      border-radius:50%;
+    }
+		
+  }
+}
+
+/* Custom Arrow */
+.prev{
+	color: #999;
+	position: absolute;
+	top: 38%;
+	left: -2em;
+	font-size: 1.5em;
+		:hover{
+			cursor: pointer;
+			color: black;
+		}
+}
+.next{
+	color: #999;
+	position: absolute;
+	top: 38%;
+	right: -2em;
+	font-size: 6.5em;
+	}
+
+@media screen and (max-width: 800px) {
+    .next {
+        display: none !important;
+    }
+}
+
+
+
+</style>
 </head>
  
  <body>
  
  <div class="container">
-  <div class="row">
-    <div id="carousel" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carousel" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel" data-slide-to="1"></li>
-      </ol>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div class="d-none d-lg-block">
-            <div class="slide-box">
-              <img src="https://picsum.photos/285/200/?image=0&random" alt="First slide">
-              <img src="https://picsum.photos/285/200/?image=1&random" alt="First slide">
-              <img src="https://picsum.photos/285/200/?image=2&random" alt="First slide">
-              <img src="https://picsum.photos/285/200/?image=3&random" alt="First slide">
-            </div>
-          </div>
-          <div class="d-none d-md-block d-lg-none">
-            <div class="slide-box">
-              <img src="https://picsum.photos/240/200/?image=0&random" alt="First slide">
-              <img src="https://picsum.photos/240/200/?image=1&random" alt="First slide">
-              <img src="https://picsum.photos/240/200/?image=2&random" alt="First slide">
-            </div>
-          </div>
-          <div class="d-none d-sm-block d-md-none">
-            <div class="slide-box">
-              <img src="https://picsum.photos/270/200/?image=0&random" alt="First slide">
-              <img src="https://picsum.photos/270/200/?image=1&random" alt="First slide">
-            </div>
-          </div>
-          <div class="d-block d-sm-none">
-            <img class="d-block w-100" src="https://picsum.photos/600/400/?image=0&random" alt="First slide">
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="d-none d-lg-block">
-            <div class="slide-box">
-              <img src="https://picsum.photos/285/200/?image=4&random" alt="Second slide">
-              <img src="https://picsum.photos/285/200/?image=5&random" alt="Second slide">
-              <img src="https://picsum.photos/285/200/?image=6&random" alt="Second slide">
-              <img src="https://picsum.photos/285/200/?image=7&random" alt="Second slide">
-            </div>
-          </div>
-          <div class="d-none d-md-block d-lg-none">
-            <div class="slide-box">
-              <img src="https://picsum.photos/240/200/?image=3&random" alt="Second slide">
-              <img src="https://picsum.photos/240/200/?image=4&random" alt="Second slide">
-              <img src="https://picsum.photos/240/200/?image=5&random" alt="Second slide">
-            </div>
-          </div>
-          <div class="d-none d-sm-block d-md-none">
-            <div class="slide-box">
-              <img src="https://picsum.photos/270/200/?image=2&random" alt="Second slide">
-              <img src="https://picsum.photos/270/200/?image=3&random" alt="Second slide">
-            </div>
-          </div>
-          <div class="d-block d-sm-none">
-            <img class="d-block w-100" src="https://picsum.photos/600/400/?image=1&random" alt="Second slide">
-          </div>
-        </div>
+  <h2>Slider - Multpile Items & Responsive</h2>
+    <div class="row">
+      <div class="col-md-12 heroSlider-fixed">
+        <div class="overlay">
       </div>
-      <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
+         <!-- Slider -->
+        <div class="slider responsive">
+          <div>
+						<img src="http://placehold.it/200x150" alt="" />
+					</div>
+					<div>
+						<img src="http://placehold.it/200x150" alt="" />
+					</div>
+					<div>
+						<img src="http://placehold.it/200x150" alt="" />
+					</div>
+					<div>
+						<img src="http://placehold.it/200x150" alt="" />
+					</div>
+					<div>
+						<img src="http://placehold.it/200x150" alt="" />
+					</div>
+					<div>
+						<img src="http://placehold.it/200x150" alt="" />
+					</div>
+					<div>
+						<img src="http://placehold.it/200x150" alt="" />
+					</div>
+					<div>
+						<img src="http://placehold.it/200x150" alt="" />
+					</div>
+        </div>
+				 <!-- control arrows -->
+				<div class="prev">
+					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				</div>
+				<div class="next">
+					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				</div>
+				
+      </div>
     </div>
   </div>
-</div>
+
+<script type="text/javascript">
+$('.responsive').slick({
+	  dots: true,
+		prevArrow: $('.prev'),
+		nextArrow: $('.next'),
+	  infinite: false,
+	  speed: 300,
+	  slidesToShow: 4,
+	  slidesToScroll: 4,
+	  responsive: [
+	    {
+	      breakpoint: 1024,
+	      settings: {
+	        slidesToShow: 3,
+	        slidesToScroll: 3,
+	        infinite: true,
+	        dots: true
+	      }
+	    },
+	    {
+	      breakpoint: 600,
+	      settings: {
+	        slidesToShow: 2,
+	        slidesToScroll: 2
+	      }
+	    },
+	    {
+	      breakpoint: 480,
+	      settings: {
+	        slidesToShow: 1,
+	        slidesToScroll: 1
+	      }
+	    }
+	    // You can unslick at a given breakpoint now by adding:
+	    // settings: "unslick"
+	    // instead of a settings object
+	  ]
+	});</script>
+
 
 </body>
+ 
+ 
+ 
  
 </html>
