@@ -1,4 +1,4 @@
-package control.gestioneOrdini;
+package control.gestioneOrdine;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

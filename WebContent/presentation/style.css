@@ -1,0 +1,1417 @@
+@charset "ISO-8859-1";
+@import url(https://fonts.googleapis.com/css?family=Arvo:700);
+@import url(https://fonts.googleapis.com/css?family=Seaweed+Script);
+
+body
+{
+	font-family: arial !important;
+	background-color: #00dd6f!important;
+}
+
+header{
+	background-color: #ce0000;
+}
+.divFisso{
+	min-width:1477px;
+}
+
+/* CSS HEADER*/ 
+.divcarrello{
+	min-width:1500px;
+}
+
+/* CSS INDEX */
+@media (max-width:628px){
+	#slider{
+		display: none;
+	}
+}
+
+#slider{
+  width:100%;
+  height:550px;
+  position:relative;
+  overflow:hidden;
+}
+@keyframes load{
+  from{left:-100%;}
+  to{left:0;}
+}
+.slides{
+  width:400%;
+  height:100%;
+  position:relative;
+  -webkit-animation:slide 30s infinite;
+  -moz-animation:slide 30s infinite;
+  animation:slide 30s infinite;
+}
+.slider{
+  width:25%;
+  height:100%;
+  float:left;
+  position:relative;
+  z-index:1;
+  overflow:hidden;
+}
+
+.slide img{
+  width:100%;
+  height:100%;
+}
+.image{
+  width:100%;
+  height:100%;
+}
+.image img{
+  width:100%;
+  height:100%;
+}
+
+/* Legend */
+.legend{
+  border:500px solid transparent;
+  border-left:800px solid rgba(52, 73, 94, .7);
+  border-bottom:0;
+  position:absolute;
+  bottom:0;
+}
+
+/* Contents */
+.content{
+  width:100%;
+  height:100%;
+  position:absolute;
+  overflow:hidden;
+}
+.content-txt{
+  width:400px;
+  height:150px;
+  float:left;
+  position:relative;
+  top:300px;
+  -webkit-animation:content-s 7.5s infinite;
+  -moz-animation:content-s 7.5s infinite;
+  animation:content-s 7.5s infinite;
+}
+.content-txt h1{
+  font-family:Arial;
+  text-transform:uppercase;
+  font-size:24px;
+  color:#fff;
+  text-align:left;
+  margin-left:30px;
+  padding-bottom:10px;
+}
+.content-txt h2{
+  font-family:arial;
+  font-weight:normal;
+  font-size:14px;
+  font-style:italic;
+  color:#fff;
+  text-align:left;
+  margin-left:30px;
+}
+
+/* Switch */
+.switch{
+  width:120px;
+  height:10px;
+  position:absolute;
+  bottom:50px;
+  z-index:99;
+  left:30px;
+}
+.switch > ul{
+  list-style:none;
+}
+.switch > ul > li{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#333;
+  float:left;
+  margin-right:5px;
+}
+.switch ul{
+  overflow:hidden;
+}
+.on{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  background:#f39c12;
+  position:relative;
+  -webkit-animation:on 30s infinite;
+  -moz-animation:on 30s infinite;
+  animation:on 30s infinite;
+}
+
+/* Animation */
+@-webkit-keyframes slide{
+  0%,100%{
+    margin-left:0%;
+  }
+  21%{
+    margin-left:0%;
+  }
+  25%{
+    margin-left:-100%;
+  }
+  46%{
+    margin-left:-100%;
+  }
+  50%{
+    margin-left:-200%;
+  }
+  71%{
+    margin-left:-200%;
+  }
+  75%{
+    margin-left:-300%;
+  }
+  96%{
+    margin-left:-300%;
+  }
+}
+
+
+
+form{
+	display:inline;
+}
+
+.LogoPizzaPoint {
+  width: 410px;
+  margin: 15px auto auto auto;
+}
+
+.shadow-logo {
+  color: #fff;
+  font-family: Arvo;
+  font-weight: bold;
+  text-shadow:
+    -3px -3px 0 #222,
+    3px -3px 0 #222,
+    -3px 3px 0 #222,
+    3px 3px 0 #222,
+    4px 4px 0 #fff,
+    5px 5px 0 #fff,
+    6px 6px 0 #fff,
+    7px 7px 0 #fff;
+  line-height: 0.8em;
+  letter-spacing: 0.1em;
+  transform: scaleY(0.7);
+  -webkit-transform: scaleY(0.7);
+  -moz-transform: scaleY(0.7);
+  margin:0;
+  text-align: center;
+}
+.text1 {
+    font-size: 60px;
+  }  
+.script {
+  font-family: "Seaweed Script";
+  color: #fff;
+  text-align: center;
+  font-size: 40px;
+  position: relative;
+  margin:0;
+}
+.script span {
+  background-color: #222;
+  padding: 0 0.3em;
+}
+.script:before {
+  content:"";
+  display: block;
+  position: absolute;
+  z-index:-1;
+  top: 50%;
+  width: 100%;
+  border-bottom: 3px solid #fff;
+}
+
+/*nuovo header*/
+.utenteopzioni{
+	display:none;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: red;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 14px 3px 14px;
+  text-decoration: none;
+  font-size: 17px;
+  margin-left:12%;
+  margin-right: 2%;
+}
+
+.navbar-left-mio{
+	margin-left:5%;
+}
+
+.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 955px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 955px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+
+/*abababa*/
+.navbar-mio{
+	background-color: #343a40 ;
+	color: rgb(255,255,255,.5) !important;
+	font-size:initial !important;
+}
+
+.navbar-left-mio{
+	margin-left: 5%;
+}
+
+.navbar-rigth-mio{
+	margin: auto 10% auto 5%;
+}
+
+.navbar-elementi-mio{
+	white-space: nowrap;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.nav-a-mio{
+	color: rgb(255,255,255,.5) !important;
+}
+
+
+@media (max-width:433px){
+	.LogoPizzaPoint{
+	display:none;
+	}
+}
+
+@media (min-width: 550px){
+.card-deck {
+	margin-right:auto;
+}
+}
+
+@media (max-width: 991.98px){
+    .navbar-expand-lg>.container, .navbar-expand-lg>.container-fluid {
+     padding-right:inherit; 
+     padding-left: inherit;
+     display:table-cell;
+     margin-right:inherit;
+    }
+}
+
+.container{
+    width:auto;
+    display:none;
+    float:right;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: white;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+
+
+
+
+/* CSS FOOTER*/
+.footer{
+    position: static;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+    background-color: #343a40;
+    color:white;
+    font-size:medium;
+    margin-top:0;
+   
+}
+
+
+.footerstyle{
+    font-weight:bold;
+    font-size:x-large;
+}
+
+.divfooter{
+    display:flex;
+    flex-wrap:wrap; /*Serve per non fare uscire due div sulla stessa linea quando si ridimensiona*/
+    margin-left:-10px;
+    margin-right:-10px;
+}
+.link{
+    text-decoration:none;
+    cursor:pointer;
+    background-color:transparent;
+    border:0;
+    color:white;
+}
+.link:hover{
+    color:gray;
+    text-decoration:underline;
+}
+
+.fa-facebook-square {
+    color: #3b5998;
+    font-size:xx-large;
+}
+.fa-instagram {
+    color: #517fa4;
+    font-size:xx-large;
+}
+.fa-youtube{
+    color: #bb0000;
+    font-size:xx-large;
+}
+
+
+
+
+
+/* CSS DELLE PIZZE*/
+.divpizze{
+    width:auto; 
+    height:auto; 
+    margin-left:5%; 
+    margin-right:5%;
+    flex-flow:wrap;
+}
+.pizza{
+    max-height:31%;
+    max-width:31%; 
+    background-color:#cba167;
+    min-height:250px;
+    min-width:250px;
+}
+.nomepizza{
+    background-color:#7a0018;
+    color:white;
+    font-family:Comic Sans MS,Comic Sans,cursive;
+    font-size:x-large;
+    font-weight:bold;
+    font-variant:normal;
+}
+.fotopizza{
+    background-color:#404040; 
+    padding:0rem;
+    flex: unset;
+}
+.imgpizza{
+    min-width:100%; 
+    min-height:100%; 
+    height:auto;
+}
+.pizza p{
+    text-align:left;
+    color:white;
+    font-size:medium; 
+    margin-right:5%;
+    margin-bottom:3%;
+}
+.pizza h4{
+    white-space:nowrap;
+    text-align:right;
+}
+.submitpizza{
+    float:left; 
+    width:auto; 
+   visibility:hidden;
+}
+@media (max-width:991.98px){
+    .submitpizza{
+        margin-left:-15px; 
+    }
+}
+.quantita{
+    width:30px;
+}
+.dropdown-menu{
+    background-color:#7a0018;
+    width:auto;
+}
+.numberpizze{
+    width:3em; 
+    text-align:right;
+}
+@media (min-width: 576px){
+    .pizza{
+        margin-top:50px;
+    }
+}
+
+@media (max-width:576px){
+    .abc{
+        visibility:hidden;
+    }
+    .buttonsubmit{
+        width:50px;
+        height:30px;
+    }
+    .submitpizza{
+        margin-left:1%;
+    }
+}
+.buttonpiu, .buttonmeno{
+    margin-left:-5px;
+    display:inline;
+}
+
+
+
+.abc{
+	display:inline; 
+	font-family:sans-serif;
+}
+
+
+/*CSS DELLE BIBITE e DEGLI SFIZI*/
+.divbibite , .divsfizi{
+    width:auto; 
+    height:auto; 
+    margin-left:5%; 
+    margin-right:5%;
+    flex-flow:wrap;
+}
+.bibita, .sfizio{
+    max-height:23%;
+    max-width:23%;
+    background-color:#cba167;
+    min-height:250px;
+    min-width:250px;
+    margin-top:30px;
+}
+.nomebibita {
+    background-color:#7a0018;
+    color:white;
+    font-family:Comic Sans MS,Comic Sans,cursive;
+    font-size:x-large;
+    font-weight:bold;
+    font-variant:normal;
+}
+.nomesfizio{
+    background-color:#7a0018;
+    color:white;
+    font-family:Comic Sans MS,Comic Sans,cursive;
+    font-size:x-large;
+    font-weight:bold;
+    font-variant:normal;
+    height:97px;
+}
+.fotobibita , .fotosfizio{
+    background-color:#404040; 
+    padding:0rem;
+    flex: unset;
+}
+.imgbibita , .imgsfizio{
+    min-width:100%; 
+    min-height:100%; 
+    height:auto;
+}
+.dropdownprodotto{
+    background-color:#cba167; 
+    box-sizing:border-box;
+}
+.bibita p , .sfizio p{
+    text-align:left;
+    color:white;
+    font-size:medium; 
+    margin-right:5%;
+    margin-bottom:3%;
+}
+.bibita h4 , .sfizio h4{
+    white-space:nowrap;
+    text-align:right;
+}
+.submitbibita , .submitsfizio{
+    float:left; 
+    width:auto; 
+    margin-right:10px;
+   visibility:hidden;
+}
+@media (max-width:991.1px){
+    .submitbibita{
+        margin-left:-15px; 
+    }
+}
+#quantita{
+    width:30px;
+}
+.dropdown-menu{
+    background-color:#7a0018;
+    width:auto;
+}
+.numberbibita{
+    width:3em; 
+    text-align:right;
+}
+
+
+@media (max-width:1440px){
+    .abc{
+        visibility:hidden;
+    }
+    .buttonsubmit{
+        width:50px;
+        height:30px;
+    }
+    .submitbibita{
+        margin-left:1%;
+    }
+}
+.buttonpiumeno{
+    margin-left:-5px;
+}
+
+
+@media (max-width:991.1px){
+    .submitsfizio{
+        margin-left:-15px; 
+    }
+}
+#quantita{
+    width:30px;
+}
+.dropdown-menu{
+    background-color:#7a0018;
+    width:auto;
+}
+.numbersfizio{
+    width:3em; 
+    text-align:right;
+}
+
+
+@media (max-width:1440px){
+    .abc{
+        visibility:hidden;
+    }
+    .buttonsubmit{
+        width:50px;
+        height:30px;
+    }
+    .submitsfizio{
+        margin-left:1%;
+    }
+}
+.buttonpiumeno{
+    margin-left:-5px;
+}
+
+
+
+/* CSS DEL LOGIN */
+
+.divloginout{
+	width:40%;
+	margin: 1% auto 1% auto;
+	background-color:white;
+}
+@media (max-width:500px){
+	.divloginout{
+		width:auto;
+	}
+}
+
+.divlogin{
+	padding:10% 10% 10% 10%;
+}
+.imglogin{
+	width:50%; 
+	margin-left:20%;
+}
+.spanlogin{
+	 margin-left:5%;
+}
+.divlogin button{
+	text-align:center;
+}
+
+
+/* CSS DELLA REGISTRAZIONE */
+
+
+.divregistrazione{
+	width: 400px;
+	margin-left:38%; 
+	margin-right:38%; 
+	background-color:white;
+}
+@media (max-width:723px){
+	.divregistrazione{
+	width:auto;
+	margin-left:auto;
+	margin-right:auto;
+	}
+}
+.divregistrazione img{
+	width:50%;
+	display: block; 
+	margin: auto;"
+}
+.divregistrazione .divformgroup{
+	margin-right:5%; 
+	margin-left:5%; 
+	margin-bottom:5%;
+}
+.divregistrazione button{
+	text-align:center; 
+	margin-top:4%;
+}
+
+
+
+
+/* DIV OFFERTE*/
+.divofferte{
+	display:inline-block; 
+	width:70%; 
+	margin-top:3%; 
+	margin-left:3%; 
+	border:5px;
+}
+.divofferte img{
+	height:100%; 
+	width:100%;
+}
+.divoffertadestra{
+	margin-top:3%; 
+	margin-right:3%; 
+	width:20%; 
+	text-align:center; 
+	background-color:White;
+}
+.divoffertamenu{
+	display:none; 
+	text-align:left; 
+}
+.menu1 , .menu2 , .menu3 , .menu4{
+	width:100%;
+	display:inline-flex;
+}
+.divoffertamenu button{
+	display:none; 
+	text-align:center;
+	margin-left:auto;
+}
+
+/* CSS DEI CONTATTI */
+.divcontatti{
+	border-style: outset; 
+	margin-left:10%;
+	margin-right:10%; 
+	margin-top:5%; 
+	background-color:white;
+}
+.contattisubmit{
+	text-align:center;
+}
+.contattisubmit input{
+	text-align:center; 
+	width:20%;
+}
+.divcontatti address{
+	text-align:center; 
+	margin-left:40%;
+	margin-right:40%;
+}
+.divcontatti img{
+	height:40%; 
+	width:40%;
+}
+.contattiinput{
+	margin-left:10%;
+}
+
+
+
+/* CSS DEL CARRELLO */
+
+media-heading h2{
+	font-weight:bold;
+}
+
+.contenitore {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color:white;
+}
+
+
+
+/* DIV CONSEGNA*/
+.divConsegna{
+	border-style: outset; 
+	margin-left:10%; 
+	margin-right:10%; 
+	margin-top:5%; 
+	background-color:white;
+	min-width:435px;
+}
+.pConsegna{
+	width:100%; 
+	font-size:xx-large;
+}
+.divConsegna i{
+	 font-size:48px;
+}
+.ConsegnaDiv{
+	/display:-webkit-box;/
+}
+.divConsegna .divInteriore{
+	border-style:outset;   
+	 background-color:white;
+}
+.ConsegnaDiv p{
+	border-style: groove; 
+	width:60%; 
+	font-size:xx-large;
+}
+.divInteriore span{
+	margin-left:33%; 
+	margin-right:33%;
+}
+
+
+
+/* DIV PAGAMENTO */
+.divPagamento{
+	border-style: outset; 
+	margin-left:10%; 
+	margin-right:10%; 
+	margin-top:5%; 
+	background-color:white;
+}
+.divPagamento div{
+	margin-left:5%;
+	margin-bottom:5%;
+}
+.divPagamento .divNome{
+	border-style:outset; 
+	margin-left:3%; 
+	margin-right:70%; 
+	margin-top:2%;
+}
+.divPagamento .divCarta{
+	text-align:right; 
+	margin-top:-4%; 
+	margin-right:3%; 
+	marign-left:70%;
+}
+.divPagamento input{
+	width:30%; 
+	font-size: xx-large;
+}
+.divPagamento .divAggCarta{
+	text-align:left; 
+	height:50%; 
+	width:50%;
+}
+
+/* DIV PAGAMENTO COMPLETATO */
+.divPagamentoCompletato{
+	text-align:center;
+	margin-left:8%; 
+	margin-right:8%; 
+	margin-bottom:5%; 
+	margin-top:5%; 
+	border:medium;
+	background-color:white;"
+}
+.divPagamentoCompletatoDentro{
+	 margin-bottom:3%; 
+	 margin-top:3%; 
+	 border:thick;
+}
+.divPagamentoCompletato{
+	width:30%;
+}
+
+
+/*adminpage*/
+
+      .center , .center2 {
+    margin: auto;
+    width: 60%;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    top:30%;
+    left:70%;
+    position:absolute;
+}
+
+.hideform, .hideform2 {
+    display: none;
+}
+
+.headerAdmin{
+	margin-top:5%; 
+	margin-left:5%;
+}
+.headerAdmin ul{
+	list-style-type:none; 
+	margin:0px; 
+	padding:0px; 
+	font-size:xx-large;
+}
+.headerAdmin li{
+	width:240px;
+	display:table-cell;
+	padding:1px;	
+}
+.headerAdmin a{
+	cursor:pointer;
+	color:gray;
+}
+
+
+.eliminaPizze,  .eliminaSfizi,  .eliminaBibite ,  .eliminaPromozioni{
+	width:13%;
+	margin-left:13%;
+			top:50%;
+		position:fixed;
+}
+.cambioPizze , .cambioSfizi ,.cambioBibite , .cambioPromozioni{
+		width:15%;
+		margin-left:13%;
+		top:50%;
+		position:fixed;
+}
+
+ .addSfizi , .addBibite , .addPromozioni{
+	width:15%;
+	margin-left:13%;
+}
+.addPizze{
+	width:15%;
+	background: rgba(128,128,128,0.7); 
+	top:70%;
+	position:fixed;
+}
+.addSfizi, .addBibite , .addPromozioni{
+	position:fixed;
+	top:50%;
+}
+.addPizze button, .addSfizi button , .addBibite button, .addPromozioni button{
+	float:right;
+	}
+.addPizze input , .addSfizi input , .addBibite input , .addPromozioni input{
+      	margin-bottom:2%;
+      }
+.addPizze textarea , .addSfizi textarea , .addBibite textarea , .addPromozioni textarea{
+      	max-width:250px;
+      	max-height:50px;
+      	width:200px;
+      	height:50px;
+      }
+.addPizze #inputPrezzo , .addSfizi #inputPrezzo, .addBibite #inputPrezzo , .addPromozioni #inputPrezzo{
+      	width:12%;
+      }
+
+.pizzeAdmin table , .sfiziAdmin table , .bibiteAdmin table, .promozioniAdmin table{
+	margin-top:5%;
+	}
+.pizzeAdmin th , .sfiziAdmin th, .bibiteAdmin th, .promozioniAdmin th{
+	border-bottom:2px solid #dee2e6;
+	width:20%;
+}
+.pizzeAdmin #prezzo , .sfiziAdmin #prezzo, .bibiteAdmin #prezzo, .promozioniAdmin #prezzo{
+	width:5% !important;
+}
+.pizzeAdmin .rigaPizze , .sfiziAdmin .rigaSfizi, .bibiteAdmin .rigaBibite , .promozioniAdmin .rigaPromozioni{
+	text-align:center;
+}
+.pizzeAdmin .buttonPizze , .sfiziAdmin .buttonSfizi, .bibiteAdmin .buttonBibite, .promozioniAdmin .buttonPromozioni{
+	display:none; 
+	text-align:left !important;
+}
+.rigaSfizi img , .rigaPizze img , .rigaBibite img, .rigaPromozioni img{
+	width:80%;
+}
+.pizzeAdmin button img , .sfiziAdmin button img , .bibiteAdmin button img, .promozioniAdmin button img{
+	width:30px;
+	}
+.cambioPizze button , .cambioSfizi button , .cambioBibite button, .cambioPromozioni button{
+      	float:right;
+      }
+.cambioPizze input , .cambioSfizi input , .cambioBibite input, .cambioPromozioni input{
+      	margin-bottom:2%;
+      }
+.cambioPizze textarea , .cambioSfizi textarea, .cambioBibite textarea, .cambioPromozioni textarea{
+      	max-width:250px;
+      	max-height:50px;
+      	width:250px;
+      	height:50px;
+      }
+.cambioPizze #inputPrezzo , .cambioSfizi #inputPrezzo, .cambioBibite #inputPrezzo, .cambioPromozioni #inputPrezzo{
+      	width:12%;
+      }
+
+.eliminaPizze button , .eliminaSfizi button , .eliminaPromozioni button, .eliminaBibite button{
+float:right;
+}
+
+/*promozioni*/
+.fotopromozione{
+	background-color:white;
+	padding:0rem;
+	font-size:x-large;
+	height:200px;
+	padding-left: 25px;
+    padding-top: 15px;
+    flex: unset;
+}
+.nomepromozione{
+    background-color:#7a0018;
+    color:white;
+    font-family:Comic Sans MS,Comic Sans,cursive;
+    font-size:x-large;
+    font-weight:bold;
+    font-variant:normal;
+}
+
+/*recensioni*/
+
+.comments-container {
+	margin: 60px auto 15px;
+	width: 768px;
+	min-width:1200px;
+	width:60%;
+	margin: 1% auto 1% auto;
+	background-color: white!important;"
+}
+
+.comments-container h1 {
+	font-size: 36px;
+	color: #283035;
+	font-weight: 400;
+}
+
+
+
+.comments-list {
+	margin-top: 30px;
+	position: relative;
+}
+
+
+.comments-list li {
+	margin-bottom: 15px;
+	display: block;
+	position: relative;
+}
+
+.comments-list li:after {
+	content: '';
+	display: block;
+	clear: both;
+	height: 0;
+	width: 0;
+}
+
+
+.comments-list .comment-avatar {
+	width: 65px;
+	height: 65px;
+	position: relative;
+	z-index: 99;
+	float: left;
+	border: 3px solid #FFF;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+	overflow: hidden;
+}
+
+.comments-list .comment-avatar img {
+	width: 100%;
+	height: 100%;
+}
+
+
+
+.comments-list .comment-box {
+	width: 680px;
+	float: right;
+	position: relative;
+	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+	-moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+	box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+}
+
+.comments-list .comment-box:before, .comments-list .comment-box:after {
+	content: '';
+	height: 0;
+	width: 0;
+	position: absolute;
+	display: block;
+	border-width: 10px 12px 10px 0;
+	border-style: solid;
+	border-color: transparent #FCFCFC;
+	top: 8px;
+	left: -11px;
+}
+
+.comments-list .comment-box:before {
+	border-width: 11px 13px 11px 0;
+	border-color: transparent rgba(0,0,0,0.05);
+	left: -12px;
+}
+
+
+.comment-box .comment-head {
+	background: #FCFCFC;
+	padding: 10px 12px;
+	border-bottom: 1px solid #E5E5E5;
+	overflow: hidden;
+	-webkit-border-radius: 4px 4px 0 0;
+	-moz-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
+}
+
+
+.comment-box .comment-content {
+	background: #FFF;
+	padding: 12px;
+	font-size: 15px;
+	color: #595959;
+	-webkit-border-radius: 0 0 4px 4px;
+	-moz-border-radius: 0 0 4px 4px;
+	border-radius: 0 0 4px 4px;
+}
+.comment-box .comment-name.by-author, .comment-box .comment-name.by-author a {color: #03658c;}
+.comment-box .comment-name.by-author:after {
+	content: 'autor';
+	background: #03658c;
+	color: #FFF;
+	font-size: 12px;
+	padding: 3px 5px;
+	font-weight: 700;
+	margin-left: 10px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+.comment-main-level-mio{
+	margin-right:15%;
+}
+
+/*css account*/
+/* CSS ACCOUNT*/
+
+.a-row{
+	color:black;
+}
+
+.a-row:hover{
+	text-decoration:none;
+	color:black;
+}
+
+ .divaccount{
+ 	margin-left:5%; 
+ 	margin-right:5%; 
+ 	margin-top:5%; 
+ 	border:thick; 
+ 	border-style: groove; 
+ 	background-color:white;
+ }
+ .yacardrow{
+ 	display:table;
+ 	height:100%;
+ 	margin-bottom:20px;
+ 	width:100%;
+ }
+.ordini , .accesso , .pagamento , .indirizzi{
+	display:table-cell; 
+	width: 300px; 
+	padding-left:20px; 
+	border: 1px #ddd solid; 
+	height:100%;
+    cursor: pointer;
+    text-decorazione: none;
+    color: light-grey;
+ }
+ .a-row img{
+ 	width:50%;
+ 	margin: auto;
+ }
+ 
+ .ordini a:hover, .accesso a:hover, .pagamento a:hover, .indirizzi a:hover{
+ 	text-decoration:none;
+ }
+ 
+ .ulCOUNT{
+ font-size:medium;
+ }
+.editIndirizzo{
+	display: none; 
+	width:250px; 
+	float:right; 
+	margin-right:-15%; 
+	background-color: lightgrey; 
+	padding:10px;
+}
+
+.deleteIndirizzo , .deletePagamento{
+	display:none; 
+	float:right; 
+	width:100px;
+	background-color:lightgrey;
+		padding:10px;
+}
+
+.editIndirizzo img , .deleteIndirizzo img ,.deletePagamento img{
+	width:20px;
+}
+
+.closeeditIndirizzo , .closeeditPagamento{
+	float:right;
+}
+.deletePagamento{
+	display:none;
+	float:right;
+	width:100px;
+}
+#aggIndirizzo img , #aggPagamento img{
+	width:40px;
+	position:relative;
+	margin-bottom:0px;
+	cursor:pointer
+}
+ .aggPagamento{
+	width:200px;
+	margin-left:2%;
+	display:none;
+}
+.aggIndirizzo{
+	width:250px; 
+	margin-left:2%; 
+	display:none; 
+	padding: 10px; 
+	background-color: lightgrey
+}
+
+ .divaccesso ,.divindirizzi , .divpagamento{	
+	height:auto; 
+	background-color:white; 
+	margin-left:5%; 
+	margin-right:5%; 
+	min-height:400px;
+}
+.divordini{
+	min-height:400px;
+	height: 600px;
+	overflow: auto;
+	background-color:white; 
+	margin-left:5%; 
+	margin-right:5%; 
+}
+.divindirizzi{
+	 width: 75%; 
+	 margin: auto; 
+	 padding: 20px;
+}
+.divordini ul , .divindirizzi table , .divpagamento ul , .divpagamento table{
+	list-style-type:none; 
+	padding:0px; 
+	font-size:x-large;
+}
+.divordini td, .divindirizzi td , .divpagamento td{
+	min-width: 150px;
+	display:table-cell;
+	padding:1px;	
+	white-space: nowrap;
+}
+.divindirizzi th , .divordini th, .divpagamento th{
+	margin:auto 10px auto 10px;
+}
+
+.divordini a  , .divindirizzi a , .divpagamento a{
+	cursor:pointer;
+	color:gray;
+}
+.divordini .ulordine{
+	font-size:medium;
+}
+.ulordine button{
+	cursor:pointer;
+}
+
+.trIndirizzo{
+	height: 35px;
+}
+
+
+
+/* CSS ORDINI.jsp */
+	.tableordini1{
+	 margin-top: 2%;
+	  width: 90%; 
+	  margin-left: 6%;
+	}
+	.tableordini1 .tr1{
+	border: solid 4px black; 
+	font-size: xx-large; 
+	font-style: oblique;
+	}
+	.tableordini1 .tr1 td{
+	border:dotted;
+	}
+	.tableordini1 .tr2{
+	    border: solid 1px black;
+    	font-size: larger;
+    }
+    .tableordini1 .tr2 button {
+        color: blue;
+    background-color: #e8f9ff;
+    float: right;
+    }
+    .tableordini2{
+    width:90%;
+    border: ridge;
+    margin-left: 6%;
+    margin-bottom: 3%;
+    font-size: x-large;
+    }
+    
+    
+/* CSS ACCESSO */
+
+.divaccesso{
+	height: 400px;
+    text-align: center;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+@media (max-width:500px){
+	.divaccesso{
+	margin-left:auto;
+	margin-right:auto;
+	}
+}
+.divaccesso button{
+	margin-top:3%;
+}
+.divaccesso h3{
+	font-size:xx-large;
+}
+
+/* CSS PAGAMENTO */
+.divpagamento{
+    padding: 20px;
+    margin: auto;
+    width: 60%;
+}
+.divpagamento .tr1{
+	font-weight:bold;
+}
+
+
+
+
+/*css prova
+*/
+
+body {
+    padding-top: 20px;
+}
+
+.carousel {
+  width: 100%;
+}
+
+.slide-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .slide-box img {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 304px){
+  .slide-box img {
+    -ms-flex: 0 0 33.3333%;
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
+  }
+}
+
+@media (min-width: 992px)
+{
+  .slide-box img {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: .5rem;
+}
