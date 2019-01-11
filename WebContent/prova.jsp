@@ -3,173 +3,75 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 <meta charset="utf-8">
+
 <title>Insert title here</title>
-<style>
-
-img {
-  width: 100%;
-  height: auto;
-	padding: 5px;
-}
-
-.responsive{
-	display:-webkit-box;
-}
-h2 {
-  text-align:center;
-	padding-bottom: 1em;
-}
-
-.slick-dots {
-	text-align: center;
-  margin: 0 0 10px 0;
-  padding: 0;
-  li {
-    display:inline-block;
-    margin-left: 4px;
-    margin-right: 4px;
-    
-    }
-    .slick-active {
-      button { background-color:black;
-      }
-    }
-    button {
-      
-      text-shadow: none;
-      color: transparent;
-      background-color:black;
-      border:none;
-      width: 15px;
-      height: 15px;
-      border-radius:50%;
-    }
-		
-  }
-}
-
-/* Custom Arrow */
-.prev{
-	color: #999;
-	position: absolute;
-	top: 38%;
-	left: -2em;
-	font-size: 1.5em;
-		:hover{
-			cursor: pointer;
-			color: black;
-		}
-}
-.next{
-	color: #999;
-	position: absolute;
-	top: 38%;
-	right: -2em;
-	font-size: 6.5em;
-	}
-
-@media screen and (max-width: 800px) {
-    .next {
-        display: none !important;
-    }
-}
-
-
-
-</style>
 </head>
- 
- <body>
- 
- <div class="container">
-  <h2>Slider - Multpile Items & Responsive</h2>
-    <div class="row">
-      <div class="col-md-12 heroSlider-fixed">
-        <div class="overlay">
-      </div>
-         <!-- Slider -->
-        <div class="slider responsive">
-          <div>
-						<img src="http://placehold.it/200x150" alt="" />
-					</div>
-					<div>
-						<img src="http://placehold.it/200x150" alt="" />
-					</div>
-					<div>
-						<img src="http://placehold.it/200x150" alt="" />
-					</div>
-					<div>
-						<img src="http://placehold.it/200x150" alt="" />
-					</div>
-					<div>
-						<img src="http://placehold.it/200x150" alt="" />
-					</div>
-					<div>
-						<img src="http://placehold.it/200x150" alt="" />
-					</div>
-					<div>
-						<img src="http://placehold.it/200x150" alt="" />
-					</div>
-					<div>
-						<img src="http://placehold.it/200x150" alt="" />
-					</div>
+<body>
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <h2>Media Slider Carousel BS3</h2>
+  </div>
+  <div class='row'>
+    <div class='col-md-8'>
+      <div class="carousel slide media-carousel" id="media">
+        <div class="carousel-inner">
+          <div class="item  active">
+            <div class="row">
+              <div class="col-md-4">
+                <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+              </div>          
+              <div class="col-md-4">
+                <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+              </div>
+              <div class="col-md-4">
+                <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+              </div>        
+            </div>
+          </div>
+          <div class="item">
+            <div class="row">
+              <div class="col-md-4">
+                <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+              </div>          
+              <div class="col-md-4">
+                <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+              </div>
+              <div class="col-md-4">
+                <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+              </div>        
+            </div>
+          </div>
+          <div class="item">
+            <div class="row">
+              <div class="col-md-4">
+                <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+              </div>          
+              <div class="col-md-4">
+                <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+              </div>
+              <div class="col-md-4">
+                <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+              </div>      
+            </div>
+          </div>
         </div>
-				 <!-- control arrows -->
-				<div class="prev">
-					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-				</div>
-				<div class="next">
-					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-				</div>
-				
-      </div>
+        <a data-slide="prev" href="#media" class="left carousel-control">‹</a>
+        <a data-slide="next" href="#media" class="right carousel-control">›</a>
+      </div>                          
     </div>
   </div>
-
-<script type="text/javascript">
-$('.responsive').slick({
-	  dots: true,
-		prevArrow: $('.prev'),
-		nextArrow: $('.next'),
-	  infinite: false,
-	  speed: 300,
-	  slidesToShow: 4,
-	  slidesToScroll: 4,
-	  responsive: [
-	    {
-	      breakpoint: 1024,
-	      settings: {
-	        slidesToShow: 3,
-	        slidesToScroll: 3,
-	        infinite: true,
-	        dots: true
-	      }
-	    },
-	    {
-	      breakpoint: 600,
-	      settings: {
-	        slidesToShow: 2,
-	        slidesToScroll: 2
-	      }
-	    },
-	    {
-	      breakpoint: 480,
-	      settings: {
-	        slidesToShow: 1,
-	        slidesToScroll: 1
-	      }
-	    }
-	    // You can unslick at a given breakpoint now by adding:
-	    // settings: "unslick"
-	    // instead of a settings object
-	  ]
-	});</script>
+</div>
 
 
 </body>
- 
- 
- 
- 
 </html>
