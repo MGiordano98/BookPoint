@@ -23,7 +23,7 @@
         </div>
       </div>
       <div class="image">
-        <img src="image/stress.jpg">
+        <img src="/image/stress.jpg">
       </div>
     </div>
     
