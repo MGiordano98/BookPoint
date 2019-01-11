@@ -1,9 +1,20 @@
 package model;
 
-import java.util.List;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
 import bean.*;
 
 public class DataManager {
+	private AccountManager accountM = new AccountManager();
+	private AmministratoreManager amministratoreM = new AmministratoreManager();
+	private AmministratoreOrdineManager amministratoreOrdiniM = new AmministratoreOrdineManager();
+	private GestioneOrdineManager gestioneOrdineM = new GestioneOrdineManager();
+	private InterazioneLibroManager interazioneLibroM = new InterazioneLibroManager();
+	private LibroManager libroM = new LibroManager();
+	private OrdineManager ordineM = new OrdineManager();
+	
+	
 
 	/**
 	 * 
@@ -11,13 +22,11 @@ public class DataManager {
 	 * @param password
 	 */
 	public boolean login(String email, String password) {
-		// TODO - implement DataManager.login
-		throw new UnsupportedOperationException();
+		return accountM.login(email, password);
 	}
 
 	public boolean logout() {
-		// TODO - implement DataManager.logout
-		throw new UnsupportedOperationException();
+		return accountM.logout();
 	}
 
 	/**
@@ -26,26 +35,23 @@ public class DataManager {
 	 * @param password
 	 */
 	public boolean registrazione(String email, String password) {
-		// TODO - implement DataManager.registrazione
-		throw new UnsupportedOperationException();
+		return accountM.registrazione(email, password);
 	}
 
 	/**
 	 * 
 	 * @param email
 	 */
-	public List<CartaDiCredito> ricercaCarte(String email) {
-		// TODO - implement DataManager.ricercaCarte
-		throw new UnsupportedOperationException();
+	public Collection<CartaDiCredito> ricercaCarte(String email) {
+		return accountM.ricercaCarte(email);
 	}
 
 	/**
 	 * 
 	 * @param email
 	 */
-	public List<Indirizzo> ricercaIndirizzi(String email) {
-		// TODO - implement DataManager.ricercaIndirizzi
-		throw new UnsupportedOperationException();
+	public Collection<Indirizzo> ricercaIndirizzi(String email) {
+		return accountM.ricercaIndirizzi(email);
 	}
 
 	/**
@@ -57,8 +63,7 @@ public class DataManager {
 	 * @param cvv
 	 */
 	public void aggiungiCarta(String email, int numCarta, String intestatario, String dataScadenza, int cvv) {
-		// TODO - implement DataManager.aggiungiCarta
-		throw new UnsupportedOperationException();
+		accountM.aggiungiCarta(email, numCarta, intestatario, dataScadenza, cvv);
 	}
 
 	/**
@@ -67,8 +72,7 @@ public class DataManager {
 	 * @param numCarta
 	 */
 	public void rimuoviCarta(String email, int numCarta) {
-		// TODO - implement DataManager.rimuoviCarta
-		throw new UnsupportedOperationException();
+		accountM.rimuoviCarta(email, numCarta);
 	}
 
 	/**
@@ -80,8 +84,7 @@ public class DataManager {
 	 * @param citt‡
 	 */
 	public void aggiungiIndirizzo(String email, String via, int numCivico, int cap, String citt‡) {
-		// TODO - implement DataManager.aggiungiIndirizzo
-		throw new UnsupportedOperationException();
+		accountM.aggiungiIndirizzo(email, via, numCivico, cap, citt‡);
 	}
 
 	/**
@@ -90,8 +93,7 @@ public class DataManager {
 	 * @param idIndirizzo
 	 */
 	public void rimuoviIndirizzo(String email, int idIndirizzo) {
-		// TODO - implement DataManager.rimuoviIndirizzo
-		throw new UnsupportedOperationException();
+		accountM.rimuoviIndirizzo(email, idIndirizzo);
 	}
 
 	/**
@@ -104,8 +106,7 @@ public class DataManager {
 	 * @param citt‡
 	 */
 	public void modificaIndirizzo(String email, int idIndirizzo, String via, int numCivico, int CAP, String citt‡) {
-		// TODO - implement DataManager.modificaIndirizzo
-		throw new UnsupportedOperationException();
+		accountM.modificaIndirizzo(email, idIndirizzo, via, numCivico, CAP, citt‡);
 	}
 
 	/**
@@ -118,85 +119,65 @@ public class DataManager {
 	 * @param prezzo
 	 * @param quantit‡Disponibile
 	 * @param Categoria
+	 * @throws SQLException 
 	 */
-	public void aggiungiLibro(String isbn, String titolo, String trama, String foto, String casaEditrice, double prezzo, int quantit‡Disponibile, String Categoria) {
-		// TODO - implement DataManager.aggiungiLibro
-		throw new UnsupportedOperationException();
+	public void aggiungiLibro(Libro libro, ArrayList<String> autori) throws SQLException {
+		amministratoreM.aggiungiLibro(libro, autori);
 	}
 
 	/**
 	 * 
 	 * @param tipo
 	 * @param nuovoAttributo
+	 * @throws SQLException 
 	 */
-	public void modificaAttributo(String tipo, String nuovoAttributo) {
-		// TODO - implement DataManager.modificaAttributo
-		throw new UnsupportedOperationException();
+	public void modificaAttributo(String email, String tipo, String nuovoAttributo) throws SQLException {
+		amministratoreM.modificaAttributo(email, tipo, nuovoAttributo);
 	}
 
 	/**
 	 * 
 	 * @param isbn
+	 * @throws SQLException 
 	 */
-	public void eliminaLibro(String isbn) {
-		// TODO - implement DataManager.eliminaLibro
-		throw new UnsupportedOperationException();
+	public void eliminaLibro(String isbn) throws SQLException {
+		amministratoreM.eliminaLibro(isbn);
 	}
 
 	/**
 	 * 
 	 * @param idRecensione
+	 * @throws SQLException 
 	 */
-	public void eliminaRecensione(int idRecensione) {
-		// TODO - implement DataManager.eliminaRecensione
-		throw new UnsupportedOperationException();
+	public void eliminaRecensione(int idRecensione) throws SQLException {
+		amministratoreM.eliminaRecensione(idRecensione);
 	}
 
 	/**
 	 * 
 	 * @param email
 	 */
-	public Utente ricercaAccount(String email) {
-		// TODO - implement DataManager.ricercaAccount
-		throw new UnsupportedOperationException();
+	public Utente ricercaAccount(String email) throws SQLException {
+		return amministratoreM.ricercaAccount(email);
 	}
 
 	/**
 	 * 
 	 * @param email
 	 * @param tipo
+	 * @throws SQLException 
 	 */
-	public void cambiaTipo(String email, String tipo) {
-		// TODO - implement DataManager.cambiaTipo
-		throw new UnsupportedOperationException();
+	public void cambiaTipo(String email, String tipo) throws SQLException {
+		amministratoreM.cambiaTipo(email, tipo);
 	}
 
 	/**
 	 * 
 	 * @param email
+	 * @throws SQLException 
 	 */
-	public void eliminaUtente(String email) {
-		// TODO - implement DataManager.eliminaUtente
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param isbn
-	 * @param quantit‡
-	 */
-	public void aggiungiAlCarrello(String isbn, int quantit‡) {
-		// TODO - implement DataManager.aggiungiAlCarrello
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param isbn
-	 */
-	public void eliminaDalCarrello(String isbn) {
-		// TODO - implement DataManager.eliminaDalCarrello
-		throw new UnsupportedOperationException();
+	public void eliminaUtente(String email) throws SQLException {
+		amministratoreM.eliminaUtente(email);
 	}
 
 	/**
@@ -205,55 +186,38 @@ public class DataManager {
 	 * @param idIndirizzo
 	 */
 	public boolean completaAcquisto(int numCarta, int idIndirizzo) {
-		// TODO - implement DataManager.completaAcquisto
-		throw new UnsupportedOperationException();
+		return ordineM.completaAcquisto(numCarta, idIndirizzo);
 	}
 
 	public void selezionaCartaEIndirizzo() {
-		// TODO - implement DataManager.selezionaCartaEIndirizzo
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param isbn
-	 */
-	public void aumentaQuantit‡(String isbn) {
-		// TODO - implement DataManager.aumentaQuantit‡
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param isbn
-	 */
-	public void diminuisciQuantit‡(String isbn) {
-		// TODO - implement DataManager.diminuisciQuantit‡
-		throw new UnsupportedOperationException();
+		ordineM.selezionaCartaEIndirizzo();
 	}
 
 	/**
 	 * 
 	 * @param testo
 	 * @param categoria
+	 * @throws SQLException 
 	 */
-	public List<Libro> ricerca(String testo, String categoria) {
-		// TODO - implement DataManager.ricerca
-		throw new UnsupportedOperationException();
+	public Collection<Libro> ricerca(String testo, String categoria) throws SQLException {
+		return libroM.ricerca(testo, categoria);
 	}
 
-	public List<Libro> visualizzaCatalogo() {
-		// TODO - implement DataManager.visualizzaCatalogo
-		throw new UnsupportedOperationException();
+	public ArrayList<Collection<Libro>> visualizzaCatalogo() {
+		ArrayList<Collection<Libro>> catalogo = new ArrayList<Collection<Libro>>();
+		
+		catalogo.add(libroM.getLibriPi˘Venduti());
+		catalogo.add(libroM.getLibriInEvidenza());
+		
+		return catalogo;
 	}
 
 	/**
 	 * 
 	 * @param email
 	 */
-	public List<Ordine> visualizzaStorico(String email) {
-		// TODO - implement DataManager.visualizzaStorico
-		throw new UnsupportedOperationException();
+	public Collection<Ordine> visualizzaStorico(String email) {
+		return gestioneOrdineM.visualizzaStorico(email);
 	}
 
 	/**
@@ -262,8 +226,7 @@ public class DataManager {
 	 * @param email
 	 */
 	public void aggiungiLibroPreferiti(String isbn, String email) {
-		// TODO - implement DataManager.aggiungiLibroPreferiti
-		throw new UnsupportedOperationException();
+		interazioneLibroM.aggiungiLibroPreferiti(isbn, email);
 	}
 
 	/**
@@ -272,8 +235,7 @@ public class DataManager {
 	 * @param email
 	 */
 	public void rimuoviLibroPreferiti(String isbn, String email) {
-		// TODO - implement DataManager.rimuoviLibroPreferiti
-		throw new UnsupportedOperationException();
+		interazioneLibroM.rimuoviLibroPreferiti(isbn, email);
 	}
 
 	/**
@@ -282,8 +244,7 @@ public class DataManager {
 	 * @param isbn
 	 */
 	public void aggiungiRecensione(String testo, String isbn) {
-		// TODO - implement DataManager.aggiungiRecensione
-		throw new UnsupportedOperationException();
+		interazioneLibroM.aggiungiRecensione(testo, isbn);
 	}
 
 	/**
@@ -291,8 +252,7 @@ public class DataManager {
 	 * @param idRecensione
 	 */
 	public void rimuoviRecensione(int idRecensione) {
-		// TODO - implement DataManager.rimuoviRecensione
-		throw new UnsupportedOperationException();
+		interazioneLibroM.rimuoviRecensione(idRecensione);
 	}
 
 	/**
@@ -300,8 +260,7 @@ public class DataManager {
 	 * @param numOrdine
 	 */
 	public Ordine ricercaOrdine(int numOrdine) {
-		// TODO - implement DataManager.ricercaOrdine
-		throw new UnsupportedOperationException();
+		return amministratoreOrdiniM.ricercaOrdine(numOrdine);
 	}
 
 	/**
@@ -310,8 +269,7 @@ public class DataManager {
 	 * @param stato
 	 */
 	public void cambiaStato(int numOrdine, String stato) {
-		// TODO - implement DataManager.cambiaStato
-		throw new UnsupportedOperationException();
+		amministratoreOrdiniM.cambiaStato(numOrdine, stato);
 	}
 
 	/**
@@ -321,8 +279,7 @@ public class DataManager {
 	 * @param ora
 	 */
 	public void cambiaDataEOra(int numOrdine, String data, String ora) {
-		// TODO - implement DataManager.cambiaDataEOra
-		throw new UnsupportedOperationException();
+		amministratoreOrdiniM.cambiaDataEOra(numOrdine, data, ora);
 	}
 
 }

@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class Libro implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
+	private String isbn;
 	private String titolo;
 	private String trama;
 	private String foto;
@@ -19,9 +20,10 @@ public class Libro implements Serializable{
 		super();
 	}
 
-	public Libro(String titolo, String trama, String foto, String casaEditrice, double prezzo, int quantit‡Disponibile,
+	public Libro(String isbn, String titolo, String trama, String foto, String casaEditrice, double prezzo, int quantit‡Disponibile,
 			String categoria) {
 		super();
+		this.isbn = isbn;
 		this.titolo = titolo;
 		this.trama = trama;
 		this.foto = foto;
@@ -29,6 +31,16 @@ public class Libro implements Serializable{
 		this.prezzo = prezzo;
 		this.quantit‡Disponibile = quantit‡Disponibile;
 		this.categoria = categoria;
+	}
+	
+	
+
+	public String getIsbn() {
+		return isbn;
+	}
+
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
 	}
 
 	public String getTitolo() {
@@ -115,18 +127,5 @@ public class Libro implements Serializable{
 		this.categoria = categoria;
 	}
 
-	public void getAttribute() {
-		// TODO - implement Libro.getAttribute
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param attribute
-	 */
-	public void setAttribute(int attribute) {
-		// TODO - implement Libro.setAttribute
-		throw new UnsupportedOperationException();
-	}
 
 }
