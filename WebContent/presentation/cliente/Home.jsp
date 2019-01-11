@@ -23,7 +23,7 @@
         </div>
       </div>
       <div class="image">
-        <img src="/image/stress.jpg">
+        <img src="../image/stress.jpg">
       </div>
     </div>
     
@@ -36,7 +36,7 @@
         </div>
       </div>
       <div class="image">
-        <img src="image/mente.jpg">
+        <img src="../image/mente.jpg">
       </div>
     </div>
     <div class="slider">
@@ -48,7 +48,7 @@
         </div>
       </div>
       <div class="image">
-        <img src="image/vocabolario.jpg">
+        <img src="../image/vocabolario.jpg">
       </div>
     </div>
     <div class="slider">
@@ -60,7 +60,7 @@
         </div>
       </div>
       <div class="image">
-        <img src="image/memoria.jpg">
+        <img src="../image/memoria.jpg">
       </div>
     </div>
   </div>
