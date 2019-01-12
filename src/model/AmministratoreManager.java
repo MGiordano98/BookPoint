@@ -45,7 +45,7 @@ public class AmministratoreManager {
 			preparedStatement.setString(3, libro.getFoto());
 			preparedStatement.setString(4, libro.getCasaEditrice());
 			preparedStatement.setDouble(5, libro.getPrezzo());
-			preparedStatement.setInt(6, libro.getQuantit‡Disponibile());
+			preparedStatement.setInt(6, libro.getQuantit‡());
 			preparedStatement.setString(7, libro.getCategoria());
 
 			preparedStatement.executeUpdate();

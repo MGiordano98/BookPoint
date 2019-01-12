@@ -184,13 +184,10 @@ public class DataManager {
 	 * 
 	 * @param numCarta
 	 * @param idIndirizzo
+	 * @throws SQLException 
 	 */
-	public boolean completaAcquisto(int numCarta, int idIndirizzo) {
-		return ordineM.completaAcquisto(numCarta, idIndirizzo);
-	}
-
-	public void selezionaCartaEIndirizzo() {
-		ordineM.selezionaCartaEIndirizzo();
+	public boolean completaAcquisto(Ordine ordine) throws SQLException {
+		return ordineM.completaAcquisto(ordine);
 	}
 
 	/**
@@ -215,8 +212,9 @@ public class DataManager {
 	/**
 	 * 
 	 * @param email
+	 * @throws SQLException 
 	 */
-	public Collection<Ordine> visualizzaStorico(String email) {
+	public Collection<Ordine> visualizzaStorico(String email) throws SQLException {
 		return gestioneOrdineM.visualizzaStorico(email);
 	}
 

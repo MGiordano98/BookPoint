@@ -11,7 +11,7 @@ public class Libro implements Serializable{
 	private String foto;
 	private String casaEditrice;
 	private double prezzo;
-	private int quantit‡Disponibile;
+	private int quantit‡;
 	private String categoria;
 	
 	
@@ -20,7 +20,7 @@ public class Libro implements Serializable{
 		super();
 	}
 
-	public Libro(String isbn, String titolo, String trama, String foto, String casaEditrice, double prezzo, int quantit‡Disponibile,
+	public Libro(String isbn, String titolo, String trama, String foto, String casaEditrice, double prezzo, int quantit‡,
 			String categoria) {
 		super();
 		this.isbn = isbn;
@@ -29,7 +29,7 @@ public class Libro implements Serializable{
 		this.foto = foto;
 		this.casaEditrice = casaEditrice;
 		this.prezzo = prezzo;
-		this.quantit‡Disponibile = quantit‡Disponibile;
+		this.quantit‡ = quantit‡;
 		this.categoria = categoria;
 	}
 	
@@ -103,16 +103,16 @@ public class Libro implements Serializable{
 		this.prezzo = prezzo;
 	}
 
-	public int getQuantit‡Disponibile() {
-		return this.quantit‡Disponibile;
+	public int getQuantit‡() {
+		return this.quantit‡;
 	}
 
 	/**
 	 * 
 	 * @param quantit‡Disponibile
 	 */
-	public void setQuantit‡Disponibile(int quantit‡Disponibile) {
-		this.quantit‡Disponibile = quantit‡Disponibile;
+	public void setQuantit‡(int quantit‡) {
+		this.quantit‡ = quantit‡;
 	}
 
 	public String getCategoria() {

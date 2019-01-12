@@ -2,20 +2,22 @@ package bean;
 
 import java.io.Serializable;
 import java.sql.Date;
-import java.util.List;
+import java.util.Collection;
 
 public class Ordine implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	private int idOrdine;
-	private Date data;
+	private Date dataEffettuata;
+	private Date dataConsegna;
 	private String ora;
 	private String numCarta;
 	private String via;
 	private String città;
 	private int cap;
-	private int prezzoTot;
-	private List<Libro> libri;
+	private double prezzoTot;
+	private String stato;
+	private Collection<Libro> libri;
 	
 	
 
@@ -23,17 +25,19 @@ public class Ordine implements Serializable{
 		super();
 	}
 
-	public Ordine(int idOrdine, Date data, String ora, String numCarta, String via, String città, int cap,
-			int prezzoTot, List<Libro> libri) {
+	public Ordine(int idOrdine, Date dataEffettuata, Date dataConsegna, String ora, String numCarta, String via, String città, int cap,
+			double prezzoTot, String stato, Collection<Libro> libri) {
 		super();
 		this.idOrdine = idOrdine;
-		this.data = data;
+		this.dataEffettuata = dataEffettuata;
+		this.dataConsegna = dataConsegna;
 		this.ora = ora;
 		this.numCarta = numCarta;
 		this.via = via;
 		this.città = città;
 		this.cap = cap;
 		this.prezzoTot = prezzoTot;
+		this.stato = stato;
 		this.libri = libri;
 	}
 
@@ -49,16 +53,26 @@ public class Ordine implements Serializable{
 		this.idOrdine = idOrdine;
 	}
 
-	public Date getData() {
-		return this.data;
+	public Date getDataEffettuata() {
+		return this.dataEffettuata;
 	}
 
 	/**
 	 * 
 	 * @param data
 	 */
-	public void setData(Date data) {
-		this.data = data;
+	public void setDataEffettuata(Date data) {
+		this.dataEffettuata = data;
+	}
+
+	
+	
+	public Date getDataConsegna() {
+		return dataConsegna;
+	}
+
+	public void setDataConsegna(Date dataConsegna) {
+		this.dataConsegna = dataConsegna;
 	}
 
 	public String getOra() {
@@ -121,7 +135,7 @@ public class Ordine implements Serializable{
 		this.cap = cap;
 	}
 
-	public int getPrezzoTot() {
+	public double getPrezzoTot() {
 		return this.prezzoTot;
 	}
 
@@ -129,25 +143,12 @@ public class Ordine implements Serializable{
 	 * 
 	 * @param prezzoTot
 	 */
-	public void setPrezzoTot(int prezzoTot) {
+	public void setPrezzoTot(double prezzoTot) {
 		this.prezzoTot = prezzoTot;
 	}
 
-	public void getAttribute() {
-		// TODO - implement Ordine.getAttribute
-		throw new UnsupportedOperationException();
-	}
 
-	/**
-	 * 
-	 * @param attribute
-	 */
-	public void setAttribute(int attribute) {
-		// TODO - implement Ordine.setAttribute
-		throw new UnsupportedOperationException();
-	}
-
-	public List<Libro> getLibri() {
+	public Collection<Libro> getLibri() {
 		return this.libri;
 	}
 
@@ -155,8 +156,21 @@ public class Ordine implements Serializable{
 	 * 
 	 * @param libri
 	 */
-	public void setLibri(List<Libro> libri) {
+	public void setLibri(Collection<Libro> libri) {
 		this.libri = libri;
 	}
 
+	public String getStato() {
+		return stato;
+	}
+
+	/**
+	 * 
+	 * @param stato
+	 */
+	public void setStato(String stato) {
+		this.stato = stato;
+	}
+
+	
 }
