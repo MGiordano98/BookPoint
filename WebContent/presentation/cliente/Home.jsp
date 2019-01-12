@@ -3,7 +3,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="style.css"> 
+<link rel="stylesheet" type="text/css" href="styleCliente2.css"> 
 <meta charset="utf-8">
 <title>BookPoint</title>
 </head>
@@ -64,16 +64,7 @@
       </div>
     </div>
   </div>
-  <div class="switch">
-    <ul>
-      <li>
-        <div class="on"></div>
-      </li>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ul>
-  </div>
+  
 </div>
  <%@ include file="footer.jsp"%>
 </body>
