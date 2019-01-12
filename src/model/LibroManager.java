@@ -45,7 +45,7 @@ public class LibroManager {
 				bean.setFoto(rs.getString("foto"));
 				bean.setCasaEditrice(rs.getString("casaEditrice"));
 				bean.setPrezzo(rs.getDouble("prezzo"));
-				bean.setQuantit‡Disponibile(rs.getInt("quantit‡Disponibile"));
+				bean.setQuantit‡(rs.getInt("quantit‡"));
 				bean.setCategoria(rs.getString("categoria"));
 				
 				libri.add(bean);
