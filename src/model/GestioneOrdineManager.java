@@ -24,9 +24,10 @@ public class GestioneOrdineManager {
 		PreparedStatement preparedStatement= null;
 		Collection<Ordine> ordini= new LinkedList<Ordine>();
 		
-		String selectQ= "SELECT * from ordine WHERE email = " + email;
+		String selectQ= "SELECT * from ordine WHERE email = ?";
 		try {
 			preparedStatement= connection.prepareStatement(selectQ);
+			preparedStatement.setString(1, email);
 			ResultSet rs = preparedStatement.executeQuery();
 			
 			while(rs.next()) {

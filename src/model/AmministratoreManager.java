@@ -39,14 +39,14 @@ public class AmministratoreManager {
 
 
 			preparedStatement = connection.prepareStatement(insertSQL);
-			preparedStatement.setString(0, libro.getIsbn());
-			preparedStatement.setString(1, libro.getTitolo());
-			preparedStatement.setString(2, libro.getTrama());
-			preparedStatement.setString(3, libro.getFoto());
-			preparedStatement.setString(4, libro.getCasaEditrice());
-			preparedStatement.setDouble(5, libro.getPrezzo());
-			preparedStatement.setInt(6, libro.getQuantità());
-			preparedStatement.setString(7, libro.getCategoria());
+			preparedStatement.setString(1, libro.getIsbn());
+			preparedStatement.setString(2, libro.getTitolo());
+			preparedStatement.setString(3, libro.getTrama());
+			preparedStatement.setString(4, libro.getFoto());
+			preparedStatement.setString(5, libro.getCasaEditrice());
+			preparedStatement.setDouble(6, libro.getPrezzo());
+			preparedStatement.setInt(7, libro.getQuantità());
+			preparedStatement.setString(8, libro.getCategoria());
 
 			preparedStatement.executeUpdate();
 
@@ -70,9 +70,10 @@ public class AmministratoreManager {
 		
 		for(String autore: autori) {
 			preparedStatement = connection.prepareStatement(insertQ);
-			preparedStatement.setString(0, isbn);
-			preparedStatement.setString(1, autore);
+			preparedStatement.setString(1, isbn);
+			preparedStatement.setString(2, autore);
 			preparedStatement.executeUpdate();
+			connection.commit();
 		}
 		
 		try {
@@ -106,9 +107,13 @@ public class AmministratoreManager {
 		connection= DriverMaagerConnectionPool.getConnection();
 		
 		try {
-			String updateQ = "UPDATE libro WHERE isbn = " + isbn + " set " + tipo + " = " + nuovoAttributo;
+			String updateQ = "UPDATE libro WHERE isbn = ? SET ? = ?";
 			preparedStatement= connection.prepareStatement(updateQ);
+			preparedStatement.setString(1, isbn);
+			preparedStatement.setString(2, tipo);
+			preparedStatement.setString(3, nuovoAttributo);
 			preparedStatement.executeUpdate();
+			connection.commit();
 		}finally {
 			try {
 				preparedStatement.close();
@@ -130,9 +135,11 @@ public class AmministratoreManager {
 		connection= DriverMaagerConnectionPool.getConnection();
 		
 		try {
-			String deleteQ = "DELETE FROM libro WHERE isbn = " + isbn;
+			String deleteQ = "DELETE FROM libro WHERE isbn = ?";
 			preparedStatement= connection.prepareStatement(deleteQ);
+			preparedStatement.setString(1, isbn);
 			preparedStatement.executeUpdate();
+			connection.commit();
 		}finally {
 			try {
 				preparedStatement.close();
@@ -154,9 +161,11 @@ public class AmministratoreManager {
 		connection= DriverMaagerConnectionPool.getConnection();
 		
 		try {
-			String deleteQ = "DELETE FROM recensione WHERE id = " + idRecensione;
+			String deleteQ = "DELETE FROM recensione WHERE id = ?";
 			preparedStatement= connection.prepareStatement(deleteQ);
+			preparedStatement.setInt(1, idRecensione);
 			preparedStatement.executeUpdate();
+			connection.commit();
 		}finally {
 			try {
 				preparedStatement.close();
@@ -175,10 +184,11 @@ public class AmministratoreManager {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement preparedStatement= null;
 		
-		String selectQ= "SELECT * FROM utente WHERE email = " + email;
+		String selectQ= "SELECT * FROM utente WHERE email = ?";
 		Utente utente= new Utente();
 		try {
 			preparedStatement= connection.prepareStatement(selectQ);
+			preparedStatement.setString(1, email);
 			ResultSet rs= preparedStatement.executeQuery();
 			
 			while(rs.next()) {
@@ -214,9 +224,12 @@ public class AmministratoreManager {
 		connection= DriverMaagerConnectionPool.getConnection();
 		
 		try {
-			String updateQ = "UPDATE utente WHERE email = " + email + " set tipo = " + tipo;
+			String updateQ = "UPDATE utente WHERE email = ? SET tipo = ?";
 			preparedStatement= connection.prepareStatement(updateQ);
+			preparedStatement.setString(1, email);
+			preparedStatement.setString(2, tipo);
 			preparedStatement.executeUpdate();
+			connection.commit();
 		}finally {
 			try {
 				preparedStatement.close();
@@ -238,9 +251,11 @@ public class AmministratoreManager {
 		connection= DriverMaagerConnectionPool.getConnection();
 		
 		try {
-			String deleteQ = "DELETE FROM utente WHERE email = " + email;
+			String deleteQ = "DELETE FROM utente WHERE email = ?";
 			preparedStatement= connection.prepareStatement(deleteQ);
+			preparedStatement.setString(1, email);
 			preparedStatement.executeUpdate();
+			connection.commit();
 		}finally {
 			try {
 				preparedStatement.close();

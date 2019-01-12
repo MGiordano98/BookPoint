@@ -106,7 +106,7 @@ public class OrdineManager {
 					pStatement.setDouble(4, l.getPrezzo());
 					
 					result= pStatement.executeUpdate();
-					
+					connection.commit();
 			}
 		}finally {
 			try {

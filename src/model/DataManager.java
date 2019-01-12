@@ -156,6 +156,7 @@ public class DataManager {
 	/**
 	 * 
 	 * @param email
+	 * @throws SQLException 
 	 */
 	public Utente ricercaAccount(String email) throws SQLException {
 		return amministratoreM.ricercaAccount(email);
@@ -256,8 +257,9 @@ public class DataManager {
 	/**
 	 * 
 	 * @param numOrdine
+	 * @throws SQLException 
 	 */
-	public Ordine ricercaOrdine(int numOrdine) {
+	public Ordine ricercaOrdine(int numOrdine) throws SQLException {
 		return amministratoreOrdiniM.ricercaOrdine(numOrdine);
 	}
 
@@ -265,8 +267,9 @@ public class DataManager {
 	 * 
 	 * @param numOrdine
 	 * @param stato
+	 * @throws SQLException 
 	 */
-	public void cambiaStato(int numOrdine, String stato) {
+	public void cambiaStato(int numOrdine, String stato) throws SQLException {
 		amministratoreOrdiniM.cambiaStato(numOrdine, stato);
 	}
 
