@@ -1,5 +1,6 @@
 package model;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -20,37 +21,41 @@ public class DataManager {
 	 * 
 	 * @param email
 	 * @param password
+	 * @throws SQLException 
 	 */
-	public boolean login(String email, String password) {
+	public Utente login(String email, String password) throws SQLException {
 		return accountM.login(email, password);
-	}
-
-	public boolean logout() {
-		return accountM.logout();
 	}
 
 	/**
 	 * 
 	 * @param email
 	 * @param password
+	 * @throws SQLException 
 	 */
-	public boolean registrazione(String email, String password) {
-		return accountM.registrazione(email, password);
+	public boolean registrazione(String email, String password, String nome, String cognome, Date dataDiNascita) throws SQLException {
+		return accountM.registrazione(email, password, nome, cognome, dataDiNascita);
 	}
 
+	public boolean changePassword(String email, String vecchiaPassword, String nuovaPassword) throws SQLException {
+		return accountM.changePassword(email, vecchiaPassword, nuovaPassword);
+	}
+	
 	/**
 	 * 
 	 * @param email
+	 * @throws SQLException 
 	 */
-	public Collection<CartaDiCredito> ricercaCarte(String email) {
+	public Collection<CartaDiCredito> ricercaCarte(String email) throws SQLException {
 		return accountM.ricercaCarte(email);
 	}
 
 	/**
 	 * 
 	 * @param email
+	 * @throws SQLException 
 	 */
-	public Collection<Indirizzo> ricercaIndirizzi(String email) {
+	public Collection<Indirizzo> ricercaIndirizzi(String email) throws SQLException {
 		return accountM.ricercaIndirizzi(email);
 	}
 
@@ -61,8 +66,9 @@ public class DataManager {
 	 * @param intestatario
 	 * @param dataScadenza
 	 * @param cvv
+	 * @throws SQLException 
 	 */
-	public void aggiungiCarta(String email, int numCarta, String intestatario, String dataScadenza, int cvv) {
+	public void aggiungiCarta(String email, int numCarta, String intestatario, Date dataScadenza, int cvv) throws SQLException {
 		accountM.aggiungiCarta(email, numCarta, intestatario, dataScadenza, cvv);
 	}
 
@@ -70,9 +76,10 @@ public class DataManager {
 	 * 
 	 * @param email
 	 * @param numCarta
+	 * @throws SQLException 
 	 */
-	public void rimuoviCarta(String email, int numCarta) {
-		accountM.rimuoviCarta(email, numCarta);
+	public void rimuoviCarta(int numCarta) throws SQLException {
+		accountM.rimuoviCarta(numCarta);
 	}
 
 	/**
@@ -82,8 +89,9 @@ public class DataManager {
 	 * @param numCivico
 	 * @param cap
 	 * @param città
+	 * @throws SQLException 
 	 */
-	public void aggiungiIndirizzo(String email, String via, int numCivico, int cap, String città) {
+	public void aggiungiIndirizzo(String email, String via, int numCivico, int cap, String città) throws SQLException {
 		accountM.aggiungiIndirizzo(email, via, numCivico, cap, città);
 	}
 
@@ -91,9 +99,10 @@ public class DataManager {
 	 * 
 	 * @param email
 	 * @param idIndirizzo
+	 * @throws SQLException 
 	 */
-	public void rimuoviIndirizzo(String email, int idIndirizzo) {
-		accountM.rimuoviIndirizzo(email, idIndirizzo);
+	public void rimuoviIndirizzo(int idIndirizzo) throws SQLException {
+		accountM.rimuoviIndirizzo(idIndirizzo);
 	}
 
 	/**
@@ -104,9 +113,10 @@ public class DataManager {
 	 * @param numCivico
 	 * @param CAP
 	 * @param città
+	 * @throws SQLException 
 	 */
-	public void modificaIndirizzo(String email, int idIndirizzo, String via, int numCivico, int CAP, String città) {
-		accountM.modificaIndirizzo(email, idIndirizzo, via, numCivico, CAP, città);
+	public void modificaIndirizzo(String email, int idIndirizzo, String via, int numCivico, int cap, String città) throws SQLException {
+		accountM.modificaIndirizzo(email, idIndirizzo, via, numCivico, cap, città);
 	}
 
 	/**
@@ -223,8 +233,9 @@ public class DataManager {
 	 * 
 	 * @param isbn
 	 * @param email
+	 * @throws SQLException 
 	 */
-	public void aggiungiLibroPreferiti(String isbn, String email) {
+	public void aggiungiLibroPreferiti(String isbn, String email) throws SQLException {
 		interazioneLibroM.aggiungiLibroPreferiti(isbn, email);
 	}
 
@@ -232,8 +243,9 @@ public class DataManager {
 	 * 
 	 * @param isbn
 	 * @param email
+	 * @throws SQLException 
 	 */
-	public void rimuoviLibroPreferiti(String isbn, String email) {
+	public void rimuoviLibroPreferiti(String isbn, String email) throws SQLException {
 		interazioneLibroM.rimuoviLibroPreferiti(isbn, email);
 	}
 
@@ -241,16 +253,18 @@ public class DataManager {
 	 * 
 	 * @param testo
 	 * @param isbn
+	 * @throws SQLException 
 	 */
-	public void aggiungiRecensione(String testo, String isbn) {
-		interazioneLibroM.aggiungiRecensione(testo, isbn);
+	public void aggiungiRecensione(String testo, String isbn, String email) throws SQLException {
+		interazioneLibroM.aggiungiRecensione(testo, isbn, email);
 	}
 
 	/**
 	 * 
 	 * @param idRecensione
+	 * @throws SQLException 
 	 */
-	public void rimuoviRecensione(int idRecensione) {
+	public void rimuoviRecensione(int idRecensione) throws SQLException {
 		interazioneLibroM.rimuoviRecensione(idRecensione);
 	}
 
@@ -278,8 +292,9 @@ public class DataManager {
 	 * @param numOrdine
 	 * @param data
 	 * @param ora
+	 * @throws SQLException 
 	 */
-	public void cambiaDataEOra(int numOrdine, String data, String ora) {
+	public void cambiaDataEOra(int numOrdine, String data, String ora) throws SQLException {
 		amministratoreOrdiniM.cambiaDataEOra(numOrdine, data, ora);
 	}
 

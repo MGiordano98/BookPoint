@@ -75,10 +75,25 @@ public class AmministratoreOrdineManager {
 	 * @param numOrdine
 	 * @param data
 	 * @param ora
+	 * @throws SQLException 
 	 */
-	public void cambiaDataEOra(int numOrdine, String data, String ora) {
-		// TODO - implement AmministratoreOrdineManager.cambiaDataEOra
-		throw new UnsupportedOperationException();
+	public void cambiaDataEOra(int numOrdine, String data, String ora) throws SQLException {
+		Connection connection= DriverMaagerConnectionPool.getConnection();
+		PreparedStatement pStatement= null;
+		
+		String updateQ= "UPDATE ordine SET dataConsegna = " + data + " WHERE oraConsegna = " + ora;
+		
+		try {
+			pStatement= connection.prepareStatement(updateQ);
+			pStatement.executeUpdate();
+			connection.commit();
+		}finally {
+			try {
+				if(pStatement!=null) pStatement.close();
+			}finally {
+				DriverMaagerConnectionPool.releaseConnection(connection);
+			}
+		}
 	}
 
 }
