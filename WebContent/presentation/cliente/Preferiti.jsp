@@ -17,20 +17,29 @@
 
 <div class="container-preferiti" >
 <div class="preferiti-immagine">
-	<img src="../image/libro.jpg" style="width:100%; height:100%">
+	<img src="../image/principe.jpg" style="max-height: 150px">
 </div >
 
 <div class="container-preferiti2">
 <div class="intestazione-preferiti" >
-<h2>Nome autore</h2><h2>Nome autore</h2> <h2 style="float:right;">Nome autore</h2>
+<h2>Nome libro</h2><h2>Nome autore</h2> <h4 style="float:right;">Prezzo</h4>
 
 </div>
 
 <div class="descrizione-preferiti" >
-Porco il demonio un bel libro
+Porco il demonio un bel libroPorco il demonio un bel libroPorco il demonio un bel libroPorco il demonio un bel libroPorco il demonio un bel libroPorco il demonio un bel libro
+Porco il demonio un bel libroPorco ico il demonisssssssssssssssssssssssssssssssssssssssssssssssssssssszsasadsadssadl 
 </div>
+	<div style="position:absolute; bottom:0; right:0;">
+	<input type="submit" value="rimuovi">
+	</div>
 </div>
+
+
+
+
 </div>
+
 
 
  <%@ include file="footer.jsp"%>

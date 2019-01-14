@@ -59,12 +59,12 @@ Con il libro Cuore di Edmondo De Amicis la letteratura italiana si arricchisce d
 Dalla sua esperienza come giornalista e scrittore, uomo impegnato in uno dei periodi fra i più complessi della nostra storia, quello del Risorgimento e dell’Italia postunitaria, Edmondo de Amicis ricava la scrittura del romanzo “Cuore”, lettura quasi obbligata (scolasticamente e non) per ogni italiano fino agli anni Cinquanta del Novecento; ai giorni nostri questo romanzo è ancora oggetto di rivisitazioni sul grande e piccolo schermo che ne testimoniano la fondamentale importanza; è impossibile dimenticarlo!
 Sofferman</p>
 </div>
-<div  style="display:grid;width:80%;margin-top:3%;margin-left:5%;">
-<input style="margin-bottom:0.3%;" type="text" value="Titolo..." >
-<textarea rows="4" cols="50">
+<div  style="display:grid;width:40%;margin-top:3%;margin-left:5%;">
+<input style="margin-bottom:0.3%;" type="text" placeholder="Titolo..." >
+<textarea rows="4" cols="20">
 At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies. 
 </textarea>
-<input type="submit" value="aggiungi recensione" >
+<input style="width:inherit;"type="submit" value="aggiungi recensione" >
 </div>
 
 
