@@ -1,9 +1,11 @@
 package model;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Time;
 
 import bean.Ordine;
 import connectionPool.DriverMaagerConnectionPool;
@@ -55,10 +57,12 @@ public class AmministratoreOrdineManager {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
 		
-		String updateQ= "UPDATE ordine SET stato = " + stato + " WHERE numero = " + numOrdine;
+		String updateQ= "UPDATE ordine SET stato = ? WHERE numero = ?";
 		
 		try {
 			pStatement= connection.prepareStatement(updateQ);
+			pStatement.setString(1, stato);
+			pStatement.setInt(2, numOrdine);
 			pStatement.executeUpdate();
 			connection.commit();
 		}finally {
@@ -77,14 +81,18 @@ public class AmministratoreOrdineManager {
 	 * @param ora
 	 * @throws SQLException 
 	 */
-	public void cambiaDataEOra(int numOrdine, String data, String ora) throws SQLException {
+	public void cambiaDataEOra(int numOrdine, Date data, Time ora) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
 		
-		String updateQ= "UPDATE ordine SET dataConsegna = " + data + " WHERE oraConsegna = " + ora;
+		String updateQ= "UPDATE ordine SET dataConsegna = ? , oraConsegna = ? WHERE numero = ?";
 		
 		try {
 			pStatement= connection.prepareStatement(updateQ);
+//		pStatement.setDate
+			pStatement.setDate(1, data);
+			pStatement.setTime(2, ora);
+			pStatement.setInt(3, numOrdine);
 			pStatement.executeUpdate();
 			connection.commit();
 		}finally {

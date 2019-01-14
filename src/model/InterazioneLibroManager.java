@@ -2,8 +2,12 @@ package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Collection;
+import java.util.LinkedList;
 
+import bean.Recensione;
 import connectionPool.DriverMaagerConnectionPool;
 
 public class InterazioneLibroManager {
@@ -71,7 +75,7 @@ public class InterazioneLibroManager {
 	 * @param isbn
 	 * @throws SQLException 
 	 */
-	public void aggiungiRecensione(String testo, String isbn, String email) throws SQLException {
+	public void aggiungiRecensione(Recensione recensione) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
 		
@@ -79,9 +83,9 @@ public class InterazioneLibroManager {
 		
 		try {
 			pStatement= connection.prepareStatement(insertQ);
-			pStatement.setString(1, testo);
-			pStatement.setString(2, isbn);
-			pStatement.setString(3, email);
+			pStatement.setString(1, recensione.getTesto());
+			pStatement.setString(2, recensione.getIsbn());
+			pStatement.setString(3, recensione.getEmail());
 			pStatement.executeUpdate();
 			connection.commit();
 		}finally {
@@ -120,6 +124,38 @@ public class InterazioneLibroManager {
 				DriverMaagerConnectionPool.releaseConnection(connection);
 			}
 		}
+	}
+	
+	public Collection<Recensione> getRecensioni(String isbn) throws SQLException{
+		Connection connection= DriverMaagerConnectionPool.getConnection();
+		PreparedStatement pStatement=null;
+		Collection<Recensione> recensioni= new LinkedList<Recensione>();
+		
+		String selectQ= "SELECT * FROM recensione WHERE libroIsbn = ?";
+		
+		try {
+			pStatement= connection.prepareStatement(selectQ);
+			pStatement.setString(1, isbn);
+			ResultSet rs= pStatement.executeQuery();
+			
+			while(rs.next()) {
+				Recensione recensione= new Recensione();
+				recensione.setEmail(rs.getString("utenteEmail"));
+				recensione.setIsbn(isbn);
+				recensione.setTesto(rs.getString("testo"));
+				
+				recensioni.add(recensione);
+			}
+		}finally {
+			try {
+				if(pStatement!=null) {
+					pStatement.close();
+				}
+			}finally {
+				DriverMaagerConnectionPool.releaseConnection(connection);
+			}
+		}
+		return recensioni;
 	}
 
 }

@@ -2,6 +2,7 @@ package model;
 
 import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Collection;
 import bean.*;
@@ -255,10 +256,10 @@ public class DataManager {
 	 * @param isbn
 	 * @throws SQLException 
 	 */
-	public void aggiungiRecensione(String testo, String isbn, String email) throws SQLException {
-		interazioneLibroM.aggiungiRecensione(testo, isbn, email);
+	public void aggiungiRecensione(Recensione recensione) throws SQLException {
+		interazioneLibroM.aggiungiRecensione(recensione);
 	}
-
+	
 	/**
 	 * 
 	 * @param idRecensione
@@ -268,6 +269,14 @@ public class DataManager {
 		interazioneLibroM.rimuoviRecensione(idRecensione);
 	}
 
+	/**
+	 * 
+	 * @param isbn
+	 * @throws SQLException 
+	 */
+	public Collection<Recensione> getRecensioni(String isbn) throws SQLException {
+		return interazioneLibroM.getRecensioni(isbn);
+	}
 	/**
 	 * 
 	 * @param numOrdine
@@ -294,7 +303,7 @@ public class DataManager {
 	 * @param ora
 	 * @throws SQLException 
 	 */
-	public void cambiaDataEOra(int numOrdine, String data, String ora) throws SQLException {
+	public void cambiaDataEOra(int numOrdine, Date data, Time ora) throws SQLException {
 		amministratoreOrdiniM.cambiaDataEOra(numOrdine, data, ora);
 	}
 
