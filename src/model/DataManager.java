@@ -220,6 +220,10 @@ public class DataManager {
 		
 		return catalogo;
 	}
+	
+	public Libro visualizzaLibro(String isbn) throws SQLException {
+		return libroM.visualizzaLibro(isbn);
+	}
 
 	/**
 	 * 

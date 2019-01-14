@@ -1,11 +1,15 @@
 package control.gestioneAmministratoreOrdini;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.DataManager;
 
 /**
  * Servlet implementation class CambiaStato
@@ -13,6 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/CambiaStato")
 public class CambiaStato extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static DataManager dm= new DataManager();
+
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -26,8 +32,15 @@ public class CambiaStato extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		int numOrdine= Integer.parseInt(request.getParameter("numOrdine"));
+		String stato= request.getParameter("stato");
+		
+		try {
+			dm.cambiaStato(numOrdine, stato);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**

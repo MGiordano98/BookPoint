@@ -109,4 +109,37 @@ public class LibroManager {
 		return null;
 	}
 
+	public Libro visualizzaLibro(String isbn) throws SQLException {
+		Connection connection= DriverMaagerConnectionPool.getConnection();
+		PreparedStatement pStatement= null;
+		Libro libro=null;
+		
+		String selectQ= "SELECT * FROM libro WHERE isbn= ?";
+		
+		try {
+			pStatement= connection.prepareStatement(selectQ);
+			pStatement.setString(1, isbn);
+			ResultSet rs= pStatement.executeQuery();
+			while(rs.next()){
+				libro.setIsbn(isbn);
+				libro.setPrezzo(rs.getDouble("prezzo"));
+				libro.setTitolo(rs.getString("titolo"));
+				libro.setTrama(rs.getString("trama"));
+				libro.setFoto(rs.getString("foto"));
+				libro.setCasaEditrice(rs.getString("casaEditrice"));
+				libro.setQuantità(rs.getInt("quantità"));
+				libro.setCategoria(rs.getString("categoria"));
+			}
+		} finally {
+			try {
+				if (pStatement != null)
+					pStatement.close();
+			} finally {
+				DriverMaagerConnectionPool.releaseConnection(connection);
+			}
+		}
+		
+		return libro;
+	}
+
 }
