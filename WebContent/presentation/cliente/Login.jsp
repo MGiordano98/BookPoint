@@ -15,7 +15,7 @@ if(request.getSession().getAttribute("admin")!=null){
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="styleCliente.css"> 
 <meta charset="ISO-8859-1">
-<title>PizzaPoint</title>
+<title>BookPoint</title>
 </head>
 <body>
 
