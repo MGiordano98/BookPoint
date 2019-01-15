@@ -66,7 +66,7 @@ public class AmministratoreManager {
 	private void insertAutori(ArrayList<String> autori, String isbn, Connection connection) throws SQLException {
 		PreparedStatement preparedStatement= null;
 		
-		String insertQ= "insert into scrittoDa (libroISBN, autoreID) values (?, ?)";
+		String insertQ= "insert into scrive (libro, autore) values (?, ?)";
 		
 		for(String autore: autori) {
 			preparedStatement = connection.prepareStatement(insertQ);

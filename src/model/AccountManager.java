@@ -25,7 +25,7 @@ public class AccountManager {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
 		
-		String selectQ= "SELECT * FROM utente WHERE email = ? AND password = ?";
+		String selectQ= "SELECT * FROM utente WHERE email = ? AND psw = ?";
 		Utente utente= null;
 		
 		try {
@@ -64,7 +64,7 @@ public class AccountManager {
 		PreparedStatement pStatement= null;
 		boolean registrato= false;
 		
-		String insertQ= "INSERT INTO utente (email, password, nome, cognome, dataDiNascita) "
+		String insertQ= "INSERT INTO utente (email, psw, nome, cognome, dataDiNascita) "
 				+ "VALUES (?, ?, ?, ?, ?)";
 		
 		try {
@@ -107,7 +107,7 @@ public class AccountManager {
 		try {			
 			if(checkVecchiaPassword(email, vecchiaPassword, connection)) {
 			
-				String updateQ= "UPDATE utente WHERE email = ? SET password = ?";
+				String updateQ= "UPDATE utente WHERE email = ? SET psw = ?";
 				
 				pStatement= connection.prepareStatement(updateQ);
 				pStatement.setString(1, email);
@@ -137,7 +137,7 @@ public class AccountManager {
 		
 		boolean passChecked= false;
 		
-		String selectQ= "SELECT * FROM utente WHERE email = ? AND password = ?";
+		String selectQ= "SELECT * FROM utente WHERE email = ? AND psw = ?";
 		
 		pStatement= connection.prepareStatement(selectQ);
 		pStatement.setString(1, email);
@@ -159,7 +159,7 @@ public class AccountManager {
 		PreparedStatement pStatement= null;
 		Collection<CartaDiCredito> carte= new LinkedList<CartaDiCredito>();
 		
-		String selectQ= "SELECT * FROM cartaDiCredito WHERE utenteEmail = ?";
+		String selectQ= "SELECT * FROM cartadicredito WHERE utente = ?";
 		
 		try {
 			pStatement= connection.prepareStatement(selectQ);
@@ -196,7 +196,7 @@ public class AccountManager {
 		PreparedStatement pStatement= null;
 		Collection<Indirizzo> indirizzi= new LinkedList<Indirizzo>();
 		
-		String selectQ= "SELECT * FROM indirizzo WHERE utenteEmail = ?";
+		String selectQ= "SELECT * FROM indirizzo WHERE utente = ?";
 		
 		try {
 			pStatement= connection.prepareStatement(selectQ);
@@ -237,7 +237,7 @@ public class AccountManager {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
 		
-		String insertQ= "INSERT INTO cartaDiCredito (numeroDiCarta, intestatario, dataScadenza, cvv, utenteEmail)"
+		String insertQ= "INSERT INTO cartadicredito (numeroDiCarta, intestatario, dataScadenza, cvv, utente)"
 				+ " VALUES (?, ?, ?, ?, ?)";
 		
 		try {
@@ -271,7 +271,7 @@ public class AccountManager {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
 		
-		String deleteQ= "DELETE FROM cartaDiCredito WHERE numeroDiCarta = ?";
+		String deleteQ= "DELETE FROM cartadicredito WHERE numeroDiCarta = ?";
 		
 		try {
 			pStatement= connection.prepareStatement(deleteQ);
@@ -303,7 +303,7 @@ public class AccountManager {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
 		
-		String insertQ= "INSERT INTO indirizzo (via, cap, città, numeroCivico, utenteEmail)"
+		String insertQ= "INSERT INTO indirizzo (via, cap, città, numeroCivico, utente)"
 				+ " VALUES (?, ?, ?, ?, ?)";
 		
 		try {

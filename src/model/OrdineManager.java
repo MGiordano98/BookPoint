@@ -26,7 +26,7 @@ public class OrdineManager {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
 		
-		String insertQ= "INSERT INTO Ordine (numero, data, oraConsegna, dataConsegna, totale, via, cap, città, stato, numCarta)"
+		String insertQ= "INSERT INTO ordine (numero, data, oraConsegna, dataConsegna, totale, via, cap, città, stato, cartaDiCredito)"
 				+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		boolean result = false;
 		
@@ -61,7 +61,7 @@ public class OrdineManager {
 
 		int idOrdine=0;
 
-		String selectSQL = "SELECT numero FROM " + "ordine" + " WHERE data = ? AND oraConsegna = ? AND numeroCarta = ?";
+		String selectSQL = "SELECT numero FROM " + "ordine" + " WHERE data = ? AND oraConsegna = ? AND cartaDiCredito = ?";
 
 		try {
 			connection = DriverMaagerConnectionPool.getConnection();
@@ -91,7 +91,7 @@ public class OrdineManager {
 
 	private int doSaveLibriAcquistati(Connection connection, Ordine ordine) throws SQLException {
 		PreparedStatement pStatement= null;
-		String insertQ= "INSERT INTO libriAcquistati (ordineNumero, libroIsbn, trama, quantità, prezzoAcquisto)"
+		String insertQ= "INSERT INTO libriAcquistati (ordine, libro, trama, quantità, prezzoAcquisto)"
 				+ " values(?, ?, ?, ?, ?)";
 		Collection<Libro> libriAcquistati= ordine.getLibri();
 		int result=0;
