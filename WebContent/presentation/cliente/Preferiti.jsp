@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+ 	<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8" import="java.util.*,bean.*,control.gestioneInterazioneLibro.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,10 +11,17 @@
 <body>
 
  <%@ include file="header.jsp"%>
-
+<%  Collection<?> preferiti= (Collection<?>)request.getSession().getAttribute("preferiti");%>
 <h1>I miei preferiti</h1>
 
-
+<% if(preferiti!=null && preferiti.size()>0){
+	
+	Iterator it=preferiti.iterator();
+	while(it.hasNext()){
+		
+		Libro bean= (Libro) it.next();
+	
+	%>
 <div class="container-preferiti" >
 <div class="preferiti-immagine">
 	<img src="../image/principe.jpg" style="max-height: 150px">
@@ -22,17 +29,31 @@
 
 <div class="container-preferiti2">
 <div class="intestazione-preferiti" >
-<h2>Nome libro</h2><h2>Nome autore</h2> <h4 style="float:right;">Prezzo</h4>
+<h2><%=bean.getTitolo() +" "%></h2>
+<h6><% int i=0;
+	   for(i=0;i<bean.getAutori().getSize();i++){
+		String temp=bean.getAutori().get(i);   
+	   
+	   if(i==bean.getAutori().getSize()-1){  %>
+	   <%=temp%>
+	   <%} else { %>
+	   <%=temp + ", " %>
+	   <%	} 
+	   	} %></h6> <h4 style="float:right;"><%=bean.getPrezzo() %></h4>
+	   
 
 </div>
 
 <div class="descrizione-preferiti" >
-Porco il demonio un bel libroPorco il demonio un bel libroPorco il demonio un bel libroPorco il demonio un bel libroPorco il demonio un bel libroPorco il demonio un bel libro
-Porco il demonio un bel libroPorco ico il demonisssssssssssssssssssssssssssssssssssssssssssssssssssssszsasadsadssadl 
+<%=bean.getTrama() %> 
 </div>
 	<div style="position:absolute; bottom:0; right:0;">
-	<input type="submit" value="rimuovi">
+	<form>
+		<input type="Hidden" value=<%=bean.getIsbn()%> > 
+		<input type="submit" value="rimuovi">
+	</form>
 	</div>
+<%}} %>
 </div>
 
 
