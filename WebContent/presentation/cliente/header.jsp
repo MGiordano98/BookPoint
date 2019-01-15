@@ -13,7 +13,7 @@
 
 <header> 
 
-<center><img src="../image/logo.jpg"></center>
+<center><img style="max-width:400px;"src="../image/logo.jpg"></center>
 
 <div class="topnav" id="myTopnav">
 	<a class="navbar-brand navbar-left-mio" href="Home.jsp">
