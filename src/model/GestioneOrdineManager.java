@@ -24,7 +24,7 @@ public class GestioneOrdineManager {
 		PreparedStatement preparedStatement= null;
 		Collection<Ordine> ordini= new LinkedList<Ordine>();
 		
-		String selectQ= "SELECT * from ordine WHERE email = ?";
+		String selectQ= "SELECT * from ordine WHERE utente = ?";
 		try {
 			preparedStatement= connection.prepareStatement(selectQ);
 			preparedStatement.setString(1, email);
@@ -62,7 +62,7 @@ public class GestioneOrdineManager {
 		PreparedStatement pStatement= null;
 		Collection<Libro> libriAcquistati= new LinkedList<Libro>();
 		
-		String selectQ = "SELECT * FROM libriAcquistati WHERE ordineNumero = " + ordine.getIdOrdine();
+		String selectQ = "SELECT * FROM libriacquistati WHERE ordine = " + ordine.getIdOrdine();
 		
 		pStatement= connection.prepareStatement(selectQ);
 		ResultSet rs= pStatement.executeQuery();

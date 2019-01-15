@@ -26,7 +26,7 @@ public class LibroManager {
 
 		Collection<Libro> libri = new LinkedList<Libro>();
 
-		String selectSQL = "SELECT * FROM " + TABLE_NAME + " JOIN scrive WHERE categoria = ? AND "
+		String selectSQL = "SELECT * FROM libro JOIN scrive WHERE categoria = ? AND "
 				+ "(testo = ? OR autoreId = ?)";
 
 

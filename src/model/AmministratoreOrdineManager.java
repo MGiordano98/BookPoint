@@ -89,7 +89,6 @@ public class AmministratoreOrdineManager {
 		
 		try {
 			pStatement= connection.prepareStatement(updateQ);
-//		pStatement.setDate
 			pStatement.setDate(1, data);
 			pStatement.setTime(2, ora);
 			pStatement.setInt(3, numOrdine);

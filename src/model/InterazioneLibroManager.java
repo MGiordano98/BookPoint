@@ -22,7 +22,7 @@ public class InterazioneLibroManager {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
 		
-		String insertQ= "INSERT INTO preferisce (utenteEmail, libroIsbn) values (?, ?)";
+		String insertQ= "INSERT INTO preferisce (utente, libro) values (?, ?)";
 		
 		try {
 			pStatement= connection.prepareStatement(insertQ);
@@ -50,7 +50,7 @@ public class InterazioneLibroManager {
 	public void rimuoviLibroPreferiti(String isbn, String email) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
-		String deleteQ= "DELETE FROM preferiti WHERE utenteEmail = ? AND libroIsbn = ?";
+		String deleteQ= "DELETE FROM preferisce WHERE utente = ? AND libro = ?";
 		
 		try {
 			pStatement= connection.prepareStatement(deleteQ);
@@ -79,7 +79,7 @@ public class InterazioneLibroManager {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
 		
-		String insertQ= "INSERT INTO Recensione (testo, libroIsbn, utenteEmail) VALUES (?, ?, ?)";
+		String insertQ= "INSERT INTO recensione (testo, libro, utente) VALUES (?, ?, ?)";
 		
 		try {
 			pStatement= connection.prepareStatement(insertQ);
@@ -131,7 +131,7 @@ public class InterazioneLibroManager {
 		PreparedStatement pStatement=null;
 		Collection<Recensione> recensioni= new LinkedList<Recensione>();
 		
-		String selectQ= "SELECT * FROM recensione WHERE libroIsbn = ?";
+		String selectQ= "SELECT * FROM recensione WHERE libro = ?";
 		
 		try {
 			pStatement= connection.prepareStatement(selectQ);
