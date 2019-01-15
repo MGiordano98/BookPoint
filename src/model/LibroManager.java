@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 
@@ -129,6 +130,8 @@ public class LibroManager {
 				libro.setCasaEditrice(rs.getString("casaEditrice"));
 				libro.setQuantità(rs.getInt("quantità"));
 				libro.setCategoria(rs.getString("categoria"));
+				
+				libro.setAutori(getAutori(connection, isbn));
 			}
 		} finally {
 			try {
@@ -141,5 +144,22 @@ public class LibroManager {
 		
 		return libro;
 	}
-
+	
+	private ArrayList<String> getAutori(Connection connection, String isbn) throws SQLException {
+		PreparedStatement pStatement=null;
+		ArrayList<String> autori= new ArrayList<String>();
+		
+		String selectQ= "SELECT autore FROM (libro "
+				+ "INNER JOIN scrive ON (libro.isbn = scrive.libro)) "
+				+ "WHERE libro.isbn = ?";
+		
+		pStatement= connection.prepareStatement(selectQ);
+		pStatement.setString(1, isbn);
+		ResultSet rs = pStatement.executeQuery();
+		while(rs.next()) {
+		autori.add(rs.getString("autore"));
+		}
+		
+		return autori;
+	}
 }

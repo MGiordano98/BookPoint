@@ -4,9 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 
+import bean.Libro;
 import bean.Recensione;
 import connectionPool.DriverMaagerConnectionPool;
 
@@ -156,6 +158,60 @@ public class InterazioneLibroManager {
 			}
 		}
 		return recensioni;
+	}
+
+	public Collection<Libro> getPreferiti(String email) throws SQLException {
+		Connection connection= DriverMaagerConnectionPool.getConnection();
+		PreparedStatement pStatement= null;
+		Collection<Libro> libri= new LinkedList<Libro>();
+		
+		String selectQ= "SELECT * "
+				+ "FROM (preferisce "
+				+ "INNER JOIN libro ON (preferisce.libro = libro.isbn)) "
+				+ "WHERE preferisce.utente = ?";
+		
+		try {
+			pStatement= connection.prepareStatement(selectQ);
+			pStatement.setString(1, email);
+			ResultSet rs= pStatement.executeQuery();
+			while(rs.next()) {
+				Libro lib= new Libro();
+				lib.setIsbn(rs.getString("isbn"));
+				lib.setTitolo(rs.getString("titolo"));
+				lib.setPrezzo(rs.getDouble("prezzo"));
+				lib.setTrama(rs.getString("trama"));
+				
+				lib.setAutori(getAutori(connection, lib.getIsbn()));
+				libri.add(lib);
+			}
+		}finally {
+			try {
+				if(pStatement!=null) pStatement.close();
+			}finally {
+				connection.close();
+			}
+		}
+		
+		return libri;
+	}
+
+	
+	private ArrayList<String> getAutori(Connection connection, String isbn) throws SQLException {
+		PreparedStatement pStatement=null;
+		ArrayList<String> autori= new ArrayList<String>();
+		
+		String selectQ= "SELECT autore FROM (libro "
+				+ "INNER JOIN scrive ON (libro.isbn = scrive.libro)) "
+				+ "WHERE libro.isbn = ?";
+		
+		pStatement= connection.prepareStatement(selectQ);
+		pStatement.setString(1, isbn);
+		ResultSet rs = pStatement.executeQuery();
+		while(rs.next()) {
+		autori.add(rs.getString("autore"));
+		}
+		
+		return autori;
 	}
 
 }

@@ -1,25 +1,31 @@
-package control.gestioneAcquisto;
+package control.gestioneInterazioneLibro;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Collection;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bean.Carrello;
+import bean.Libro;
+import model.DataManager;
 
 /**
- * Servlet implementation class AggiungiAlCarrello
+ * Servlet implementation class VisualizzaPreferiti
  */
-@WebServlet("/AggiungiAlCarrello")
-public class AggiungiAlCarrello extends HttpServlet {
-	private static final long serialVersionUID = 1L;   
-	
+@WebServlet("/VisualizzaPreferiti")
+public class VisualizzaPreferiti extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+    private static DataManager dm= new DataManager();
+    
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AggiungiAlCarrello() {
+    public VisualizzaPreferiti() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,11 +34,19 @@ public class AggiungiAlCarrello extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Carrello carrello= (Carrello) request.getSession().getAttribute("carrello");
-		if(carrello==null) {
-			carrello= new Carrello();
-			request.getSession().setAttribute("carrello", carrello);
+		String email= request.getParameter("email");
+		Collection<Libro> preferiti= null; 
+		
+		try {
+			preferiti= dm.getPreferiti(email);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		
+		request.getSession().setAttribute("preferiti", preferiti);
+		RequestDispatcher dispatcher= request.getRequestDispatcher("Preferiti.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**

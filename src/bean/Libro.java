@@ -1,6 +1,7 @@
 package bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Libro implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -13,7 +14,7 @@ public class Libro implements Serializable{
 	private double prezzo;
 	private int quantità;
 	private String categoria;
-	
+	private ArrayList<String> autori;
 	
 	
 	public Libro() {
@@ -21,7 +22,7 @@ public class Libro implements Serializable{
 	}
 
 	public Libro(String isbn, String titolo, String trama, String foto, String casaEditrice, double prezzo, int quantità,
-			String categoria) {
+			String categoria, ArrayList<String> autori) {
 		super();
 		this.isbn = isbn;
 		this.titolo = titolo;
@@ -31,6 +32,7 @@ public class Libro implements Serializable{
 		this.prezzo = prezzo;
 		this.quantità = quantità;
 		this.categoria = categoria;
+		this.autori = autori;
 	}
 	
 	
@@ -127,5 +129,12 @@ public class Libro implements Serializable{
 		this.categoria = categoria;
 	}
 
+	public ArrayList<String> getAutori() {
+		return autori;
+	}
+
+	public void setAutori(ArrayList<String> autori) {
+		this.autori = autori;
+	}
 
 }

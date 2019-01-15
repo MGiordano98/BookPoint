@@ -281,6 +281,11 @@ public class DataManager {
 	public Collection<Recensione> getRecensioni(String isbn) throws SQLException {
 		return interazioneLibroM.getRecensioni(isbn);
 	}
+	
+	public Collection<Libro> getPreferiti(String email) {
+		return interazioneLibroM.getPreferiti(email); 
+	}
+	
 	/**
 	 * 
 	 * @param numOrdine
