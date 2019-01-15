@@ -1,11 +1,18 @@
 package control.gestioneAmministratoreOrdini;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import bean.Ordine;
+import model.DataManager;
 
 /**
  * Servlet implementation class RicercaOrdine
@@ -13,7 +20,9 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/RicercaOrdine")
 public class RicercaOrdine extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	private static DataManager dm= new DataManager();
+   
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -26,8 +35,19 @@ public class RicercaOrdine extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		HttpSession session= request.getSession();
+		int numOrdine= Integer.parseInt(request.getParameter("numOrdine"));
+		Ordine ordine= null;
+		try {
+			ordine= dm.ricercaOrdine(numOrdine);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		session.setAttribute("ordine", ordine);
+		RequestDispatcher dispatcher= request.getRequestDispatcher("AmministratoreOrdiniOrdine.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**
