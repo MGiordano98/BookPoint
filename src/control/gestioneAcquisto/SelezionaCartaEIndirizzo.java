@@ -1,11 +1,20 @@
 package control.gestioneAcquisto;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Collection;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+
+import bean.CartaDiCredito;
+import bean.Indirizzo;
+import model.DataManager;
 
 /**
  * Servlet implementation class SelezionaCartaEIndirizzo
@@ -13,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/SelezionaCartaEIndirizzo")
 public class SelezionaCartaEIndirizzo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static DataManager dm= new DataManager();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -26,8 +36,24 @@ public class SelezionaCartaEIndirizzo extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String email= request.getParameter("email");
+		
+		Collection<CartaDiCredito> carte= null;
+		Collection<Indirizzo> indirizzi= null;
+		
+		try {
+			carte= dm.ricercaCarte(email);
+			indirizzi= dm.ricercaIndirizzi(email);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		request.getSession().setAttribute("carte", carte);
+		request.getSession().setAttribute("indirizzi", indirizzi);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("CompletaAcquisto.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**

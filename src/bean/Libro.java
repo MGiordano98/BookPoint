@@ -15,6 +15,7 @@ public class Libro implements Serializable{
 	private int quantit‡;
 	private String categoria;
 	private ArrayList<String> autori;
+	private int quantit‡Selezionata;
 	
 	
 	public Libro() {
@@ -33,6 +34,7 @@ public class Libro implements Serializable{
 		this.quantit‡ = quantit‡;
 		this.categoria = categoria;
 		this.autori = autori;
+		this.quantit‡Selezionata = 0;
 	}
 	
 	
@@ -137,4 +139,12 @@ public class Libro implements Serializable{
 		this.autori = autori;
 	}
 
+	public int getQuantit‡Selezionata() {
+		return quantit‡Selezionata;
+	}
+
+	public void setQuantit‡Selezionata(int quantit‡Selezionata) {
+		this.quantit‡Selezionata = quantit‡Selezionata;
+	}
+	
 }

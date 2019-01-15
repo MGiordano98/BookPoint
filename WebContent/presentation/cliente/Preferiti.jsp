@@ -31,10 +31,10 @@
 <div class="intestazione-preferiti" >
 <h2><%=bean.getTitolo() +" "%></h2>
 <h6><% int i=0;
-	   for(i=0;i<bean.getAutori().getSize();i++){
+	   for(i=0;i<bean.getAutori().size();i++){
 		String temp=bean.getAutori().get(i);   
 	   
-	   if(i==bean.getAutori().getSize()-1){  %>
+	   if(i==bean.getAutori().size()-1){  %>
 	   <%=temp%>
 	   <%} else { %>
 	   <%=temp + ", " %>

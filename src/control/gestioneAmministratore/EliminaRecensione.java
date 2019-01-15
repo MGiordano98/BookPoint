@@ -3,6 +3,7 @@ package control.gestioneAmministratore;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,6 +40,8 @@ public class EliminaRecensione extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		RequestDispatcher dispatcher= request.getRequestDispatcher("AmministratoreVisualizzaLibro.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**

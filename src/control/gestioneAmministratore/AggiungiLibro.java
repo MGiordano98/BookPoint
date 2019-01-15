@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -53,13 +54,15 @@ public class AggiungiLibro extends HttpServlet {
 			autori.add(request.getParameter("autore"+ i));
 		}
 		
-		Libro libro= new Libro(isbn, titolo, trama, foto, casaEditrice, prezzo, quantit‡Disponibile, categoria);
+		Libro libro= new Libro(isbn, titolo, trama, foto, casaEditrice, prezzo, quantit‡Disponibile, categoria, autori);
 		
 		try {
 			dm.aggiungiLibro(libro, autori);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		RequestDispatcher dispatcher= request.getRequestDispatcher("AmministratoreCatalogo.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**

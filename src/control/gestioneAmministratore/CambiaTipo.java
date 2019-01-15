@@ -3,6 +3,7 @@ package control.gestioneAmministratore;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,6 +43,9 @@ public class CambiaTipo extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		RequestDispatcher dispatcher= request.getRequestDispatcher("AmministratoreAccount.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**

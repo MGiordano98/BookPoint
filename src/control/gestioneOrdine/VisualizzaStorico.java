@@ -2,6 +2,7 @@ package control.gestioneOrdine;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Collection;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.Ordine;
 import model.DataManager;
 
 /**
@@ -33,13 +35,15 @@ public class VisualizzaStorico extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email= request.getParameter("email");
+		Collection<Ordine> ordini=null;
 		try {
-			dm.visualizzaStorico(email);
+			ordini= dm.visualizzaStorico(email);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+		request.getSession().setAttribute("ordini", ordini);
 		RequestDispatcher dispatcher= request.getRequestDispatcher("IMieiOrdini.jsp");
 		dispatcher.forward(request, response);
 	}
