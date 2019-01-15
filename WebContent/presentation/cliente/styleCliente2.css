@@ -6,11 +6,11 @@
 body
 {
 	font-family: arial !important;
-	background-color: #c0c0c0!important;
+	background-color: #f8f9fa;
 }
 
 header{
-	background-color: #ce0000;
+	background-color: #f8f9fa;
 }
 .divFisso{
 	min-width:1477px;
@@ -281,7 +281,7 @@ header{
     padding: 1rem;
     width: 100%;
     text-align: center;
-    background-color: #343a40;
+    background-color: red;
     color:white;
     font-size:medium;
     margin-top:0;
