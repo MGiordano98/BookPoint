@@ -30,13 +30,17 @@ public class LibroManager {
 		Collection<Libro> libri = new LinkedList<Libro>();
 
 		String selectSQL = "SELECT * FROM libro JOIN scrive WHERE categoria = ? AND "
-				+ "(testo = ? OR autoreId = ?)";
+				+ "((titolo = ? OR autore = ?))";
 
 
 		try {
 			connection = DriverMaagerConnectionPool.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
-
+			
+			preparedStatement.setString(1,categoria);
+			preparedStatement.setString(2, testo);
+			preparedStatement.setString(3, testo);
+			
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
@@ -50,6 +54,10 @@ public class LibroManager {
 				bean.setPrezzo(rs.getDouble("prezzo"));
 				bean.setQuantità(rs.getInt("quantità"));
 				bean.setCategoria(rs.getString("categoria"));
+				bean.setCopieVendute(rs.getInt("copieVendute"));
+				
+				bean.setRecensioni(getRecensioni(connection, bean.getIsbn()));
+				bean.setAutori(getAutori(connection, bean.getIsbn()));
 				
 				libri.add(bean);
 			}
@@ -65,23 +73,23 @@ public class LibroManager {
 		return libri;
 	}
 
-	public Collection<Libro> getLibriPiùVenduti() {
-/*		Connection connection = null;
+	public Collection<Libro> getLibriPiùVenduti() throws SQLException {
+		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
 		Collection<Libro> libri = new LinkedList<Libro>();
 
-		String selectSQL = "SELECT * FROM " + TABLE_NAME + " JOIN scrive WHERE categoria = " + categoria + "AND "
-				+ "(testo = " + testo + " OR autoreId = " + testo + ")";
+		String selectSQL = "SELECT * FROM " + TABLE_NAME + " JOIN scrive ORDER BY copieVendute desc";
 
-
+		final int NUMERO_LIBRI=8;//Numero di libri che si vuole mostrare
 		try {
 			connection = DriverMaagerConnectionPool.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
 
 			ResultSet rs = preparedStatement.executeQuery();
 
-			while (rs.next()) {
+			int i=0;
+			while (rs.next() && i<NUMERO_LIBRI) {
 				Libro bean = new Libro();
 
 				bean.setIsbn(rs.getString("isbn"));
@@ -90,10 +98,15 @@ public class LibroManager {
 				bean.setFoto(rs.getString("foto"));
 				bean.setCasaEditrice(rs.getString("casaEditrice"));
 				bean.setPrezzo(rs.getDouble("prezzo"));
-				bean.setQuantitàDisponibile(rs.getInt("quantitàDisponibile"));
+				bean.setQuantità(rs.getInt("quantità"));
 				bean.setCategoria(rs.getString("categoria"));
+				bean.setCopieVendute(rs.getInt("copieVendute"));
+				
+				bean.setRecensioni(getRecensioni(connection, bean.getIsbn()));
+				bean.setAutori(getAutori(connection, bean.getIsbn()));
 				
 				libri.add(bean);
+				i++;
 			}
 
 		} finally {
@@ -103,8 +116,9 @@ public class LibroManager {
 			} finally {
 				DriverMaagerConnectionPool.releaseConnection(connection);
 			}
-		}*/
-		return null;
+		}
+		
+		return libri;
 	}
 	
 	
@@ -132,6 +146,7 @@ public class LibroManager {
 				libro.setCasaEditrice(rs.getString("casaEditrice"));
 				libro.setQuantità(rs.getInt("quantità"));
 				libro.setCategoria(rs.getString("categoria"));
+				libro.setCopieVendute(rs.getInt("copieVendute"));
 				
 				libro.setRecensioni(getRecensioni(connection, isbn));
 				libro.setAutori(getAutori(connection, isbn));
