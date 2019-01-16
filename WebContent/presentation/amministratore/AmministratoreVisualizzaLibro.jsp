@@ -16,71 +16,89 @@
 
 
 
-<!-- 
-<table style="width:100%">
-
-  <tr>
-    <td>Immagine</td>
-    <td>nome immagine</td>
-    <td><input type="submit" value="modifica"></td>
-  </tr>
-   <tr>
-    <td>Titolo</td>
-    <td>Nome titolo</td>
-    <td><input type="submit" value="modifica"></td>
-  </tr> <tr>
-    <td>autore</td>
-    <td>nome autore</td>
-    <td><input type="submit" value="modifica"></td>
-  </tr> <tr>
-    <td>ISBN</td>
-    <td>numero ISBN</td>
-    <td><input type="submit" value="modifica"></td>
-  </tr> <tr>
-    <td>Categoria</td>
-    <td>nome categoria</td>
-    <td><input type="submit" value="modifica"></td>
-  </tr> <tr>
-    <td>Descrizione</td>
-    <td style="width:100px;"><div style="max-width:60%; word-wrap:break-word;">asdsadsdsasdssdsdsdsdsadasassdsadnvfvnvnnvnv,g,gmbpgbmhobòmadsdsasdsadsdsasdsadsdsasdsadsdsasdsadsdsasdsadsdsasdasdsadsdsasdsadsdsasdsadsdsasdsadsdsasdsadsdsasdsadsdsasdsadsdssadsds</div>   </td>
-    <td><input type="submit" value="modifica"></td>
-  </tr>
-
-
-</table>
--->
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
+<table class="table table">
+  
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+  <tr>
+      <td>Immagine</td>
+      <td colspan="2">Nome immagine</td>
+    <td> <center> <input type="submit" value="modifica"></center></td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
+      <tr>
+      <td>Titolo</td>
+      <td colspan="2">Nome titolo</td>
+	  <td><center><input type="submit" value="modifica"></center></td>
     </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td style="word-wrap:break-word"colspan="2">vLarryLarryvLarryLarryLarryLarryLarryLarryLvLarryLarryLarryLarryLarryLarryLLarryLarryLarryLLarryLarryLarryLarryLarryarryLarryLarryLarryLarryLarryLarryLarryLarryLarryLarryLarryLarryLarryLarryLarryLarryLarryLarry the Bird</td>
-      <td>@twitter</td>
+     <tr>
+      <td>Autore</td>
+      <td colspan="2">Nome Autore</td>
+      <td><center><input type="submit" value="modifica"></center></td>
+    </tr>
+      <tr>
+      <td>Editore</td>
+      <td colspan="2">Nome editore</td>
+	  <td><center><input type="submit" value="modifica"></center></td>
+    </tr>
+     <tr>
+      <td>ISBN</td>
+      <td colspan="2">isbn</td>
+      <td><center><input type="submit" value="modifica"></center></td>
+    </tr>
+      <tr>
+      <td>Categoria</td>
+      <td colspan="2">Nome categoria</td>
+	  <td><center><input type="submit" value="modifica"></center></td>
+    </tr>
+      
+     <tr>
+      <td>Descrizione</td>
+      <td style="word-wrap:break-word;"colspan="2">contenti e che vi farà del bene</td>
+      <td><center><input type="submit" value="modifica"></center></td>
+    </tr>
+     <tr>
+      <td>Euro</td>
+      <td colspan="2">3,30</td>
+      <td><center><input type="submit" value="modifica"></center></td>
+    </tr>
+      <tr>
+      <td>Quantita</td>
+      <td colspan="2">1</td>
+	  <td><center><input type="submit" value="modifica"></center></td>
     </tr>
   </tbody>
 </table>
 
 
+<h1>Recensioni</h1>
+<div style="position:relative;display: -webkit-box;float: inherit;border:1px solid;" class="container">
+<a><i style="position:absolute;right:2px;" class="fas fa-times"></i></a>
+<table >
+  
+  
+    <tr>
+      <td>Immagine</td>
+      <td>Nome immagine</td>
+   
+    </tr>
+      <tr>
+      <td>Immagine</td>
+      <td>Nome immagine</td>
+   
+    </tr>
+      <tr>
+      <td>Immagine</td>
+      <td>Nome immagine</td>
+   
+    </tr>
+       
+      <tr>
+      <td>Immagine</td>
+      <td colspan="2">Nome immagine</td>
+   
+    </tr>
+  
+</table>
+</div>
 
 </body>
 </html>
