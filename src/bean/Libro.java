@@ -17,6 +17,7 @@ public class Libro implements Serializable{
 	private ArrayList<Autore> autori;
 	private ArrayList<Recensione> recensioni;
 	private int quantit‡Selezionata;
+	private int copieVendute;
 	
 	
 	public Libro() {
@@ -37,6 +38,7 @@ public class Libro implements Serializable{
 		this.autori = autori;
 		this.recensioni = recensioni;
 		this.quantit‡Selezionata = 0;
+		this.copieVendute = 0;
 	}
 	
 	public Libro(String isbn, String titolo, String trama, String foto, String casaEditrice, double prezzo, int quantit‡,
@@ -171,5 +173,14 @@ public class Libro implements Serializable{
 	public void setQuantit‡Selezionata(int quantit‡Selezionata) {
 		this.quantit‡Selezionata = quantit‡Selezionata;
 	}
+
+	public int getCopieVendute() {
+		return copieVendute;
+	}
+
+	public void setCopieVendute(int copieVendute) {
+		this.copieVendute = copieVendute;
+	}
+	
 	
 }

@@ -67,8 +67,8 @@ public class OrdineManager {
 			connection = DriverMaagerConnectionPool.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setDate(1, ordine.getDataEffettuata());
-			preparedStatement.setString(2, ordine.getOra());
-			preparedStatement.setString(3, ordine.getNumCarta());
+			preparedStatement.setTime(2, ordine.getOra());
+			preparedStatement.setInt(3, ordine.getNumCarta());
 
 
 			ResultSet rs = preparedStatement.executeQuery();

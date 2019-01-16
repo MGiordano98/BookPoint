@@ -12,7 +12,7 @@ public class Ordine implements Serializable{
 	private Date dataEffettuata;
 	private Date dataConsegna;
 	private Time ora;
-	private String numCarta;
+	private int numCarta;
 	private String via;
 	private String città;
 	private int cap;
@@ -26,7 +26,7 @@ public class Ordine implements Serializable{
 		super();
 	}
 
-	public Ordine(int idOrdine, Date dataEffettuata, Date dataConsegna, Time ora, String numCarta, String via, String città, int cap,
+	public Ordine(int idOrdine, Date dataEffettuata, Date dataConsegna, Time ora, int numCarta, String via, String città, int cap,
 			double prezzoTot, String stato, Collection<Libro> libri) {
 		super();
 		this.idOrdine = idOrdine;
@@ -88,7 +88,7 @@ public class Ordine implements Serializable{
 		this.ora = ora;
 	}
 
-	public String getNumCarta() {
+	public int getNumCarta() {
 		return this.numCarta;
 	}
 
@@ -96,7 +96,7 @@ public class Ordine implements Serializable{
 	 * 
 	 * @param numCarta
 	 */
-	public void setNumCarta(String numCarta) {
+	public void setNumCarta(int numCarta) {
 		this.numCarta = numCarta;
 	}
 

@@ -50,7 +50,7 @@ public class AmministratoreManager {
 			preparedStatement.setDouble(6, libro.getPrezzo());
 			preparedStatement.setInt(7, libro.getQuantità());
 			preparedStatement.setString(8, libro.getCategoria());
-			preparedStatement.setInt(9, libro.getCopieVendute);
+			preparedStatement.setInt(9, libro.getCopieVendute());
 
 			preparedStatement.executeUpdate();
 

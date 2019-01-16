@@ -35,6 +35,7 @@ public class AccountManager {
 			ResultSet rs= pStatement.executeQuery();
 			while(rs.next()) {
 				utente= new Utente();
+				utente.setEmail(rs.getString("email"));
 				utente.setNome(rs.getString("nome"));
 				utente.setCognome(rs.getString("congome"));
 				utente.setDataDiNascita(rs.getDate("dataDiNascita"));

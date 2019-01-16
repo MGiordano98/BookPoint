@@ -31,8 +31,9 @@ public class AmministratoreOrdineManager {
 			
 			while(rs.next()) {
 				ordine.setCittà(rs.getString("città"));
+				ordine.setDataEffettuata(rs.getDate("data"));
 				ordine.setDataConsegna(rs.getDate("dataConsegna"));
-				ordine.setOra(rs.getString("oraConsegna"));
+				ordine.setOra(rs.getTime("oraConsegna"));
 				ordine.setIdOrdine(rs.getInt("numero"));
 				ordine.setStato(rs.getString("stato"));
 			}

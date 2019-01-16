@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 
+import bean.Autore;
 import bean.Libro;
 import bean.Recensione;
 import connectionPool.DriverMaagerConnectionPool;
@@ -194,11 +195,10 @@ public class InterazioneLibroManager {
 		
 		return libri;
 	}
-
 	
-	private ArrayList<String> getAutori(Connection connection, String isbn) throws SQLException {
+	private ArrayList<Autore> getAutori(Connection connection, String isbn) throws SQLException {
 		PreparedStatement pStatement=null;
-		ArrayList<String> autori= new ArrayList<String>();
+		ArrayList<Autore> autori= new ArrayList<Autore>();
 		
 		String selectQ= "SELECT autore FROM (libro "
 				+ "INNER JOIN scrive ON (libro.isbn = scrive.libro)) "
@@ -208,7 +208,7 @@ public class InterazioneLibroManager {
 		pStatement.setString(1, isbn);
 		ResultSet rs = pStatement.executeQuery();
 		while(rs.next()) {
-		autori.add(rs.getString("autore"));
+		autori.add(new Autore(rs.getString("autore")));
 		}
 		
 		return autori;

@@ -35,12 +35,12 @@ public class GestioneOrdineManager {
 				ordine.setIdOrdine(rs.getInt("numero"));
 				ordine.setDataEffettuata(rs.getDate("dataEffettuata"));
 				ordine.setDataConsegna(rs.getDate("dataConsegna"));
-				ordine.setOra(rs.getTime("oraConsegna").toString());
+				ordine.setOra(rs.getTime("oraConsegna"));
 				ordine.setVia(rs.getString("via"));
 				ordine.setCap(rs.getInt("cap"));
 				ordine.setCittà(rs.getString("città"));
 				ordine.setPrezzoTot(rs.getDouble("totale"));
-				ordine.setNumCarta(rs.getString("numeroCarta"));
+				ordine.setNumCarta(rs.getInt("numeroCarta"));
 				ordine.setStato(rs.getString("stato"));
 				
 				ordine.setLibri(getLibri(connection, ordine));
@@ -62,9 +62,10 @@ public class GestioneOrdineManager {
 		PreparedStatement pStatement= null;
 		Collection<Libro> libriAcquistati= new LinkedList<Libro>();
 		
-		String selectQ = "SELECT * FROM libriacquistati WHERE ordine = " + ordine.getIdOrdine();
+		String selectQ = "SELECT * FROM libriacquistati WHERE ordine = ?";
 		
 		pStatement= connection.prepareStatement(selectQ);
+		pStatement.setInt(1, ordine.getIdOrdine());
 		ResultSet rs= pStatement.executeQuery();
 			
 		while(rs.next()) {
