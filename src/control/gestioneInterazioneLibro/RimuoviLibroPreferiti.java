@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.DataManager;
+import model.InterazioneLibroManager;
 
 /**
  * Servlet implementation class RimuoviLibroPreferiti
@@ -18,7 +19,7 @@ import model.DataManager;
 @WebServlet("/RimuoviLibroPreferiti")
 public class RimuoviLibroPreferiti extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private DataManager dm= new DataManager();
+	private InterazioneLibroManager manager = new InterazioneLibroManager();
     
     /**
      * @see HttpServlet#HttpServlet()
@@ -36,7 +37,7 @@ public class RimuoviLibroPreferiti extends HttpServlet {
 		String email= request.getParameter("email");
 		
 		try {
-			dm.rimuoviLibroPreferiti(isbn, email);
+			manager.rimuoviLibroPreferiti(isbn, email);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

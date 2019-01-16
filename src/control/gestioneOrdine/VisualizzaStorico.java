@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import bean.Ordine;
 import model.DataManager;
+import model.GestioneOrdineManager;
 
 /**
  * Servlet implementation class VisualizzaStorico
@@ -20,7 +21,7 @@ import model.DataManager;
 @WebServlet("/VisualizzaStorico")
 public class VisualizzaStorico extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static DataManager dm= new DataManager();
+	private GestioneOrdineManager manager = new GestioneOrdineManager();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -37,7 +38,7 @@ public class VisualizzaStorico extends HttpServlet {
 		String email= request.getParameter("email");
 		Collection<Ordine> ordini=null;
 		try {
-			ordini= dm.visualizzaStorico(email);
+			ordini= manager.visualizzaStorico(email);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

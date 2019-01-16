@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.Carrello;
+import model.AmministratoreManager;
 import model.DataManager;
 
 /**
@@ -19,7 +20,7 @@ import model.DataManager;
 @WebServlet("/CambiaTipo")
 public class CambiaTipo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static DataManager dm= new DataManager();
+    private static AmministratoreManager am= new AmministratoreManager();
 
        
     /**
@@ -38,7 +39,7 @@ public class CambiaTipo extends HttpServlet {
 		String tipo= request.getParameter("tipo");
 		
 		try {
-			dm.cambiaTipo(email, tipo);
+			am.cambiaTipo(email, tipo);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import bean.Carrello;
 import bean.Libro;
 import model.DataManager;
+import model.LibroManager;
 
 /**
  * Servlet implementation class VisualizzaCatalogo
@@ -21,7 +22,7 @@ import model.DataManager;
 @WebServlet("/VisualizzaCatalogo")
 public class VisualizzaCatalogo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static DataManager dm= new DataManager();
+	private LibroManager manager = new LibroManager();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -34,10 +35,11 @@ public class VisualizzaCatalogo extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Collection<Libro>> catalogo=null;
-		catalogo= dm.visualizzaCatalogo();
+		Collection<Libro> libriInEvidenza= manager.getLibriInEvidenza();
+		Collection<Libro> libriPiùVenduti= manager.getLibriPiùVenduti();
 		
-		request.getSession().setAttribute("catalogo", catalogo);
+		request.getSession().setAttribute("libriInEvidenza", libriInEvidenza);
+		request.getSession().setAttribute("libriPiùVenduti", libriPiùVenduti);
 		
 		RequestDispatcher dispatcher= request.getRequestDispatcher("Libri.jsp");
 		dispatcher.forward(request, response);

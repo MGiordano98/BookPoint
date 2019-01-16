@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import bean.Libro;
 import model.DataManager;
+import model.InterazioneLibroManager;
 
 /**
  * Servlet implementation class VisualizzaPreferiti
@@ -20,7 +21,7 @@ import model.DataManager;
 @WebServlet("/VisualizzaPreferiti")
 public class VisualizzaPreferiti extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private static DataManager dm= new DataManager();
+	private InterazioneLibroManager manager = new InterazioneLibroManager();
     
     /**
      * @see HttpServlet#HttpServlet()
@@ -38,7 +39,7 @@ public class VisualizzaPreferiti extends HttpServlet {
 		Collection<Libro> preferiti= null; 
 		
 		try {
-			preferiti= dm.getPreferiti(email);
+			preferiti= manager.getPreferiti(email);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

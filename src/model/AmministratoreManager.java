@@ -25,7 +25,9 @@ public class AmministratoreManager {
 	 * @param Categoria
 	 * @throws SQLException 
 	 */
-	public void aggiungiLibro(Libro libro, ArrayList<String> autori) throws SQLException {
+	
+	//DA FINIRE
+	public void aggiungiLibro(Libro libro) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
@@ -52,7 +54,7 @@ public class AmministratoreManager {
 
 			connection.commit();
 			
-			insertAutori(autori, libro.getIsbn(), connection);
+			insertAutori(libro.getAutori(), libro.getIsbn(), connection);
 		} finally {
 			try {
 				if (preparedStatement != null)
@@ -63,12 +65,13 @@ public class AmministratoreManager {
 		}
 	}
 
-	private void insertAutori(ArrayList<String> autori, String isbn, Connection connection) throws SQLException {
+	//DA FINIRE
+	private void insertAutori(ArrayList<Autore> autori, String isbn, Connection connection) throws SQLException {
 		PreparedStatement preparedStatement= null;
 		
 		String insertQ= "insert into scrive (libro, autore) values (?, ?)";
 		
-		for(String autore: autori) {
+		for(Autore autore: autori) {
 			preparedStatement = connection.prepareStatement(insertQ);
 			preparedStatement.setString(1, isbn);
 			preparedStatement.setString(2, autore);
@@ -84,6 +87,7 @@ public class AmministratoreManager {
 		}
 	}
 
+	//DA FINIRE
 	private void checkAutori(ArrayList<Autore> autori, Connection connection) {
 /*		PreparedStatement preparedStatement= null;
 		
@@ -100,6 +104,8 @@ public class AmministratoreManager {
 	 * @param nuovoAttributo
 	 * @throws SQLException 
 	 */
+	
+	
 	public void modificaAttributo(String isbn, String tipo, String nuovoAttributo) throws SQLException {
 		Connection connection= null;
 		PreparedStatement preparedStatement= null;

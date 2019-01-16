@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import bean.Libro;
 import bean.Recensione;
 import model.DataManager;
+import model.LibroManager;
 
 /**
  * Servlet implementation class VisualizzaLibro
@@ -21,7 +22,8 @@ import model.DataManager;
 @WebServlet("/VisualizzaLibro")
 public class VisualizzaLibro extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static DataManager dm= new DataManager();
+	private LibroManager manager = new LibroManager();
+
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -40,14 +42,12 @@ public class VisualizzaLibro extends HttpServlet {
 		Collection<Recensione> recensioni= new LinkedList<Recensione>();
 		
 		try {
-			libro= dm.visualizzaLibro(isbn);
-			recensioni= dm.getRecensioni(isbn);
+			libro= manager.visualizzaLibro(isbn);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		
 		request.getSession().setAttribute("libro", libro);
-		request.getSession().setAttribute("recensioni", recensioni);
 		
 		RequestDispatcher dispatcher= request.getRequestDispatcher("VisualizzaLibro.jsp");
 		dispatcher.forward(request, response);

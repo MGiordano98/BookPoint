@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import bean.CartaDiCredito;
 import bean.Indirizzo;
-import model.DataManager;
+import model.AccountManager;
 
 /**
  * Servlet implementation class SelezionaCartaEIndirizzo
@@ -22,7 +22,7 @@ import model.DataManager;
 @WebServlet("/SelezionaCartaEIndirizzo")
 public class SelezionaCartaEIndirizzo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static DataManager dm= new DataManager();
+	private AccountManager manager = new AccountManager();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -42,8 +42,8 @@ public class SelezionaCartaEIndirizzo extends HttpServlet {
 		Collection<Indirizzo> indirizzi= null;
 		
 		try {
-			carte= dm.ricercaCarte(email);
-			indirizzi= dm.ricercaIndirizzi(email);
+			carte= manager.ricercaCarte(email);
+			indirizzi= manager.ricercaIndirizzi(email);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

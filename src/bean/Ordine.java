@@ -2,6 +2,7 @@ package bean;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.sql.Time;
 import java.util.Collection;
 
 public class Ordine implements Serializable{
@@ -10,7 +11,7 @@ public class Ordine implements Serializable{
 	private int idOrdine;
 	private Date dataEffettuata;
 	private Date dataConsegna;
-	private String ora;
+	private Time ora;
 	private String numCarta;
 	private String via;
 	private String città;
@@ -25,7 +26,7 @@ public class Ordine implements Serializable{
 		super();
 	}
 
-	public Ordine(int idOrdine, Date dataEffettuata, Date dataConsegna, String ora, String numCarta, String via, String città, int cap,
+	public Ordine(int idOrdine, Date dataEffettuata, Date dataConsegna, Time ora, String numCarta, String via, String città, int cap,
 			double prezzoTot, String stato, Collection<Libro> libri) {
 		super();
 		this.idOrdine = idOrdine;
@@ -75,7 +76,7 @@ public class Ordine implements Serializable{
 		this.dataConsegna = dataConsegna;
 	}
 
-	public String getOra() {
+	public Time getOra() {
 		return this.ora;
 	}
 
@@ -83,7 +84,7 @@ public class Ordine implements Serializable{
 	 * 
 	 * @param ora
 	 */
-	public void setOra(String ora) {
+	public void setOra(Time ora) {
 		this.ora = ora;
 	}
 

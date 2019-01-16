@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.AmministratoreOrdineManager;
 import model.DataManager;
 
 /**
@@ -23,7 +24,7 @@ import model.DataManager;
 @WebServlet("/CambiaDataEOra")
 public class CambiaDataEOra extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static DataManager dm= new DataManager();
+	private AmministratoreOrdineManager manager = new AmministratoreOrdineManager();
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -47,7 +48,7 @@ public class CambiaDataEOra extends HttpServlet {
 		Date data= Date.valueOf(anno + "-" + mese + "-" + giorno);
 		Time ora= Time.valueOf(ore + ":" + minuti);
 		try {
-			dm.cambiaDataEOra(numOrdine, data, ora);
+			manager.cambiaDataEOra(numOrdine, data, ora);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.AmministratoreManager;
 import model.DataManager;
 
 /**
@@ -18,7 +19,7 @@ import model.DataManager;
 @WebServlet("/EliminaUtente")
 public class EliminaUtente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static DataManager dm= new DataManager();
+    private static AmministratoreManager am= new AmministratoreManager();
 	
 	/**
      * @see HttpServlet#HttpServlet()
@@ -35,7 +36,7 @@ public class EliminaUtente extends HttpServlet {
 		String email= request.getParameter("email");
 		
 		try {
-			dm.eliminaUtente(email);
+			am.eliminaUtente(email);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

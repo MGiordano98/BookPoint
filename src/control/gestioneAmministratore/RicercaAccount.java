@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.Utente;
+import model.AmministratoreManager;
 import model.DataManager;
 
 /**
@@ -19,7 +20,7 @@ import model.DataManager;
 @WebServlet("/RicercaAccount")
 public class RicercaAccount extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static DataManager dm= new DataManager();
+    private static AmministratoreManager am= new AmministratoreManager();
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -37,11 +38,13 @@ public class RicercaAccount extends HttpServlet {
 		
 		Utente utente= null;
 		try {
-			utente = dm.ricercaAccount(email);
+			utente = am.ricercaAccount(email);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		request.getSession().setAttribute("utente", utente);
 		
 		RequestDispatcher dispatcher= request.getRequestDispatcher("AmministratoreAccount.jsp");
 		dispatcher.forward(request, response);

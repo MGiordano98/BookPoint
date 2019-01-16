@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import bean.Autore;
 import bean.Carrello;
 import bean.Libro;
+import model.AmministratoreManager;
 import model.DataManager;
 
 /**
@@ -22,7 +23,7 @@ import model.DataManager;
 @WebServlet("/AggiungiLibro")
 public class AggiungiLibro extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private static DataManager dm= new DataManager();
+    private static AmministratoreManager am= new AmministratoreManager();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -38,7 +39,7 @@ public class AggiungiLibro extends HttpServlet {
 		String isbn, titolo, trama, foto, casaEditrice, categoria;
 		double prezzo;
 		int quantit‡Disponibile;
-		ArrayList<String> autori= new ArrayList<String>();
+		ArrayList<Autore> autori= new ArrayList<Autore>();
 		
 		isbn= request.getParameter("ibn");
 		titolo= request.getParameter("titolo");
@@ -51,13 +52,13 @@ public class AggiungiLibro extends HttpServlet {
 		
 		int numAutori= Integer.parseInt("numAutori");
 		for(int i=0; i<numAutori; i++) {
-			autori.add(request.getParameter("autore"+ i));
+			autori.add(new Autore(request.getParameter("autore"+ i)));
 		}
 		
 		Libro libro= new Libro(isbn, titolo, trama, foto, casaEditrice, prezzo, quantit‡Disponibile, categoria, autori);
 		
 		try {
-			dm.aggiungiLibro(libro, autori);
+			am.aggiungiLibro(libro);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.AmministratoreManager;
 import model.DataManager;
 
 /**
@@ -18,7 +19,7 @@ import model.DataManager;
 @WebServlet("/ModificaAttributo")
 public class ModificaAttributo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static DataManager dm= new DataManager();
+    private static AmministratoreManager am= new AmministratoreManager();
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -37,7 +38,7 @@ public class ModificaAttributo extends HttpServlet {
 		String nuovoAttributo= request.getParameter("nuovoAttributo");
 		
 		try {
-			dm.modificaAttributo(email, tipo, nuovoAttributo);
+			am.modificaAttributo(email, tipo, nuovoAttributo);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

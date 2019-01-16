@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.DataManager;
+import model.InterazioneLibroManager;
 
 /**
  * Servlet implementation class AggiungiLibroPreferiti
@@ -18,7 +19,7 @@ import model.DataManager;
 @WebServlet("/AggiungiLibroPreferiti")
 public class AggiungiLibroPreferiti extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private static DataManager dm= new DataManager();
+	private InterazioneLibroManager manager = new InterazioneLibroManager();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -35,7 +36,7 @@ public class AggiungiLibroPreferiti extends HttpServlet {
 		String email= request.getParameter("email");
 
 		try {
-			dm.aggiungiLibroPreferiti(isbn, email);
+			manager.aggiungiLibroPreferiti(isbn, email);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

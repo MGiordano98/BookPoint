@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.DataManager;
+import model.InterazioneLibroManager;
 
 /**
  * Servlet implementation class RimuoviRecensione
@@ -18,7 +19,7 @@ import model.DataManager;
 @WebServlet("/RimuoviRecensione")
 public class RimuoviRecensione extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private static DataManager dm= new DataManager();
+	private InterazioneLibroManager manager = new InterazioneLibroManager();
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -35,7 +36,7 @@ public class RimuoviRecensione extends HttpServlet {
 		int idRecensione= Integer.parseInt(request.getParameter("idRecensione"));
 		
 		try {
-			dm.rimuoviRecensione(idRecensione);
+			manager.rimuoviRecensione(idRecensione);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

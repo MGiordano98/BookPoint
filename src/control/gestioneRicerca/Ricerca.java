@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import bean.Carrello;
 import bean.Libro;
 import model.DataManager;
+import model.LibroManager;
 
 /**
  * Servlet implementation class Ricerca
@@ -21,7 +22,7 @@ import model.DataManager;
 @WebServlet("/Ricerca")
 public class Ricerca extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static DataManager dm= new DataManager();
+	private LibroManager manager = new LibroManager();
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -39,7 +40,7 @@ public class Ricerca extends HttpServlet {
 		String categoria= request.getParameter("categoria");
 		Collection<Libro> libri=null;
 		try {
-			libri= dm.ricerca(testo, categoria);
+			libri= manager.ricerca(testo, categoria);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

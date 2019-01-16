@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.AmministratoreOrdineManager;
 import model.DataManager;
 
 /**
@@ -18,7 +19,7 @@ import model.DataManager;
 @WebServlet("/CambiaStato")
 public class CambiaStato extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static DataManager dm= new DataManager();
+	private AmministratoreOrdineManager manager = new AmministratoreOrdineManager();
 
        
     /**
@@ -37,7 +38,7 @@ public class CambiaStato extends HttpServlet {
 		String stato= request.getParameter("stato");
 		
 		try {
-			dm.cambiaStato(numOrdine, stato);
+			manager.cambiaStato(numOrdine, stato);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

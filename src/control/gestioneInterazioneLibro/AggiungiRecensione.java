@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import bean.Recensione;
 import model.DataManager;
+import model.InterazioneLibroManager;
 
 /**
  * Servlet implementation class AggiungiRecensione
@@ -19,7 +20,7 @@ import model.DataManager;
 @WebServlet("/AggiungiRecensione")
 public class AggiungiRecensione extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private static DataManager dm= new DataManager();
+	private InterazioneLibroManager manager = new InterazioneLibroManager();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -38,7 +39,7 @@ public class AggiungiRecensione extends HttpServlet {
 		
 		Recensione recensione= new Recensione(testo, isbn, email);
 		try {
-			dm.aggiungiRecensione(recensione);
+			manager.aggiungiRecensione(recensione);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

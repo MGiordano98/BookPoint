@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bean.Ordine;
+import model.AmministratoreOrdineManager;
 import model.DataManager;
 
 /**
@@ -20,7 +21,7 @@ import model.DataManager;
 @WebServlet("/RicercaOrdine")
 public class RicercaOrdine extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static DataManager dm= new DataManager();
+	private AmministratoreOrdineManager manager = new AmministratoreOrdineManager();
    
 	
     /**
@@ -39,7 +40,7 @@ public class RicercaOrdine extends HttpServlet {
 		int numOrdine= Integer.parseInt(request.getParameter("numOrdine"));
 		Ordine ordine= null;
 		try {
-			ordine= dm.ricercaOrdine(numOrdine);
+			ordine= manager.ricercaOrdine(numOrdine);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

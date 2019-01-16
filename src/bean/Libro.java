@@ -14,7 +14,8 @@ public class Libro implements Serializable{
 	private double prezzo;
 	private int quantit‡;
 	private String categoria;
-	private ArrayList<String> autori;
+	private ArrayList<Autore> autori;
+	private ArrayList<Recensione> recensioni;
 	private int quantit‡Selezionata;
 	
 	
@@ -23,7 +24,7 @@ public class Libro implements Serializable{
 	}
 
 	public Libro(String isbn, String titolo, String trama, String foto, String casaEditrice, double prezzo, int quantit‡,
-			String categoria, ArrayList<String> autori) {
+			String categoria, ArrayList<Autore> autori, ArrayList<Recensione> recensioni) {
 		super();
 		this.isbn = isbn;
 		this.titolo = titolo;
@@ -34,9 +35,25 @@ public class Libro implements Serializable{
 		this.quantit‡ = quantit‡;
 		this.categoria = categoria;
 		this.autori = autori;
+		this.recensioni = recensioni;
 		this.quantit‡Selezionata = 0;
 	}
 	
+	public Libro(String isbn, String titolo, String trama, String foto, String casaEditrice, double prezzo, int quantit‡,
+			String categoria, ArrayList<Autore> autori) {
+		super();
+		this.isbn = isbn;
+		this.titolo = titolo;
+		this.trama = trama;
+		this.foto = foto;
+		this.casaEditrice = casaEditrice;
+		this.prezzo = prezzo;
+		this.quantit‡ = quantit‡;
+		this.categoria = categoria;
+		this.autori = autori;
+		this.recensioni = new ArrayList<Recensione>();
+		this.quantit‡Selezionata = 0;
+	}
 	
 
 	public String getIsbn() {
@@ -131,12 +148,20 @@ public class Libro implements Serializable{
 		this.categoria = categoria;
 	}
 
-	public ArrayList<String> getAutori() {
+	public ArrayList<Autore> getAutori() {
 		return autori;
 	}
 
-	public void setAutori(ArrayList<String> autori) {
+	public void setAutori(ArrayList<Autore> autori) {
 		this.autori = autori;
+	}
+
+	public ArrayList<Recensione> getRecensioni() {
+		return recensioni;
+	}
+
+	public void setRecensioni(ArrayList<Recensione> recensioni) {
+		this.recensioni = recensioni;
 	}
 
 	public int getQuantit‡Selezionata() {

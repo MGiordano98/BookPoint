@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.Carrello;
+import model.AmministratoreManager;
 import model.DataManager;
 
 /**
@@ -19,7 +20,7 @@ import model.DataManager;
 @WebServlet("/EliminaLibro")
 public class EliminaLibro extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static DataManager dm= new DataManager();
+    private static AmministratoreManager am= new AmministratoreManager();
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -36,7 +37,7 @@ public class EliminaLibro extends HttpServlet {
 		String isbn= request.getParameter("isbn");
 		
 		try {
-			dm.eliminaLibro(isbn);
+			am.eliminaLibro(isbn);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
