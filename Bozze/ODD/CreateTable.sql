@@ -25,13 +25,13 @@ create table libro
 
 create table autore
 (
-	id integer(10) primary key,
+	id integer(10) auto_increment primary key,
     nome varchar(100)
 );
 
 create table indirizzo
 (
-	id integer(10) primary key,
+	id integer(10) auto_increment primary key,
     via varchar(30),
     numeroCivico integer(4),
     cap integer(5),
@@ -86,16 +86,17 @@ create table libriAcquistati
 create table preferisce
 (
 	utente varchar(60),
+    libro varchar(13),
+    primary key(utente,libro),
     foreign key (utente) references utente(email)
     on delete set null on update cascade,
-    libro varchar(13),
     foreign key (libro) references libro(isbn)
     on delete set null on update cascade
 );
 
 create table recensione
 (
-	id integer(10) primary key,
+	id integer(10) auto_increment primary key,
     testo varchar(300),
     utente varchar(60),
     foreign key (utente) references utente(email)
