@@ -5,7 +5,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="styleCliente2.css"> 
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>I miei preferiti</title>
 </head>
 <body>
@@ -24,7 +24,7 @@
 	%>
 <div class="container-preferiti" >
 <div class="preferiti-immagine">
-	<img src="../image/principe.jpg" style="max-height: 150px">
+	<img src="../image/principe.jpg" >
 </div >
 
 <div class="container-preferiti2">
@@ -39,7 +39,7 @@
 	   <%} else { %>
 	   <%=temp + ", " %>
 	   <%	} 
-	   	} %></h6> <h4 style="float:right;"><%=bean.getPrezzo() %></h4>
+	   	} %></h6> <h4><%=bean.getPrezzo() %></h4>
 	   
 
 </div>
@@ -47,7 +47,7 @@
 <div class="descrizione-preferiti" >
 <%=bean.getTrama() %> 
 </div>
-	<div style="position:absolute; bottom:0; right:0;">
+	<div class="bottone-preferiti">
 	<form>
 		<input type="Hidden" value=<%=bean.getIsbn()%> > 
 		<input type="submit" value="rimuovi">

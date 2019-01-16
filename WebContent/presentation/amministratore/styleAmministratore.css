@@ -102,6 +102,28 @@ header{
 }
 
 
+/*css ricerca*/
+
+.cerca{
+	 width:60%;
+	 text-align:right;
+	 display:inline-block;
+}
+
+.search-container input{
+	width:90%;
+}
+
+.container-cerca selcet{
+	width:250px;
+}
+
+.container-inserimento{
+	 margin-top:5%;
+}
+.container-inserimento ul{
+	 list-style-type: none;
+}
 
 
 

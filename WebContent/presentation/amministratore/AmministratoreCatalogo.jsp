@@ -3,20 +3,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="styleAmministratore.css"> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>BookPoint</title>
 </head>
 <body>
 <%@ include file="headerAmministratore.jsp"%>
 
-<div>
-<div class="cerca" style="width:60%;text-align:right;display:inline-block;">
+<div class="container-cerca">
+<div class="cerca">
   <form class="search-container">
-    <input  style="width:90%;"type="text" id="search-bar" placeholder="Cerca libro">
+    <input  type="text" id="search-bar" placeholder="Cerca libro">
     <a href="#"><i class="fas fa-search fa-lg"></i></a>
   </form>
 </div>
-<select style="width:250px">
+<select >
   <option value="categorie"> Tutte le categorie</option>
   <option value="saab">Saab</option>
   <option value="opel">Opel</option>
@@ -25,8 +26,8 @@
 </div>
 <input type="submit" value="aggiungi libro">
 
-<div style="margin-top:5%;">
-<ul style="list-style-type: none;">
+<div class="container-inserimento">
+<ul >
 <li><form action="/action_page.php">
   <input type="file" name="pic" accept="image/*">
   <input type="submit">

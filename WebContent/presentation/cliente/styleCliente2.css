@@ -223,53 +223,6 @@ header{
 }
 
 
-/*abababa*/
-.navbar-mio{
-	background-color: #343a40 ;
-	color: rgb(255,255,255,.5) !important;
-	font-size:initial !important;
-}
-
-.navbar-left-mio{
-	margin-left: 5%;
-}
-
-.navbar-rigth-mio{
-	margin: auto 10% auto 5%;
-}
-
-.navbar-elementi-mio{
-	white-space: nowrap;
-	padding-left: 20px;
-	padding-right: 20px;
-}
-
-.nav-a-mio{
-	color: rgb(255,255,255,.5) !important;
-}
-
-
-@media (max-width:433px){
-	.LogoPizzaPoint{
-	display:none;
-	}
-}
-
-@media (min-width: 550px){
-.card-deck {
-	margin-right:auto;
-}
-}
-
-@media (max-width: 991.98px){
-    .navbar-expand-lg>.container, .navbar-expand-lg>.container-fluid {
-     padding-right:inherit; 
-     padding-left: inherit;
-     display:table-cell;
-     margin-right:inherit;
-    }
-}
-
 
 
 /* CSS FOOTER*/
@@ -327,10 +280,20 @@ header{
 
 
 /*Css barra di ricerca*/
+.container-cerca{
+	margin-top:1%;
+	margin-bottom:1%;
+}
+
 .cerca{
-	   width: 100%;
-    text-align: center;
-    height: auto;
+    width:60%;text-align:right;display:inline-block;
+}
+
+#search-bar{
+	width:70%; 
+}
+.container-cerca select{
+	width:250px;
 }
 
 
@@ -360,6 +323,7 @@ media-heading h2{
 
 .preferiti-immagine{
 	min-width:10%;
+	max-height: 150px;
 }
 
 .container-preferiti2{
@@ -369,11 +333,48 @@ media-heading h2{
 .intestazione-preferiti h2{
 	display:inline;
 }
-
+.intestazione-preferiti h4{
+	float:right;
+}
 .descrizione-preferiti{
 	height:auto;
 	width:100%;
 	}
+	
+.bottone-preferiti{
+	 position:absolute; bottom:0; right:0;
+}
+
+
+
+/* CSS DEL LOGIN */
+
+.divloginout{
+	width:40%;
+	margin: 1% auto 1% auto;
+	background-color:white;
+}
+@media (max-width:500px){
+	.divloginout{
+		width:auto;
+	}
+}
+
+.divlogin{
+	padding:10% 10% 10% 10%;
+}
+.imglogin{
+	width:50%; 
+	margin-left:20%;
+}
+.spanlogin{
+	 margin-left:5%;
+}
+.divlogin button{
+	text-align:center;
+}
+
+
 
 
 
@@ -609,3 +610,77 @@ media-heading h2{
 	height: 35px;
 }
 
+
+/*Css visaulizza libro*/
+
+.container-visualizza-libro{
+	margin-left:5%;
+	margin-right:5%;
+	display:flex;
+	height:350px;
+	
+}
+
+.visualizza-libro-immagine{
+	min-width:10%;
+	max-height: 150px;
+}
+.visualizza-libro-immagine img{
+	width:100%; height:100%;
+}
+
+
+.container-visualizza-libro2{
+	position:relative;
+}
+
+.intestazione-visualizza-libro h2{
+	display:inline;
+}
+.intestazione-visualizza-libro img{
+	witdh:34px;
+	height:34px;
+}
+.intestazione-preferiti h4{
+	float:right;
+}
+.descrizione-preferiti{
+	height:auto;
+	width:100%;
+	}
+
+.container-dettagli-libro{
+	margin-top:5%;
+	margin-left:5%;
+	margin-right:5%;
+	display:flex;
+}
+
+.dettagli-libro{
+	width:50%;
+	display:inline-grid;
+}
+.quantita-libro{
+	width:30%;
+	display:inline-grid;
+}
+.container-recensione-libro{
+	width:80%;
+	margin-top:5%;
+	margin-left:5%;
+}
+
+.container-aggiungi-recensione{
+	display:grid;
+	width:40%;
+	margin-top:3%;
+	margin-left:5%;
+}
+
+#titolo-recensione{
+	margin-bottom:0.3%;
+}
+
+.container-aggiungi-recensione input{
+	width:inherit;
+}

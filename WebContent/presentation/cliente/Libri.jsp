@@ -11,14 +11,14 @@
 <body>
 <%@ include file="header.jsp"%>
 
-<div>
-<div class="cerca" style="width:60%;text-align:right;display:inline-block;">
+<div class="container-cerca" >
+<div class="cerca">
   <form class="search-container">
-    <input  style="width:90%;"type="text" id="search-bar" placeholder="Cerca libro">
+    <input  type="text" id="search-bar" placeholder="Cerca libro">
     <a href="#"><i class="fas fa-search fa-lg"></i></a>
   </form>
 </div>
-<select style="width:250px">
+<select>
   <option value="categorie"> Tutte le categorie</option>
   <option value="saab">Saab</option>
   <option value="opel">Opel</option>
