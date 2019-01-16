@@ -25,7 +25,7 @@ public class AmministratoreManager {
 	 * @param Categoria
 	 * @throws SQLException 
 	 */
-	
+
 	//DA FINIRE
 	public void aggiungiLibro(Libro libro) throws SQLException {
 		Connection connection = null;
@@ -33,10 +33,11 @@ public class AmministratoreManager {
 
 		try {
 			connection = DriverMaagerConnectionPool.getConnection();
-		//	checkAutori(autori, connection);
+			//	checkAutori(autori, connection);
 
+			//  Viene inserito il libro
 			String insertSQL = "INSERT INTO libro"
-					+ " (isbn, titolo, trama, foto, casaEditrice, prezzo, quantit‡Disponibile, categoria) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+					+ " (isbn, titolo, trama, foto, casaEditrice, prezzo, quantit‡Disponibile, categoria,copieVendute) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
 
 
@@ -49,12 +50,23 @@ public class AmministratoreManager {
 			preparedStatement.setDouble(6, libro.getPrezzo());
 			preparedStatement.setInt(7, libro.getQuantit‡());
 			preparedStatement.setString(8, libro.getCategoria());
+			preparedStatement.setInt(9, libro.getCopieVendute);
 
 			preparedStatement.executeUpdate();
 
+			//per ogni autore verifichiamo se Ë presente nel database, se non Ë presente lo inseriamo nella tabella autore e poi inseriamo
+			//una tupla nella tabbella scrive.
+			//Se non Ë presente inseriamo solamente una tupla nella tabella scrive.
+			for(Autore temp : libro.getAutori()){
+
+				if(!presenteAutore(temp,connection)){
+					insertAutore(temp.getNome(), connection);
+				}
+					insertScrive(temp.getNome(),libro.getIsbn(),connection);
+				
+			}
+
 			connection.commit();
-			
-			insertAutori(libro.getAutori(), libro.getIsbn(), connection);
 		} finally {
 			try {
 				if (preparedStatement != null)
@@ -65,37 +77,89 @@ public class AmministratoreManager {
 		}
 	}
 
-	//DA FINIRE
-	private void insertAutori(ArrayList<Autore> autori, String isbn, Connection connection) throws SQLException {
-		PreparedStatement preparedStatement= null;
+	private void insertScrive(String nome, String isbn, Connection connection) throws SQLException {
 		
-		String insertQ= "insert into scrive (libro, autore) values (?, ?)";
+		PreparedStatement preparedStatement=null;
 		
-		for(Autore autore: autori) {
-			preparedStatement = connection.prepareStatement(insertQ);
-			preparedStatement.setString(1, isbn);
-			preparedStatement.setString(2, autore);
+		try{
+			String InsertSQL="insert into Scrivi(autore,libro)"
+					+ "values(?,?)";
+			
+			preparedStatement=connection.prepareStatement(InsertSQL);
+			preparedStatement.setString(1,nome);
+			preparedStatement.setString(2,isbn);
+			
 			preparedStatement.executeUpdate();
-			connection.commit();
-		}
-		
-		try {
-			if (preparedStatement != null)
-				preparedStatement.close();
-		} finally {
-			DriverMaagerConnectionPool.releaseConnection(connection);
+			
+		} finally{
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				DriverMaagerConnectionPool.releaseConnection(connection);
+			}
 		}
 	}
 
-	//DA FINIRE
-	private void checkAutori(ArrayList<Autore> autori, Connection connection) {
-/*		PreparedStatement preparedStatement= null;
+	private void insertAutore(String nome, Connection connection) throws SQLException {
 		
-		for(String nomeCognome : autori) {
-			String selectQ= "select * from autori where nome = ? and cognome = ?"
+		PreparedStatement preparedStatement=null;
+		
+		try{
+			String InsertSQL="insert into autore(nome)"
+					+ "values(?)";
 			
-			if(!rs.hasNext()) insert..
-		}*/
+			preparedStatement=connection.prepareStatement(InsertSQL);
+			preparedStatement.setString(1,nome);
+			
+			preparedStatement.executeUpdate();
+			
+		} finally{
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				DriverMaagerConnectionPool.releaseConnection(connection);
+			}
+		}
+		
+		
+	}
+
+	
+	//DA FINIRE
+	private boolean presenteAutore(Autore autore, Connection connection) throws SQLException {
+
+		PreparedStatement preparedStatement= null;
+
+		String checkSQL="SELECT * "
+				+ "FROM AUTORE"
+				+ "WHERE nome=?";
+
+		boolean trovato=false;
+		
+		try{
+			preparedStatement=connection.prepareStatement(checkSQL);
+			preparedStatement.setString(1, autore.getNome());
+
+			ResultSet rs=preparedStatement.executeQuery();
+
+			if(rs.next()){
+				trovato= true;;
+			}
+
+
+		}finally{
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				DriverMaagerConnectionPool.releaseConnection(connection);
+			}
+		}
+
+		return trovato;
+
 	}
 
 	/**
@@ -104,14 +168,14 @@ public class AmministratoreManager {
 	 * @param nuovoAttributo
 	 * @throws SQLException 
 	 */
-	
-	
+
+
 	public void modificaAttributo(String isbn, String tipo, String nuovoAttributo) throws SQLException {
 		Connection connection= null;
 		PreparedStatement preparedStatement= null;
-		
+
 		connection= DriverMaagerConnectionPool.getConnection();
-		
+
 		try {
 			String updateQ = "UPDATE libro WHERE isbn = ? SET ? = ?";
 			preparedStatement= connection.prepareStatement(updateQ);
@@ -137,9 +201,9 @@ public class AmministratoreManager {
 	public void eliminaLibro(String isbn) throws SQLException {
 		Connection connection= null;
 		PreparedStatement preparedStatement= null;
-		
+
 		connection= DriverMaagerConnectionPool.getConnection();
-		
+
 		try {
 			String deleteQ = "DELETE FROM libro WHERE isbn = ?";
 			preparedStatement= connection.prepareStatement(deleteQ);
@@ -163,9 +227,9 @@ public class AmministratoreManager {
 	public void eliminaRecensione(int idRecensione) throws SQLException {
 		Connection connection= null;
 		PreparedStatement preparedStatement= null;
-		
+
 		connection= DriverMaagerConnectionPool.getConnection();
-		
+
 		try {
 			String deleteQ = "DELETE FROM recensione WHERE id = ?";
 			preparedStatement= connection.prepareStatement(deleteQ);
@@ -189,14 +253,14 @@ public class AmministratoreManager {
 	public Utente ricercaAccount(String email) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement preparedStatement= null;
-		
+
 		String selectQ= "SELECT * FROM utente WHERE email = ?";
 		Utente utente= new Utente();
 		try {
 			preparedStatement= connection.prepareStatement(selectQ);
 			preparedStatement.setString(1, email);
 			ResultSet rs= preparedStatement.executeQuery();
-			
+
 			while(rs.next()) {
 				utente.setEmail("email");
 				utente.setNome(rs.getString("nome"));
@@ -207,13 +271,13 @@ public class AmministratoreManager {
 			}
 		}finally {
 			try {
-			if(preparedStatement!=null)
-				preparedStatement.close();
+				if(preparedStatement!=null)
+					preparedStatement.close();
 			}finally {
 				DriverMaagerConnectionPool.releaseConnection(connection);
 			}
 		}
-		
+
 		return utente;
 	}
 
@@ -226,9 +290,9 @@ public class AmministratoreManager {
 	public void cambiaTipo(String email, String tipo) throws SQLException {
 		Connection connection= null;
 		PreparedStatement preparedStatement= null;
-		
+
 		connection= DriverMaagerConnectionPool.getConnection();
-		
+
 		try {
 			String updateQ = "UPDATE utente WHERE email = ? SET tipo = ?";
 			preparedStatement= connection.prepareStatement(updateQ);
@@ -253,9 +317,9 @@ public class AmministratoreManager {
 	public void eliminaUtente(String email) throws SQLException {
 		Connection connection= null;
 		PreparedStatement preparedStatement= null;
-		
+
 		connection= DriverMaagerConnectionPool.getConnection();
-		
+
 		try {
 			String deleteQ = "DELETE FROM utente WHERE email = ?";
 			preparedStatement= connection.prepareStatement(deleteQ);
