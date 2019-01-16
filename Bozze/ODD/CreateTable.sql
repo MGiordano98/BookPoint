@@ -12,21 +12,21 @@ create table utente
 
 create table libro
 (
-	isbn integer(13) primary key,
+	isbn varchar(13) primary key,
     titolo varchar(50),
     trama varchar(300),
     foto varchar(60),
     casaEditrice varchar(30),
     prezzo float(10),
     quantitàDisponibile integer(4),
-    categoria varchar(30)
+    categoria varchar(30),
+    copieVendute integer(10)
 );
 
 create table autore
 (
 	id integer(10) primary key,
-    nome varchar(30),
-    cognome varchar(30)
+    nome varchar(100)
 );
 
 create table indirizzo
@@ -38,7 +38,7 @@ create table indirizzo
     città varchar(30),
     utente varchar(60),
     foreign key (utente) references utente(email)
-    on delete set null on update cascade
+    on delete cascade on update cascade
 );
 
 create table cartaDiCredito
@@ -49,7 +49,7 @@ create table cartaDiCredito
     cvv integer(3),
     utente varchar(60), 
     foreign key (utente) references utente(email)
-    on delete set null on update cascade
+    on delete cascade on update cascade
 );
 
 create table ordine
@@ -76,18 +76,19 @@ create table libriAcquistati
     quantità integer(10),
     titolo varchar(50),
     ordine integer(20),
+    libro varchar(13),
+    primary key(ordine,libro),
     foreign key (ordine) references ordine(numero)
-    on delete set null on update cascade,
-    libro integer(13),
+    on delete cascade on update cascade,
     foreign key (libro) references libro(isbn)
-    on delete set null on update cascade
+    on delete cascade on update cascade
 );
 create table preferisce
 (
 	utente varchar(60),
     foreign key (utente) references utente(email)
     on delete set null on update cascade,
-    libro integer(13),
+    libro varchar(13),
     foreign key (libro) references libro(isbn)
     on delete set null on update cascade
 );
@@ -99,7 +100,7 @@ create table recensione
     utente varchar(60),
     foreign key (utente) references utente(email)
     on delete set null on update cascade,
-    libro integer(13),
+    libro varchar(13),
     foreign key (libro) references libro(isbn)
     on delete set null on update cascade
 );
@@ -107,9 +108,10 @@ create table recensione
 create table scrive
 (
 	autore integer(10),
+    libro varchar(13),
+    primary key(autore,libro),
     foreign key (autore) references autore(id)
-    on delete set null on update cascade,
-	libro integer(13),
+    on delete cascade on update cascade,
     foreign key (libro) references libro(isbn)
-    on delete set null on update cascade
+    on delete cascade on update cascade
 );
