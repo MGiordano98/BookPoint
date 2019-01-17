@@ -20,7 +20,8 @@ create table libro
     prezzo float(10),
     quantitàDisponibile integer(4),
     categoria varchar(30),
-    copieVendute integer(10)
+    copieVendute integer(10),
+    dataUscita date
 );
 
 create table autore
