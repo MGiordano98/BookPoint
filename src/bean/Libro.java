@@ -1,6 +1,7 @@
 package bean;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.ArrayList;
 
 public class Libro implements Serializable{
@@ -18,6 +19,7 @@ public class Libro implements Serializable{
 	private ArrayList<Recensione> recensioni;
 	private int quantit‡Selezionata;
 	private int copieVendute;
+	private Date dataUscita;
 	
 	
 	public Libro() {
@@ -25,7 +27,7 @@ public class Libro implements Serializable{
 	}
 
 	public Libro(String isbn, String titolo, String trama, String foto, String casaEditrice, double prezzo, int quantit‡,
-			String categoria, ArrayList<Autore> autori, ArrayList<Recensione> recensioni) {
+			String categoria, ArrayList<Autore> autori, ArrayList<Recensione> recensioni,Date dataUscita) {
 		super();
 		this.isbn = isbn;
 		this.titolo = titolo;
@@ -39,6 +41,8 @@ public class Libro implements Serializable{
 		this.recensioni = recensioni;
 		this.quantit‡Selezionata = 0;
 		this.copieVendute = 0;
+		this.dataUscita=dataUscita;
+		
 	}
 	
 	public Libro(String isbn, String titolo, String trama, String foto, String casaEditrice, double prezzo, int quantit‡,
@@ -55,6 +59,8 @@ public class Libro implements Serializable{
 		this.autori = autori;
 		this.recensioni = new ArrayList<Recensione>();
 		this.quantit‡Selezionata = 0;
+		this.copieVendute = 0;
+		this.dataUscita=dataUscita;
 	}
 	
 
@@ -180,6 +186,14 @@ public class Libro implements Serializable{
 
 	public void setCopieVendute(int copieVendute) {
 		this.copieVendute = copieVendute;
+	}
+
+	public Date getDataUscita() {
+		return dataUscita;
+	}
+
+	public void setDataUscita(Date dataUscita) {
+		this.dataUscita = dataUscita;
 	}
 	
 	

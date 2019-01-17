@@ -16,6 +16,7 @@ import connectionPool.DriverMaagerConnectionPool;
 public class LibroManager {
 	
 	private static final String TABLE_NAME= "libro";
+	private final int NUMERO_LIBRI=8;//Numero di libri che si vuole mostrare
 
 	/**
 	 * 
@@ -29,7 +30,7 @@ public class LibroManager {
 
 		Collection<Libro> libri = new LinkedList<Libro>();
 
-		String selectSQL = "SELECT * FROM libro JOIN scrive WHERE categoria = ? AND "
+		String selectSQL = "SELECT * FROM libro WHERE categoria = ? AND "
 				+ "((titolo = ? OR autore = ?))";
 
 
@@ -79,9 +80,9 @@ public class LibroManager {
 
 		Collection<Libro> libri = new LinkedList<Libro>();
 
-		String selectSQL = "SELECT * FROM " + TABLE_NAME + " JOIN scrive ORDER BY copieVendute desc";
+		String selectSQL = "SELECT * FROM " + TABLE_NAME + " ORDER BY copieVendute desc";
 
-		final int NUMERO_LIBRI=8;//Numero di libri che si vuole mostrare
+		
 		try {
 			connection = DriverMaagerConnectionPool.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
@@ -101,6 +102,7 @@ public class LibroManager {
 				bean.setQuantità(rs.getInt("quantità"));
 				bean.setCategoria(rs.getString("categoria"));
 				bean.setCopieVendute(rs.getInt("copieVendute"));
+				bean.setDataUscita(rs.getDate("dataUscita"));
 				
 				bean.setRecensioni(getRecensioni(connection, bean.getIsbn()));
 				bean.setAutori(getAutori(connection, bean.getIsbn()));
@@ -122,9 +124,55 @@ public class LibroManager {
 	}
 	
 	
-	public Collection<Libro> getLibriInEvidenza(){
-		return null;
+	public Collection<Libro> getLibriInEvidenza() throws SQLException{
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		Collection<Libro> libri = new LinkedList<Libro>();
+
+		String selectSQL = "SELECT * FROM " + TABLE_NAME + " ORDER BY dataUscita desc";
+
+		
+		try {
+			connection = DriverMaagerConnectionPool.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			int i=0;
+			while (rs.next() && i<NUMERO_LIBRI) {
+				Libro bean = new Libro();
+
+				bean.setIsbn(rs.getString("isbn"));
+				bean.setTitolo(rs.getString("titolo"));
+				bean.setTrama(rs.getString("trama"));
+				bean.setFoto(rs.getString("foto"));
+				bean.setCasaEditrice(rs.getString("casaEditrice"));
+				bean.setPrezzo(rs.getDouble("prezzo"));
+				bean.setQuantità(rs.getInt("quantità"));
+				bean.setCategoria(rs.getString("categoria"));
+				bean.setCopieVendute(rs.getInt("copieVendute"));
+				bean.setDataUscita(rs.getDate("dataUscita"));
+				
+				bean.setRecensioni(getRecensioni(connection, bean.getIsbn()));
+				bean.setAutori(getAutori(connection, bean.getIsbn()));
+				
+				libri.add(bean);
+				i++;
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				DriverMaagerConnectionPool.releaseConnection(connection);
+			}
+		}
+		
+		return libri;
 	}
+
 
 	public Libro visualizzaLibro(String isbn) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
@@ -147,6 +195,7 @@ public class LibroManager {
 				libro.setQuantità(rs.getInt("quantità"));
 				libro.setCategoria(rs.getString("categoria"));
 				libro.setCopieVendute(rs.getInt("copieVendute"));
+				libro.setDataUscita(rs.getDate("dataUscita"));
 				
 				libro.setRecensioni(getRecensioni(connection, isbn));
 				libro.setAutori(getAutori(connection, isbn));
