@@ -26,7 +26,7 @@ public class OrdineManager {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
 		
-		String insertQ= "INSERT INTO ordine (numero, data, oraConsegna, dataConsegna, totale, via, cap, città, stato, cartaDiCredito)"
+		String insertQ= "INSERT INTO ordine (numero, data, oraConsegna, dataConsegna, totale, via, cap, città, stato, numeroCarta)"
 				+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		boolean result = false;
 		
@@ -99,11 +99,11 @@ public class OrdineManager {
 		try {
 			for(Libro l: libriAcquistati) {
 					pStatement= connection.prepareStatement(insertQ);
-					pStatement.setInt(0, ordine.getIdOrdine());
-					pStatement.setString(1, l.getIsbn());
-					pStatement.setString(2, l.getTrama());
-					pStatement.setInt(3, l.getQuantità());
-					pStatement.setDouble(4, l.getPrezzo());
+					pStatement.setInt(1, ordine.getIdOrdine());
+					pStatement.setString(2, l.getIsbn());
+					pStatement.setString(3, l.getTrama());
+					pStatement.setInt(4, l.getQuantità());
+					pStatement.setDouble(5, l.getPrezzo());
 					
 					result= pStatement.executeUpdate();
 					connection.commit();
