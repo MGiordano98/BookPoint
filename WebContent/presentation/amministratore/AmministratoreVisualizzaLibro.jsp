@@ -93,7 +93,7 @@
        
       <tr>
       <td>Immagine</td>
-      <td colspan="2">Nome immagine</td>
+      <td >Nome immagine</td>
    
     </tr>
   

@@ -12,6 +12,9 @@ body
 header{
 	background-color: #f7f7f7;
 }
+center img{
+	max-width:400px;
+}
 .divFisso{
 	min-width:1477px;
 }
@@ -494,7 +497,6 @@ media-heading h2{
 	display:table-cell; 
 	width: 300px; 
 	padding-left:20px; 
-	border: 1px #ddd solid; 
 	height:100%;
     cursor: pointer;
     text-decorazione: none;

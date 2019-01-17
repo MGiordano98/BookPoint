@@ -125,11 +125,11 @@ header{
 	 list-style-type: none;
 }
 
+/*css account ordine*/
 
-/*css account*/
-
-.container-account{
+.container-ordine{
 	 margin-top:5%;
 	 width:300px;
 	 margin-left:40%;
 }
+
