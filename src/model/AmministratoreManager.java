@@ -1,10 +1,10 @@
 package model;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import bean.Autore;
 import bean.Libro;
@@ -170,17 +170,30 @@ public class AmministratoreManager {
 
 
 	public void modificaAttributo(String isbn, String tipo, String nuovoAttributo) throws SQLException {
+		
+		switch(tipo){
+		case "titolo": modificaTitolo(isbn,nuovoAttributo); break;
+		case "trama":modificaTrama(isbn,nuovoAttributo); break;
+		case "foto":modificaFoto(isbn,nuovoAttributo); break;
+		case "casaEditrice":modificaCasaEditrice(isbn,nuovoAttributo); break;
+		case "prezzo":modificaPrezzo(isbn,nuovoAttributo); break;
+		case "quantit‡Disponibile":modificaQuantit‡Disponibile(isbn,nuovoAttributo); break;
+		case "categoria":modificaCategoria(isbn,nuovoAttributo); break;
+		case "copieVendute":modificaCopieVendute(isbn,nuovoAttributo); break;
+		case "dataUscita":modificaDataUscita(isbn,nuovoAttributo); break;
+		}
+	}
+
+	private void modificaDataUscita(String isbn, Date nuovoAttributo) throws SQLException {
 		Connection connection= null;
 		PreparedStatement preparedStatement= null;
 
 		connection= DriverMaagerConnectionPool.getConnection();
-
 		try {
-			String updateQ = "UPDATE libro WHERE isbn = ? SET ? = ?";
+			String updateQ = "UPDATE libro WHERE isbn = ? SET dataUscita = ?";
 			preparedStatement= connection.prepareStatement(updateQ);
 			preparedStatement.setString(1, isbn);
-			preparedStatement.setString(2, tipo);
-			preparedStatement.setString(3, nuovoAttributo);
+			preparedStatement.setDate(2, nuovoAttributo);
 			preparedStatement.executeUpdate();
 			connection.commit();
 		}finally {
@@ -190,6 +203,188 @@ public class AmministratoreManager {
 				DriverMaagerConnectionPool.releaseConnection(connection);
 			}
 		}
+		
+		
+	}
+
+	private void modificaCopieVendute(String isbn, int nuovoAttributo) throws SQLException {
+		Connection connection= null;
+		PreparedStatement preparedStatement= null;
+
+		connection= DriverMaagerConnectionPool.getConnection();
+		try {
+			String updateQ = "UPDATE libro WHERE isbn = ? SET copieVendute = ?";
+			preparedStatement= connection.prepareStatement(updateQ);
+			preparedStatement.setString(1, isbn);
+			preparedStatement.setInt(2, nuovoAttributo);
+			preparedStatement.executeUpdate();
+			connection.commit();
+		}finally {
+			try {
+				preparedStatement.close();
+			}finally {
+				DriverMaagerConnectionPool.releaseConnection(connection);
+			}
+		}
+		
+	}
+
+	private void modificaCategoria(String isbn, String nuovoAttributo) throws SQLException {
+		Connection connection= null;
+		PreparedStatement preparedStatement= null;
+
+		connection= DriverMaagerConnectionPool.getConnection();
+		try {
+			String updateQ = "UPDATE libro WHERE isbn = ? SET ? = ?";
+			preparedStatement= connection.prepareStatement(updateQ);
+			preparedStatement.setString(1, isbn);
+			preparedStatement.setString(2, nuovoAttributo);
+			preparedStatement.executeUpdate();
+			connection.commit();
+		}finally {
+			try {
+				preparedStatement.close();
+			}finally {
+				DriverMaagerConnectionPool.releaseConnection(connection);
+			}
+		}
+		
+	}
+
+	private void modificaQuantit‡Disponibile(String isbn, int nuovoAttributo) throws SQLException {
+		Connection connection= null;
+		PreparedStatement preparedStatement= null;
+
+		connection= DriverMaagerConnectionPool.getConnection();
+		try {
+			String updateQ = "UPDATE libro WHERE isbn = ? SET quantit‡Disponibile = ?";
+			preparedStatement= connection.prepareStatement(updateQ);
+			preparedStatement.setString(1, isbn);
+			preparedStatement.setInt(2, nuovoAttributo);
+			preparedStatement.executeUpdate();
+			connection.commit();
+		}finally {
+			try {
+				preparedStatement.close();
+			}finally {
+				DriverMaagerConnectionPool.releaseConnection(connection);
+			}
+		}
+		
+	}
+
+	private void modificaPrezzo(String isbn, double nuovoAttributo) throws SQLException {
+		Connection connection= null;
+		PreparedStatement preparedStatement= null;
+
+		connection= DriverMaagerConnectionPool.getConnection();
+		try {
+			String updateQ = "UPDATE libro WHERE isbn = ? SET prezzo = ?";
+			preparedStatement= connection.prepareStatement(updateQ);
+			preparedStatement.setString(1, isbn);
+			preparedStatement.setDouble(2, nuovoAttributo);
+			preparedStatement.executeUpdate();
+			connection.commit();
+		}finally {
+			try {
+				preparedStatement.close();
+			}finally {
+				DriverMaagerConnectionPool.releaseConnection(connection);
+			}
+		}
+		
+		
+	}
+
+	private void modificaCasaEditrice(String isbn, String nuovoAttributo) throws SQLException {
+		Connection connection= null;
+		PreparedStatement preparedStatement= null;
+
+		connection= DriverMaagerConnectionPool.getConnection();
+		try {
+			String updateQ = "UPDATE libro WHERE isbn = ? SET casaEditrice = ?";
+			preparedStatement= connection.prepareStatement(updateQ);
+			preparedStatement.setString(1, isbn);
+			preparedStatement.setString(2, nuovoAttributo);
+			preparedStatement.executeUpdate();
+			connection.commit();
+		}finally {
+			try {
+				preparedStatement.close();
+			}finally {
+				DriverMaagerConnectionPool.releaseConnection(connection);
+			}
+		}
+		
+		
+	}
+
+	private void modificaFoto(String isbn, String nuovoAttributo) throws SQLException {
+		Connection connection= null;
+		PreparedStatement preparedStatement= null;
+
+		connection= DriverMaagerConnectionPool.getConnection();
+		try {
+			String updateQ = "UPDATE libro WHERE isbn = ? SET foto = ?";
+			preparedStatement= connection.prepareStatement(updateQ);
+			preparedStatement.setString(1, isbn);
+			preparedStatement.setString(2, nuovoAttributo);
+			preparedStatement.executeUpdate();
+			connection.commit();
+		}finally {
+			try {
+				preparedStatement.close();
+			}finally {
+				DriverMaagerConnectionPool.releaseConnection(connection);
+			}
+		}
+		
+		
+	}
+
+	private void modificaTrama(String isbn, String nuovoAttributo) throws SQLException {
+		Connection connection= null;
+		PreparedStatement preparedStatement= null;
+
+		connection= DriverMaagerConnectionPool.getConnection();
+		try {
+			String updateQ = "UPDATE libro WHERE isbn = ? SET trama = ?";
+			preparedStatement= connection.prepareStatement(updateQ);
+			preparedStatement.setString(1, isbn);
+			preparedStatement.setString(2, nuovoAttributo);
+			preparedStatement.executeUpdate();
+			connection.commit();
+		}finally {
+			try {
+				preparedStatement.close();
+			}finally {
+				DriverMaagerConnectionPool.releaseConnection(connection);
+			}
+		}
+		
+		
+	}
+
+	private void modificaTitolo(String isbn, String nuovoAttributo) throws SQLException {
+		Connection connection= null;
+		PreparedStatement preparedStatement= null;
+
+		connection= DriverMaagerConnectionPool.getConnection();
+		try {
+			String updateQ = "UPDATE libro WHERE isbn = ? SET titolo = ?";
+			preparedStatement= connection.prepareStatement(updateQ);
+			preparedStatement.setString(1, isbn);
+			preparedStatement.setString(2, nuovoAttributo);
+			preparedStatement.executeUpdate();
+			connection.commit();
+		}finally {
+			try {
+				preparedStatement.close();
+			}finally {
+				DriverMaagerConnectionPool.releaseConnection(connection);
+			}
+		}
+		
 	}
 
 	/**
