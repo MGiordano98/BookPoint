@@ -121,9 +121,7 @@ public class OrdineManager {
 
 	
 	public void aggiungiAlCarrello(Libro lib, int quantit‡) {
-		lib.setQuantit‡Selezionata(quantit‡);
-		libri.add(lib);
-		totale+= lib.getPrezzo()* quantit‡;
+		
 	}
 	
 	public void aumentaQuantit‡(String isbn) {
