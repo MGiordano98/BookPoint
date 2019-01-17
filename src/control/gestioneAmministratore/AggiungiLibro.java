@@ -15,8 +15,6 @@ import bean.Autore;
 import bean.Carrello;
 import bean.Libro;
 import model.AmministratoreManager;
-import model.DataManager;
-
 /**
  * Servlet implementation class AggiungiLibro
  */

@@ -33,7 +33,6 @@ public class AmministratoreManager {
 
 		try {
 			connection = DriverMaagerConnectionPool.getConnection();
-			//	checkAutori(autori, connection);
 
 			//  Viene inserito il libro
 			String insertSQL = "INSERT INTO libro"
