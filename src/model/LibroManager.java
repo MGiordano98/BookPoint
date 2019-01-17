@@ -177,7 +177,7 @@ public class LibroManager {
 	public Libro visualizzaLibro(String isbn) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
-		Libro libro=null;
+		Libro libro=new Libro();
 		
 		String selectQ= "SELECT * FROM libro WHERE isbn= ?";
 		
@@ -186,7 +186,7 @@ public class LibroManager {
 			pStatement.setString(1, isbn);
 			ResultSet rs= pStatement.executeQuery();
 			while(rs.next()){
-				libro.setIsbn(isbn);
+				libro.setIsbn(rs.getString("isbn"));
 				libro.setPrezzo(rs.getDouble("prezzo"));
 				libro.setTitolo(rs.getString("titolo"));
 				libro.setTrama(rs.getString("trama"));
