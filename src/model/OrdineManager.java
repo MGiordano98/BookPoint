@@ -123,23 +123,9 @@ public class OrdineManager {
 	
 	public Carrello aggiungiAlCarrello(Carrello carrello, Libro libro, int quantit‡) {
 		
-		boolean contains=false;
-		for(Libro temp : carrello.getLibri()){
-		
-			if(temp.getIsbn().equalsIgnoreCase(libro.getIsbn())){
-			
-				temp.setQuantit‡Selezionata(temp.getQuantit‡Selezionata()+quantit‡);
-				carrello.setTotale(carrello.getTotale()+(libro.getPrezzo()*quantit‡));
-				contains=true;
-				break;
-			}
-		}
-		
-		if(!contains){
-			
-			carrello.getLibri().add(libro);
-			carrello.setTotale(carrello.getTotale()+(libro.getPrezzo()*quantit‡));
-		}
+		carrello.getLibri().add(libro);
+		carrello.setTotale(carrello.getTotale()+(libro.getPrezzo()*quantit‡));
+		libro.setQuantit‡Selezionata(quantit‡);
 		
 		return carrello;
 		
