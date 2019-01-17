@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.CartaDiCredito;
 import model.AccountManager;
 
 /**
@@ -42,7 +43,8 @@ public class AggiungiCarta extends HttpServlet {
 		
 		Date dataScadenza= Date.valueOf(anno + "-" + mese + "-01");
 		try {
-			manager.aggiungiCarta(email, numCarta, intestatario, dataScadenza, cvv);
+			CartaDiCredito carta = new CartaDiCredito(numCarta, intestatario, dataScadenza, cvv);
+			manager.aggiungiCarta(email, carta);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

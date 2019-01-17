@@ -59,7 +59,7 @@ public class AccountManager {
 	 * @param password
 	 * @throws SQLException 
 	 */
-	public boolean registrazione(String email, String password, String nome, String cognome, Date dataDiNascita) throws SQLException {
+	public boolean registrazione(Utente utente) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
 		boolean registrato= false;
@@ -69,11 +69,11 @@ public class AccountManager {
 		
 		try {
 			pStatement= connection.prepareStatement(insertQ);
-			pStatement.setString(1, email);
-			pStatement.setString(2, password);
-			pStatement.setString(3, nome);
-			pStatement.setString(4, cognome);
-			pStatement.setDate(5, dataDiNascita);
+			pStatement.setString(1, utente.getEmail());
+			pStatement.setString(2, utente.getPassword());
+			pStatement.setString(3, utente.getNome());
+			pStatement.setString(4, utente.getCognome());
+			pStatement.setDate(5, utente.getDataDiNascita());
 			pStatement.setString(6, "cliente");
 			int reg= pStatement.executeUpdate();
 			if(reg==1) {
@@ -234,7 +234,7 @@ public class AccountManager {
 	 * @param cvv
 	 * @throws SQLException 
 	 */
-	public void aggiungiCarta(String email, int numCarta, String intestatario, Date dataScadenza, int cvv) throws SQLException {
+	public void aggiungiCarta(String email, CartaDiCredito carta) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
 		
@@ -243,10 +243,10 @@ public class AccountManager {
 		
 		try {
 			pStatement= connection.prepareStatement(insertQ);
-			pStatement.setInt(1, numCarta);
-			pStatement.setString(2, intestatario);
-			pStatement.setDate(3, dataScadenza);
-			pStatement.setInt(4, cvv);
+			pStatement.setInt(1, carta.getNumCarta());
+			pStatement.setString(2, carta.getIntestatario());
+			pStatement.setDate(3, carta.getData());
+			pStatement.setInt(4, carta.getCvv());
 			pStatement.setString(5, email);
 			
 			pStatement.executeUpdate();
@@ -300,7 +300,7 @@ public class AccountManager {
 	 * @param città
 	 * @throws SQLException 
 	 */
-	public void aggiungiIndirizzo(String email, String via, int numCivico, int cap, String città) throws SQLException {
+	public void aggiungiIndirizzo(String email, Indirizzo indirizzo) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
 		
@@ -309,10 +309,10 @@ public class AccountManager {
 		
 		try {
 			pStatement= connection.prepareStatement(insertQ);
-			pStatement.setString(1, via);
-			pStatement.setInt(2, cap);
-			pStatement.setString(3, città);
-			pStatement.setInt(4, numCivico);
+			pStatement.setString(1, indirizzo.getVia());
+			pStatement.setInt(2, indirizzo.getCap());
+			pStatement.setString(3, indirizzo.getCittà());
+			pStatement.setInt(4, indirizzo.getNumCivico());
 			pStatement.setString(5, email);
 			
 			pStatement.executeUpdate();
@@ -367,7 +367,7 @@ public class AccountManager {
 	 * @param città
 	 * @throws SQLException 
 	 */
-	public void modificaIndirizzo(String email, int idIndirizzo, String via, int numCivico, int cap, String città) throws SQLException {
+	public void modificaIndirizzo(String email, Indirizzo indirizzo) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
 		
@@ -375,11 +375,11 @@ public class AccountManager {
 		
 		try {
 			pStatement= connection.prepareStatement(updateQ);
-			pStatement.setInt(1, idIndirizzo);
-			pStatement.setString(2, via);
-			pStatement.setInt(3, numCivico);
-			pStatement.setInt(4, cap);
-			pStatement.setString(5, città);
+			pStatement.setInt(1, indirizzo.getId());
+			pStatement.setString(2, indirizzo.getVia());
+			pStatement.setInt(3, indirizzo.getNumCivico());
+			pStatement.setInt(4, indirizzo.getCap());
+			pStatement.setString(5, indirizzo.getCittà());
 			pStatement.setString(6, email);
 			
 			pStatement.executeUpdate();
