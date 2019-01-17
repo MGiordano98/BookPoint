@@ -1,8 +1,7 @@
 package control.gestioneAmministratore;
 
 import java.io.IOException;
-import java.sql.SQLException;
-
+import java.sql.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,28 +17,40 @@ import model.AmministratoreManager;
 @WebServlet("/ModificaAttributo")
 public class ModificaAttributo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private static AmministratoreManager am= new AmministratoreManager();
+	private static AmministratoreManager manager= new AmministratoreManager();
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ModificaAttributo() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public ModificaAttributo() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String email= request.getParameter("email");
+		String isbn= request.getParameter("isbn");
 		String tipo= request.getParameter("tipo");
 		String nuovoAttributo= request.getParameter("nuovoAttributo");
-		
+
 		try {
-			am.modificaAttributo(email, tipo, nuovoAttributo);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			switch(tipo){
+			case "titolo": manager.modificaTitolo(isbn,nuovoAttributo); break;
+			case "trama": manager.modificaTrama(isbn,nuovoAttributo); break;
+			case "foto": manager.modificaFoto(isbn,nuovoAttributo); break;
+			case "casaEditrice": manager.modificaCasaEditrice(isbn,nuovoAttributo); break;
+			case "prezzo": manager.modificaPrezzo(isbn,Double.parseDouble(nuovoAttributo)); break;
+			case "quantit‡Disponibile": manager.modificaQuantit‡Disponibile(isbn,Integer.parseInt(nuovoAttributo)); break;
+			case "categoria": manager.modificaCategoria(isbn,nuovoAttributo); break;
+			case "copieVendute": manager.modificaCopieVendute(isbn,Integer.parseInt(nuovoAttributo)); break;
+			case "dataUscita": int anno= Integer.parseInt("anno");
+							   int mese= Integer.parseInt("mese");
+							   int giorno= Integer.parseInt("giorno");
+							   manager.modificaDataUscita(isbn,Date.valueOf(anno + "-" + mese + "-" + giorno)); break;
+			}
+		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		RequestDispatcher dispatcher= request.getRequestDispatcher("AmministratoreVisualizzaLibro.jsp");
