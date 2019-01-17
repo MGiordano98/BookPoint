@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
 
+import bean.Carrello;
 import bean.Libro;
 import bean.Ordine;
 import connectionPool.*;
@@ -120,19 +121,76 @@ public class OrdineManager {
 	}
 
 	
-	public void aggiungiAlCarrello(Libro lib, int quantit‡) {
+	public Carrello aggiungiAlCarrello(Carrello carrello, Libro libro, int quantit‡) {
+		
+		boolean contains=false;
+		for(Libro temp : carrello.getLibri()){
+		
+			if(temp.getIsbn().equalsIgnoreCase(libro.getIsbn())){
+			
+				temp.setQuantit‡Selezionata(temp.getQuantit‡Selezionata()+quantit‡);
+				carrello.setTotale(carrello.getTotale()+(libro.getPrezzo()*quantit‡));
+				contains=true;
+				break;
+			}
+		}
+		
+		if(!contains){
+			
+			carrello.getLibri().add(libro);
+			carrello.setTotale(carrello.getTotale()+(libro.getPrezzo()*quantit‡));
+		}
+		
+		return carrello;
 		
 	}
 	
-	public void aumentaQuantit‡(String isbn) {
+	public Carrello aumentaQuantit‡(Carrello carrello,String isbn) {
 		
+		for(Libro temp : carrello.getLibri()){
+			
+			if(temp.getIsbn().equalsIgnoreCase(isbn)){
+			
+				temp.setQuantit‡Selezionata(temp.getQuantit‡Selezionata()+1);
+				carrello.setTotale(carrello.getTotale()+(temp.getPrezzo()));
+				break;
+			}
+		}
+		
+		return carrello;
 	}
 	
-	public void diminuisciQuantit‡(String isbn) {
+	public Carrello diminuisciQuantit‡(Carrello carrello,String isbn) {
 		
+		for(Libro temp : carrello.getLibri()){
+			
+			if(temp.getIsbn().equalsIgnoreCase(isbn)){
+			
+				temp.setQuantit‡Selezionata(temp.getQuantit‡Selezionata()-1);
+				carrello.setTotale(carrello.getTotale()-(temp.getPrezzo()));
+				if(temp.getQuantit‡Selezionata()==0)
+				{
+					carrello.getLibri().remove(temp);
+				}
+				break;
+			}
+		}
+		
+		return carrello;
 	}
 	
-	public void rimuoviDalCarrello(String isbn) {
+	public Carrello rimuoviDalCarrello(Carrello carrello, String isbn) {
 		
+		for(Libro temp : carrello.getLibri()){
+		
+			if(temp.getIsbn().equalsIgnoreCase(isbn)){
+			
+				carrello.getLibri().remove(temp);
+				carrello.setTotale(carrello.getTotale()-(temp.getPrezzo()*temp.getQuantit‡Selezionata()));
+				break;
+			}
+		}
+		
+		return carrello;
 	}
 }
