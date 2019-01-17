@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.LinkedList;
-import java.util.List;
 import bean.CartaDiCredito;
 import bean.Indirizzo;
 import bean.Utente;
@@ -65,8 +64,8 @@ public class AccountManager {
 		PreparedStatement pStatement= null;
 		boolean registrato= false;
 		
-		String insertQ= "INSERT INTO utente (email, psw, nome, cognome, dataDiNascita) "
-				+ "VALUES (?, ?, ?, ?, ?)";
+		String insertQ= "INSERT INTO utente (email, psw, nome, cognome, dataDiNascita,tipo) "
+				+ "VALUES (?, ?, ?, ?, ?, ?)";
 		
 		try {
 			pStatement= connection.prepareStatement(insertQ);
@@ -75,6 +74,7 @@ public class AccountManager {
 			pStatement.setString(3, nome);
 			pStatement.setString(4, cognome);
 			pStatement.setDate(5, dataDiNascita);
+			pStatement.setString(6, "cliente");
 			int reg= pStatement.executeUpdate();
 			if(reg==1) {
 				registrato=true;
