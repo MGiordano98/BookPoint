@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import bean.Libro;
 import bean.Recensione;
-import model.DataManager;
 import model.LibroManager;
 
 /**

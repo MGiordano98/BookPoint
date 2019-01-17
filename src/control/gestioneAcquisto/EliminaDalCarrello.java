@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.Carrello;
+import model.OrdineManager;
 
 /**
  * Servlet implementation class EliminaDalCarrello
@@ -17,7 +18,7 @@ import bean.Carrello;
 @WebServlet("/EliminaDalCarrello")
 public class EliminaDalCarrello extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private static OrdineManager manager= new OrdineManager();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -37,7 +38,7 @@ public class EliminaDalCarrello extends HttpServlet {
 		}
 		
 		String isbn= request.getParameter("isbn");
-		carrello.rimuoviDalCarrello(isbn);
+		carrello= manager.rimuoviDalCarrello(carrello, isbn);
 		
 		request.getSession().setAttribute("carrello", carrello);
 		RequestDispatcher dispatcher= request.getRequestDispatcher("VisualizzaLibro.jsp");

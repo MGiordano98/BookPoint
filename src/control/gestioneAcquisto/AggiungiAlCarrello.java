@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import bean.Carrello;
 import bean.Libro;
 import model.DataManager;
+import model.LibroManager;
+import model.OrdineManager;
 
 /**
  * Servlet implementation class AggiungiAlCarrello
@@ -20,7 +22,8 @@ import model.DataManager;
 @WebServlet("/AggiungiAlCarrello")
 public class AggiungiAlCarrello extends HttpServlet {
 	private static final long serialVersionUID = 1L;   
-	private static DataManager dm= new DataManager();
+	private static OrdineManager manager= new OrdineManager();
+	private static LibroManager libroManager= new LibroManager();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -42,8 +45,8 @@ public class AggiungiAlCarrello extends HttpServlet {
 		String isbn= request.getParameter("isbn");
 		int quantità= Integer.parseInt(request.getParameter("quantità"));
 		try {
-			Libro lib= dm.visualizzaLibro(isbn);
-			carrello.aggiungiAlCarrello(lib, quantità);
+			Libro lib= libroManager.visualizzaLibro(isbn);
+			carrello =manager.aggiungiAlCarrello(carrello, lib, quantità);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.AmministratoreManager;
-import model.DataManager;
 
 /**
  * Servlet implementation class EliminaRecensione

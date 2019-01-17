@@ -1,11 +1,16 @@
 package control.gestioneAccount;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.AccountManager;
 
 /**
  * Servlet implementation class RimuoviIndirizzo
@@ -13,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/RimuoviIndirizzo")
 public class RimuoviIndirizzo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static AccountManager manager= new AccountManager();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -26,8 +32,17 @@ public class RimuoviIndirizzo extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		int idIndirizzo= Integer.parseInt(request.getParameter("idIndirizzo"));
+		
+		try {
+			manager.rimuoviIndirizzo(idIndirizzo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		RequestDispatcher dispatcher= request.getRequestDispatcher("GestioneIndirizzi.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**

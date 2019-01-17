@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import bean.Carrello;
 import model.AmministratoreManager;
-import model.DataManager;
 
 /**
  * Servlet implementation class CambiaTipo
