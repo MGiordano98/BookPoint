@@ -31,22 +31,4 @@ public class Carrello {
 		this.totale = totale;
 	}
 
-	public void aggiungiAlCarrello(Libro lib, int quantit‡) {
-		lib.setQuantit‡Selezionata(quantit‡);
-		libri.add(lib);
-		totale+= lib.getPrezzo()* quantit‡;
-	}
-	
-	public void aumentaQuantit‡(String isbn) {
-		
-	}
-	
-	public void diminuisciQuantit‡(String isbn) {
-		
-	}
-	
-	public void rimuoviDalCarrello(String isbn) {
-		
-	}
-
 }
