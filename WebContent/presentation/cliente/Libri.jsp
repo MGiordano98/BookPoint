@@ -21,13 +21,6 @@
 	height: auto;
 }
 
-body .carousel-indicators li {
-	background-color: red;
-}
-
-body .carousel-indicators {
-	bottom: 0;
-}
 
 body .carousel-control-prev-icon, body .carousel-control-next-icon {
 	background-color: red;
@@ -42,24 +35,35 @@ body .no-padding {
 	width: auto;
 	display: inline-block;
 	float: none;
-	margin-top: 9%;
-	margin-left: 8%;
+	padding-left: 5%;
+	padding-right: 5%;
 }
 
 .slider.no-padding.carousel-inner.container img {
-	max-height: 280px;
+	height: 280px;
+	width: 230px;
+	padding: 5%;
 }
 
 .prima.carousel-control-prev {
-	width: 5%;
+	width: 3%;
 }
 
 .dopo.carousel-control-next {
-	width: 5%;
+	width: 3%;
 }
 
 .car-item.carousel-item.active {
 	background-color: #f7f7f7;
+}
+
+.carousel-mio.slide.carousel{
+	height: 280px;
+	margin-bottom: 30px;
+}
+
+@media(display-width:980px){
+
 }
 </style>
 
@@ -83,12 +87,10 @@ body .no-padding {
 </select>
 </div>
  
-
-	<div style="height: 500px;" id="demo"
+<div style="width: 90%; margin-right:5%; margin-left:5%; margin-top: 50px;">
+	<div id="demo"
 		class="carousel slide carousel-mio" data-ride="carousel"
 		data-interval="false">
-
-
 
 		<!-- The slideshow -->
 		<div class="container carousel-inner no-padding slider">
@@ -121,22 +123,21 @@ body .no-padding {
 				</div>
 			</div>
 			
-		</div>
-		
-		<!-- Left and right controls -->
+			<!-- Left and right controls -->
 			<a class="carousel-control-prev prima" href="#demo" data-slide="prev">
 				<span class="carousel-control-prev-icon"></span>
 			</a> <a class="carousel-control-next dopo" href="#demo" data-slide="next">
 				<span class="carousel-control-next-icon"></span>
 			</a>
+			
+		</div>
+		
 
 	</div>
 	
-	<div style="height: 500px;" id="demo2"
+	<div id="demo"
 		class="carousel slide carousel-mio" data-ride="carousel"
 		data-interval="false">
-
-
 
 		<!-- The slideshow -->
 		<div class="container carousel-inner no-padding slider">
@@ -169,21 +170,21 @@ body .no-padding {
 				</div>
 			</div>
 			
+			<!-- Left and right controls -->
+			<a class="carousel-control-prev prima" href="#demo" data-slide="prev">
+				<span class="carousel-control-prev-icon"></span>
+			</a> <a class="carousel-control-next dopo" href="#demo" data-slide="next">
+				<span class="carousel-control-next-icon"></span>
+			</a>
 			
 		</div>
 		
-	<!-- Left and right controls -->
-			<a class="carousel-control-prev prima" href="#demo2" data-slide="prev">
-				<span class="carousel-control-prev-icon"></span>
-			</a> <a class="carousel-control-next dopo" href="#demo2" data-slide="next">
-				<span class="carousel-control-next-icon"></span>
-			</a>	
 
 	</div>
 
 
 
-
+</div>
 
 
 
