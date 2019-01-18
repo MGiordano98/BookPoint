@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collection;
 
 import bean.Carrello;
@@ -69,7 +70,7 @@ public class OrdineManager {
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setDate(1, ordine.getDataEffettuata());
 			preparedStatement.setTime(2, ordine.getOra());
-			preparedStatement.setInt(3, ordine.getNumCarta());
+			preparedStatement.setString(3, ordine.getNumCarta());
 
 
 			ResultSet rs = preparedStatement.executeQuery();
@@ -123,9 +124,7 @@ public class OrdineManager {
 	
 	public Carrello aggiungiAlCarrello(Carrello carrello, Libro libro, int quantit‡) {
 		
-		carrello.getLibri().add(libro);
-		carrello.setTotale(carrello.getTotale()+(libro.getPrezzo()*quantit‡));
-		libro.setQuantit‡Selezionata(quantit‡);
+		carrello.aggiungiAlCarrello(libro, quantit‡);
 		
 		return carrello;
 		
@@ -133,49 +132,21 @@ public class OrdineManager {
 	
 	public Carrello aumentaQuantit‡(Carrello carrello,String isbn) {
 		
-		for(Libro temp : carrello.getLibri()){
-			
-			if(temp.getIsbn().equalsIgnoreCase(isbn)){
-			
-				temp.setQuantit‡Selezionata(temp.getQuantit‡Selezionata()+1);
-				carrello.setTotale(carrello.getTotale()+(temp.getPrezzo()));
-				break;
-			}
-		}
+		carrello.aumentaQuantit‡(isbn);
 		
 		return carrello;
 	}
 	
 	public Carrello diminuisciQuantit‡(Carrello carrello,String isbn) {
 		
-		for(Libro temp : carrello.getLibri()){
-			
-			if(temp.getIsbn().equalsIgnoreCase(isbn)){
-			
-				temp.setQuantit‡Selezionata(temp.getQuantit‡Selezionata()-1);
-				carrello.setTotale(carrello.getTotale()-(temp.getPrezzo()));
-				if(temp.getQuantit‡Selezionata()==0)
-				{
-					carrello.getLibri().remove(temp);
-				}
-				break;
-			}
-		}
+		carrello.diminuisciQuantit‡(isbn);
 		
 		return carrello;
 	}
 	
 	public Carrello rimuoviDalCarrello(Carrello carrello, String isbn) {
 		
-		for(Libro temp : carrello.getLibri()){
-		
-			if(temp.getIsbn().equalsIgnoreCase(isbn)){
-			
-				carrello.getLibri().remove(temp);
-				carrello.setTotale(carrello.getTotale()-(temp.getPrezzo()*temp.getQuantit‡Selezionata()));
-				break;
-			}
-		}
+		carrello.rimuoviLibro(isbn);
 		
 		return carrello;
 	}

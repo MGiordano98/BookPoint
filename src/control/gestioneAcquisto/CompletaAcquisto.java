@@ -49,12 +49,12 @@ public class CompletaAcquisto extends HttpServlet {
 		
 		Ordine ordine= new Ordine();
 		ordine.setVia(request.getParameter("via"));
-		ordine.setCap(Integer.parseInt(request.getParameter("cap")));
+		ordine.setCap(request.getParameter("cap"));
 		ordine.setCittà(request.getParameter("città"));
 		ordine.setDataEffettuata(dataEffettuata);
 		ordine.setDataConsegna(dataConsegna);
 		ordine.setOra(ora);
-		ordine.setNumCarta(Integer.parseInt(request.getParameter("numCarta")));
+		ordine.setNumCarta(request.getParameter("numCarta"));
 		ordine.setStato("In Preparazione");
 		ordine.setPrezzoTot(carrello.getTotale());
 		ordine.setLibri(carrello.getLibri());

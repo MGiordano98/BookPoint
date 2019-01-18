@@ -7,7 +7,7 @@ public class Indirizzo implements Serializable{
 
 	private String via;
 	private int numCivico;
-	private int cap;
+	private String cap;
 	private String città;
 	private int id;
 	
@@ -17,7 +17,7 @@ public class Indirizzo implements Serializable{
 		super();
 	}
 
-	public Indirizzo(String via, int numCivico, int cap, String città, int id) {
+	public Indirizzo(String via, int numCivico, String cap, String città, int id) {
 		super();
 		this.via = via;
 		this.numCivico = numCivico;
@@ -50,7 +50,7 @@ public class Indirizzo implements Serializable{
 		this.numCivico = numCivico;
 	}
 
-	public int getCap() {
+	public String getCap() {
 		return this.cap;
 	}
 
@@ -58,7 +58,7 @@ public class Indirizzo implements Serializable{
 	 * 
 	 * @param cap
 	 */
-	public void setCap(int cap) {
+	public void setCap(String cap) {
 		this.cap = cap;
 	}
 

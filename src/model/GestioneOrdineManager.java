@@ -37,10 +37,10 @@ public class GestioneOrdineManager {
 				ordine.setDataConsegna(rs.getDate("dataConsegna"));
 				ordine.setOra(rs.getTime("oraConsegna"));
 				ordine.setVia(rs.getString("via"));
-				ordine.setCap(rs.getInt("cap"));
+				ordine.setCap(rs.getString("cap"));
 				ordine.setCittà(rs.getString("città"));
 				ordine.setPrezzoTot(rs.getDouble("totale"));
-				ordine.setNumCarta(rs.getInt("numeroCarta"));
+				ordine.setNumCarta(rs.getString("numeroCarta"));
 				ordine.setStato(rs.getString("stato"));
 				
 				ordine.setLibri(getLibri(connection, ordine));

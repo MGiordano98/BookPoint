@@ -35,11 +35,11 @@ public class AggiungiCarta extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email= request.getParameter("email");
-		int numCarta= Integer.parseInt(request.getParameter("numCarta"));
+		String numCarta= request.getParameter("numCarta");
 		String intestatario= request.getParameter("intestatario");
 		int mese= Integer.parseInt(request.getParameter("mese"));
 		int anno= Integer.parseInt(request.getParameter("anno"));
-		int cvv= Integer.parseInt(request.getParameter("cvv"));
+		String cvv= request.getParameter("cvv");
 		
 		Date dataScadenza= Date.valueOf(anno + "-" + mese + "-01");
 		try {

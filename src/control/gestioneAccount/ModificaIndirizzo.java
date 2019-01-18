@@ -37,7 +37,7 @@ public class ModificaIndirizzo extends HttpServlet {
 		int idIndirizzo= Integer.parseInt(request.getParameter("idIndirizzo"));
 		String via= request.getParameter("via");
 		int numCivico= Integer.parseInt(request.getParameter("numCivico"));
-		int cap= Integer.parseInt(request.getParameter("cap"));
+		String cap= request.getParameter("cap");
 		String città= request.getParameter("città");
 		
 		try {

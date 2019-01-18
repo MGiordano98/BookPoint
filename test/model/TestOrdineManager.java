@@ -10,24 +10,85 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 
 public class TestOrdineManager extends TestCase {
-
+	private OrdineManager manager;
+	private Carrello carrello;
+	
 	public TestOrdineManager(String name) {
 		super(name);
 	}
 
-	public void testAggiungiAlCarrello() {
-
-		Libro libro= new Libro();
-		
-		ArrayList<Libro> libri= new ArrayList<Libro>();
-		libri.add(libro);
-		
-		assertEquals(1, libri.size());
+	@Override
+	protected void setUp() throws Exception {
+		manager= new OrdineManager();
+		carrello= new Carrello();
 	}
+	
+	@Override
+	protected void tearDown() throws Exception {
+	}
+	
+	public void testAggiungiAlCarrello() {
+		Libro libro= new Libro();
+		libro.setIsbn("9789753102001");
+		libro.setPrezzo(3);
+		int quantit‡= 5;
+		
+		carrello= manager.aggiungiAlCarrello(carrello, libro, quantit‡);
+		
+		assertEquals(1, carrello.getLibri().size());
+		assertEquals(5, carrello.getLibro("9789753102001").getQuantit‡Selezionata());
+		assertEquals(15.00, carrello.getLibro("9789753102001").getPrezzo() * carrello.getLibro("9789753102001").getQuantit‡Selezionata());
+	}
+	
+	public void testRimuoviDalCarrello() {
+		ArrayList<Libro> libri= carrello.getLibri();
+		Libro libro= new Libro();
+		libro.setIsbn("9789753102001");
+		libro.setQuantit‡Selezionata(5);
+		libri.add(libro);
+		carrello.setLibri(libri);
+		
+		String isbn= "9789753102001";
+		carrello= manager.rimuoviDalCarrello(carrello, isbn);
+		
+		assertEquals(0, carrello.getLibri().size());
+	}
+	
+	public void testAumentaQuantit‡() {
+		ArrayList<Libro> libri= carrello.getLibri();
+		Libro libro= new Libro();
+		libro.setIsbn("9789753102001");
+		libro.setQuantit‡Selezionata(5);
+		libri.add(libro);
+		carrello.setLibri(libri);
+		
+		String isbn= "9789753102001";
+		carrello= manager.aumentaQuantit‡(carrello, isbn);
+		
+		assertEquals(6, carrello.getLibro("9789753102001").getQuantit‡Selezionata());
+	}
+	
+	public void testDiminuisciQuantit‡() {
+		ArrayList<Libro> libri= carrello.getLibri();
+		Libro libro= new Libro();
+		libro.setIsbn("9789753102001");
+		libro.setQuantit‡Selezionata(5);
+		libri.add(libro);
+		carrello.setLibri(libri);
+		
+		String isbn= "9789753102001";
+		carrello= manager.diminuisciQuantit‡(carrello, isbn);
+		
+		assertEquals(4, carrello.getLibro("9789753102001").getQuantit‡Selezionata());
+	}
+	
+	
 	
 	public static Test suite() {
 		TestSuite suite= new TestSuite();
-		suite.addTest(new TestOrdineManager("testAggiungiAlCarrello"));
+	//	suite.addTest(new TestOrdineManager("rimuoviDalCarrello"));
+		suite.addTestSuite(TestOrdineManager.class);
+
 		return suite;
 	}
 	

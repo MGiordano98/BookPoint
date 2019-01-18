@@ -169,9 +169,9 @@ public class AccountManager {
 			while(rs.next()) {
 				CartaDiCredito carta= new CartaDiCredito();
 				carta.setIntestatario(rs.getString("intestatario"));
-				carta.setCvv(rs.getInt("cvv"));
+				carta.setCvv(rs.getString("cvv"));
 				carta.setData(rs.getDate("dataDiScadenza"));
-				carta.setNumCarta(rs.getInt("numeroDiCarta"));
+				carta.setNumCarta(rs.getString("numeroDiCarta"));
 				
 				carte.add(carta);
 			}
@@ -207,7 +207,7 @@ public class AccountManager {
 				Indirizzo indirizzo= new Indirizzo();
 				indirizzo.setVia(rs.getString("via"));
 				indirizzo.setNumCivico(rs.getInt("numeroCivico"));
-				indirizzo.setCap(rs.getInt("cap"));
+				indirizzo.setCap(rs.getString("cap"));
 				indirizzo.setCittà(rs.getString("città"));
 				indirizzo.setId(rs.getInt(rs.getInt("id")));
 				
@@ -243,10 +243,10 @@ public class AccountManager {
 		
 		try {
 			pStatement= connection.prepareStatement(insertQ);
-			pStatement.setInt(1, carta.getNumCarta());
+			pStatement.setString(1, carta.getNumCarta());
 			pStatement.setString(2, carta.getIntestatario());
 			pStatement.setDate(3, carta.getData());
-			pStatement.setInt(4, carta.getCvv());
+			pStatement.setString(4, carta.getCvv());
 			pStatement.setString(5, email);
 			
 			pStatement.executeUpdate();
@@ -310,7 +310,7 @@ public class AccountManager {
 		try {
 			pStatement= connection.prepareStatement(insertQ);
 			pStatement.setString(1, indirizzo.getVia());
-			pStatement.setInt(2, indirizzo.getCap());
+			pStatement.setString(2, indirizzo.getCap());
 			pStatement.setString(3, indirizzo.getCittà());
 			pStatement.setInt(4, indirizzo.getNumCivico());
 			pStatement.setString(5, email);
@@ -378,7 +378,7 @@ public class AccountManager {
 			pStatement.setInt(1, indirizzo.getId());
 			pStatement.setString(2, indirizzo.getVia());
 			pStatement.setInt(3, indirizzo.getNumCivico());
-			pStatement.setInt(4, indirizzo.getCap());
+			pStatement.setString(4, indirizzo.getCap());
 			pStatement.setString(5, indirizzo.getCittà());
 			pStatement.setString(6, email);
 			

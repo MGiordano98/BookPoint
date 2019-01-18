@@ -6,10 +6,10 @@ import java.sql.Date;
 public class CartaDiCredito implements Serializable{
 	private static final long serialVersionUID = 1L;
 
-	private int numCarta;
+	private String numCarta;
 	private String intestatario;
 	private Date data;
-	private int cvv;
+	private String cvv;
 	
 	
 	
@@ -17,7 +17,7 @@ public class CartaDiCredito implements Serializable{
 		super();
 	}
 
-	public CartaDiCredito(int numCarta, String intestatario, Date data, int cvv) {
+	public CartaDiCredito(String numCarta, String intestatario, Date data, String cvv) {
 		super();
 		this.numCarta = numCarta;
 		this.intestatario = intestatario;
@@ -25,7 +25,7 @@ public class CartaDiCredito implements Serializable{
 		this.cvv = cvv;
 	}
 
-	public int getNumCarta() {
+	public String getNumCarta() {
 		return this.numCarta;
 	}
 
@@ -33,7 +33,7 @@ public class CartaDiCredito implements Serializable{
 	 * 
 	 * @param numCarta
 	 */
-	public void setNumCarta(int numCarta) {
+	public void setNumCarta(String numCarta) {
 		this.numCarta = numCarta;
 	}
 
@@ -61,7 +61,7 @@ public class CartaDiCredito implements Serializable{
 		this.data= data;
 	}
 
-	public int getCvv() {
+	public String getCvv() {
 		return this.cvv;
 	}
 
@@ -69,7 +69,7 @@ public class CartaDiCredito implements Serializable{
 	 * 
 	 * @param cvv
 	 */
-	public void setCvv(int cvv) {
+	public void setCvv(String cvv) {
 		this.cvv = cvv;
 	}
 
