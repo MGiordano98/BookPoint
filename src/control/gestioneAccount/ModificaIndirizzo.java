@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.Indirizzo;
 import model.AccountManager;
 
 /**
@@ -40,7 +41,13 @@ public class ModificaIndirizzo extends HttpServlet {
 		String città= request.getParameter("città");
 		
 		try {
-			manager.modificaIndirizzo(email, idIndirizzo, via, numCivico, cap, città);
+			Indirizzo indirizzo= new Indirizzo();
+			indirizzo.setId(idIndirizzo);
+			indirizzo.setVia(via);
+			indirizzo.setNumCivico(numCivico);
+			indirizzo.setCap(cap);
+			indirizzo.setCittà(città);
+			manager.modificaIndirizzo(email, indirizzo);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

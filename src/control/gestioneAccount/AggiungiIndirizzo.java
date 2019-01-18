@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.Indirizzo;
 import model.AccountManager;
 
 /**
@@ -39,7 +40,12 @@ public class AggiungiIndirizzo extends HttpServlet {
 		String città= request.getParameter("città");
 		
 		try {
-			manager.aggiungiIndirizzo(email, via, numCivico, cap, città);
+			Indirizzo indirizzo= new Indirizzo();
+			indirizzo.setVia(via);
+			indirizzo.setNumCivico(numCivico);
+			indirizzo.setCap(cap);
+			indirizzo.setCittà(città);
+			manager.aggiungiIndirizzo(email, indirizzo);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
