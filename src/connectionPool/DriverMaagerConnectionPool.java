@@ -21,7 +21,7 @@ public class DriverMaagerConnectionPool  {
 		
 	private static synchronized Connection createDBConnection() throws SQLException {
 		Connection newConnection = null;
-		String ip = "localhost";
+		String ip = "IS";
 		String port = "3306";
 		String db = "bookpoint";
 		String username = "root";
