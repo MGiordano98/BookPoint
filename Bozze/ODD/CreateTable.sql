@@ -67,7 +67,7 @@ create table ordine
     numeroCivico integer(4),
     cap integer(5),
     città varchar(30),
-    cartaDiCredito integer(16)
+    numeroCarta integer(16)
 );
 
 create table libriAcquistati
