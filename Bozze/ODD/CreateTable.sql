@@ -13,8 +13,8 @@ create table utente
 create table libro
 (
 	isbn varchar(13) primary key,
-    titolo varchar(50),
-    trama varchar(300),
+    titolo varchar(100),
+    trama varchar(1700),
     foto varchar(60),
     casaEditrice varchar(30),
     prezzo float(10),
@@ -34,7 +34,7 @@ create table indirizzo
 	id integer(10) auto_increment primary key,
     via varchar(30),
     numeroCivico integer(4),
-    cap integer(5),
+    cap varchar(5),
     città varchar(30),
     utente varchar(60),
     foreign key (utente) references utente(email)
@@ -43,10 +43,10 @@ create table indirizzo
 
 create table cartaDiCredito
 (
-	numeroDiCarta integer(16),
+	numeroDiCarta varchar(16),
     intestatario varchar(30),
     dataScadenza date,
-    cvv integer(3),
+    cvv varchar(3),
     utente varchar(60), 
     foreign key (utente) references utente(email)
     on delete cascade on update cascade
@@ -54,7 +54,7 @@ create table cartaDiCredito
 
 create table ordine
 (
-	numero integer(20) primary key,
+	numero integer(20) auto_increment primary key,
     dataOrdine date,
     totale float(10),
     stato varchar(15),
@@ -65,9 +65,9 @@ create table ordine
     on delete set null on update cascade,
     via varchar(30),
     numeroCivico integer(4),
-    cap integer(5),
+    cap varchar(5),
     città varchar(30),
-    numeroCarta integer(16)
+    numeroCarta varchar(16)
 );
 
 create table libriAcquistati
