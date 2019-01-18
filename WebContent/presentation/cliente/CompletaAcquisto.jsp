@@ -10,13 +10,13 @@
 <link rel="stylesheet" type="text/css" href="styleCliente2.css"> 
 </head>
 <body>
-
+<!-- 
 <div class="divFisso">
 <%@ include file="header.jsp"%>
 
 
 
-<!-- Carte di credito -->
+
 <div class="divpagamento">
 
 <table>
@@ -39,7 +39,7 @@
 	
 		</table>
 		
-		<!-- per cancellare -->
+		
 		<div class="deletePagamento">
 			<form action="cartacredito" method="post">
 			Sei sicuro di voler eliminare il pagamento?
@@ -72,6 +72,45 @@
  <%@ include file="footer.jsp"%>
  
  </div>
+ -->
+ 
+ <%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Book Point</title>
+</head>
+<body>
+
+<%@ include file="header.jsp"%>
+
+<div class="container-completa-acquisto" style="position:relative;margin: 5% 5% 5% ;">
+<div class="container-carta" style="position:absolute;">
+<h2>Carta di credito</h2>
+<select style="width:100%;">
+<option value="">**** **** **** 9383</option>
+</select>
+</div>
+
+<div class="" style="position:absolute;right:0;">
+<h2>Scegli indirizzo</h2>
+<select style="width:100%;">
+<option value="">via pecorari 89</option>
+</select>
+</div>
+
+
+
+</div>
+ 
+<input  style="margin-top:20%;margin-left:45%;"type="submit" value="Completa l'acquisto">
+
+
+
+</body>
+</html>
  
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>

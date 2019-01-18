@@ -10,27 +10,9 @@
 
 <%@ include file="header.jsp"%>
 
-<div class="container-completa-acquisto" style="position:relative;margin: 5% 5% 5% ;">
-<div class="container-carta" style="position:absolute;">
-<h2>Carta di credito</h2>
-<select style="width:100%;">
-<option value="">**** **** **** 9383</option>
-</select>
+<div style="margin-left:40%;margin-top:5%;">
+<h2 style="color:green;">Acquisto Completato</h2>
 </div>
-
-<div class="" style="position:absolute;right:0;">
-<h2>Scegli indirizzo</h2>
-<select style="width:100%;">
-<option value="">via pecorari 89</option>
-</select>
-</div>
-
-
-
-</div>
- 
-<input  style="margin-top:20%;margin-left:45%;"type="submit" value="Completa l'acquisto">
-
 
 
 </body>

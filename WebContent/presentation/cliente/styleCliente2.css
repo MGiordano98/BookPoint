@@ -467,150 +467,17 @@ media-heading h2{
 
 
 
-
-/* CSS ACCOUNT*/
-
-.a-row{
-	color:black;
+/*css indirizzi*/
+.table-indirizzi td{
+	
+	padding-top:5%;
+	padding-left:5%;
 }
 
-.a-row:hover{
-	text-decoration:none;
-	color:black;
+.table-indirizzi table {
+	border:1px solid;
 }
 
- .divaccount{
- 	margin-left:5%; 
- 	margin-right:5%; 
- 	margin-top:5%; 
- 	border:thick; 
- 	border-style: groove; 
- 	background-color:white;
- }
- .yacardrow{
- 	display:table;
- 	height:100%;
- 	margin-bottom:20px;
- 	width:100%;
- }
-.ordini , .accesso , .pagamento , .indirizzi{
-	display:table-cell; 
-	width: 300px; 
-	padding-left:20px; 
-	height:100%;
-    cursor: pointer;
-    text-decorazione: none;
-    color: light-grey;
- }
- .a-row img{
- 	width:50%;
- 	margin: auto;
- }
- 
- .ordini a:hover, .accesso a:hover, .pagamento a:hover, .indirizzi a:hover{
- 	text-decoration:none;
- }
- 
- .ulCOUNT{
- font-size:medium;
- }
-.editIndirizzo{
-	display: none; 
-	width:250px; 
-	float:right; 
-	margin-right:-15%; 
-	background-color: lightgrey; 
-	padding:10px;
-}
-
-.deleteIndirizzo , .deletePagamento{
-	display:none; 
-	float:right; 
-	width:100px;
-	background-color:lightgrey;
-		padding:10px;
-}
-
-.editIndirizzo img , .deleteIndirizzo img ,.deletePagamento img{
-	width:20px;
-}
-
-.closeeditIndirizzo , .closeeditPagamento{
-	float:right;
-}
-.deletePagamento{
-	display:none;
-	float:right;
-	width:100px;
-}
-#aggIndirizzo img , #aggPagamento img{
-	width:40px;
-	position:relative;
-	margin-bottom:0px;
-	cursor:pointer
-}
- .aggPagamento{
-	width:200px;
-	margin-left:2%;
-	display:none;
-}
-.aggIndirizzo{
-	width:250px; 
-	margin-left:2%; 
-	display:none; 
-	padding: 10px; 
-	background-color: lightgrey
-}
-
- .divaccesso ,.divindirizzi , .divpagamento{	
-	height:auto; 
-	background-color:white; 
-	margin-left:5%; 
-	margin-right:5%; 
-	min-height:400px;
-}
-.divordini{
-	min-height:400px;
-	height: 600px;
-	overflow: auto;
-	background-color:white; 
-	margin-left:5%; 
-	margin-right:5%; 
-}
-.divindirizzi{
-	 width: 75%; 
-	 margin: auto; 
-	 padding: 20px;
-}
-.divordini ul , .divindirizzi table , .divpagamento ul , .divpagamento table{
-	list-style-type:none; 
-	padding:0px; 
-	font-size:x-large;
-}
-.divordini td, .divindirizzi td , .divpagamento td{
-	min-width: 150px;
-	display:table-cell;
-	padding:1px;	
-	white-space: nowrap;
-}
-.divindirizzi th , .divordini th, .divpagamento th{
-	margin:auto 10px auto 10px;
-}
-
-.divordini a  , .divindirizzi a , .divpagamento a{
-	cursor:pointer;
-	color:gray;
-}
-.divordini .ulordine{
-	font-size:medium;
-}
-.ulordine button{
-	cursor:pointer;
-}
-
-.trIndirizzo{
-	height: 35px;
-}
 
 
 /*Css visaulizza libro*/
