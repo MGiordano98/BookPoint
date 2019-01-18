@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.Recensione;
-import model.DataManager;
 import model.InterazioneLibroManager;
 
 /**

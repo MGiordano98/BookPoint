@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import bean.Carrello;
 import bean.Libro;
-import model.DataManager;
 import model.LibroManager;
 
 /**

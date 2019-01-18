@@ -168,23 +168,7 @@ public class AmministratoreManager {
 	 * @throws SQLException 
 	 */
 
-
-	public void modificaAttributo(String isbn, String tipo, String nuovoAttributo) throws SQLException {
-		
-		switch(tipo){
-		case "titolo": modificaTitolo(isbn,nuovoAttributo); break;
-		case "trama":modificaTrama(isbn,nuovoAttributo); break;
-		case "foto":modificaFoto(isbn,nuovoAttributo); break;
-		case "casaEditrice":modificaCasaEditrice(isbn,nuovoAttributo); break;
-		case "prezzo":modificaPrezzo(isbn,nuovoAttributo); break;
-		case "quantit‡Disponibile":modificaQuantit‡Disponibile(isbn,nuovoAttributo); break;
-		case "categoria":modificaCategoria(isbn,nuovoAttributo); break;
-		case "copieVendute":modificaCopieVendute(isbn,nuovoAttributo); break;
-		case "dataUscita":modificaDataUscita(isbn,nuovoAttributo); break;
-		}
-	}
-
-	private void modificaDataUscita(String isbn, Date nuovoAttributo) throws SQLException {
+	public void modificaDataUscita(String isbn, Date nuovoAttributo) throws SQLException {
 		Connection connection= null;
 		PreparedStatement preparedStatement= null;
 
@@ -207,7 +191,7 @@ public class AmministratoreManager {
 		
 	}
 
-	private void modificaCopieVendute(String isbn, int nuovoAttributo) throws SQLException {
+	public void modificaCopieVendute(String isbn, int nuovoAttributo) throws SQLException {
 		Connection connection= null;
 		PreparedStatement preparedStatement= null;
 
@@ -229,7 +213,7 @@ public class AmministratoreManager {
 		
 	}
 
-	private void modificaCategoria(String isbn, String nuovoAttributo) throws SQLException {
+	public void modificaCategoria(String isbn, String nuovoAttributo) throws SQLException {
 		Connection connection= null;
 		PreparedStatement preparedStatement= null;
 
@@ -251,7 +235,7 @@ public class AmministratoreManager {
 		
 	}
 
-	private void modificaQuantit‡Disponibile(String isbn, int nuovoAttributo) throws SQLException {
+	public void modificaQuantit‡Disponibile(String isbn, int nuovoAttributo) throws SQLException {
 		Connection connection= null;
 		PreparedStatement preparedStatement= null;
 
@@ -273,7 +257,7 @@ public class AmministratoreManager {
 		
 	}
 
-	private void modificaPrezzo(String isbn, double nuovoAttributo) throws SQLException {
+	public void modificaPrezzo(String isbn, double nuovoAttributo) throws SQLException {
 		Connection connection= null;
 		PreparedStatement preparedStatement= null;
 
@@ -296,7 +280,7 @@ public class AmministratoreManager {
 		
 	}
 
-	private void modificaCasaEditrice(String isbn, String nuovoAttributo) throws SQLException {
+	public void modificaCasaEditrice(String isbn, String nuovoAttributo) throws SQLException {
 		Connection connection= null;
 		PreparedStatement preparedStatement= null;
 
@@ -319,7 +303,7 @@ public class AmministratoreManager {
 		
 	}
 
-	private void modificaFoto(String isbn, String nuovoAttributo) throws SQLException {
+	public void modificaFoto(String isbn, String nuovoAttributo) throws SQLException {
 		Connection connection= null;
 		PreparedStatement preparedStatement= null;
 
@@ -342,7 +326,7 @@ public class AmministratoreManager {
 		
 	}
 
-	private void modificaTrama(String isbn, String nuovoAttributo) throws SQLException {
+	public void modificaTrama(String isbn, String nuovoAttributo) throws SQLException {
 		Connection connection= null;
 		PreparedStatement preparedStatement= null;
 
@@ -365,7 +349,7 @@ public class AmministratoreManager {
 		
 	}
 
-	private void modificaTitolo(String isbn, String nuovoAttributo) throws SQLException {
+	public void modificaTitolo(String isbn, String nuovoAttributo) throws SQLException {
 		Connection connection= null;
 		PreparedStatement preparedStatement= null;
 

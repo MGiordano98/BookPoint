@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import bean.Utente;
 import model.AmministratoreManager;
-import model.DataManager;
 
 /**
  * Servlet implementation class RicercaAccount

@@ -54,7 +54,7 @@ public class CompletaAcquisto extends HttpServlet {
 		ordine.setDataEffettuata(dataEffettuata);
 		ordine.setDataConsegna(dataConsegna);
 		ordine.setOra(ora);
-		ordine.setNumCarta(request.getParameter("numCarta"));
+		ordine.setNumCarta(Integer.parseInt(request.getParameter("numCarta")));
 		ordine.setStato("In Preparazione");
 		ordine.setPrezzoTot(carrello.getTotale());
 		ordine.setLibri(carrello.getLibri());
