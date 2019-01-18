@@ -237,8 +237,8 @@ center img{
     padding: 1rem;
     width: 100%;
     text-align: center;
-    background-color: red;
-    color:white;
+    background-color: #f7f7f7;
+    color:black;
     font-size:medium;
     margin-top:0;
    
@@ -261,7 +261,7 @@ center img{
     cursor:pointer;
     background-color:transparent;
     border:0;
-    color:white;
+    color:black;
 }
 .link:hover{
     color:gray;

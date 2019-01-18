@@ -18,10 +18,10 @@ public class DriverMaagerConnectionPool  {
 			System.out.println("DB driver not found:"+ e.getMessage());
 		} 
 	}
-		
+//	jdbc:mysql://127.0.0.1:3306/?user=root
 	private static synchronized Connection createDBConnection() throws SQLException {
 		Connection newConnection = null;
-		String ip = "IS";
+		String ip = "127.0.0.1";
 		String port = "3306";
 		String db = "bookpoint";
 		String username = "root";
