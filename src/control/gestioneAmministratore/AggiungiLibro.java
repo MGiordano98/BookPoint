@@ -1,6 +1,7 @@
 package control.gestioneAmministratore;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -12,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.Autore;
-import bean.Carrello;
 import bean.Libro;
 import model.AmministratoreManager;
 /**
@@ -52,8 +52,9 @@ public class AggiungiLibro extends HttpServlet {
 		for(int i=0; i<numAutori; i++) {
 			autori.add(new Autore(request.getParameter("autore"+ i)));
 		}
+		Date dataUscita= Date.valueOf(request.getParameter("dataUscita"));
 		
-		Libro libro= new Libro(isbn, titolo, trama, foto, casaEditrice, prezzo, quantitàDisponibile, categoria, autori);
+		Libro libro= new Libro(isbn, titolo, trama, foto, casaEditrice, prezzo, quantitàDisponibile, categoria, autori, dataUscita);
 		
 		try {
 			am.aggiungiLibro(libro);

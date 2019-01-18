@@ -46,7 +46,7 @@ public class Libro implements Serializable{
 	}
 	
 	public Libro(String isbn, String titolo, String trama, String foto, String casaEditrice, double prezzo, int quantità,
-			String categoria, ArrayList<Autore> autori) {
+			String categoria, ArrayList<Autore> autori, Date dataUscita) {
 		super();
 		this.isbn = isbn;
 		this.titolo = titolo;

@@ -32,7 +32,7 @@
 <h2><%=bean.getTitolo() +" "%></h2>
 <h6><% int i=0;
 	   for(i=0;i<bean.getAutori().size();i++){
-		String temp=bean.getAutori().get(i);   
+		String temp=bean.getAutori().get(i).getNome();   
 	   
 	   if(i==bean.getAutori().size()-1){  %>
 	   <%=temp%>
