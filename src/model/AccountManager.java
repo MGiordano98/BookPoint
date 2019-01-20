@@ -35,7 +35,7 @@ public class AccountManager {
 				utente= new Utente();
 				utente.setEmail(rs.getString("email"));
 				utente.setNome(rs.getString("nome"));
-				utente.setCognome(rs.getString("congome"));
+				utente.setCognome(rs.getString("cognome"));
 				utente.setDataDiNascita(rs.getDate("dataDiNascita"));
 				utente.setTipo(rs.getString("tipo"));
 			}

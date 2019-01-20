@@ -33,6 +33,7 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("ciaoa");
 		String email= request.getParameter("email");
 		String password= request.getParameter("password");
 		

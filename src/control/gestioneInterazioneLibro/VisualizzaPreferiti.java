@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.Libro;
+import bean.Utente;
 import model.InterazioneLibroManager;
 
 /**
@@ -34,7 +35,9 @@ public class VisualizzaPreferiti extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String email= request.getParameter("email");
+		System.out.println("ciao");
+		Utente utente= (Utente) request.getSession().getAttribute("utente");
+		String email= utente.getEmail();
 		Collection<Libro> preferiti= null; 
 		
 		try {
@@ -45,8 +48,8 @@ public class VisualizzaPreferiti extends HttpServlet {
 		}
 		
 		request.getSession().setAttribute("preferiti", preferiti);
-		RequestDispatcher dispatcher= request.getRequestDispatcher("Preferiti.jsp");
-		dispatcher.forward(request, response);
+		response.sendRedirect("presentation/cliente/Preferiti.jsp");
+		
 	}
 
 	/**
