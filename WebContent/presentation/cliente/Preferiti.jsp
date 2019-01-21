@@ -24,7 +24,7 @@
 	%>
 <div class="container-preferiti" >
 <div class="preferiti-immagine">
-	<img src=<%="../image/"+bean.getFoto()%> >
+	<img style="width:100%; height:100%;" src=<%="../image/"+bean.getIsbn()+".jpg"%>  >
 </div >
 
 <div class="container-preferiti2">
