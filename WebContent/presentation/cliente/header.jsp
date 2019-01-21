@@ -20,7 +20,7 @@
 		<i class="fas fa-book fa-lg"></i>
 	  </a>
 	  
-	  <a href="Libri.jsp">Libri</a>
+	  <a href="../../VisualizzaCatalogo">Libri</a>
 	  <a class="nav-link" href="Carrello.jsp"><i class="fas fa-shopping-cart"></i></a>
 	  <a href="../../VisualizzaPreferiti">Preferiti</a>
 	  <a class="nav-link utenteutente" href="Login.jsp" style="margin:0;margin-left:40px;padding-left:40px"><i class="fas fa-user-circle fa-lg"></i>  </a>

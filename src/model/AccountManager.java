@@ -26,6 +26,8 @@ public class AccountManager {
 		String selectQ= "SELECT * FROM utente WHERE email = ? AND psw = ?";
 		Utente utente= null;
 		
+		System.out.println("ciao");
+		
 		try {
 			pStatement= connection.prepareStatement(selectQ);
 			pStatement.setString(1, email);

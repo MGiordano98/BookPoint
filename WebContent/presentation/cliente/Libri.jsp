@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+ 	<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8" import="java.util.*,bean.*,control.gestioneRicerca.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,68 +10,23 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<style>
-.col-md-3 {
-	display: inline-block;
-	margin-left: -4px;
-}
+<script
+	src="cliente.js"></script>
 
-.col-md-3 img {
-	width: 100%;
-	height: auto;
-}
-
-
-body .carousel-control-prev-icon, body .carousel-control-next-icon {
-	background-color: red;
-}
-
-body .no-padding {
-	padding-left: 0;
-	padding-right: 0;
-}
-
-.slider.no-padding.carousel-inner.container {
-	width: auto;
-	display: inline-block;
-	float: none;
-	padding-left: 5%;
-	padding-right: 5%;
-}
-
-.slider.no-padding.carousel-inner.container img {
-	height: 280px;
-	width: 230px;
-	padding: 5%;
-}
-
-.prima.carousel-control-prev {
-	width: 3%;
-}
-
-.dopo.carousel-control-next {
-	width: 3%;
-}
-
-.car-item.carousel-item.active {
-	background-color: #f7f7f7;
-}
-
-.carousel-mio.slide.carousel{
-	height: 280px;
-	margin-bottom: 30px;
-}
-
-@media(display-width:980px){
-
-}
-</style>
 
 <title>Libri</title>
 </head>
+
 <body>
+
 	<%@ include file="header.jsp"%>
-	 
+
+<%  Collection<?> libriInEvidenza= (Collection<?>)request.getSession().getAttribute("libriInEvidenza");
+	Collection<?> libriPiùVenduti= (Collection<?>)request.getSession().getAttribute("libriPiùVenduti");%>
+	
+<h1>I miei preferiti</h1>
+
+<!-- Search Bar -->
 <div class="container-cerca" >
 <div class="cerca">
   <form class="search-container">
@@ -86,60 +41,66 @@ body .no-padding {
   <option value="audi">Audi</option>
 </select>
 </div>
+
  
 <div style="width: 90%; margin-right:5%; margin-left:5%; margin-top: 50px;">
-	<div id="demo"
-		class="carousel slide carousel-mio" data-ride="carousel"
-		data-interval="false">
 
-		<!-- The slideshow -->
-		<div class="container carousel-inner no-padding slider">
-			<div class="carousel-item active car-item">
-				<div class="col-xs-3 col-sm-3 col-md-3">
-					<a href="Home.jsp"><img src="../image/principe.jpg"></a>
-				</div>
-				<div class="col-xs-3 col-sm-3 col-md-3">
-					<img src="../image/principe.jpg">
-				</div>
-				<div class="col-xs-3 col-sm-3 col-md-3">
-					<img src="../image/principe.jpg">
-				</div>
-				<div class="col-xs-3 col-sm-3 col-md-3">
-					<img src="../image/principe.jpg">
-				</div>
-			</div>
-			<div class="carousel-item car-item">
-				<div class="col-xs-3 col-sm-3 col-md-3">
-					<img src="../image/principe.jpg">
-				</div>
-				<div class="col-xs-3 col-sm-3 col-md-3">
-					<img src="../image/principe.jpg">
-				</div>
-				<div class="col-xs-3 col-sm-3 col-md-3">
-					<img src="../image/principe.jpg">
-				</div>
-				<div class="col-xs-3 col-sm-3 col-md-3">
-					<img src="../image/principe.jpg">
-				</div>
-			</div>
-			
-			<!-- Left and right controls -->
-			<a class="carousel-control-prev prima" href="#demo" data-slide="prev">
-				<span class="carousel-control-prev-icon"></span>
-			</a> <a class="carousel-control-next dopo" href="#demo" data-slide="next">
-				<span class="carousel-control-next-icon"></span>
-			</a>
-			
-		</div>
-		
-
-	</div>
+	<% if(libriInEvidenza!=null && libriInEvidenza.size()>0){
+	int i=0;
 	
+	%>
+	
+	
+	<!-- Libri in evidenza -->
 	<div id="demo"
 		class="carousel slide carousel-mio" data-ride="carousel"
 		data-interval="false">
 
 		<!-- The slideshow -->
+		<div class="container carousel-inner no-padding slider">
+			<div class="carousel-item active car-item">
+			<%
+			Iterator it=libriInEvidenza.iterator();
+			while(it.hasNext()){
+		
+			Libro bean= (Libro) it.next();
+			if(i<4){
+			%>
+				<div class="col-xs-3 col-sm-3 col-md-3">
+					<img class="visualizza" src="../image/<%=bean.getFoto()%>" name="<%=bean.getIsbn()%>">
+				</div>
+			<%	}else{ %>
+			<% if(i==4){  %>
+			</div>
+			<div class="carousel-item car-item">
+			<% }if(i>=4 && i<8){ %>
+				<div class="col-xs-3 col-sm-3 col-md-3">
+					<img src="../image/<%=bean.getFoto()%>">
+				</div>
+			<%} %>
+			<%if(i==8){ %>
+			</div>
+			<%}}i++;} %>
+			
+		</div>
+
+		<!-- Left and right controls -->
+			<a class="carousel-control-prev prima" href="#demo" data-slide="prev">
+				<span class="carousel-control-prev-icon"></span>
+			</a> <a class="carousel-control-next dopo" href="#demo" data-slide="next">
+				<span class="carousel-control-next-icon"></span>
+			</a>
+	</div>
+	<%}	 %>
+	
+	
+<!--	
+	<!-- libri più venduti 
+	<div id="demo"
+		class="carousel slide carousel-mio" data-ride="carousel"
+		data-interval="false">
+
+		<!-- The slideshow 
 		<div class="container carousel-inner no-padding slider">
 			<div class="carousel-item active car-item">
 				<div class="col-xs-3 col-sm-3 col-md-3">
@@ -170,7 +131,7 @@ body .no-padding {
 				</div>
 			</div>
 			
-			<!-- Left and right controls -->
+			<!-- Left and right controls 
 			<a class="carousel-control-prev prima" href="#demo" data-slide="prev">
 				<span class="carousel-control-prev-icon"></span>
 			</a> <a class="carousel-control-next dopo" href="#demo" data-slide="next">
@@ -178,10 +139,8 @@ body .no-padding {
 			</a>
 			
 		</div>
-		
-
 	</div>
-
+ -->
 
 
 </div>

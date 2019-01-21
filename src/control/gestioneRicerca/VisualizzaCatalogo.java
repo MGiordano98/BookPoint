@@ -44,8 +44,7 @@ public class VisualizzaCatalogo extends HttpServlet {
 		request.getSession().setAttribute("libriInEvidenza", libriInEvidenza);
 		request.getSession().setAttribute("libriPiùVenduti", libriPiùVenduti);
 
-		RequestDispatcher dispatcher= request.getRequestDispatcher("Libri.jsp");
-		dispatcher.forward(request, response);
+		response.sendRedirect("presentation/cliente/Libri.jsp");
 	}
 
 	/**

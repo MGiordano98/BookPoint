@@ -53,7 +53,7 @@ public class LibroManager {
 				bean.setFoto(rs.getString("foto"));
 				bean.setCasaEditrice(rs.getString("casaEditrice"));
 				bean.setPrezzo(rs.getDouble("prezzo"));
-				bean.setQuantit‡(rs.getInt("quantit‡"));
+				bean.setQuantit‡(rs.getInt("quantit‡Disponibile"));
 				bean.setCategoria(rs.getString("categoria"));
 				bean.setCopieVendute(rs.getInt("copieVendute"));
 				
@@ -99,7 +99,7 @@ public class LibroManager {
 				bean.setFoto(rs.getString("foto"));
 				bean.setCasaEditrice(rs.getString("casaEditrice"));
 				bean.setPrezzo(rs.getDouble("prezzo"));
-				bean.setQuantit‡(rs.getInt("quantit‡"));
+				bean.setQuantit‡(rs.getInt("quantit‡Disponibile"));
 				bean.setCategoria(rs.getString("categoria"));
 				bean.setCopieVendute(rs.getInt("copieVendute"));
 				bean.setDataUscita(rs.getDate("dataUscita"));
@@ -149,7 +149,7 @@ public class LibroManager {
 				bean.setFoto(rs.getString("foto"));
 				bean.setCasaEditrice(rs.getString("casaEditrice"));
 				bean.setPrezzo(rs.getDouble("prezzo"));
-				bean.setQuantit‡(rs.getInt("quantit‡"));
+				bean.setQuantit‡(rs.getInt("quantit‡Disponibile"));
 				bean.setCategoria(rs.getString("categoria"));
 				bean.setCopieVendute(rs.getInt("copieVendute"));
 				bean.setDataUscita(rs.getDate("dataUscita"));
@@ -192,7 +192,7 @@ public class LibroManager {
 				libro.setTrama(rs.getString("trama"));
 				libro.setFoto(rs.getString("foto"));
 				libro.setCasaEditrice(rs.getString("casaEditrice"));
-				libro.setQuantit‡(rs.getInt("quantit‡"));
+				libro.setQuantit‡(rs.getInt("quantit‡Disponibile"));
 				libro.setCategoria(rs.getString("categoria"));
 				libro.setCopieVendute(rs.getInt("copieVendute"));
 				libro.setDataUscita(rs.getDate("dataUscita"));
@@ -224,7 +224,7 @@ public class LibroManager {
 		pStatement.setString(1, isbn);
 		ResultSet rs = pStatement.executeQuery();
 		while(rs.next()) {
-			recensioni.add(new Recensione(rs.getString("testo"), isbn, rs.getString("email")));
+			recensioni.add(new Recensione(rs.getString("testo"), isbn, rs.getString("utente")));
 		}
 		return recensioni;
 	}

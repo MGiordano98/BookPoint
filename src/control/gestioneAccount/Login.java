@@ -16,7 +16,7 @@ import model.AccountManager;
 /**
  * Servlet implementation class Login
  */
-@WebServlet("/Login")
+@WebServlet(name="Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private static AccountManager manager= new AccountManager();
@@ -46,7 +46,7 @@ public class Login extends HttpServlet {
 		}
 		
 		request.getSession().setAttribute("utente", utente);
-		response.sendRedirect("presentation/cliente/Home.jsp");
+		response.sendRedirect("Home.jsp");
 	}
 
 	/**

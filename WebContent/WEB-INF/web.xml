@@ -5,4 +5,332 @@
     <welcome-file>Home.jsp</welcome-file>
   </welcome-file-list>
   
+  <servlet>
+  	<servlet-name>Login</servlet-name>
+  	<servlet-class>control.gestioneAccount.Login</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Login</servlet-name>
+  	<url-pattern>/presentation/cliente/login</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AggiungiCarta</servlet-name>
+  	<servlet-class>control.gestioneAccount.AggiungiCarta</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AggiungiCarta</servlet-name>
+  	<url-pattern>/presentation/cliente/aggiungiCarta</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AggiungiIndirizzo</servlet-name>
+  	<servlet-class>control.gestioneAccount.AggiungiIndirizzo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AggiungiIndirizzo</servlet-name>
+  	<url-pattern>/presentation/cliente/aggiungiIndirizzo</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>Logout</servlet-name>
+  	<servlet-class>control.gestioneAccount.Logout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Logout</servlet-name>
+  	<url-pattern>/presentation/cliente/logout</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>ModificaIndirizzo</servlet-name>
+  	<servlet-class>control.gestioneAccount.ModificaIndirizzo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ModificaIndirizzo</servlet-name>
+  	<url-pattern>/presentation/cliente/modificaIndirizzo</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>Registrazione</servlet-name>
+  	<servlet-class>control.gestioneAccount.Registrazione</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Registrazione</servlet-name>
+  	<url-pattern>/presentation/cliente/registrazione</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>RicercaCarte</servlet-name>
+  	<servlet-class>control.gestioneAccount.RicercaCarte</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>RicercaCarte</servlet-name>
+  	<url-pattern>/presentation/cliente/ricercaCarte</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>RicercaIndirizzi</servlet-name>
+  	<servlet-class>control.gestioneAccount.RicercaIndirizzi</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>RicercaIndirizzi</servlet-name>
+  	<url-pattern>/presentation/cliente/ricercaIndirizzi</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>RimuoviCarta</servlet-name>
+  	<servlet-class>control.gestioneAccount.RimuoviCarta</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>RimuoviCarta</servlet-name>
+  	<url-pattern>/presentation/cliente/rimuoviCarta</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>RimuoviIndirizzo</servlet-name>
+  	<servlet-class>control.gestioneAccount.RimuoviIndirizzo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>RimuoviIndirizzo</servlet-name>
+  	<url-pattern>/presentation/cliente/rimuoviIndirizzo</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AggiungiAlCarrello</servlet-name>
+  	<servlet-class>control.gestioneAcquisto.AggiungiAlCarrello</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AggiungiAlCarrello</servlet-name>
+  	<url-pattern>/presentation/cliente/aggiungiAlCarrello</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AumentaQuantità</servlet-name>
+  	<servlet-class>control.gestioneAcquisto.AumentaQuantità</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AumentaQuantità</servlet-name>
+  	<url-pattern>/presentation/cliente/aumentaQuantità</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>CompletaAcquisto</servlet-name>
+  	<servlet-class>control.gestioneAcquisto.CompletaAcquisto</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>CompletaAcquisto</servlet-name>
+  	<url-pattern>/presentation/cliente/completaAcquisto</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>DiminuisciQuantità</servlet-name>
+  	<servlet-class>control.gestioneAcquisto.DiminuisciQuantità</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>DiminuisciQuantità</servlet-name>
+  	<url-pattern>/presentation/cliente/diminuisciQuantità</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  	<servlet-name>EliminaDalCarrello</servlet-name>
+  	<servlet-class>control.gestioneAcquisto.EliminaDalCarrello</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>EliminaDalCarrello</servlet-name>
+  	<url-pattern>/presentation/cliente/eliminaDalCarrello</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  	<servlet-name>SelezionaCartaEIndirizzo</servlet-name>
+  	<servlet-class>control.gestioneAcquisto.SelezionaCartaEIndirizzo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>SelezionaCartaEIndirizzo</servlet-name>
+  	<url-pattern>/presentation/cliente/selezionaCartaEIndirizzo</url-pattern>
+  </servlet-mapping>
+    
+   <servlet>
+  	<servlet-name>AggiungiLibro</servlet-name>
+  	<servlet-class>control.gestioneAmministratore.AggiungiLibro</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AggiungiLibro</servlet-name>
+  	<url-pattern>/presentation/amministratore/aggiungiLibro</url-pattern>
+  </servlet-mapping>
+    
+   <servlet>
+  	<servlet-name>CambiaTipo</servlet-name>
+  	<servlet-class>control.gestioneAmministratore.CambiaTipo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>CambiaTipo</servlet-name>
+  	<url-pattern>/presentation/amministratore/cambiaTipo</url-pattern>
+  </servlet-mapping>
+     
+   <servlet>
+  	<servlet-name>EliminaLibro</servlet-name>
+  	<servlet-class>control.gestioneAmministratore.EliminaLibro</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>EliminaLibro</servlet-name>
+  	<url-pattern>/presentation/amministratore/eliminaLibro</url-pattern>
+  </servlet-mapping>
+     
+   <servlet>
+  	<servlet-name>EliminaRecensione</servlet-name>
+  	<servlet-class>control.gestioneAmministratore.EliminaRecensione</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>EliminaRecensione</servlet-name>
+  	<url-pattern>/presentation/amministratore/eliminaRecensione</url-pattern>
+  </servlet-mapping>
+     
+   <servlet>
+  	<servlet-name>EliminaUtente</servlet-name>
+  	<servlet-class>control.gestioneAmministratore.EliminaUtente</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>EliminaUtente</servlet-name>
+  	<url-pattern>/presentation/amministratore/eliminaUtente</url-pattern>
+  </servlet-mapping>
+     
+   <servlet>
+  	<servlet-name>ModificaAttributo</servlet-name>
+  	<servlet-class>control.gestioneAmministratore.ModificaAttributo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ModificaAttributo</servlet-name>
+  	<url-pattern>/presentation/amministratore/modificaAttributo</url-pattern>
+  </servlet-mapping>
+     
+   <servlet>
+  	<servlet-name>RicercaAccount</servlet-name>
+  	<servlet-class>control.gestioneAmministratore.RicercaAccount</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>RicercaAccount</servlet-name>
+  	<url-pattern>/presentation/amministratore/ricercaAccount</url-pattern>
+  </servlet-mapping>
+     
+   <servlet>
+  	<servlet-name>CambiaDataEOra</servlet-name>
+  	<servlet-class>control.gestioneAmministratoreOrdini.CambiaDataEOra</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>CambiaDataEOra</servlet-name>
+  	<url-pattern>/presentation/amministratoreOrdini/cambiaDataEOra</url-pattern>
+  </servlet-mapping>
+       
+   <servlet>
+  	<servlet-name>CambiaStato</servlet-name>
+  	<servlet-class>control.gestioneAmministratoreOrdini.CambiaStato</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>CambiaStato</servlet-name>
+  	<url-pattern>/presentation/amministratoreOrdini/cambiaStato</url-pattern>
+  </servlet-mapping>
+       
+   <servlet>
+  	<servlet-name>RicercaOrdine</servlet-name>
+  	<servlet-class>control.gestioneAmministratoreOrdini.RicercaOrdine</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>RicercaOrdine</servlet-name>
+  	<url-pattern>/presentation/amministratoreOrdini/ricercaOrdine</url-pattern>
+  </servlet-mapping>
+       
+   <servlet>
+  	<servlet-name>AggiungiLibroPreferiti</servlet-name>
+  	<servlet-class>control.gestione.InterazioneLibro.AggiungiLibroPreferiti</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AggiungiLibroPreferiti</servlet-name>
+  	<url-pattern>/presentation/cliente/aggiungiLibroPreferiti</url-pattern>
+  </servlet-mapping>
+       
+   <servlet>
+  	<servlet-name>AggiungiRecensione</servlet-name>
+  	<servlet-class>control.gestioneInterazioneLibro.AggiungiRecensione</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AggiungiRecensione</servlet-name>
+  	<url-pattern>/presentation/cliente/aggiungiRecensione</url-pattern>
+  </servlet-mapping>
+        
+   <servlet>
+  	<servlet-name>RimuoviLibroPreferiti</servlet-name>
+  	<servlet-class>control.gestioneInterazioneLibro.RimuoviLibroPreferiti</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>RimuoviLibroPreferiti</servlet-name>
+  	<url-pattern>/presentation/cliente/rimuoviLibroPreferiti</url-pattern>
+  </servlet-mapping>
+        
+   <servlet>
+  	<servlet-name>RimuoviRecensione</servlet-name>
+  	<servlet-class>control.gestioneInterazioneLibro.RimuoviRecensione</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>RimuoviRecensione</servlet-name>
+  	<url-pattern>/presentation/cliente/rimuoviRecensione</url-pattern>
+  </servlet-mapping>
+        
+   <servlet>
+  	<servlet-name>VisualizzaPreferiti</servlet-name>
+  	<servlet-class>control.gestioneInterazioneLibro.VisualizzaPreferiti</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>VisualizzaPreferiti</servlet-name>
+  	<url-pattern>/presentation/cliente/visualizzaPreferiti</url-pattern>
+  </servlet-mapping>
+        
+   <servlet>
+  	<servlet-name>VisualizzaFattura</servlet-name>
+  	<servlet-class>control.gestioneOrdine.VisualizzaFattura</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>VisualizzaFattura</servlet-name>
+  	<url-pattern>/presentation/cliente/visualizzaFattura</url-pattern>
+  </servlet-mapping>
+        
+   <servlet>
+  	<servlet-name>VisualizzaStorico</servlet-name>
+  	<servlet-class>control.gestioneOrdine.VisualizzaStorico</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>VisualizzaStorico</servlet-name>
+  	<url-pattern>/presentation/cliente/visualizzaStorico</url-pattern>
+  </servlet-mapping>
+        
+   <servlet>
+  	<servlet-name>Ricerca</servlet-name>
+  	<servlet-class>control.gestioneRicerca.Ricerca</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Ricerca</servlet-name>
+  	<url-pattern>/presentation/cliente/ricerca</url-pattern>
+  </servlet-mapping>
+        
+   <servlet>
+  	<servlet-name>VisualizzaCatalogo</servlet-name>
+  	<servlet-class>control.gestioneRicerca.VisualizzaCatalogo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>VisualizzaCatalogo</servlet-name>
+  	<url-pattern>/presentation/cliente/visualizzaCatalogo</url-pattern>
+  </servlet-mapping>
+        
+   <servlet>
+  	<servlet-name>VisualizzaLibro</servlet-name>
+  	<servlet-class>control.gestioneRicerca.VisualizzaLibro</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>VisualizzaLibro</servlet-name>
+  	<url-pattern>/presentation/cliente/visualizzaLibro</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+  
 </web-app>

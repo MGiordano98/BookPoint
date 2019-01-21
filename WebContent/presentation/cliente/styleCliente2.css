@@ -553,3 +553,59 @@ media-heading h2{
 .container-aggiungi-recensione input{
 	width:inherit;
 }
+
+/*css libri*/
+.col-md-3 {
+	display: inline-block;
+	margin-left: -4px;
+}
+
+.col-md-3 img {
+	width: 100%;
+	height: auto;
+}
+
+
+body .carousel-control-prev-icon, body .carousel-control-next-icon {
+	background-color: red;
+}
+
+body .no-padding {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.slider.no-padding.carousel-inner.container {
+	width: auto;
+	display: inline-block;
+	float: none;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+.slider.no-padding.carousel-inner.container img {
+	height: 280px;
+	width: 230px;
+	padding: 5%;
+}
+
+.prima.carousel-control-prev {
+	width: 3%;
+}
+
+.dopo.carousel-control-next {
+	width: 3%;
+}
+
+.car-item.carousel-item.active {
+	background-color: #f7f7f7;
+}
+
+.carousel-mio.slide.carousel{
+	height: 280px;
+	margin-bottom: 30px;
+}
+
+@media(display-width:980px){
+
+}
