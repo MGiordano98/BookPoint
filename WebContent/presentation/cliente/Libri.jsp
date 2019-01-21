@@ -27,12 +27,13 @@
 <h1>I miei preferiti</h1>
 
 <!-- Search Bar -->
+<form class="search-container" action="ricerca">
 <div class="container-cerca" >
 <div class="cerca">
-  <form class="search-container">
+  
     <input  type="text" id="search-bar" placeholder="Cerca libro">
     <a href="#"><i class="fas fa-search fa-lg"></i></a>
-  </form>
+  
 </div>
 <select>
   <option value="categorie"> Tutte le categorie</option>
@@ -41,7 +42,7 @@
   <option value="audi">Audi</option>
 </select>
 </div>
-
+</form>
  
 <div style="width: 90%; margin-right:5%; margin-left:5%; margin-top: 50px;">
 

@@ -30,8 +30,8 @@ public class LibroManager {
 
 		Collection<Libro> libri = new LinkedList<Libro>();
 
-		String selectSQL = "SELECT * FROM libro WHERE categoria = ? AND "
-				+ "((titolo = ? OR autore = ?))";
+		String selectSQL = "Select * from libro inner join scrive on isbn=libro where categoria = ?"
+				+ " And (titolo=? Or autore =?)";
 
 
 		try {

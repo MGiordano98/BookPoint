@@ -33,6 +33,7 @@ public class Ricerca extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("ricerca");
 		String testo= request.getParameter("testo");
 		String categoria= request.getParameter("categoria");
 		Collection<Libro> libri=null;
