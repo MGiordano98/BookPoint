@@ -48,7 +48,7 @@ public class AggiungiRecensione extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		RequestDispatcher dispatcher= request.getRequestDispatcher("VisualizzaLibro.jsp");
+		RequestDispatcher dispatcher= request.getRequestDispatcher("visualizzaLibro");
 		dispatcher.forward(request, response);
 	}
 
