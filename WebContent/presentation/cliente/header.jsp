@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" import="bean.*"%>
 
 <!DOCTYPE html>
 <html>
@@ -22,9 +22,13 @@
 	  
 	  <a href="../../VisualizzaCatalogo">Libri</a>
 	  <a class="nav-link" href="Carrello.jsp"><i class="fas fa-shopping-cart"></i></a>
+	  <% Utente utente=(Utente) session.getAttribute("utente"); 
+	  if(utente!=null) {%>
 	  <a href="../../VisualizzaPreferiti">Preferiti</a>
+	  <a class="nav-link utenteutente" href="AreaPersonale.jsp" style="margin:0;margin-left:40px;padding-left:40px"><i class="fas fa-user-circle fa-lg"></i>  </a>
+	  <%} else { %>
 	  <a class="nav-link utenteutente" href="Login.jsp" style="margin:0;margin-left:40px;padding-left:40px"><i class="fas fa-user-circle fa-lg"></i>  </a>
-
+	  <%} %>
 
     	
 	
