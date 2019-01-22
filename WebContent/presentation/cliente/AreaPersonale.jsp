@@ -13,6 +13,14 @@
 </head>
 <body>
 
+ <% Utente APUtente=(Utente) session.getAttribute("utente");
+ if(APUtente==null){
+ 
+	 	response.sendRedirect("Login.jsp");
+}
+ else{
+ %>
+
 
  <%@ include file="header.jsp"%>
  
@@ -31,7 +39,7 @@
 
 			
             <div class="ya-card-cell ordini">  
-            <a href="ordine" class="accountahref">
+            <a href="VisualizzaStorico" class="accountahref">
     <div class="a-row">
         <div class="a-column a-span3">
             <img alt="I miei ordini" src="../image/libro.jpg">
@@ -49,7 +57,7 @@
        
        
           <div class="ya-card-cell accesso">      
-                  <a href="accesso.jsp" class="accountahref">
+                  <a href="GestioneAccount.jsp" class="accountahref">
     <div class="a-row">
         <div class="a-column a-span3">
             <img alt="I miei ordini" src="../image/libro.jpg">
@@ -65,7 +73,7 @@
             
             
         <div class="ya-card-cell indirizzi"> 
-                        <a href="indirizzo" class="accountahref">    
+                        <a href="GestioneIndirizzi.jsp" class="accountahref">    
     <div class="a-row">
         <div class="a-column a-span3">
             <img alt="I miei ordini" src="../image/libro.jpg">
@@ -84,7 +92,7 @@
        
        
             <div class="ya-card-cell pagamento">      
-            <a href="cartacredito" class="accountahref">
+            <a href="GestioneCarteDiCredito.jsp" class="accountahref">
     <div class="a-row">
         <div class="a-column a-span3">
             <img alt="I miei ordini" src="../image/libro.jpg">
@@ -123,6 +131,6 @@
 
 
 
-
+<%} %>
 </body>
 </html>
