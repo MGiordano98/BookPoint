@@ -57,8 +57,11 @@ for(Autore autore: libro.getAutori()){
 <div class="quantita-libro">
 <span>Euro <%=libro.getPrezzo() %></span>
 <span>Quantità disponibile: <%=libro.getQuantità() %></span>
-<span>Quantità selezionata: <input type="number" min="1" max="<%=libro.getQuantità()%>"></span>
+<form action="aggiungiAlCarrello">
+<span>Quantità selezionata: <input type="number" min="1" max="<%=libro.getQuantità()%>" name="quantità"></span>
+<input type="hidden" name="isbn" value="<%=libro.getIsbn() %>">
 <center><input type="submit" value="aggiungi al carrello"></center>
+</form>
 </div>
 </div>
 
@@ -69,12 +72,12 @@ for(Autore autore: libro.getAutori()){
 
 <%
 for(Recensione recensione : libro.getRecensioni()){
-	%>
+%>
 	
 	<%=recensione.getEmail() %>
 	<p><%=recensione.getTesto() %></p>
 	
-	<%
+<%
 }
 %>
 
@@ -92,12 +95,7 @@ for(Recensione recensione : libro.getRecensioni()){
 
 
 
-
-
  <%@ include file="footer.jsp"%>
-
-
-
 
 
 </body>

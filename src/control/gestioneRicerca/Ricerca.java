@@ -46,8 +46,7 @@ public class Ricerca extends HttpServlet {
 		}
 		request.getSession().setAttribute("libri", libri);
 		
-		RequestDispatcher dispatcher= request.getServletContext().getRequestDispatcher("/presentation/cliente/Ricerca.jsp");
-		dispatcher.forward(request, response);
+		response.sendRedirect("Ricerca.jsp");
 	}
 
 	/**

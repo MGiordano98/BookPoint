@@ -44,8 +44,7 @@ public class VisualizzaLibro extends HttpServlet {
 		
 		request.getSession().setAttribute("libro", libro);
 		
-		RequestDispatcher dispatcher= request.getServletContext().getRequestDispatcher("/presentation/cliente/VisualizzaLibro.jsp");
-		dispatcher.forward(request, response);
+		response.sendRedirect("VisualizzaLibro.jsp");
 	}
 
 	/**

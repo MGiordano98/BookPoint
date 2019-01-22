@@ -4,7 +4,7 @@
  
 <!DOCTYPE html>
 <html>
- <%@ page language="java" contentType="text/html; charset=utf-8" import="java.util.*, control.*, model.*" %>
+ <%@ page language="java" contentType="text/html; charset=utf-8" import="java.util.*, control.gestioneAcquisto.*, model.*,java.lang.Math" %>
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="styleCliente2.css"> 
@@ -12,6 +12,11 @@
 <title>PizzaPoint</title>
 </head>
 <body>
+
+<%
+Carrello carrello= (Carrello) request.getSession().getAttribute("carrello");
+Collection<?> libri= carrello.getLibri();
+%>
 
 <div class="divcarrello">
 
@@ -36,36 +41,43 @@
                 <tbody>
                 
      
-
+			<%
+				Iterator it= libri.iterator();
+				while(it.hasNext()){
+					Libro libro = (Libro) it.next();
+					%>
+					
+			
                 
                     <tr>
                         <td class="col-sm-8 col-md-6">
                         <div class="media">
-                            <a class="thumbnail pull-left "> <img class="media-object" style="width:150px;height:150px;"id="" src=""> </a>
+                            <a class="thumbnail pull-left "> <img class="media-object" id="" src="../image/<%=libro.getFoto()%>" style="width:150px;height:150px;"> </a>
                             <div class="media-body">
                                 <h4 class="media-heading" id="nome"></h4>                         
                             </div>
                         </div></td>
                         <td class="col-sm-1 col-md-1" style="text-align: center">
-                        <input type="number" min="1" max="10" class="form-control numberquantita" id="" min="1" value="">
+                        <input type="number" min="1" max="10" class="form-control numberquantita" id="" min="1" value="<%=libro.getQuantitàSelezionata()%>">
                         <input type="hidden" id="codice" value="">
 						             
                         
                         </td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong><span id="prezzo"></strong></td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong><span id="prezzotot"></span></strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong><span id="prezzo"> <%=Math.round(libro.getPrezzo()*100.0)/100.0%></span></strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong><span id="prezzotot"> <%=Math.round(libro.getPrezzo()*100.0)/100.0 * libro.getQuantitàSelezionata()%></span></strong></td>
                         <td class="col-sm-1 col-md-1"> 
-                        <form action="carrello" method="post">                       	
-                        	<input type="hidden" name="idProdotto" value="">
+                        <form action="eliminaDalCarrello" method="post">                       	
+                        	<input type="hidden" name="idProdotto" value="<%=libro.getIsbn()%>">
 							<input type="hidden" name="nome" value="">
-							<input type="hidden" name="action" value="rimuovi">
                         <button type="submit" id="" class="btn btn-danger">
                             <span class="glyphicon glyphicon-remove"></span> Rimuovi
                         </button>
                         </form></td>
                     </tr>
-                   
-                   
+                 
+              		<%
+				}
+			%>  
 
 
 
@@ -78,7 +90,7 @@
                         <td>   </td>
                         <td><h2>Total</h2><h3></h3></td>
                         <td class="text-right">
-                        <h3><span id="totaleProdotti"></span></h3>
+                        <h3><span id="totaleProdotti"><%=Math.round(carrello.getTotale()*100.0)/100.0 %></span></h3>
                         <h5><strong><span id="tot"></span><br></strong></h5>
                         </td>
                     </tr>
