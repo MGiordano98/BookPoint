@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.Recensione;
+import bean.Utente;
 import model.InterazioneLibroManager;
 
 /**
@@ -34,7 +35,10 @@ public class AggiungiRecensione extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String testo= request.getParameter("testo");
 		String isbn= request.getParameter("isbn");
-		String email= request.getParameter("email");
+		Utente utente= (Utente) request.getSession().getAttribute("utente");
+		String email= utente.getEmail();
+		
+		System.out.println(testo +" " + isbn + " " + email);
 		
 		Recensione recensione= new Recensione(testo, isbn, email);
 		try {

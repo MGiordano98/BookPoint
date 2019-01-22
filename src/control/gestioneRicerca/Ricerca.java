@@ -32,10 +32,11 @@ public class Ricerca extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("ricerca");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		String testo= request.getParameter("testo");
 		String categoria= request.getParameter("categoria");
+		
+		System.out.println("ricerca "+ testo + " " + categoria);
 		Collection<Libro> libri=null;
 		try {
 			libri= manager.ricerca(testo, categoria);
@@ -45,7 +46,7 @@ public class Ricerca extends HttpServlet {
 		}
 		request.getSession().setAttribute("libri", libri);
 		
-		RequestDispatcher dispatcher= request.getRequestDispatcher("Libri.jsp");
+		RequestDispatcher dispatcher= request.getServletContext().getRequestDispatcher("/presentation/cliente/Ricerca.jsp");
 		dispatcher.forward(request, response);
 	}
 

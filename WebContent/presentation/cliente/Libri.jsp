@@ -6,13 +6,6 @@
 
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script
-	src="cliente.js"></script>
-
 
 <title>Libri</title>
 </head>
@@ -24,19 +17,19 @@
 <%  Collection<?> libriInEvidenza= (Collection<?>)request.getSession().getAttribute("libriInEvidenza");
 	Collection<?> libriPiùVenduti= (Collection<?>)request.getSession().getAttribute("libriPiùVenduti");%>
 	
-<h1>I miei preferiti</h1>
+<h1>Catalogo</h1>
 
 <!-- Search Bar -->
 <form class="search-container" action="ricerca">
 <div class="container-cerca" >
 <div class="cerca">
   
-    <input  type="text" id="search-bar" placeholder="Cerca libro">
-    <a href="#"><i class="fas fa-search fa-lg"></i></a>
+    <input  type="text" id="search-bar" placeholder="Cerca libro" name="testo">
+    <a><i id="search-button" class="fas fa-search fa-lg"></i></a>
   
 </div>
-<select>
-  <option value="categorie"> Tutte le categorie</option>
+<select name="categoria" id="categoria">
+  <option value=""></option>
   <option value="saab">Saab</option>
   <option value="opel">Opel</option>
   <option value="audi">Audi</option>
@@ -76,7 +69,7 @@
 			<div class="carousel-item car-item">
 			<% }if(i>=4 && i<8){ %>
 				<div class="col-xs-3 col-sm-3 col-md-3">
-					<img src="../image/<%=bean.getFoto()%>">
+					<img class="visualizza" src="../image/<%=bean.getFoto()%>" name="<%=bean.getIsbn()%>">
 				</div>
 			<%} %>
 			<%if(i==8){ %>
@@ -95,53 +88,53 @@
 	<%}	 %>
 	
 	
-<!--	
-	<!-- libri più venduti 
-	<div id="demo"
+<% if(libriPiùVenduti!=null && libriPiùVenduti.size()>0){
+	int i=0;
+	
+	%>
+	
+	
+	<!-- Libri più venduti -->
+	<div id="demo2"
 		class="carousel slide carousel-mio" data-ride="carousel"
 		data-interval="false">
 
-		<!-- The slideshow 
+		<!-- The slideshow -->
 		<div class="container carousel-inner no-padding slider">
 			<div class="carousel-item active car-item">
+			<%
+			Iterator it=libriInEvidenza.iterator();
+			while(it.hasNext()){
+		
+			Libro bean= (Libro) it.next();
+			if(i<4){
+			%>
 				<div class="col-xs-3 col-sm-3 col-md-3">
-					<a href="Home.jsp"><img src="../image/principe.jpg"></a>
+					<img class="visualizza" src="../image/<%=bean.getFoto()%>" name="<%=bean.getIsbn()%>">
 				</div>
-				<div class="col-xs-3 col-sm-3 col-md-3">
-					<img src="../image/principe.jpg">
-				</div>
-				<div class="col-xs-3 col-sm-3 col-md-3">
-					<img src="../image/principe.jpg">
-				</div>
-				<div class="col-xs-3 col-sm-3 col-md-3">
-					<img src="../image/principe.jpg">
-				</div>
+			<%	}else{ %>
+			<% if(i==4){  %>
 			</div>
 			<div class="carousel-item car-item">
+			<% }if(i>=4 && i<8){ %>
 				<div class="col-xs-3 col-sm-3 col-md-3">
-					<img src="../image/principe.jpg">
+					<img class="visualizza" src="../image/<%=bean.getFoto()%>" name="<%=bean.getIsbn()%>">
 				</div>
-				<div class="col-xs-3 col-sm-3 col-md-3">
-					<img src="../image/principe.jpg">
-				</div>
-				<div class="col-xs-3 col-sm-3 col-md-3">
-					<img src="../image/principe.jpg">
-				</div>
-				<div class="col-xs-3 col-sm-3 col-md-3">
-					<img src="../image/principe.jpg">
-				</div>
+			<%} %>
+			<%if(i==8){ %>
 			</div>
-			
-			<!-- Left and right controls 
-			<a class="carousel-control-prev prima" href="#demo" data-slide="prev">
-				<span class="carousel-control-prev-icon"></span>
-			</a> <a class="carousel-control-next dopo" href="#demo" data-slide="next">
-				<span class="carousel-control-next-icon"></span>
-			</a>
+			<%}}i++;} %>
 			
 		</div>
+
+		<!-- Left and right controls -->
+			<a class="carousel-control-prev prima" href="#demo2" data-slide="prev">
+				<span class="carousel-control-prev-icon"></span>
+			</a> <a class="carousel-control-next dopo" href="#demo2" data-slide="next">
+				<span class="carousel-control-next-icon"></span>
+			</a>
 	</div>
- -->
+	<%}	 %>
 
 
 </div>
@@ -152,6 +145,16 @@
 
 
 	<%@ include file="footer.jsp"%>
+	
+	
+	<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script
+	src="cliente.js"></script>
+
+	
 </body>
 
 

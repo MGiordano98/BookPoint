@@ -7,13 +7,20 @@ $(document).ready(function() {
 	$(".visualizza").click(function(){
 		var isbn= $(this).attr("name");
 		alert(isbn);
-		
-		$.post("VisualizzaLibro",{"isbn":isbn},function(data,status){
-			alert("done");
+		$.post("visualizzaLibro",{"isbn":isbn}, function(){
+			window.location.href= "VisualizzaLibro.jsp";
 		});
 		
-	})
+	});
 		
-	
+	$("#search-button").click(function(){
+		var testo= $("#search-bar").val();
+		var categoria= $("#categoria").val();
+		alert(testo + " " + categoria);
+		
+		$.post("ricerca",{"testo":testo, "categoria":categoria}, function(){
+			window.location.href= "Ricerca.jsp";
+		});
+	});
 	
 });

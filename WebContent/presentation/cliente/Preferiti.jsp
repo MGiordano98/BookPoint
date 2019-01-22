@@ -22,9 +22,10 @@
 		Libro bean= (Libro) it.next();
 	
 	%>
+	
 <div class="container-preferiti" >
 <div class="preferiti-immagine">
-	<img src="../image/<%=bean.getIsbn()+".jpg"%>" >
+	<img src="../image/<%=bean.getFoto()%>" >
 </div >
 
 <div class="container-preferiti2">
@@ -53,13 +54,15 @@
 		<input type="submit" value="rimuovi">
 	</form>
 	</div>
+</div>
+</div>
 <%}} %>
-</div>
 
 
 
 
-</div>
+
+
 
 
 

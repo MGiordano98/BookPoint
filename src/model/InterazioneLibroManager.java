@@ -181,6 +181,7 @@ public class InterazioneLibroManager {
 				lib.setTitolo(rs.getString("titolo"));
 				lib.setPrezzo(rs.getDouble("prezzo"));
 				lib.setTrama(rs.getString("trama"));
+				lib.setFoto(rs.getString("libro.foto"));
 				
 				lib.setAutori(getAutori(connection, lib.getIsbn()));
 				libri.add(lib);

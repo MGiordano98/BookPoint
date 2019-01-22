@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+    pageEncoding="utf-8" import="java.util.*,bean.*,control.gestioneAcquisto.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,25 +12,35 @@
 
 <%@ include file="header.jsp"%>
 
-
+<%
+	Libro libro= (Libro) request.getSession().getAttribute("libro");
+%>
 
 
 <div class="container-visualizza-libro"  >
 <div class="visualizza-libro-immagine">
-	<img src="../image/libro.jpg" >
+	<img src="../image/<%=libro.getFoto() %>" >
 </div >
 
 <div class="container-visualizza-libro2">
+<img id="star-preferiti" src="../image/star.jpg">
 <div class="intestazione-visualizza-libro" >
-<h2>Nome autore</h2><h2>Nome autore</h2> <img src="../image/star.jpg">
+<h2><%=libro.getTitolo() %></h2> 
+<%
+for(Autore autore: libro.getAutori()){
+%>
+	<h5><%=autore.getNome() %></h5>
+<%
+}
+%>
+
+
+
 
 </div>
 
 <div class="descrizione-visualizza-libro">
-Porco il demonio un bel libro
-Con il libro Cuore di Edmondo De Amicis la letteratura italiana si arricchisce del romanzo di formazione più famoso e funzionale conosciuto, insieme al Pinocchio di Collodi. 
-Dalla sua esperienza come giornalista e scrittore, uomo impegnato in uno dei periodi fra i più complessi della nostra storia, quello del Risorgimento e dell’Italia postunitaria, Edmondo de Amicis ricava la scrittura del romanzo “Cuore”, lettura quasi obbligata (scolasticamente e non) per ogni italiano fino agli anni Cinquanta del Novecento; ai giorni nostri questo romanzo è ancora oggetto di rivisitazioni sul grande e piccolo schermo che ne testimoniano la fondamentale importanza; è impossibile dimenticarlo!
-Soffermandoci brevemente su questo laborioso autore che, oltre a Cuore, ha scritto dozzine di altre opere e vediamo gli eventi principali che ne caratterizzano la vita.  
+<%=libro.getTrama() %>
 </div>
 </div>
 </div>
@@ -40,14 +50,14 @@ Soffermandoci brevemente su questo laborioso autore che, oltre a Cuore, ha scrit
 <div class="container-dettagli-libro">
 <div class="dettagli-libro" >
 <span>Dettagli prodotto</span>
-<span>Editore</span>
-<span>ISBN</span>
-<span>Categoria</span>
+<span>Casa Editrice: <%=libro.getCasaEditrice() %></span>
+<span>ISBN: <%=libro.getIsbn() %></span>
+<span>Categoria: <%=libro.getCategoria() %></span>
 </div>
 <div class="quantita-libro">
-<span>Euro 3</span>
-<span>Quantita</span>
-<span>Quantita disponibile</span>
+<span>Euro <%=libro.getPrezzo() %></span>
+<span>Quantità disponibile: <%=libro.getQuantità() %></span>
+<span>Quantità selezionata: <input type="number" min="1" max="<%=libro.getQuantità()%>"></span>
 <center><input type="submit" value="aggiungi al carrello"></center>
 </div>
 </div>
@@ -55,18 +65,30 @@ Soffermandoci brevemente su questo laborioso autore che, oltre a Cuore, ha scrit
 
 <div class="container-recensione-libro">
 <h2>Recensioni</h2>
-Nome
-<p>Porco il demonio un bel libro
-Con il libro Cuore di Edmondo De Amicis la letteratura italiana si arricchisce del romanzo di formazione più famoso e funzionale conosciuto, insieme al Pinocchio di Collodi. 
-Dalla sua esperienza come giornalista e scrittore, uomo impegnato in uno dei periodi fra i più complessi della nostra storia, quello del Risorgimento e dell’Italia postunitaria, Edmondo de Amicis ricava la scrittura del romanzo “Cuore”, lettura quasi obbligata (scolasticamente e non) per ogni italiano fino agli anni Cinquanta del Novecento; ai giorni nostri questo romanzo è ancora oggetto di rivisitazioni sul grande e piccolo schermo che ne testimoniano la fondamentale importanza; è impossibile dimenticarlo!
-Sofferman</p>
+<div>
+
+<%
+for(Recensione recensione : libro.getRecensioni()){
+	%>
+	
+	<%=recensione.getEmail() %>
+	<p><%=recensione.getTesto() %></p>
+	
+	<%
+}
+%>
+
 </div>
+
+</div>
+<form action="aggiungiRecensione">
 <div class="container-aggiungi-recensione" >
-<input id="titolo-recensione" type="text" placeholder="Titolo..." >
-<textarea rows="4" cols="20" placeholder="Testo...">
+<textarea rows="4" cols="20" placeholder="Testo..." name="testo">
 </textarea>
-<input "type="submit" value="aggiungi recensione" >
+<input type="hidden" name="isbn" value="<%=libro.getIsbn() %>">
+<input type="submit" value="aggiungi recensione" >
 </div>
+</form>
 
 
 
