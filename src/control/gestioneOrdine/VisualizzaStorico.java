@@ -46,8 +46,7 @@ public class VisualizzaStorico extends HttpServlet {
 		}
 		
 		request.getSession().setAttribute("ordini", ordini);
-		RequestDispatcher dispatcher= request.getRequestDispatcher("IMieiOrdini.jsp");
-		dispatcher.forward(request, response);
+		response.sendRedirect("IMieiOrdini.jsp");
 	}
 
 	/**

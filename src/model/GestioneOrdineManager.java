@@ -31,7 +31,7 @@ public class GestioneOrdineManager {
 			while(rs.next()) {
 				Ordine ordine= new Ordine();
 				ordine.setIdOrdine(rs.getInt("numero"));
-				ordine.setDataEffettuata(rs.getDate("dataEffettuata"));
+				ordine.setDataEffettuata(rs.getDate("dataOrdine"));
 				ordine.setDataConsegna(rs.getDate("dataConsegna"));
 				ordine.setOra(rs.getTime("oraConsegna"));
 				ordine.setVia(rs.getString("via"));
@@ -43,6 +43,7 @@ public class GestioneOrdineManager {
 				
 				ordine.setLibri(getLibri(connection, ordine));
 				ordini.add(ordine);
+				
 			}
 		}finally {
 			try {

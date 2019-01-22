@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html>
- <%@ page language="java" contentType="text/html; charset=utf-8" import="java.util.*, control.*,model.*" %>
+ <%@ page language="java" contentType="text/html; charset=utf-8" import="java.util.*, control.*,model.*, bean.*" %>
  <head>
 
 <title>PizzaPoint</title>
@@ -13,12 +13,20 @@
 
 <%@ include file="header.jsp"%>
 
+<% Collection<?> ordini = (Collection<?>) request.getSession().getAttribute("ordini"); %>
+
+
 <div class="divordini">
 	
 	
+<% Iterator it=ordini.iterator();
+	while(it.hasNext()){
 
+		Ordine ordine =(Ordine) it.next();
+		
+%>
 
-	<div style="">
+	<div>
 		<table class="tableordini1">
 			<tr class="tr1">
 				<td>Data</td>
@@ -28,29 +36,32 @@
 			</tr>
 
 		<tr class="tr2">
-			<td>31/2/12</td>
-			<td>444</td>
-			<td>via peppe</td>
+			<td><%=ordine.getDataConsegna() %></td>
+			<td><%=ordine.getPrezzoTot() %></td>
+			<td><%=ordine.getVia()%> <%=ordine.getCittà()%></td>
 
-		<td><form action="fattura.jsp?count=" method="post">
-		
+		<td><form action="VisualizzaFattura" method="post">
+		<input type="hidden" value=<%=ordine.getIdOrdine()%> name="numOrdine">
 		<button type="submit">Fattura!</button></form></td>
 		</tr>
 		</table>
 
+		<% Iterator it2 = ordine.getLibri().iterator(); 
+			while(it2.hasNext()){
+				Libro libro=(Libro)it2.next();%>
+
 		<table class="tableordini2">
 	
 			<tr>
-				<td><img src="../image/principe.jpg" style="width: 50%"></td>
-				<td style="font-family: fantasy; font-size: x-large;">dsada</td>
-				<td>cvbnngf</td>
-				<td style="text-align:center"></td>
-				<td style="font-weight:bold"></td>
+				<td style="font-family: fantasy; font-size: x-large;"><%=libro.getTitolo() %></td>
+				<td style="text-align:center"><%=libro.getQuantità() %></td>
+				<td style="font-weight:bold"><%=libro.getPrezzo() %></td>
 			</tr>
 	
 	</table>
+	<%} %>
 	</div>
-
+<%} %>
 
 	
 </div>

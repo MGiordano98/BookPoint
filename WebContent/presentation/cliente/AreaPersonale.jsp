@@ -39,7 +39,7 @@
 
 			
             <div class="ya-card-cell ordini">  
-            <a href="VisualizzaStorico" class="accountahref">
+            <a href="visualizzaStorico" class="accountahref">
     <div class="a-row">
         <div class="a-column a-span3">
             <img alt="I miei ordini" src="../image/libro.jpg">
@@ -73,7 +73,7 @@
             
             
         <div class="ya-card-cell indirizzi"> 
-                        <a href="GestioneIndirizzi.jsp" class="accountahref">    
+                        <a href="RicercaIndirizzi" class="accountahref">    
     <div class="a-row">
         <div class="a-column a-span3">
             <img alt="I miei ordini" src="../image/libro.jpg">
@@ -92,7 +92,7 @@
        
        
             <div class="ya-card-cell pagamento">      
-            <a href="GestioneCarteDiCredito.jsp" class="accountahref">
+            <a href="RicercaCarte" class="accountahref">
     <div class="a-row">
         <div class="a-column a-span3">
             <img alt="I miei ordini" src="../image/libro.jpg">
