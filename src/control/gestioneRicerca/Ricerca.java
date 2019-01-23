@@ -46,7 +46,7 @@ public class Ricerca extends HttpServlet {
 		}
 		request.getSession().setAttribute("libri", libri);
 		
-		response.sendRedirect("Ricerca.jsp");
+		response.sendRedirect("Libri.jsp");
 	}
 
 	/**

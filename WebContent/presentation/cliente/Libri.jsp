@@ -15,7 +15,8 @@
 	<%@ include file="header.jsp"%>
 
 <%  Collection<?> libriInEvidenza= (Collection<?>)request.getSession().getAttribute("libriInEvidenza");
-	Collection<?> libriPiùVenduti= (Collection<?>)request.getSession().getAttribute("libriPiùVenduti");%>
+	Collection<?> libriPiùVenduti= (Collection<?>)request.getSession().getAttribute("libriPiùVenduti");
+	Collection<?> libri= (Collection<?>)request.getSession().getAttribute("libri");%>
 	
 <h1>Catalogo</h1>
 
@@ -30,12 +31,15 @@
 </div>
 <select name="categoria" id="categoria">
   <option value=""></option>
-  <option value="saab">Saab</option>
+  <option value="Romanzo">Romanzo</option>
   <option value="opel">Opel</option>
   <option value="audi">Audi</option>
 </select>
 </div>
 </form>
+ 
+ <%if(libri==null){ %>
+ 
  
 <div style="width: 90%; margin-right:5%; margin-left:5%; margin-top: 50px;">
 
@@ -134,16 +138,45 @@
 				<span class="carousel-control-next-icon"></span>
 			</a>
 	</div>
+	
 	<%}	 %>
 
 
 </div>
+<%} else if(libri.size()==0){%>
+
+<div>
+	<h2>Nessun libro trovato</h2>
+</div>
+<%}else{
+	Iterator it=libri.iterator();
+	while(it.hasNext()){
+	Libro bean=(Libro)it.next();%>
+
+	<div>
+		<div>
+			<img alt="" src="../image/<%=bean.getFoto()%>">
+		</div>
+		<div>
+			<div>
+				<h5><%=bean.getTitolo()%></h5>
+			</div>
+			<div>
+				<%for(Autore autore : bean.getAutori()){ %>
+					<h6><%=autore.getNome()+" " %></h6>
+				<%} %>
+			</div>
+			<div>
+				<p><%=bean.getTrama().substring(0,200)%></p>
+			</div>
+		</div>
+	
+	
+	</div>
 
 
 
-
-
-
+<%}}%>
 	<%@ include file="footer.jsp"%>
 	
 	
