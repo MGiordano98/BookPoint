@@ -34,17 +34,15 @@ public class RicercaAccount extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email= request.getParameter("email");
-		
 		Utente utente= null;
 		try {
 			utente = am.ricercaAccount(email);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
 		request.getSession().setAttribute("utenteCercato", utente);
-		
 		RequestDispatcher dispatcher= request.getRequestDispatcher("AmministratoreAccount.jsp");
 		dispatcher.forward(request, response);
 	}

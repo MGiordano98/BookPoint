@@ -440,11 +440,11 @@ public class AmministratoreManager {
 			ResultSet rs= preparedStatement.executeQuery();
 
 			while(rs.next()) {
-				utente.setEmail("email");
+				utente.setEmail(email);
 				utente.setNome(rs.getString("nome"));
 				utente.setDataDiNascita(rs.getDate("dataDiNascita"));
 				utente.setCognome(rs.getString("cognome"));
-				utente.setPassword(rs.getString("password"));
+				utente.setPassword(rs.getString("psw"));
 				utente.setTipo(rs.getString("tipo"));
 			}
 		}finally {
@@ -456,6 +456,7 @@ public class AmministratoreManager {
 			}
 		}
 
+		
 		return utente;
 	}
 

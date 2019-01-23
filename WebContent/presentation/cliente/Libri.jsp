@@ -148,7 +148,8 @@
 <div>
 	<h2>Nessun libro trovato</h2>
 </div>
-<%}else{
+<%request.getSession().removeAttribute("libri");
+}else{
 	Iterator it=libri.iterator();
 	while(it.hasNext()){
 	Libro bean=(Libro)it.next();%>
@@ -176,7 +177,9 @@
 
 
 
-<%}}%>
+<%}
+	request.getSession().removeAttribute("libri");
+}%>
 	<%@ include file="footer.jsp"%>
 	
 	

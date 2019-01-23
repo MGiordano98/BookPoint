@@ -13,7 +13,7 @@
 <div class="container-cerca">
 <div class="cerca">
   <form class="search-container" action="ricercaAccount" >
-    <input  type="text" id="search-bar" placeholder="Cerca account">
+    <input  type="text" id="search-bar" placeholder="Cerca account" name="email">
     <input type="submit" value="Cerca account">
   </form>
 </div>
@@ -45,7 +45,10 @@
   
 </table>
 </div>
-<%} %>
+<%} 
+
+request.getSession().removeAttribute("utenteCercato");
+%>
 
 
 </body>
