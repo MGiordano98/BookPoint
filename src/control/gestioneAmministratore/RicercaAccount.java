@@ -43,7 +43,7 @@ public class RicercaAccount extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		request.getSession().setAttribute("utente", utente);
+		request.getSession().setAttribute("utenteCercato", utente);
 		
 		RequestDispatcher dispatcher= request.getRequestDispatcher("AmministratoreAccount.jsp");
 		dispatcher.forward(request, response);

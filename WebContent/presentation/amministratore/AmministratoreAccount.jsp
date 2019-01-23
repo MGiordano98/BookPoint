@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+    pageEncoding="utf-8" import="bean.Utente"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,31 +9,32 @@
 <body>
 
 <%@ include file="headerAmministratore.jsp"%>
-
+<% Utente utente=(Utente) request.getSession().getAttribute("utenteCercato") ;%>
 <div class="container-cerca">
 <div class="cerca">
-  <form class="search-container">
+  <form class="search-container" action="ricercaAccount" >
     <input  type="text" id="search-bar" placeholder="Cerca account">
-    <a href="#"><i class="fas fa-search fa-lg"></i></a>
+    <input type="submit" value="Cerca account">
   </form>
 </div>
-<input type="submit" value="Cerca account">
 </div>
 
-
+<%if(utente==null){
+	
+} else{%>
 <div class="container-account">
-<h1>Nome acocunt</h1>
+<h1><%=utente.getNome()%> <%=utente.getCognome() %></h1>
 <table style="border:2px solid;">
   
   
     <tr>
       <td>Email</td>
-      <td>sdsdsd@gmail.com</td>
+      <td><%=utente.getEmail() %></td>
    
     </tr>
       <tr>
       <td>Tipo</td>
-      <td>tipoooo</td>
+      <td><%=utente.getTipo() %></td>
    
     </tr>
         <tr>
@@ -44,8 +45,7 @@
   
 </table>
 </div>
-
-
+<%} %>
 
 
 </body>

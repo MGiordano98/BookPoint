@@ -309,6 +309,7 @@
   <servlet-mapping>
   	<servlet-name>Ricerca</servlet-name>
   	<url-pattern>/presentation/cliente/ricerca</url-pattern>
+  	<url-pattern>/presentation/amministratore/ricerca</url-pattern>
   </servlet-mapping>
         
    <servlet>

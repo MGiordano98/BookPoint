@@ -52,9 +52,9 @@ public class Login extends HttpServlet {
 		if(utente.getTipo().equalsIgnoreCase("cliente")) {
 			redirect="Home.jsp";
 		}else if(utente.getTipo().equalsIgnoreCase("amministratore")){
-			redirect="AmministratoreCatalogo.jsp";
+			redirect="../amministratore/AmministratoreCatalogo.jsp";
 		}else if(utente.getTipo().equalsIgnoreCase("amministratoreOrdini")){
-			redirect="AmministratoreOrdiniOrdine.jsp";
+			redirect="../amministratoreOrdini/AmministratoreOrdiniOrdine.jsp";
 		}else {
 			redirect="Login.jsp";
 		}

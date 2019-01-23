@@ -21,9 +21,9 @@
 		<i class="fas fa-book fa-lg"></i>
 	  </a>
 	  
-	  <a href="#">Catalogo</a>
-	  <a href="#">Account</a>
-	  <a href="#">Logout</a>
+	  <a href="AmministratoreCatalogo.jsp">Catalogo</a>
+	  <a href="AmministratoreAccount.jsp">Account</a>
+	  <a href="logout">Logout</a>
 
     	
 	

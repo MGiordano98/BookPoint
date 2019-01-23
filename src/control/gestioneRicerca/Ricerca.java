@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import bean.Libro;
+import bean.Utente;
 import model.LibroManager;
 
 /**
@@ -45,8 +46,20 @@ public class Ricerca extends HttpServlet {
 			e.printStackTrace();
 		}
 		request.getSession().setAttribute("libri", libri);
+		String redirect="";
+		Utente utente=(Utente)request.getSession().getAttribute("utente");
 		
-		response.sendRedirect("Libri.jsp");
+		if(utente.getTipo()==null){
+			redirect="Libri.jsp";
+		}
+		else if(utente.getTipo().equalsIgnoreCase("cliente")){
+			redirect="Libri.jsp";
+		}
+		else if(utente.getTipo().equalsIgnoreCase("amministratore")){
+			redirect="AmministratoreCatalogo.jsp";
+		}
+		
+		response.sendRedirect(redirect);
 	}
 
 	/**
