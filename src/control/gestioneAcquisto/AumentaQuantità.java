@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 
 import bean.Carrello;
+import bean.Libro;
 import model.OrdineManager;
 
 /**
@@ -45,9 +46,12 @@ public class AumentaQuantit‡ extends HttpServlet {
 		
 		String isbn= request.getParameter("isbn");
 		carrello= manager.aumentaQuantit‡(carrello, isbn);
+		Libro lib= carrello.getLibro(isbn);
 		
 		request.getSession().setAttribute("carrello", carrello);
-		String risposta= "{\"totaleCarrello\": \""+carrello.getTotale()+"\"}";
+		String risposta= "{\"totaleCarrello\": \""+carrello.getTotale()+"\","
+				+ "\"totaleProdotto\": \""+lib.getQuantit‡Selezionata()*lib.getPrezzo()+"\","
+						+ "\"quantit‡\": \""+lib.getQuantit‡Selezionata()+"\"}";
 		System.out.println(risposta);
 		response.getWriter().write(risposta);
 	}

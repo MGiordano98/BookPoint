@@ -46,7 +46,20 @@ public class Login extends HttpServlet {
 		}
 		
 		request.getSession().setAttribute("utente", utente);
-		response.sendRedirect("Home.jsp");
+		
+		String redirect="";
+		
+		if(utente.getTipo().equalsIgnoreCase("cliente")) {
+			redirect="Home.jsp";
+		}else if(utente.getTipo().equalsIgnoreCase("amministratore")){
+			redirect="AmministratoreCatalogo.jsp";
+		}else if(utente.getTipo().equalsIgnoreCase("amministratoreOrdini")){
+			redirect="AmministratoreOrdiniOrdine.jsp";
+		}else {
+			redirect="Login.jsp";
+		}
+		response.sendRedirect(redirect);
+		
 	}
 
 	/**

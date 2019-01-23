@@ -66,8 +66,8 @@
                                                 
                         <button type="button" class="btn btn-md quantità-selezionata" id="quantità<%=libro.getIsbn()%>"> <%=libro.getQuantitàSelezionata()%> </button>
                         <div style="display:inline; float:right ">
-                        <a class="modifica-quantità aumenta" title="<%=libro.getIsbn()%>">+</a>
-                        <a class="modifica-quantità diminuisci" title="<%=libro.getIsbn()%>">-</a>
+                        <a class="modifica-quantità aumenta" title="<%=libro.getIsbn()%>"><strong>+</strong></a>
+                        <a class="modifica-quantità diminuisci" title="<%=libro.getIsbn()%>"><strong>-</strong></a>
                         </div>
                         <input type="hidden" id="codice" value="">
                         </td>

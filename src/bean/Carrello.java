@@ -43,9 +43,9 @@ public class Carrello {
 			}
 		}
 		if(!trovato) {
-		libro.setQuantit‡Selezionata(quantit‡);
-		libri.add(libro);
-		totale= totale+(libro.getPrezzo()*quantit‡);
+			libro.setQuantit‡Selezionata(quantit‡);
+			libri.add(libro);
+			totale= totale+(libro.getPrezzo()*quantit‡);
 		}
 	}
 
@@ -53,10 +53,11 @@ public class Carrello {
 		for(Libro temp : libri){
 
 			if(temp.getIsbn().equalsIgnoreCase(isbn)){
-
-				temp.setQuantit‡Selezionata(temp.getQuantit‡Selezionata()+1);
-				totale= totale+ temp.getPrezzo();
-				break;
+				if(temp.getQuantit‡Selezionata()<temp.getQuantit‡()) {
+					temp.setQuantit‡Selezionata(temp.getQuantit‡Selezionata()+1);
+					totale= totale+ temp.getPrezzo();
+					break;
+				}
 			}
 		}
 	}
@@ -65,10 +66,11 @@ public class Carrello {
 		for(Libro temp : libri){
 
 			if(temp.getIsbn().equalsIgnoreCase(isbn)){
-
-				temp.setQuantit‡Selezionata(temp.getQuantit‡Selezionata()-1);
-				totale= totale- temp.getPrezzo();
-				break;
+				if(temp.getQuantit‡Selezionata()>1) {
+					temp.setQuantit‡Selezionata(temp.getQuantit‡Selezionata()-1);
+					totale= totale- temp.getPrezzo();
+					break;
+				}
 			}
 		}
 	}
@@ -84,7 +86,7 @@ public class Carrello {
 			}
 		}
 	}
-	
+
 	public Libro getLibro(String isbn) {
 		for(Libro temp : libri) {
 			if(temp.getIsbn().equalsIgnoreCase(isbn)){

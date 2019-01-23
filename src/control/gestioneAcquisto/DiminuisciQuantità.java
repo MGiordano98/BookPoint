@@ -47,7 +47,9 @@ public class DiminuisciQuantit‡ extends HttpServlet {
 		Libro lib= carrello.getLibro(isbn);
 		
 		request.getSession().setAttribute("carrello", carrello);
-		String risposta= "{\"totaleCarrello\": \""+carrello.getTotale()+"\",\"totaleProdotto\": \""+lib.getQuantit‡Selezionata()*lib.getPrezzo()+"\"}";
+		String risposta= "{\"totaleCarrello\": \""+carrello.getTotale()+"\","
+				+ "\"totaleProdotto\": \""+lib.getQuantit‡Selezionata()*lib.getPrezzo()+"\","
+						+ "\"quantit‡\": \""+lib.getQuantit‡Selezionata()+"\"}";
 		System.out.println(risposta);
 		response.getWriter().write(risposta);
 		

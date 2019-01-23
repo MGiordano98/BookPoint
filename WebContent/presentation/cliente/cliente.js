@@ -29,9 +29,9 @@ $(document).ready(function() {
 			var quantità= parseInt($("#quantità"+isbn).text());
 			var prezzotot= parseFloat($("#prezzotot"+isbn).text());
 			var prezzo= parseFloat($("#prezzo"+isbn).text());
-			$("#quantità"+isbn).text(quantità + 1);
-			$("#prezzotot"+isbn).text(prezzotot+ prezzo);
-			$("#totaleProdotti").text(data.totaleCarrello);
+			$("#quantità"+isbn).text(data.quantità);
+			$("#prezzotot"+isbn).text(Math.round(data.totaleProdotto*100.0)/100.0);
+			$("#totaleProdotti").text(Math.round(data.totaleCarrello*100.0)/100.0);
 		});
 	});
 	
@@ -42,9 +42,9 @@ $(document).ready(function() {
 			var quantità= parseInt($("#quantità"+isbn).text());
 			var prezzotot= parseFloat($("#prezzotot"+isbn).text());
 			var prezzo= parseFloat($("#prezzo"+isbn).text());
-			$("#quantità"+isbn).text(quantità - 1);
-			$("#prezzotot"+isbn).text(data.totaleProdotto);
-			$("#totaleProdotti").text(data.totaleCarrello);
+			$("#quantità"+isbn).text(data.quantità);
+			$("#prezzotot"+isbn).text(Math.round(data.totaleProdotto*100.0)/100.0);
+			$("#totaleProdotti").text(Math.round(data.totaleCarrello*100.0)/100.0);
 		});
 	});
 	
