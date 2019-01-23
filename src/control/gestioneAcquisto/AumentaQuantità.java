@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
 import bean.Carrello;
 import model.OrdineManager;
 
@@ -38,12 +40,18 @@ public class AumentaQuantità extends HttpServlet {
 			request.getSession().setAttribute("carrello", carrello);
 		}
 		
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		
+		System.out.println("si");
 		String isbn= request.getParameter("isbn");
+		System.out.println(isbn);
 		carrello= manager.aumentaQuantità(carrello, isbn);
 		
 		request.getSession().setAttribute("carrello", carrello);
-		RequestDispatcher dispatcher= request.getRequestDispatcher("VisualizzaLibro.jsp");
-		dispatcher.forward(request, response);
+		String risposta= "{totaleCarrello: '"+carrello.getTotale()+"'}";
+		System.out.println(risposta);
+		response.getWriter().write(risposta);
 	}
 
 	/**
