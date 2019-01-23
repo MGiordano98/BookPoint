@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import bean.CartaDiCredito;
 import bean.Indirizzo;
+import bean.Utente;
 import model.AccountManager;
 
 /**
@@ -36,10 +37,12 @@ public class SelezionaCartaEIndirizzo extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String email= request.getParameter("email");
+		Utente utente= (Utente) request.getSession().getAttribute("utente");
+		String email= utente.getEmail();
 		
 		Collection<CartaDiCredito> carte= null;
 		Collection<Indirizzo> indirizzi= null;
+		System.out.println("pippo");
 		
 		try {
 			carte= manager.ricercaCarte(email);

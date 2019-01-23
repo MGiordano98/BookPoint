@@ -38,10 +38,11 @@ public class EliminaDalCarrello extends HttpServlet {
 		}
 		
 		String isbn= request.getParameter("isbn");
+		System.out.println(isbn);
 		carrello= manager.rimuoviDalCarrello(carrello, isbn);
 		
 		request.getSession().setAttribute("carrello", carrello);
-		RequestDispatcher dispatcher= request.getRequestDispatcher("VisualizzaLibro.jsp");
+		RequestDispatcher dispatcher= request.getRequestDispatcher("Carrello.jsp");
 		dispatcher.forward(request, response);
 	}
 

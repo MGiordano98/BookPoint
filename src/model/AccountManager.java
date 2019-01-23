@@ -171,7 +171,7 @@ public class AccountManager {
 				CartaDiCredito carta= new CartaDiCredito();
 				carta.setIntestatario(rs.getString("intestatario"));
 				carta.setCvv(rs.getString("cvv"));
-				carta.setData(rs.getDate("dataDiScadenza"));
+				carta.setData(rs.getDate("dataScadenza"));
 				carta.setNumCarta(rs.getString("numeroDiCarta"));
 				
 				carte.add(carta);
@@ -210,7 +210,7 @@ public class AccountManager {
 				indirizzo.setNumCivico(rs.getInt("numeroCivico"));
 				indirizzo.setCap(rs.getString("cap"));
 				indirizzo.setCittà(rs.getString("città"));
-				indirizzo.setId(rs.getInt(rs.getInt("id")));
+				indirizzo.setId(rs.getInt("id"));
 				
 				indirizzi.add(indirizzo);
 			}

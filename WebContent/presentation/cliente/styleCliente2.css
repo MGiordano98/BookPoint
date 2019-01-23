@@ -499,7 +499,7 @@ media-heading h2{
 
 
 
-/*Css visaulizza libro*/
+/*Css visualizza libro*/
 
 .container-visualizza-libro{
 	margin-top: 1%;
@@ -628,6 +628,33 @@ body .no-padding {
 	margin-bottom: 30px;
 }
 
+.visualizza{
+	cursor: pointer;
+}
+
 @media(display-width:980px){
 
+}
+
+/*CSS COMPLETA ACQUISTO*/
+.container-completa-acquisto{
+	margin: 20px 25%;
+	background-color: white;
+	border-color:black;
+	border-style: solid;
+	border-width: 0.5px;
+	padding: 20px;
+	
+}
+
+.container-carta{
+	float:left;
+}
+
+.container-indirizzo{
+	float:right;
+}
+
+.bottone-completa-acquisto{
+	margin:20% 40% 0% 40%;
 }

@@ -76,8 +76,7 @@
                         <td class="col-sm-1 col-md-1 text-center"><strong><span id="prezzotot<%=libro.getIsbn()%>"> <%=Math.round((libro.getPrezzo() * libro.getQuantitàSelezionata()) *100.0)/100.0%></span></strong></td>
                         <td class="col-sm-1 col-md-1"> 
                         <form action="eliminaDalCarrello" method="post">                       	
-                        	<input type="hidden" name="idProdotto" value="<%=libro.getIsbn()%>">
-							<input type="hidden" name="nome" value="">
+                        	<input type="hidden" name="isbn" value="<%=libro.getIsbn()%>">
                         <button type="submit" id="" class="btn btn-danger">
                             <span class="glyphicon glyphicon-remove"></span> Rimuovi
                         </button>
@@ -110,14 +109,24 @@
              
                         <td>
 
-                     
-		                <a href="Consegna.jsp">
+                     <%  if(request.getSession().getAttribute("utente")!=null){  %>
+		                <a href="selezionaCartaEIndirizzo">
                         <button type="submit" class="btn btn-success" id="ordinaButton">
                             Ordina!<span class="glyphicon glyphicon-play"></span>
                         </button>
    
                        </a>
 
+					<% }else{%>
+					
+						<a href="Login.jsp">
+						<button type="submit" class="btn btn-success" id="ordinaButton">
+                            Effettua il Login!<span class="glyphicon glyphicon-play"></span>
+                        </button>
+   
+                       </a>
+						
+					<%} %>
 
                         </td>
                     </tr>
