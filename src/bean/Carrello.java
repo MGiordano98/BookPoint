@@ -34,9 +34,19 @@ public class Carrello {
 
 
 	public void aggiungiAlCarrello(Libro libro, int quantit‡) {
+		boolean trovato=false;
+		for(Libro lib: libri) {
+			if(lib.getIsbn().equalsIgnoreCase(libro.getIsbn())) {
+				lib.setQuantit‡Selezionata(lib.getQuantit‡Selezionata() + quantit‡);
+				trovato=true;
+				break;
+			}
+		}
+		if(!trovato) {
 		libro.setQuantit‡Selezionata(quantit‡);
 		libri.add(libro);
 		totale= totale+(libro.getPrezzo()*quantit‡);
+		}
 	}
 
 	public void aumentaQuantit‡(String isbn) {

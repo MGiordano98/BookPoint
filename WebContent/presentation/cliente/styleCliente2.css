@@ -315,6 +315,21 @@ media-heading h2{
     background-color:white;
 }
 
+.modifica-quantità{
+	display:block;
+	cursor: pointer;
+	font-size: medium;
+}
+
+.quantità-selezionata{
+	border-color: #ccc;
+	background-color:white;
+	margin-top: 5px;
+}
+
+.trama{
+	padding: 0px 20px;
+}
 
 /* css preferiti*/
 .container-preferiti{

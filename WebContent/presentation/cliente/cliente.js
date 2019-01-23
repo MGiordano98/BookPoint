@@ -23,4 +23,13 @@ $(document).ready(function() {
 		});
 	});
 	
+	$(".modifica-quantità.aumenta").click(function(){
+		var isbn= $(this).attr("title");
+		
+		$.post("aumentaQuantità",{"isbn":isbn}, function(data, status){
+			alert(data);
+			alert(data.totaleCarrello);
+		});
+	});
+	
 });

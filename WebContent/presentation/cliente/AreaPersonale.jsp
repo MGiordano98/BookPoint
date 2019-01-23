@@ -23,6 +23,8 @@
 
 
  <%@ include file="header.jsp"%>
+
+<a href="logout" style="font-size: 40px;">LOGOUT PROVVISORIO</a>
  
 <div class="divaccount">
 

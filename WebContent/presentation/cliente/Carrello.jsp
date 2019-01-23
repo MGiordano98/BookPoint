@@ -13,10 +13,7 @@
 </head>
 <body>
 
-<%
-Carrello carrello= (Carrello) request.getSession().getAttribute("carrello");
-Collection<?> libri= carrello.getLibri();
-%>
+
 
 <div class="divcarrello">
 
@@ -42,7 +39,12 @@ Collection<?> libri= carrello.getLibri();
                 
      
 			<%
+
+			if(request.getSession().getAttribute("carrello")!=null){
+				Carrello carrello= (Carrello) request.getSession().getAttribute("carrello");
+				Collection<?> libri= carrello.getLibri();
 				Iterator it= libri.iterator();
+				
 				while(it.hasNext()){
 					Libro libro = (Libro) it.next();
 					%>
@@ -50,21 +52,28 @@ Collection<?> libri= carrello.getLibri();
 			
                 
                     <tr>
-                        <td class="col-sm-8 col-md-6">
+                        <td class="col-sm-6 col-md-5">
                         <div class="media">
-                            <a class="thumbnail pull-left "> <img class="media-object" id="" src="../image/<%=libro.getFoto()%>" style="width:150px;height:150px;"> </a>
+                            <a class="thumbnail pull-left "> <img class="media-object" id="" src="../image/<%=libro.getFoto()%>" style="width:150px;height:150px;">	</a>
+                            <p class="thumbnail trama"><%=libro.getTrama().substring(0, 200) %>...</p>
                             <div class="media-body">
                                 <h4 class="media-heading" id="nome"></h4>                         
                             </div>
                         </div></td>
-                        <td class="col-sm-1 col-md-1" style="text-align: center">
-                        <input type="number" min="1" max="10" class="form-control numberquantita" id="" min="1" value="<%=libro.getQuantitàSelezionata()%>">
-                        <input type="hidden" id="codice" value="">
-						             
+                       
                         
+                        <td class="col-sm-3 col-md-2" style="text-align: center;">
+                                                
+                        <button type="button" class="btn btn-md quantità-selezionata"> <%=libro.getQuantitàSelezionata()%> </button>
+                        <div style="display:inline; float:right ">
+                        <a class="modifica-quantità aumenta" title="<%=libro.getIsbn()%>">+</a>
+                        <a class="modifica-quantità diminuisci" title="<%=libro.getIsbn()%>">-</a>
+                        </div>
+                        <input type="hidden" id="codice" value="">
                         </td>
+                        
                         <td class="col-sm-1 col-md-1 text-center"><strong><span id="prezzo"> <%=Math.round(libro.getPrezzo()*100.0)/100.0%></span></strong></td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong><span id="prezzotot"> <%=Math.round(libro.getPrezzo()*100.0)/100.0 * libro.getQuantitàSelezionata()%></span></strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong><span id="prezzotot"> <%=Math.round((libro.getPrezzo() * libro.getQuantitàSelezionata()) *100.0)/100.0%></span></strong></td>
                         <td class="col-sm-1 col-md-1"> 
                         <form action="eliminaDalCarrello" method="post">                       	
                         	<input type="hidden" name="idProdotto" value="<%=libro.getIsbn()%>">
@@ -113,6 +122,10 @@ Collection<?> libri= carrello.getLibri();
                         </td>
                     </tr>
                 </tfoot>
+                <%
+				}
+                %>
+                
             </table>
         </div>
     </div>
@@ -126,7 +139,8 @@ Collection<?> libri= carrello.getLibri();
  
  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
- <script src="ScriptJQ.js"></script>
+<script src="cliente.js"></script>
+ 
  
  
 </body>
