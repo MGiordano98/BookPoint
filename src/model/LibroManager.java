@@ -30,17 +30,17 @@ public class LibroManager {
 
 		Collection<Libro> libri = new LinkedList<Libro>();
 
-		String selectSQL = "Select * from libro inner join scrive on isbn=libro where categoria = ?"
-				+ " And (titolo=? Or autore =?)";
+		String selectSQL = "Select * from libro inner join scrive on isbn=libro where categoria like ?"
+				+ " And (titolo like ? Or autore like ?)";
 
 
 		try {
 			connection = DriverMaagerConnectionPool.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
 			
-			preparedStatement.setString(1,categoria);
-			preparedStatement.setString(2, testo);
-			preparedStatement.setString(3, testo);
+			preparedStatement.setString(1,"%"+categoria+"%");
+			preparedStatement.setString(2,"%"+ testo+"%");
+			preparedStatement.setString(3,"%"+testo+ "%");
 			
 			ResultSet rs = preparedStatement.executeQuery();
 

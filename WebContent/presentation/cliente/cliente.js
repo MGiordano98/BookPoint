@@ -19,7 +19,7 @@ $(document).ready(function() {
 		alert(testo + " " + categoria);
 		
 		$.post("ricerca",{"testo":testo, "categoria":categoria}, function(){
-			window.location.href= "Ricerca.jsp";
+			window.location.href= "Libri.jsp";
 		});
 	});
 	
