@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.Carrello;
+import bean.Libro;
 import model.OrdineManager;
 
 /**
@@ -37,13 +38,19 @@ public class DiminuisciQuantit‡ extends HttpServlet {
 			carrello= new Carrello();
 			request.getSession().setAttribute("carrello", carrello);
 		}
+
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
 		
 		String isbn= request.getParameter("isbn");
 		carrello= manager.diminuisciQuantit‡(carrello, isbn);
+		Libro lib= carrello.getLibro(isbn);
 		
 		request.getSession().setAttribute("carrello", carrello);
-		RequestDispatcher dispatcher= request.getRequestDispatcher("VisualizzaLibro.jsp");
-		dispatcher.forward(request, response);
+		String risposta= "{\"totaleCarrello\": \""+carrello.getTotale()+"\",\"totaleProdotto\": \""+lib.getQuantit‡Selezionata()*lib.getPrezzo()+"\"}";
+		System.out.println(risposta);
+		response.getWriter().write(risposta);
+		
 	}
 
 	/**

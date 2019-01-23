@@ -43,13 +43,11 @@ public class AumentaQuantità extends HttpServlet {
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		
-		System.out.println("si");
 		String isbn= request.getParameter("isbn");
-		System.out.println(isbn);
 		carrello= manager.aumentaQuantità(carrello, isbn);
 		
 		request.getSession().setAttribute("carrello", carrello);
-		String risposta= "{totaleCarrello: '"+carrello.getTotale()+"'}";
+		String risposta= "{\"totaleCarrello\": \""+carrello.getTotale()+"\"}";
 		System.out.println(risposta);
 		response.getWriter().write(risposta);
 	}

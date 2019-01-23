@@ -6,7 +6,6 @@ $(document).ready(function() {
 	
 	$(".visualizza").click(function(){
 		var isbn= $(this).attr("name");
-		alert(isbn);
 		$.post("visualizzaLibro",{"isbn":isbn}, function(){
 			window.location.href= "VisualizzaLibro.jsp";
 		});
@@ -27,8 +26,25 @@ $(document).ready(function() {
 		var isbn= $(this).attr("title");
 		
 		$.post("aumentaQuantità",{"isbn":isbn}, function(data, status){
-			alert(data);
-			alert(data.totaleCarrello);
+			var quantità= parseInt($("#quantità"+isbn).text());
+			var prezzotot= parseFloat($("#prezzotot"+isbn).text());
+			var prezzo= parseFloat($("#prezzo"+isbn).text());
+			$("#quantità"+isbn).text(quantità + 1);
+			$("#prezzotot"+isbn).text(prezzotot+ prezzo);
+			$("#totaleProdotti").text(data.totaleCarrello);
+		});
+	});
+	
+	$(".modifica-quantità.diminuisci").click(function(){
+		var isbn= $(this).attr("title");
+		
+		$.post("diminuisciQuantità",{"isbn":isbn}, function(data, status){
+			var quantità= parseInt($("#quantità"+isbn).text());
+			var prezzotot= parseFloat($("#prezzotot"+isbn).text());
+			var prezzo= parseFloat($("#prezzo"+isbn).text());
+			$("#quantità"+isbn).text(quantità - 1);
+			$("#prezzotot"+isbn).text(data.totaleProdotto);
+			$("#totaleProdotti").text(data.totaleCarrello);
 		});
 	});
 	

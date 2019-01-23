@@ -64,7 +64,7 @@
                         
                         <td class="col-sm-3 col-md-2" style="text-align: center;">
                                                 
-                        <button type="button" class="btn btn-md quantità-selezionata"> <%=libro.getQuantitàSelezionata()%> </button>
+                        <button type="button" class="btn btn-md quantità-selezionata" id="quantità<%=libro.getIsbn()%>"> <%=libro.getQuantitàSelezionata()%> </button>
                         <div style="display:inline; float:right ">
                         <a class="modifica-quantità aumenta" title="<%=libro.getIsbn()%>">+</a>
                         <a class="modifica-quantità diminuisci" title="<%=libro.getIsbn()%>">-</a>
@@ -72,8 +72,8 @@
                         <input type="hidden" id="codice" value="">
                         </td>
                         
-                        <td class="col-sm-1 col-md-1 text-center"><strong><span id="prezzo"> <%=Math.round(libro.getPrezzo()*100.0)/100.0%></span></strong></td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong><span id="prezzotot"> <%=Math.round((libro.getPrezzo() * libro.getQuantitàSelezionata()) *100.0)/100.0%></span></strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong><span id="prezzo<%=libro.getIsbn()%>"> <%=Math.round(libro.getPrezzo()*100.0)/100.0%></span></strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong><span id="prezzotot<%=libro.getIsbn()%>"> <%=Math.round((libro.getPrezzo() * libro.getQuantitàSelezionata()) *100.0)/100.0%></span></strong></td>
                         <td class="col-sm-1 col-md-1"> 
                         <form action="eliminaDalCarrello" method="post">                       	
                         	<input type="hidden" name="idProdotto" value="<%=libro.getIsbn()%>">
