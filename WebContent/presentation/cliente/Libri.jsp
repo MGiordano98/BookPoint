@@ -21,7 +21,7 @@
 <h1>Catalogo</h1>
 
 <!-- Search Bar -->
-<form class="search-container" action="ricerca">
+<form class="search-container" action="ricerca" id="form-ricerca-libri">
 <div class="container-cerca" >
 <div class="cerca">
   

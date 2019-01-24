@@ -2,24 +2,22 @@
 <!DOCTYPE html>
 <html>
 <%@ page language="java" contentType="text/html; charset=utf-8"
-	import="java.util.*, control.*, model.*"%>
+	import="java.util.*, control.*, model.*, bean.*"%>
 <head>
-
-
 
 <title>BookPoint</title>
 <link rel="stylesheet" type="text/css" href="styleCliente2.css">
 </head>
 <body>
 
-
-	<%@ include file="header.jsp"%>
-
 	<%
 		Collection<?> carte = (Collection<?>) request.getSession().getAttribute("carte");
-		Collection<?> indirizzi = (Collection<?>) request.getSession().getAttribute("Indirizzi");
+		Collection<?> indirizzi = (Collection<?>) request.getSession().getAttribute("indirizzi");
 	%>
 
+
+	<%@ include file="header.jsp"%>
+<form action="completaAcquisto" method="post">
 	<div class="container-completa-acquisto">
 
 		<div class="container-carta">
@@ -27,69 +25,69 @@
 			<%
 				if (carte != null) {
 			%>
-			<select>
-			<%
-				Iterator it= carte.iterator();
-				while(it.hasNext()){
-				CartaDiCredito carta= (CartaDiCredito) it.next();
-			%>
-				<option value="<%=carta.getNumCarta()%>">**** **** **** <%=carta.getNumCarta().substring(11,16) %></option>
-				
-			<%
-				}
-			%>
-			</select>
-		</div>
-
-		<%
-			}else{
-		%>
-			<h3>Nessuna Carta Inserita</h3>
-
-		<%} %>
-
-		<div class="container-indirizzo">
-			<h2>Scegli indirizzo</h2>
-			
-			<%
-				if(indirizzi!=null){
-			%>
-			<select>
+			<select name="numCarta">
 				<%
-					Iterator it= indirizzi.iterator();
-					while(it.hasNext()){
-						Indirizzo indirizzo= (Indirizzo) it.next();
-					
+					Iterator it = carte.iterator();
+						while (it.hasNext()) {
+							CartaDiCredito carta = (CartaDiCredito) it.next();
 				%>
-				<option value="<%=indirizzo.getId()%>"><%=indirizzo.getVia() %> <%=indirizzo.getNumCivico() %> <%=indirizzo.getCittà() %> <%=indirizzo.getCap() %></option>
-				
+				<option value="<%=carta.getNumCarta()%>">**** **** ****
+					<%=carta.getNumCarta().substring(11, 16)%></option>
+
 				<%
 					}
 				%>
 			</select>
-			</div>
-			<%
-				}else{
-			%>
-				<h3>Nessun Indirizzo Inserito</h3>
-			<%
-				}
-			%>
-		
 
+		<%
+			} else {
+		%>
+		<h3>Nessuna Carta Inserita</h3>
 
-		<input class="btn btn-danger bottone-completa-acquisto" type="submit"
-			value="Completa l'acquisto">
+		<%
+			}
+		%>
+		</div>
+
+		<div class="container-indirizzo">
+			<h2>Scegli indirizzo</h2>
+
+			<%
+				if (indirizzi != null) {
+			%>
+			<select name="idIndirizzo">
+				<%
+					Iterator it = indirizzi.iterator();
+						while (it.hasNext()) {
+							Indirizzo indirizzo = (Indirizzo) it.next();
+				%>
+				<option value="<%=indirizzo.getId()%>"><%=indirizzo.getVia()%>
+					<%=indirizzo.getNumCivico()%>
+					<%=indirizzo.getCittà()%>
+					<%=indirizzo.getCap()%></option>
+
+				<%
+					}
+				%>
+			</select>
+		<%
+			} else {
+		%>
+		<h3>Nessun Indirizzo Inserito</h3>
+		<%
+			}
+		%>
 	</div>
+	
+	<input class="btn btn-danger bottone-completa-acquisto" type="submit"
+		value="Completa l'acquisto">
+
+	</div>
+</form>
+	<%@include file="footer.jsp"%>
 
 
-
-
-	<%@ include file="footer.jsp"%>
-
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"></script>
+	
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
 		integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
@@ -99,7 +97,6 @@
 		integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
 		crossorigin="anonymous"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
-	<script src="utente.js"></script>
 
 </body>
 </html>

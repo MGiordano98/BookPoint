@@ -42,7 +42,6 @@ public class SelezionaCartaEIndirizzo extends HttpServlet {
 		
 		Collection<CartaDiCredito> carte= null;
 		Collection<Indirizzo> indirizzi= null;
-		System.out.println("pippo");
 		
 		try {
 			carte= manager.ricercaCarte(email);
@@ -55,7 +54,8 @@ public class SelezionaCartaEIndirizzo extends HttpServlet {
 		request.getSession().setAttribute("carte", carte);
 		request.getSession().setAttribute("indirizzi", indirizzi);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("CompletaAcquisto.jsp");
+		
+		RequestDispatcher dispatcher= request.getRequestDispatcher("CompletaAcquisto.jsp");
 		dispatcher.forward(request, response);
 	}
 

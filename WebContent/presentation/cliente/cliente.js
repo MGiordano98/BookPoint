@@ -6,20 +6,15 @@ $(document).ready(function() {
 	
 	$(".visualizza").click(function(){
 		var isbn= $(this).attr("name");
-		$.post("visualizzaLibro",{"isbn":isbn}, function(){
+		$.post("visualizzaLibro",{"isbn":isbn}, function(data, status){
 			window.location.href= "VisualizzaLibro.jsp";
 		});
 		
 	});
 		
 	$("#search-button").click(function(){
-		var testo= $("#search-bar").val();
-		var categoria= $("#categoria").val();
-		alert(testo + " " + categoria);
+		$("#form-ricerca-libri").submit();
 		
-		$.post("ricerca",{"testo":testo, "categoria":categoria}, function(){
-			window.location.href= "Libri.jsp";
-		});
 	});
 	
 	$(".modifica-quantità.aumenta").click(function(){
@@ -48,4 +43,8 @@ $(document).ready(function() {
 		});
 	});
 	
+	
+	$("#star-preferiti").click(function(){
+		$("#form-preferiti").submit();
+	})
 });

@@ -302,7 +302,6 @@ center img{
 
 
 /* CSS DEL CARRELLO */
-
 media-heading h2{
 	font-weight:bold;
 }
@@ -332,10 +331,15 @@ media-heading h2{
 }
 
 /* css preferiti*/
+.title-preferiti{
+	margin: 1% 2%;
+}
+
 .container-preferiti{
-	margin-left:5%;
-	margin-right:5%;
+	margin: 2% 5%;
+	min-height: 150px;
 	display:block;
+	
 	
 }
 
@@ -349,6 +353,7 @@ media-heading h2{
 }
 
 .container-preferiti2{
+	margin-left:9%;
 	position:relative;
 }
 
@@ -359,12 +364,13 @@ media-heading h2{
 	float:right;
 }
 .descrizione-preferiti{
-	height:auto;
-	width:100%;
-	}
+	padding-right: 10%;
+}
 	
 .bottone-preferiti{
-	 position:absolute; bottom:0; right:0;
+	 position:absolute;
+	 bottom:0; 
+	 right:0;
 }
 
 
@@ -574,6 +580,10 @@ media-heading h2{
 
 .container-aggiungi-recensione input{
 	width:inherit;
+}
+
+#star-preferiti{
+	cursor: pointer;
 }
 
 /*css libri*/

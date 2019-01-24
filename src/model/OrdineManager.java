@@ -28,12 +28,23 @@ public class OrdineManager {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
 		
-		String insertQ= "INSERT INTO ordine (numero, data, oraConsegna, dataConsegna, totale, via, cap, citt‡, stato, numeroCarta)"
-				+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String insertQ= "INSERT INTO ordine (dataOrdine, oraConsegna, dataConsegna, totale, via, numeroCivico, cap, citt‡, stato, numeroCarta, utente)"
+				+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		boolean result = false;
 		
 		try {
 			pStatement= connection.prepareStatement(insertQ);
+			pStatement.setDate(1, ordine.getDataEffettuata());
+			pStatement.setTime(2, ordine.getOra());
+			pStatement.setDate(3, ordine.getDataConsegna());
+			pStatement.setDouble(4, ordine.getPrezzoTot());
+			pStatement.setString(5, ordine.getVia());
+			pStatement.setInt(6, ordine.getNumCivico());
+			pStatement.setString(7, ordine.getCap());
+			pStatement.setString(8, ordine.getCitt‡());
+			pStatement.setString(9, ordine.getStato());
+			pStatement.setString(10, ordine.getNumCarta());
+			pStatement.setString(11, ordine.getEmail());
 			int result1 =pStatement.executeUpdate();
 			connection.commit();
 			
@@ -63,7 +74,7 @@ public class OrdineManager {
 
 		int idOrdine=0;
 
-		String selectSQL = "SELECT numero FROM " + "ordine" + " WHERE data = ? AND oraConsegna = ? AND cartaDiCredito = ?";
+		String selectSQL = "SELECT numero FROM " + "ordine" + " WHERE dataOrdine = ? AND oraConsegna = ? AND numeroCarta = ?";
 
 		try {
 			connection = DriverMaagerConnectionPool.getConnection();
@@ -93,7 +104,7 @@ public class OrdineManager {
 
 	private int doSaveLibriAcquistati(Connection connection, Ordine ordine) throws SQLException {
 		PreparedStatement pStatement= null;
-		String insertQ= "INSERT INTO libriAcquistati (ordine, libro, trama, quantit‡, prezzoAcquisto)"
+		String insertQ= "INSERT INTO libriAcquistati (ordine, libro, titolo, quantit‡, prezzoAcquisto)"
 				+ " values(?, ?, ?, ?, ?)";
 		Collection<Libro> libriAcquistati= ordine.getLibri();
 		int result=0;
@@ -103,8 +114,8 @@ public class OrdineManager {
 					pStatement= connection.prepareStatement(insertQ);
 					pStatement.setInt(1, ordine.getIdOrdine());
 					pStatement.setString(2, l.getIsbn());
-					pStatement.setString(3, l.getTrama());
-					pStatement.setInt(4, l.getQuantit‡());
+					pStatement.setString(3, l.getTitolo());
+					pStatement.setInt(4, l.getQuantit‡Selezionata());
 					pStatement.setDouble(5, l.getPrezzo());
 					
 					result= pStatement.executeUpdate();

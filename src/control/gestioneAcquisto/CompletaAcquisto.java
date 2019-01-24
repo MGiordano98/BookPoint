@@ -5,7 +5,9 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.GregorianCalendar;
+import java.util.Iterator;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,7 +17,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.Carrello;
+import bean.Indirizzo;
 import bean.Ordine;
+import bean.Utente;
 import model.OrdineManager;
 
 /**
@@ -44,13 +48,17 @@ public class CompletaAcquisto extends HttpServlet {
 		Time ora = new Time(data.getTime().getTime());
 		data.add(Calendar.DAY_OF_MONTH, 7);
 		Date dataConsegna= new Date(data.getTime().getTime());
-		
-		
+		Collection<?> indirizzi= (Collection<?>) request.getSession().getAttribute("indirizzi");
+		int idIndirizzo= Integer.parseInt(request.getParameter("idIndirizzo"));
+		Utente utente= (Utente) request.getSession().getAttribute("utente");
+		String email= utente.getEmail();
+		Indirizzo indirizzo= cercaIndirizzo(indirizzi, idIndirizzo);
 		
 		Ordine ordine= new Ordine();
-		ordine.setVia(request.getParameter("via"));
-		ordine.setCap(request.getParameter("cap"));
-		ordine.setCittà(request.getParameter("città"));
+		ordine.setVia(indirizzo.getVia());
+		ordine.setCap(indirizzo.getCap());
+		ordine.setCittà(indirizzo.getCittà());
+		ordine.setNumCivico(indirizzo.getNumCivico());
 		ordine.setDataEffettuata(dataEffettuata);
 		ordine.setDataConsegna(dataConsegna);
 		ordine.setOra(ora);
@@ -58,6 +66,7 @@ public class CompletaAcquisto extends HttpServlet {
 		ordine.setStato("In Preparazione");
 		ordine.setPrezzoTot(carrello.getTotale());
 		ordine.setLibri(carrello.getLibri());
+		ordine.setEmail(email);
 		
 		boolean acquistoCompletato= false;
 		
@@ -71,6 +80,17 @@ public class CompletaAcquisto extends HttpServlet {
 		request.getSession().setAttribute("acquistoCompletato", acquistoCompletato);
 		RequestDispatcher dispatcher= request.getRequestDispatcher("AcquistoCompletato.jsp");
 		dispatcher.forward(request, response);
+	}
+
+	private Indirizzo cercaIndirizzo(Collection<?> indirizzi, int idIndirizzo) {
+		Indirizzo ind=null;
+		Iterator it= indirizzi.iterator();
+		while(it.hasNext()) {
+			Indirizzo indirizzo= (Indirizzo) it.next();
+			if(indirizzo.getId() == idIndirizzo)
+				ind= indirizzo;
+		}
+		return ind;
 	}
 
 	/**

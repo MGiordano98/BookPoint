@@ -241,7 +241,7 @@
        
    <servlet>
   	<servlet-name>AggiungiLibroPreferiti</servlet-name>
-  	<servlet-class>control.gestione.InterazioneLibro.AggiungiLibroPreferiti</servlet-class>
+  	<servlet-class>control.gestioneInterazioneLibro.AggiungiLibroPreferiti</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>AggiungiLibroPreferiti</servlet-name>
@@ -329,9 +329,5 @@
   	<servlet-name>VisualizzaLibro</servlet-name>
   	<url-pattern>/presentation/cliente/visualizzaLibro</url-pattern>
   </servlet-mapping>
-  
-  
-  
-  
   
 </web-app>

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.Utente;
 import model.InterazioneLibroManager;
 
 /**
@@ -32,8 +33,9 @@ public class RimuoviLibroPreferiti extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Utente utente= (Utente) request.getSession().getAttribute("utente");
+		String email= utente.getEmail();
 		String isbn= request.getParameter("isbn");
-		String email= request.getParameter("email");
 		
 		try {
 			manager.rimuoviLibroPreferiti(isbn, email);
@@ -42,7 +44,7 @@ public class RimuoviLibroPreferiti extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		RequestDispatcher dispatcher= request.getRequestDispatcher("Preferiti.jsp");
+		RequestDispatcher dispatcher= request.getRequestDispatcher("visualizzaPreferiti");
 		dispatcher.forward(request, response);
 	}
 

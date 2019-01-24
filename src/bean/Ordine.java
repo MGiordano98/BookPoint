@@ -13,13 +13,14 @@ public class Ordine implements Serializable{
 	private Date dataConsegna;
 	private Time ora;
 	private String numCarta;
+	private int numCivico;
 	private String via;
 	private String città;
 	private String cap;
 	private double prezzoTot;
 	private String stato;
 	private Collection<Libro> libri;
-	
+	private String email;
 	
 
 	public Ordine() {
@@ -27,7 +28,7 @@ public class Ordine implements Serializable{
 	}
 
 	public Ordine(int idOrdine, Date dataEffettuata, Date dataConsegna, Time ora, String numCarta, String via, String città, String cap,
-			double prezzoTot, String stato, Collection<Libro> libri) {
+			int numCivico, double prezzoTot, String stato, Collection<Libro> libri, String email) {
 		super();
 		this.idOrdine = idOrdine;
 		this.dataEffettuata = dataEffettuata;
@@ -40,6 +41,24 @@ public class Ordine implements Serializable{
 		this.prezzoTot = prezzoTot;
 		this.stato = stato;
 		this.libri = libri;
+		this.numCivico= numCivico;
+		this.email= email;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public int getNumCivico() {
+		return numCivico;
+	}
+
+	public void setNumCivico(int numCivico) {
+		this.numCivico = numCivico;
 	}
 
 	public int getIdOrdine() {

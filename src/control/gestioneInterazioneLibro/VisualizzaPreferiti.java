@@ -35,7 +35,6 @@ public class VisualizzaPreferiti extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("ciao");
 		Utente utente= (Utente) request.getSession().getAttribute("utente");
 		String email= utente.getEmail();
 		Collection<Libro> preferiti= null; 
@@ -48,7 +47,7 @@ public class VisualizzaPreferiti extends HttpServlet {
 		}
 		
 		request.getSession().setAttribute("preferiti", preferiti);
-		response.sendRedirect("presentation/cliente/Preferiti.jsp");
+		response.sendRedirect("/BookPoint/presentation/cliente/Preferiti.jsp");
 		
 	}
 
