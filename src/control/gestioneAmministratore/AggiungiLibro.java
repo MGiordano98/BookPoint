@@ -39,14 +39,14 @@ public class AggiungiLibro extends HttpServlet {
 		int quantit‡Disponibile;
 		ArrayList<Autore> autori= new ArrayList<Autore>();
 		
-		isbn= request.getParameter("ibn");
+		isbn= request.getParameter("isbn");
 		titolo= request.getParameter("titolo");
-		trama= request.getParameter("titolo");
-		foto= request.getParameter("titolo");
-		casaEditrice= request.getParameter("titolo");
-		categoria= request.getParameter("titolo");
-		prezzo= Double.parseDouble(request.getParameter("titolo"));
-		quantit‡Disponibile= Integer.parseInt(request.getParameter("titolo"));
+		trama= request.getParameter("trama");
+		foto= request.getParameter("foto");
+		casaEditrice= request.getParameter("casaEditrice");
+		categoria= request.getParameter("categoria");
+		prezzo= Double.parseDouble(request.getParameter("prezzo"));
+		quantit‡Disponibile= Integer.parseInt(request.getParameter("quantit‡Disponibile"));
 		
 		int numAutori= Integer.parseInt("numAutori");
 		for(int i=0; i<numAutori; i++) {
