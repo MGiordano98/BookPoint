@@ -23,7 +23,7 @@
 <%if(ordine==null){}
 else{%>
 <div class="container-ordine">
-<h1>Ordine numero</h1>
+<h1>Ordine n°<%=ordine.getIdOrdine() %></h1>
 <table style="border:2px solid; border-collapse:separate;border-spacing: 0 1em;">
   
   
