@@ -281,6 +281,25 @@ center img{
     font-size:xx-large;
 }
 
+/*CSS DELL'AREA PERSONALE*/
+.divaccount{
+	width:80%;
+	border-color: black;
+	border-width: 0.5px;
+	border-style: solid;
+	margin: -2% 10% 0% 10%;
+	padding: 2%;
+}
+
+
+.immagini-gestioni{
+	max-width:300px;
+}
+
+#button-logout{
+	margin-top:2%;
+	margin-left:90%;
+}
 
 /*Css barra di ricerca*/
 .container-cerca{
