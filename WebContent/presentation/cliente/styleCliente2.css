@@ -301,6 +301,38 @@ center img{
 	margin-left:90%;
 }
 
+.container-account{
+	position:relative;
+}
+
+.container-account2{
+	position:relative;
+}
+
+.accesso{
+	position:absolute;
+	right:0;
+	top:0;
+	margin-right:10%;
+	margin-bottom:5%;
+}
+
+.pagamento{
+	position:absolute;
+	right:0;
+	bottom:0;
+	margin-right:10%;
+}
+
+.ordini{
+	margin-bottom:5%;
+	margin-left:10%;
+}
+
+.indirizzi{
+	margin-left:10%;
+}
+
 /*Css barra di ricerca*/
 .container-cerca{
 	margin-top:1%;
@@ -687,3 +719,28 @@ body .no-padding {
 .bottone-completa-acquisto{
 	margin:20% 40% 0% 40%;
 }
+
+
+/*CSS i miei Ordini*/
+.td-grassetto{
+	font-weight:bold;
+}
+
+.td-padding{
+	padding-right:70px;
+}
+
+.container-ordini{
+	margin: 1% 20% 2% 25%;
+	border:1px solid;
+}
+
+.tableordini2{
+	margin-top:1%;
+	margin-left:15%;
+}
+
+
+
+
+

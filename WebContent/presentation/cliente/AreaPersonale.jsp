@@ -37,7 +37,7 @@
 		</div>
 
 
-		<div>
+		<div class="container-account">
 
 			<div class="ya-card-cell account-card ordini">
 				<div class="a-row">
@@ -83,7 +83,7 @@
 		</div>
 
 
-		<div>
+		<div class="container-account2">
 
 			<div class="ya-card-cell account-card indirizzi">
 				<div class="a-row">
