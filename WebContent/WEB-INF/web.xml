@@ -39,6 +39,8 @@
   <servlet-mapping>
   	<servlet-name>Logout</servlet-name>
   	<url-pattern>/presentation/cliente/logout</url-pattern>
+  	<url-pattern>/presentation/amministratore/logout</url-pattern>
+  	<url-pattern>/presentation/amministratoreOrdini/logout</url-pattern>
   </servlet-mapping>
   
   <servlet>

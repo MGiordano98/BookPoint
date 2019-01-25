@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.Ordine;
 import model.AmministratoreOrdineManager;
 
 /**
@@ -34,23 +35,19 @@ public class CambiaDataEOra extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int numOrdine= Integer.parseInt(request.getParameter("numOrdine"));
-		int giorno= Integer.parseInt(request.getParameter("giorno"));
-		int mese= Integer.parseInt(request.getParameter("mese"));
-		int anno= Integer.parseInt(request.getParameter("anno"));
-		int minuti= Integer.parseInt(request.getParameter("minuti"));
-		int ore= Integer.parseInt(request.getParameter("ore"));
+		Ordine ordine= (Ordine) request.getSession().getAttribute("ordine");
+		int numOrdine= ordine.getIdOrdine();
+		String data= request.getParameter("modifica-data");
+		String ora= request.getParameter("modifica-ora");
 		
-		Date data= Date.valueOf(anno + "-" + mese + "-" + giorno);
-		Time ora= Time.valueOf(ore + ":" + minuti);
 		try {
-			manager.cambiaDataEOra(numOrdine, data, ora);
+			manager.cambiaDataEOra(numOrdine, Date.valueOf(data), Time.valueOf(ora));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		RequestDispatcher dispatcher= request.getRequestDispatcher("AmministratoreOrdiniOrdine.jsp");
+		RequestDispatcher dispatcher= request.getRequestDispatcher("ricercaOrdine?numOrdine="+numOrdine);
 		dispatcher.forward(request, response);
 	}
 

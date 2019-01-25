@@ -22,7 +22,7 @@
 	  </a>
 	  
 	  <a href="#">Ordine</a>
-	  <a style="margin-left:25%;" href="#">Logout</a>
+	  <a style="margin-left:25%;" href="logout">Logout</a>
 
     	
 	

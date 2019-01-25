@@ -133,3 +133,17 @@ header{
 	 margin-left:40%;
 }
 
+/*css modificaAttributo*/
+.modificaAttributo{
+	display:none;
+	position:fixed;
+	background: rgba(128,128,128);
+	width:20%;
+	margin-left:42%;
+	margin-top:-12%;
+	padding:10px;
+	font-weight: bold;
+	text-align: center;
+	border: 1px solid;
+	
+}

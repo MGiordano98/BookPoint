@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.Ordine;
 import model.AmministratoreOrdineManager;
 
 /**
@@ -33,8 +34,10 @@ public class CambiaStato extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int numOrdine= Integer.parseInt(request.getParameter("numOrdine"));
-		String stato= request.getParameter("stato");
+		Ordine ordine= (Ordine) request.getSession().getAttribute("ordine");
+		int numOrdine= ordine.getIdOrdine();
+		String stato= request.getParameter("modifica-stato");
+		System.out.println(stato);
 		
 		try {
 			manager.cambiaStato(numOrdine, stato);
@@ -43,7 +46,7 @@ public class CambiaStato extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		RequestDispatcher dispatcher= request.getRequestDispatcher("AmministratoreOrdiniOrdine.jsp");
+		RequestDispatcher dispatcher= request.getRequestDispatcher("ricercaOrdine?numOrdine="+numOrdine);
 		dispatcher.forward(request, response);
 	}
 
