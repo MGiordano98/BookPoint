@@ -516,10 +516,34 @@ media-heading h2{
 	
 	padding-top:5%;
 	padding-left:5%;
+	
+}
+.indirizzi2 td{
+	
+	padding-top:5%;
+	padding-left:5%;
+	
+}
+.table-indirizzi{
+	margin-left:10%;
 }
 
-.table-indirizzi table {
+.table-indirizzi table ,.table-indirizzi2 table {
 	border:1px solid;
+}
+
+.indirizzi2{
+	position:absolute;
+	right:0;
+	top:0;
+	margin-right:10%;
+	border:1px solid;
+}
+
+.container-indirizzi{
+	margin-left:10%;
+	margin-right:10%;
+	position:relative;
 }
 
 

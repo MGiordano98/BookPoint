@@ -40,6 +40,8 @@ public class AccountManager {
 				utente.setCognome(rs.getString("cognome"));
 				utente.setDataDiNascita(rs.getDate("dataDiNascita"));
 				utente.setTipo(rs.getString("tipo"));
+				
+				System.out.println(utente.getEmail() + " " + utente.getNome() + " " + utente.getCognome());
 			}
 		}finally {
 			try {
