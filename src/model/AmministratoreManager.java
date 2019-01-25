@@ -181,10 +181,10 @@ public class AmministratoreManager {
 
 		connection= DriverMaagerConnectionPool.getConnection();
 		try {
-			String updateQ = "UPDATE libro WHERE isbn = ? SET dataUscita = ?";
+			String updateQ = "UPDATE libro SET dataUscita = ? WHERE isbn = ?";
 			preparedStatement= connection.prepareStatement(updateQ);
-			preparedStatement.setString(1, isbn);
-			preparedStatement.setDate(2, nuovoAttributo);
+			preparedStatement.setDate(1, nuovoAttributo);
+			preparedStatement.setString(2, isbn);
 			preparedStatement.executeUpdate();
 			connection.commit();
 		}finally {
@@ -204,10 +204,10 @@ public class AmministratoreManager {
 
 		connection= DriverMaagerConnectionPool.getConnection();
 		try {
-			String updateQ = "UPDATE libro WHERE isbn = ? SET copieVendute = ?";
+			String updateQ = "UPDATE libro SET copieVendute = ? WHERE isbn = ?";
 			preparedStatement= connection.prepareStatement(updateQ);
-			preparedStatement.setString(1, isbn);
-			preparedStatement.setInt(2, nuovoAttributo);
+			preparedStatement.setInt(1, nuovoAttributo);
+			preparedStatement.setString(2, isbn);
 			preparedStatement.executeUpdate();
 			connection.commit();
 		}finally {
@@ -226,10 +226,10 @@ public class AmministratoreManager {
 
 		connection= DriverMaagerConnectionPool.getConnection();
 		try {
-			String updateQ = "UPDATE libro WHERE isbn = ? SET ? = ?";
+			String updateQ = "UPDATE libro SET categoria = ? WHERE isbn = ?";
 			preparedStatement= connection.prepareStatement(updateQ);
-			preparedStatement.setString(1, isbn);
-			preparedStatement.setString(2, nuovoAttributo);
+			preparedStatement.setString(1, nuovoAttributo);
+			preparedStatement.setString(2, isbn);
 			preparedStatement.executeUpdate();
 			connection.commit();
 		}finally {
@@ -248,10 +248,10 @@ public class AmministratoreManager {
 
 		connection= DriverMaagerConnectionPool.getConnection();
 		try {
-			String updateQ = "UPDATE libro WHERE isbn = ? SET quantit‡Disponibile = ?";
+			String updateQ = "UPDATE libro SET quantit‡Disponibile = ? WHERE isbn = ?";
 			preparedStatement= connection.prepareStatement(updateQ);
-			preparedStatement.setString(1, isbn);
-			preparedStatement.setInt(2, nuovoAttributo);
+			preparedStatement.setInt(1, nuovoAttributo);
+			preparedStatement.setString(2, isbn);
 			preparedStatement.executeUpdate();
 			connection.commit();
 		}finally {
@@ -270,10 +270,10 @@ public class AmministratoreManager {
 
 		connection= DriverMaagerConnectionPool.getConnection();
 		try {
-			String updateQ = "UPDATE libro WHERE isbn = ? SET prezzo = ?";
+			String updateQ = "UPDATE libro SET prezzo = ? WHERE isbn = ?";
 			preparedStatement= connection.prepareStatement(updateQ);
-			preparedStatement.setString(1, isbn);
-			preparedStatement.setDouble(2, nuovoAttributo);
+			preparedStatement.setDouble(1, nuovoAttributo);
+			preparedStatement.setString(2, isbn);
 			preparedStatement.executeUpdate();
 			connection.commit();
 		}finally {
@@ -293,10 +293,10 @@ public class AmministratoreManager {
 
 		connection= DriverMaagerConnectionPool.getConnection();
 		try {
-			String updateQ = "UPDATE libro WHERE isbn = ? SET casaEditrice = ?";
+			String updateQ = "UPDATE libro SET casaEditrice = ? WHERE isbn = ?";
 			preparedStatement= connection.prepareStatement(updateQ);
-			preparedStatement.setString(1, isbn);
-			preparedStatement.setString(2, nuovoAttributo);
+			preparedStatement.setString(1, nuovoAttributo);
+			preparedStatement.setString(2, isbn);
 			preparedStatement.executeUpdate();
 			connection.commit();
 		}finally {
@@ -316,10 +316,10 @@ public class AmministratoreManager {
 
 		connection= DriverMaagerConnectionPool.getConnection();
 		try {
-			String updateQ = "UPDATE libro WHERE isbn = ? SET foto = ?";
+			String updateQ = "UPDATE libro SET foto = ? WHERE isbn = ?";
 			preparedStatement= connection.prepareStatement(updateQ);
-			preparedStatement.setString(1, isbn);
-			preparedStatement.setString(2, nuovoAttributo);
+			preparedStatement.setString(1, nuovoAttributo);
+			preparedStatement.setString(2, isbn);
 			preparedStatement.executeUpdate();
 			connection.commit();
 		}finally {
@@ -339,10 +339,10 @@ public class AmministratoreManager {
 
 		connection= DriverMaagerConnectionPool.getConnection();
 		try {
-			String updateQ = "UPDATE libro WHERE isbn = ? SET trama = ?";
+			String updateQ = "UPDATE libro SET trama = ? WHERE isbn = ?";
 			preparedStatement= connection.prepareStatement(updateQ);
-			preparedStatement.setString(1, isbn);
-			preparedStatement.setString(2, nuovoAttributo);
+			preparedStatement.setString(1, nuovoAttributo);
+			preparedStatement.setString(2, isbn);
 			preparedStatement.executeUpdate();
 			connection.commit();
 		}finally {
@@ -362,10 +362,10 @@ public class AmministratoreManager {
 
 		connection= DriverMaagerConnectionPool.getConnection();
 		try {
-			String updateQ = "UPDATE libro WHERE isbn = ? SET titolo = ?";
+			String updateQ = "UPDATE libro SET titolo = ? WHERE isbn = ?";
 			preparedStatement= connection.prepareStatement(updateQ);
-			preparedStatement.setString(1, isbn);
-			preparedStatement.setString(2, nuovoAttributo);
+			preparedStatement.setString(1, nuovoAttributo);
+			preparedStatement.setString(2, isbn);
 			preparedStatement.executeUpdate();
 			connection.commit();
 		}finally {

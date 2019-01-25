@@ -34,7 +34,7 @@ public class ModificaAttributo extends HttpServlet {
 		String isbn= request.getParameter("isbn");
 		String tipo= request.getParameter("tipo");
 		String nuovoAttributo= request.getParameter("nuovoAttributo");
-
+		if(nuovoAttributo!=null && !nuovoAttributo.equals("")){
 		try {
 			switch(tipo){
 			case "titolo": manager.modificaTitolo(isbn,nuovoAttributo); break;
@@ -52,6 +52,7 @@ public class ModificaAttributo extends HttpServlet {
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
+		}
 		}
 		RequestDispatcher dispatcher= request.getRequestDispatcher("AmministratoreVisualizzaLibro.jsp");
 		dispatcher.forward(request, response);
