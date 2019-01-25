@@ -44,7 +44,6 @@ public class VisualizzaLibro extends HttpServlet {
 		
 		request.getSession().setAttribute("libro", libro);
 		
-		response.sendRedirect("VisualizzaLibro.jsp");
 	}
 
 	/**

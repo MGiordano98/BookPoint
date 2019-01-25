@@ -28,4 +28,14 @@ $(document).ready(function(){
 		$(".aggiungi-autori").append("<div class=\"aggiungi-autore\">Nome: <input type=\"text\" name=\"autore\"> </div>");
 	});
 	
+	$(".visualizza").click(function(){
+		var isbn= $(this).attr("name");
+		alert(isbn);
+		$.post("visualizzaLibro",{"isbn":isbn}, function(data, status){
+			window.location.href= "AmministratoreVisualizzaLibro.jsp";
+		
+		});
+		
+	});
+	
 });

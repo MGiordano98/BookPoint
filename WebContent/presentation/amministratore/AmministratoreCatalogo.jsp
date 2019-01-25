@@ -97,7 +97,7 @@
 
 	<div class="libro-trovato-display">
 		<div>
-			<img alt="" src="../image/<%=bean.getFoto()%>">
+			<img alt="" src="../image/<%=bean.getFoto()%>" class="visualizza" name=<%=bean.getIsbn() %>>
 		</div>
 		<div>
 			<div>

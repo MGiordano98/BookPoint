@@ -328,6 +328,7 @@
   <servlet-mapping>
   	<servlet-name>VisualizzaLibro</servlet-name>
   	<url-pattern>/presentation/cliente/visualizzaLibro</url-pattern>
+  	<url-pattern>/presentation/amministratore/visualizzaLibro</url-pattern>
   </servlet-mapping>
   
 </web-app>
