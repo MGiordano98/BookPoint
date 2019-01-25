@@ -46,5 +46,5 @@ $(document).ready(function() {
 	
 	$("#star-preferiti").click(function(){
 		$("#form-preferiti").submit();
-	})
+	});
 });

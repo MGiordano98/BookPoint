@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import bean.Autore;
 import bean.Libro;
@@ -36,7 +37,8 @@ public class AmministratoreManager {
 
 			//  Viene inserito il libro
 			String insertSQL = "INSERT INTO libro"
-					+ " (isbn, titolo, trama, foto, casaEditrice, prezzo, quantit‡Disponibile, categoria,copieVendute) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+					+ " (isbn, titolo, trama, foto, casaEditrice, prezzo, quantit‡Disponibile, categoria)"
+					+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
 
 
@@ -49,14 +51,16 @@ public class AmministratoreManager {
 			preparedStatement.setDouble(6, libro.getPrezzo());
 			preparedStatement.setInt(7, libro.getQuantit‡());
 			preparedStatement.setString(8, libro.getCategoria());
-			preparedStatement.setInt(9, libro.getCopieVendute());
 
 			preparedStatement.executeUpdate();
+			
+			connection.commit();
 
 			//per ogni autore verifichiamo se Ë presente nel database, se non Ë presente lo inseriamo nella tabella autore e poi inseriamo
 			//una tupla nella tabbella scrive.
 			//Se non Ë presente inseriamo solamente una tupla nella tabella scrive.
-			for(Autore temp : libro.getAutori()){
+			ArrayList<Autore> libri= libro.getAutori();
+			for(Autore temp : libri){
 
 				if(!presenteAutore(temp,connection)){
 					insertAutore(temp.getNome(), connection);
@@ -81,14 +85,16 @@ public class AmministratoreManager {
 		PreparedStatement preparedStatement=null;
 		
 		try{
-			String InsertSQL="insert into Scrivi(autore,libro)"
-					+ "values(?,?)";
+			String InsertSQL="insert into scrive(autore, libro) "
+					+ "values(?, ?)";
 			
 			preparedStatement=connection.prepareStatement(InsertSQL);
 			preparedStatement.setString(1,nome);
 			preparedStatement.setString(2,isbn);
 			
 			preparedStatement.executeUpdate();
+			
+			connection.commit();
 			
 		} finally{
 			try {
@@ -105,7 +111,7 @@ public class AmministratoreManager {
 		PreparedStatement preparedStatement=null;
 		
 		try{
-			String InsertSQL="insert into autore(nome)"
+			String InsertSQL="insert into autore(nome) "
 					+ "values(?)";
 			
 			preparedStatement=connection.prepareStatement(InsertSQL);
@@ -113,6 +119,7 @@ public class AmministratoreManager {
 			
 			preparedStatement.executeUpdate();
 			
+			connection.commit();
 		} finally{
 			try {
 				if (preparedStatement != null)
@@ -132,8 +139,8 @@ public class AmministratoreManager {
 		PreparedStatement preparedStatement= null;
 
 		String checkSQL="SELECT * "
-				+ "FROM AUTORE"
-				+ "WHERE nome=?";
+				+ "FROM autore "
+				+ "WHERE nome = ?";
 
 		boolean trovato=false;
 		

@@ -25,6 +25,7 @@ $(document).ready(function(){
 	});
 	
 	$(".bottone-aggiungi-autore").click(function(){
-		$(".aggiungi-autori").append("<div class=\"aggiungi-autore\">Nome: <input type=\"text\"> </div>");
-	})
+		$(".aggiungi-autori").append("<div class=\"aggiungi-autore\">Nome: <input type=\"text\" name=\"autore\"> </div>");
+	});
+	
 });

@@ -1,10 +1,15 @@
 package control.gestioneAmministratore;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.imageio.ImageIO;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -36,25 +41,36 @@ public class AggiungiLibro extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String isbn, titolo, trama, foto, casaEditrice, categoria;
 		double prezzo;
-		int quantit‡Disponibile;
+		int quantita;
 		ArrayList<Autore> autori= new ArrayList<Autore>();
 		
-		isbn= request.getParameter("isbn");
-		titolo= request.getParameter("titolo");
-		trama= request.getParameter("trama");
-		foto= request.getParameter("foto");
-		casaEditrice= request.getParameter("casaEditrice");
-		categoria= request.getParameter("categoria");
-		prezzo= Double.parseDouble(request.getParameter("prezzo"));
-		quantit‡Disponibile= Integer.parseInt(request.getParameter("quantit‡Disponibile"));
+		isbn= request.getParameter("isbn");		System.out.println(isbn);
+		titolo= request.getParameter("titolo"); System.out.println(titolo);
+		trama= request.getParameter("trama");	System.out.println(trama);
+		foto= request.getParameter("foto");		System.out.println(foto);
 		
-		int numAutori= Integer.parseInt("numAutori");
-		for(int i=0; i<numAutori; i++) {
-			autori.add(new Autore(request.getParameter("autore"+ i)));
+		
+	//	File file= new File("C://Users/maxim/OneDrive/Desktop/cart.png");
+	//	BufferedImage buffImage= ImageIO.read(file);
+	//	ImageIO.write(buffImage, "png", new File("../presentation/image/"+isbn+".png"));
+		
+		casaEditrice= request.getParameter("casaEditrice");	System.out.println(casaEditrice);
+		categoria= request.getParameter("categoria");		System.out.println(categoria);
+		prezzo= Double.parseDouble(request.getParameter("prezzo"));		System.out.println(prezzo);
+		quantita= Integer.parseInt(request.getParameter("quantita"));	System.out.println(quantita);
+		
+		String[] nomiAutori=request.getParameterValues("autore");
+		System.out.println(nomiAutori.length);
+		
+		for(String autore : nomiAutori) {
+			System.out.println(autore);
+			autori.add(new Autore(autore));
 		}
-		Date dataUscita= Date.valueOf(request.getParameter("dataUscita"));
 		
-		Libro libro= new Libro(isbn, titolo, trama, foto, casaEditrice, prezzo, quantit‡Disponibile, categoria, autori, dataUscita);
+		Date dataUscita= Date.valueOf(request.getParameter("dataUscita"));
+		System.out.println(request.getParameter("dataUscita"));
+		
+		Libro libro= new Libro(isbn, titolo, trama, isbn+".jpg", casaEditrice, prezzo, quantita, categoria, autori, dataUscita);
 		
 		try {
 			am.aggiungiLibro(libro);
@@ -63,6 +79,7 @@ public class AggiungiLibro extends HttpServlet {
 		}
 		RequestDispatcher dispatcher= request.getRequestDispatcher("AmministratoreCatalogo.jsp");
 		dispatcher.forward(request, response);
+		
 	}
 
 	/**

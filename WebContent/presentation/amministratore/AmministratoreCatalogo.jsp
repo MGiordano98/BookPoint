@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"
 	import="java.util.*,bean.*,control.gestioneRicerca.*"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="styleAmministratore.css">
@@ -35,32 +35,42 @@
 
 	</div>
 
+	<!-- AGGIUNGI LIBRO -->
 	<div class="container-inserimento"
 		style="display: none; margin-left: 40%;">
 
-		<form action="aggiungiLibro">
+		<!-- FORM -->
+		<form action="aggiungiLibro" method="post">
 
+			<!-- INSERIMENTO DATI LIBRO -->
 			<label for="isbn">Isbn</label><input id="isbn" type="text"
-				name="isbn" placeholder="isbn"><br> <label for="titolo">titolo</label><input
+				name="isbn" placeholder="isbn"><br>
+				 <label for="titolo">titolo</label><input
 				id="titolo" type="text" name="titolo" placeholder="titolo"><br>
 			<label for="trama">trama</label><input id="trama" type="text"
-				name="trama" placeholder="trama"><br> <label
+				name="trama" placeholder="trama"><br> 
+				<label
 				for="casaEditrice">casa editrice</label><input id="casaEditrice"
 				type="text" name="casaEditrice" placeholder="casa editrice"><br>
 			<label for="prezzo">prezzo</label><input id="prezzo" type="text"
-				name="prezzo" placeholder="prezzo"><br> <label
-				for="quantità">quantità</label><input id="quantità" type="number"
-				min="1" max="100" name="quantità" id="" min="1" value="1"><br>
+				name="prezzo" placeholder="prezzo"><br> 
+				<label
+				for="quantità">quantità</label><input type="number" id="quantità"
+				min="1" max="100" name="quantita" value="1"><br>
 			<label for="categoria">categoria</label><input id="categoria"
 				type="text" name="categoria" placeholder="categoria"><br>
-			<label for="foto">foto</label><input id="foto" type="file" name="pic"
+			<label for="foto">foto</label><input id="foto" type="file" name="foto"
 				accept="image/*"><br>
-			<button type="button" id="bottone-inserisci-autori">Inserisci autori</button>
+			<label for="dataUscita">data uscita</label>
+			<input id="dataUscita" type="date" name="dataUscita"><br>
+			<button type="button" id="bottone-inserisci-autori">Inserisci
+				autori</button>
 
-			<div class="aggiungi-autori" style="display:none">
+			<!-- AGGIUNGI AUTORI -->
+			<div class="aggiungi-autori" style="display: none">
 				<button type="button" class="btn bottone-aggiungi-autore">+</button>
 				<div class="aggiungi-autore">
-					Nome: <input type="text">
+					Nome: <input type="text" name="autore">
 				</div>
 			</div>
 			<input type="submit"><br>
