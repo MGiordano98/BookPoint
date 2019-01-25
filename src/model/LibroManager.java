@@ -224,6 +224,7 @@ public class LibroManager {
 		pStatement.setString(1, isbn);
 		ResultSet rs = pStatement.executeQuery();
 		while(rs.next()) {
+			System.out.println(rs.getString("testo") + " " + rs.getString("utente"));
 			recensioni.add(new Recensione(rs.getString("testo"), isbn, rs.getString("utente")));
 		}
 		return recensioni;

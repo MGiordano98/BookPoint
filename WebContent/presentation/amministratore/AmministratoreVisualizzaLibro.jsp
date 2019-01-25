@@ -11,7 +11,10 @@
 </head>
 <body>
 <%@ include file="headerAmministratore.jsp"%>
-<%Libro libro=(Libro) request.getSession().getAttribute("libro"); %>
+<%
+Libro libro=(Libro) request.getSession().getAttribute("libro");
+Collection<Recensione> recensioni=libro.getRecensioni(); 
+%>
 
 
 
@@ -75,35 +78,21 @@
 
 
 <h1>Recensioni</h1>
-<div style="position:relative;display: -webkit-box;float: inherit;border:1px solid;" class="container">
-<a><i style="position:absolute;right:2px;" class="fas fa-times"></i></a>
+
 <table >
   
-  
+<% 
+Iterator it2=recensioni.iterator();
+while(it2.hasNext()){
+Recensione recensione=(Recensione) it2.next();%>
     <tr>
-      <td>Immagine</td>
-      <td>Nome immagine</td>
-   
-    </tr>
-      <tr>
-      <td>Immagine</td>
-      <td>Nome immagine</td>
-   
-    </tr>
-      <tr>
-      <td>Immagine</td>
-      <td>Nome immagine</td>
-   
-    </tr>
-       
-      <tr>
-      <td>Immagine</td>
-      <td >Nome immagine</td>
-   
-    </tr>
-  
+      <td><%=recensione.getEmail() %></td>
+     </tr>
+     <tr>
+      <td><%=recensione.getTesto() %></td>
+     </tr>
+  <%} %>
 </table>
-</div>
 
 </body>
 </html>
