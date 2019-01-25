@@ -26,31 +26,53 @@ public class OrdineManager {
 	 */
 	public boolean completaAcquisto(Ordine ordine) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
+		PreparedStatement getIdStatement= null;
 		PreparedStatement pStatement= null;
 		
-		String insertQ= "INSERT INTO ordine (dataOrdine, oraConsegna, dataConsegna, totale, via, numeroCivico, cap, città, stato, numeroCarta, utente)"
-				+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String getIdQ="Select max(numero) as id from ordine";
+		int idOrdine=0;
+		try{
+			getIdStatement=connection.prepareStatement(getIdQ);
+			ResultSet rs1=getIdStatement.executeQuery();
+			if(rs1.next()){
+				idOrdine=rs1.getInt("id")+1;
+			}
+			else{
+				return false;
+			}
+		}
+		finally{
+			try {
+				if(getIdStatement!=null) {
+					getIdStatement.close();
+				}
+			}finally{
+				DriverMaagerConnectionPool.releaseConnection(connection);
+			}
+		}
+		
+		String insertQ= "INSERT INTO ordine (numero,dataOrdine, oraConsegna, dataConsegna, totale, via, numeroCivico, cap, città, stato, numeroCarta, utente)"
+				+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		boolean result = false;
 		
 		try {
 			pStatement= connection.prepareStatement(insertQ);
-			pStatement.setDate(1, ordine.getDataEffettuata());
-			pStatement.setTime(2, ordine.getOra());
-			pStatement.setDate(3, ordine.getDataConsegna());
-			pStatement.setDouble(4, ordine.getPrezzoTot());
-			pStatement.setString(5, ordine.getVia());
-			pStatement.setInt(6, ordine.getNumCivico());
-			pStatement.setString(7, ordine.getCap());
-			pStatement.setString(8, ordine.getCittà());
-			pStatement.setString(9, ordine.getStato());
-			pStatement.setString(10, ordine.getNumCarta());
-			pStatement.setString(11, ordine.getEmail());
+			pStatement.setInt(1, idOrdine);
+			pStatement.setDate(2, ordine.getDataEffettuata());
+			pStatement.setTime(3, ordine.getOra());
+			pStatement.setDate(4, ordine.getDataConsegna());
+			pStatement.setDouble(5, ordine.getPrezzoTot());
+			pStatement.setString(6, ordine.getVia());
+			pStatement.setInt(7, ordine.getNumCivico());
+			pStatement.setString(8, ordine.getCap());
+			pStatement.setString(9, ordine.getCittà());
+			pStatement.setString(10, ordine.getStato());
+			pStatement.setString(11, ordine.getNumCarta());
+			pStatement.setString(12, ordine.getEmail());
 			int result1 =pStatement.executeUpdate();
 			connection.commit();
 			
-			int idOrdine= doGetCodiceOrdine(ordine);
 			ordine.setIdOrdine(idOrdine);
-			
 			int result2 =doSaveLibriAcquistati(connection, ordine);
 			
 			if(result1!=0 && result2!=0) result=true;
@@ -58,6 +80,7 @@ public class OrdineManager {
 			try {
 				if(pStatement!=null) {
 					pStatement.close();
+					getIdStatement.close();
 				}
 			}finally{
 				DriverMaagerConnectionPool.releaseConnection(connection);
@@ -68,40 +91,7 @@ public class OrdineManager {
 	}
 
 
-	private int doGetCodiceOrdine(Ordine ordine) throws SQLException {
-		Connection connection = null;
-		PreparedStatement preparedStatement = null;
-
-		int idOrdine=0;
-
-		String selectSQL = "SELECT numero FROM " + "ordine" + " WHERE dataOrdine = ? AND oraConsegna = ? AND numeroCarta = ?";
-
-		try {
-			connection = DriverMaagerConnectionPool.getConnection();
-			preparedStatement = connection.prepareStatement(selectSQL);
-			preparedStatement.setDate(1, ordine.getDataEffettuata());
-			preparedStatement.setTime(2, ordine.getOra());
-			preparedStatement.setString(3, ordine.getNumCarta());
-
-
-			ResultSet rs = preparedStatement.executeQuery();
-
-			if(rs.next()) {
-				idOrdine= rs.getInt("numero");
-			}
-
-		} finally {
-			try {
-				if (preparedStatement != null)
-					preparedStatement.close();
-			} finally {
-				DriverMaagerConnectionPool.releaseConnection(connection);
-			}
-		}
-		return idOrdine;
-	}
-
-
+	
 	private int doSaveLibriAcquistati(Connection connection, Ordine ordine) throws SQLException {
 		PreparedStatement pStatement= null;
 		String insertQ= "INSERT INTO libriAcquistati (ordine, libro, titolo, quantità, prezzoAcquisto)"

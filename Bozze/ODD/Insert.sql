@@ -52,11 +52,11 @@ insert into libro(isbn,titolo,trama,foto,casaEditrice,prezzo,quantitàDisponibil
 values('9788804665793','L''arte di essere fragili. Come Leopardi può salvarti la vita','L’arte di essere fragili è il quarto libro di Alessandro D’Avenia, già autore di romanzi di grande successo a cominciare da Bianca come il latte rossa come il sangue (l’esordio del 2010, oltre un milione di copie vendute e tante traduzioni all’estero), Cose che nessuno sa (2011) e Ciò che inferno non è (2014, apertamente ispirato alla figura di un insegnante di cui D’Avenia era stato allievo ai tempi del liceo a Palermo, ossia don Pino Puglisi, il sacerdote ucciso dalla mafia nel ’93).','9788804665793.jpg','Mondadori',19.00,50,'Romanzi',0,'2016-10-31');
 
 
-insert into ordine(dataOrdine,totale,stato,dataConsegna,oraConsegna,utente,via,numeroCivico,cap,città, numeroCarta)
-values('2019-01-07',8.40,'consegnato','2019-01-15','12:00:00','g.teodoro@studenti.unisa.it','Enrico Fermi',9,80040,'Terzigno','0000000000000000');
+insert into ordine(numero,dataOrdine,totale,stato,dataConsegna,oraConsegna,utente,via,numeroCivico,cap,città, numeroCarta)
+values(1,'2019-01-07',8.40,'consegnato','2019-01-15','12:00:00','g.teodoro@studenti.unisa.it','Enrico Fermi',9,80040,'Terzigno','0000000000000000');
 
-insert into ordine(dataOrdine,totale,stato,dataConsegna,oraConsegna,utente,via,numeroCivico,cap,città, numeroCarta)
-values('2019-01-08',11.00,'consegnato','2019-01-16','12:00:00','v.sammartino@studenti.unisa.it','Striscia',14,8305,'Avellino','0000000000000001');
+insert into ordine(numero,dataOrdine,totale,stato,dataConsegna,oraConsegna,utente,via,numeroCivico,cap,città, numeroCarta)
+values(2,'2019-01-08',11.00,'consegnato','2019-01-16','12:00:00','v.sammartino@studenti.unisa.it','Striscia',14,8305,'Avellino','0000000000000000');
 
 insert into libriAcquistati(prezzoAcquisto,quantità,titolo,ordine,libro)
 values(8.40,1,'Dieci piccoli indiani','1','9788804679622');

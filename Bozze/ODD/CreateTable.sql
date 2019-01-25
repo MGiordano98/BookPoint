@@ -54,7 +54,7 @@ create table cartaDiCredito
 
 create table ordine
 (
-	numero integer(20) auto_increment primary key,
+	numero integer(20) primary key,
     dataOrdine date,
     totale float(10),
     stato varchar(15),
