@@ -41,7 +41,7 @@
  <%if(libri==null){ %>
  
  
-<div style="width: 90%; margin-right:5%; margin-left:5%; margin-top: 50px;">
+<div class="container-libri-evidenza">
 
 	<% if(libriInEvidenza!=null && libriInEvidenza.size()>0){
 	int i=0;

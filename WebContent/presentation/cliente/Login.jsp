@@ -47,7 +47,7 @@ if(request.getSession().getAttribute("admin")!=null){
  	</form>
   <div class="dropdown-divider"></div>
      <span class="spanlogin">Non hai ancora un account Book Point?</span><br>
-     <span class="spanlogin"><a href="registrazione.jsp">Crea il tuo account Book Point!</a></span>
+     <span class="spanlogin"><a href="Registrazione.jsp">Crea il tuo account Book Point!</a></span>
 </div>
 </div>
 

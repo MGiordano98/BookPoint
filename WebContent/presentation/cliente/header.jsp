@@ -25,11 +25,18 @@
 	  <% Utente utente=(Utente) session.getAttribute("utente"); 
 	  if(utente!=null) {%>
 	  <a href="../../VisualizzaPreferiti">Preferiti</a>
-	  <a class="nav-link utenteutente" href="AreaPersonale.jsp" style="margin:0;margin-left:40px;padding-left:40px"><i class="fas fa-user-circle fa-lg"></i>  </a>
+	  <a class="nav-link " href="AreaPersonale.jsp" ><i class="fas fa-user-circle fa-lg"></i>  </a>
 	  <%} else { %>
-	  <a class="nav-link utenteutente" href="Login.jsp" style="margin:0;margin-left:40px;padding-left:40px"><i class="fas fa-user-circle fa-lg"></i>  </a>
-	  <%} %>
+	  <a href="../../VisualizzaPreferiti"> </a>
+	  <%}if(utente==null){ %>
+	  <a class="nav-link utente" href="Login.jsp" ><i class="fas fa-user-circle fa-lg"></i>  </a>
+	  <%} else {%>
+	   <a class="nav-link utente-login" href="Login.jsp" ><i class="fas fa-user-circle fa-lg"></i>  </a>
+	   <a class="logout"href="logout"><i class="fas fa-sign-out-alt"></i></a>
+<%} %>
 
+
+    	
     	
 	
 

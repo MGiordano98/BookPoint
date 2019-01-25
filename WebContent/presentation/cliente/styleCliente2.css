@@ -161,7 +161,13 @@ center img{
   text-decoration: none;
   font-size: 17px;
   margin-left:12%;
-  margin-right: 2%;
+}
+
+.nav-link.utente{
+	margin-left:-4%;
+}
+.nav-link.utente-login{
+	display:none;
 }
 
 .navbar-left-mio{
@@ -227,7 +233,6 @@ center img{
 
 
 
-
 /* CSS FOOTER*/
 .footer{
     position: static;
@@ -282,56 +287,30 @@ center img{
 }
 
 /*CSS DELL'AREA PERSONALE*/
-.divaccount{
-	width:80%;
-	border-color: black;
-	border-width: 0.5px;
-	border-style: solid;
-	margin: -2% 10% 0% 10%;
-	padding: 2%;
-}
 
 
-.immagini-gestioni{
-	max-width:300px;
-}
-
-#button-logout{
-	margin-top:2%;
-	margin-left:90%;
-}
-
-.container-account{
-	position:relative;
-}
-
-.container-account2{
-	position:relative;
-}
-
-.accesso{
-	position:absolute;
-	right:0;
-	top:0;
-	margin-right:10%;
-	margin-bottom:5%;
-}
-
-.pagamento{
-	position:absolute;
-	right:0;
-	bottom:0;
-	margin-right:10%;
-}
-
-.ordini{
-	margin-bottom:5%;
+.grid-item-account  {
+	margin-right:2%;
+	margin-top:3%;
 	margin-left:10%;
 }
 
-.indirizzi{
-	margin-left:10%;
+
+
+.grid-container-account{
+	display: grid;
+  	grid-template-columns: auto auto;
+	margin-top:3%;
+	margin-left:15%;
+	margin-right:15%;
 }
+
+
+.grid-container-account img{
+	width:400px;
+}
+
+
 
 /*Css barra di ricerca*/
 .container-cerca{
@@ -379,6 +358,15 @@ media-heading h2{
 
 .trama{
 	padding: 0px 20px;
+}
+
+.row{
+	margin-left:10%;
+}
+
+.media-object{
+	width:150px;
+	height:150px;
 }
 
 /* css preferiti*/
@@ -544,39 +532,49 @@ media-heading h2{
 
 
 /*css indirizzi*/
-.table-indirizzi td{
-	
-	padding-top:5%;
-	padding-left:5%;
-	
-}
-.indirizzi2 td{
-	
-	padding-top:5%;
-	padding-left:5%;
-	
-}
-.table-indirizzi{
-	margin-left:10%;
+
+
+.grid-item  {
+	border:2px solid red;
+	border-radius:4px;
+	margin-right:2%;
+	margin-top:3%;
 }
 
-.table-indirizzi table ,.table-indirizzi2 table {
-	border:1px solid;
-}
 
-.indirizzi2{
-	position:absolute;
-	right:0;
-	top:0;
-	margin-right:10%;
-	border:1px solid;
-}
 
-.container-indirizzi{
+.grid-container
+{
+	
+	display: grid;
+    grid-template-columns: auto auto;
+	margin-top:3%;
 	margin-left:10%;
 	margin-right:10%;
 	position:relative;
 }
+
+/*css CSS Carte di credito*/
+
+.grid-container-carte
+{
+	  display: grid;
+  grid-template-columns: auto auto;
+	margin-top:3%;
+	margin-left:10%;
+	margin-right:10%;
+	position:relative;
+}
+
+
+
+.grid-item-carte  {
+	border:1px solid;
+	margin-right:2%;
+	margin-top:3%;
+}
+
+
 
 
 
@@ -721,6 +719,16 @@ body .no-padding {
 
 }
 
+
+.container-libri-evidenza{
+	width: 90%;
+ 	margin-right:5%; 
+ 	margin-left:5%; 
+ 	margin-top: 50px;
+}
+
+
+
 /*CSS COMPLETA ACQUISTO*/
 .container-completa-acquisto{
 	margin: 20px 25%;
@@ -756,7 +764,8 @@ body .no-padding {
 
 .container-ordini{
 	margin: 1% 20% 2% 25%;
-	border:1px solid;
+	border:2px solid red;
+	border-radius:5px;
 }
 
 .tableordini2{
@@ -764,7 +773,7 @@ body .no-padding {
 	margin-left:15%;
 }
 
-
-
-
-
+/*css gestione account*/
+.divaccesso{
+	text-align:center;
+}

@@ -28,111 +28,81 @@
 
 	<%@ include file="header.jsp"%>
 
-	<a href="logout"><button class="btn btn-danger" id="button-logout">Logout</button></a>
-
-	<div class="divaccount">
-
-		<div class="a-row a-spacing-base">
-			<h1>Il mio account</h1>
-		</div>
 
 
-		<div class="container-account">
+	
 
-			<div class="ya-card-cell account-card ordini">
-				<div class="a-row">
-					<div class="a-column a-span3">
-						<a href="visualizzaStorico" class="accountahref"> <img
-							class="immagini-gestioni" alt="I miei ordini"
-							src="../image/libro.jpg">
-						</a>
 
-					</div>
-					<div class="a-column a-span9 a-span-last">
-						<h3 class="a-spacing-none ya-card__heading--rich a-text-normal">
-							I miei ordini</h3>
-						<div>
-							<span class="a-color-secondary">Visualizza gli ordini
-								precedentemente effettuati</span>
-						</div>
-					</div>
-				</div>
+
+	
+		<div class="grid-container-account">
+
+		
+
+			<div class="grid-item-account">
+				<table>
+					<tr>
+						<td><a href="visualizzaStorico" class="accountahref"><img src="../image/libro.jpg"></a></td>
+					</tr>
+					<tr>
+						<td><h3>I miei Ordini</h3></td>
+					</tr>
+					<tr>
+						<td>Visualizza gli ordini precedentemente effettuati</td>
+					</tr>
+				
+				</table>
 			</div>
-
-
-
-
-			<div class="ya-card-cell account-card2 accesso">
-				<div class="a-row">
-					<div class="a-column a-span3">
-						<a href="GestioneAccount.jsp" class="accountahref"> <img
-							class="immagini-gestioni" alt="I miei ordini"
-							src="../image/libro.jpg">
-						</a>
-					</div>
-					<div class="a-column a-span9 a-span-last">
-						<h3 class="a-spacing-none ya-card__heading--rich a-text-normal">
-							Accesso e sicurezza</h3>
-						<div>
-							<span class="a-color-secondary">Modifica la password</span>
-						</div>
-					</div>
-				</div>
+			
+			<div class="grid-item-account">
+				<table>
+					<tr>
+						<td><a href="GestioneAccount.jsp" class="accountahref"><img src="../image/libro.jpg"></a></td>
+					</tr>
+					<tr>
+						<td><h3>Accesso e sicurezza</h3></td>
+					</tr>
+					<tr>
+						<td>Modifica password</td>
+					</tr>
+				
+				</table>
 			</div>
-
-		</div>
-
-
-		<div class="container-account2">
-
-			<div class="ya-card-cell account-card indirizzi">
-				<div class="a-row">
-					<div class="a-column a-span3">
-						<a href="RicercaIndirizzi" class="accountahref"> <img
-							class="immagini-gestioni" alt="I miei ordini"
-							src="../image/libro.jpg">
-						</a>
-					</div>
-					<div class="a-column a-span9 a-span-last">
-						<h3 class="a-spacing-none ya-card__heading--rich a-text-normal">
-							Indirizzi</h3>
-						<div>
-							<span class="a-color-secondary"> Modifica gli indirizzi</span>
-						</div>
-					</div>
-				</div>
+			
+			<div class="grid-item-account">
+				<table>
+					<tr>
+						<td><a href="ricercaIndirizzi" class="accountahref"><img src="../image/libro.jpg"></a></td>
+					</tr>
+					<tr>
+						<td><h3>Indirizzi</h3></td>
+					</tr>
+					<tr>
+						<td>Modifica gli indirizzi</td>
+					</tr>
+				
+				</table>
 			</div>
-
-
-
-
-
-			<div class="ya-card-cell account-card2 pagamento">
-				<div class="a-row">
-					<div class="a-column a-span3">
-						<a href="RicercaCarte" class="accountahref"> <img
-							class="immagini-gestioni" alt="I miei ordini"
-							src="../image/libro.jpg">
-						</a>
-					</div>
-					<div class="a-column a-span9 a-span-last">
-						<h3 class="a-spacing-none ya-card__heading--rich a-text-normal">
-							Opzioni di pagamento</h3>
-						<div>
-							<span class="a-color-secondary">Modifica o aggiungi metodi
-								di pagamento</span>
-						</div>
-					</div>
-
-				</div>
-
+			
+			<div class="grid-item-account">
+				<table>
+					<tr>
+						<td><a href="ricercaCarte" class="accountahref"> <img src="../image/libro.jpg"></a></td>
+					</tr>
+					<tr>
+						<td><h3>Opzioni di pagamento</h3></td>
+					</tr>
+					<tr>
+						<td>Modifica o aggiungi metodi di pagamento</td>
+					</tr>
+				
+				</table>
 			</div>
-
-		</div>
-
-
 
 	</div>
+	
+
+			
 
 
 

@@ -6,7 +6,7 @@
 
 
 <title>BookPoint</title>
-<link rel="stylesheet" type="text/css" href="style.css"> 
+<link rel="stylesheet" type="text/css" href="styleCliente2.css"> 
 </head>
 <body>
 
@@ -17,7 +17,7 @@
 <div class="divaccesso">
 	
 <h3>Vuoi cambiare la password?</h3>
-<center><form action="utente" method="post">
+<form action="utente" method="post">
 	Vecchia password
 	<input type="password" name="vecchia" required pattern="^[A-Za-z0-9]*$">
 	<br>
@@ -26,7 +26,7 @@
 	<br>
 	<input type="hidden" name="action" value="cambiaPassword">
 	<button type="submit"> Cambia!</button>
-	</form></center>
+	</form>
 </div>
 
  

@@ -8,7 +8,7 @@
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="styleCliente2.css"> 
-<meta charset="ISO-8859-1">
+<meta charset="utf-8">
 <title>PizzaPoint</title>
 </head>
 <body>
@@ -22,7 +22,7 @@
 
 
 <div class="contenitore">
-    <div class="row" style="margin-left:10%;">
+    <div class="row">
         <div class="col-sm-12 col-md-10 col-md-offset-1">
         
             <table class="table table-hover" id="table">
@@ -54,7 +54,7 @@
                     <tr>
                         <td class="col-sm-6 col-md-5">
                         <div class="media">
-                            <a class="thumbnail pull-left "> <img class="media-object" id="" src="../image/<%=libro.getFoto()%>" style="width:150px;height:150px;">	</a>
+                            <a class="thumbnail pull-left "> <img class="media-object" id="" src="../image/<%=libro.getFoto()%>" >	</a>
                             <p class="thumbnail trama"><%=libro.getTrama().substring(0, 200) %>...</p>
                             <div class="media-body">
                                 <h4 class="media-heading" id="nome"></h4>                         
