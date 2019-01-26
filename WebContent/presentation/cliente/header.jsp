@@ -32,7 +32,7 @@
 	  <a class="nav-link utente" href="Login.jsp" ><i class="fas fa-user-circle fa-lg"></i>  </a>
 	  <%} else {%>
 	   <a class="nav-link utente-login" href="Login.jsp" ><i class="fas fa-user-circle fa-lg"></i>  </a>
-	   <a class="logout"href="logout"><i class="fas fa-sign-out-alt"></i></a>
+	   <a class="logout" href="logout"><i class="fas fa-sign-out-alt"></i></a>
 <%} %>
 
 

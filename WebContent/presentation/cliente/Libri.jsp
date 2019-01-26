@@ -154,11 +154,11 @@
 	while(it.hasNext()){
 	Libro bean=(Libro)it.next();%>
 
-	<div>
-		<div>
+	<div class="container-libri-trovati">
+		<div class="immagine-libro-trovato">
 			<img alt="" src="../image/<%=bean.getFoto()%>" class="visualizza" name="<%=bean.getIsbn()%>">
 		</div>
-		<div>
+		<div class="container-informazioni-libro">
 			<div>
 				<h5><%=bean.getTitolo()%></h5>
 			</div>

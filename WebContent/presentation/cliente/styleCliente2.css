@@ -727,6 +727,49 @@ body .no-padding {
  	margin-top: 50px;
 }
 
+.container-libri-trovati{
+	width:90%;
+	margin-top:3%;
+	margin-left:5%;
+	margin-right:5%;
+	margin-bottom:2%;
+	position:relative;
+	background-color:mintcream;
+}
+
+.immagine-libro-trovato{
+	width:20%;
+	height:100%;
+}
+.immagine-libro-trovato img{
+	width:100%;
+}
+
+.container-informazioni-libro{
+	position:absolute;
+	top:0;
+	right:0;
+	width:80%;
+}
+
+.container-informazioni-libro h5{
+	font-weight:bold;
+	}
+
+
+.container-informazioni-libro h6{
+	font-family:cursive;
+	}
+
+
+@media only screen and (max-width: 600px) {
+  .container-libri-trovati {
+
+	display:block;
+	}
+}
+
+
 
 
 /*CSS COMPLETA ACQUISTO*/
