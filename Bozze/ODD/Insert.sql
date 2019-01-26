@@ -4,7 +4,7 @@ Insert into utente(email, nome, cognome, dataDiNascita, psw,tipo)
 values('g.teodoro@studenti.unisa.it','Gennaro','Teodoro','1997-11-14','Gennaro','Cliente');
 
 Insert into utente(email, nome, cognome, dataDiNascita, psw,tipo)
-values('v.sammartino@studenti.unisa.it','Vittorio','Sammartino','1997-06-24','Gennaro','Cliente');
+values('v.sammartino@studenti.unisa.it','Vittorio','Sammartino','1997-06-24','Vittorio','Cliente');
 
 Insert into utente(email, nome, cognome, dataDiNascita, psw,tipo)
 values('m.giordano162@studenti.unisa.it','Massimo','Giordano','1998-01-05','Massimo','Amministratore');
@@ -56,7 +56,7 @@ insert into ordine(numero,dataOrdine,totale,stato,dataConsegna,oraConsegna,utent
 values(1,'2019-01-07',8.40,'consegnato','2019-01-15','12:00:00','g.teodoro@studenti.unisa.it','Enrico Fermi',9,80040,'Terzigno','0000000000000000');
 
 insert into ordine(numero,dataOrdine,totale,stato,dataConsegna,oraConsegna,utente,via,numeroCivico,cap,città, numeroCarta)
-values(2,'2019-01-08',11.00,'consegnato','2019-01-16','12:00:00','v.sammartino@studenti.unisa.it','Striscia',14,8305,'Avellino','0000000000000000');
+values(2,'2019-01-08',11.00,'consegnato','2019-01-16','12:00:00','v.sammartino@studenti.unisa.it','Striscia',14,8305,'Avellino','0000000000000001');
 
 insert into libriAcquistati(prezzoAcquisto,quantità,titolo,ordine,libro)
 values(8.40,1,'Dieci piccoli indiani','1','9788804679622');
