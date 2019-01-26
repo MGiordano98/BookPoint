@@ -7,7 +7,6 @@
 <title>BookPoint</title>
 </head>
 <body>
-
 <%@ include file="headerAmministratore.jsp"%>
 <% Utente utente=(Utente) request.getSession().getAttribute("utenteCercato") ;%>
 <div class="container-cerca">
