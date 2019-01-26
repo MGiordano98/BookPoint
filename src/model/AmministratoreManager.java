@@ -480,10 +480,10 @@ public class AmministratoreManager {
 		connection= DriverMaagerConnectionPool.getConnection();
 
 		try {
-			String updateQ = "UPDATE utente WHERE email = ? SET tipo = ?";
+			String updateQ = "UPDATE utente SET tipo = ? WHERE email = ?";
 			preparedStatement= connection.prepareStatement(updateQ);
-			preparedStatement.setString(1, email);
-			preparedStatement.setString(2, tipo);
+			preparedStatement.setString(1, tipo);
+			preparedStatement.setString(2, email);
 			preparedStatement.executeUpdate();
 			connection.commit();
 		}finally {

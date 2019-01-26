@@ -4,6 +4,11 @@
 
 $(document).ready(function(){
 
+	$(".modificaTipo").click(function(){
+		$(".formModificaTipo").slideToggle();
+			
+		});
+	
 	
 	$(".modificaFoto").click(function(){
 		$(".formModificaFoto").slideToggle();

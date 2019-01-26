@@ -37,17 +37,46 @@
    
     </tr>
         <tr>
-      <td><center><input type="submit" value="modifica"></center></td>
-      <td><center><input type="submit" value="elimina"></center></td>
+      <td><center><input type="submit" value="modifica" class=modificaTipo></center></td>
+      <td>
+      	<form action="eliminaUtente">
+      		<input type=hidden value=<%=utente.getEmail()%> name=email>
+      		<center><input type="submit" value="elimina"></center>
+      	</form>
+      </td>
    
     </tr>
   
 </table>
 </div>
+
+<div class="formModificaTipo" style="display:none; position:fixed; width:15%; margin-left:42%; top:30%;">
+	<form action="cambiaTipo">
+		<input type="hidden" value=<%=utente.getEmail() %> name="email">
+		<select name=tipo>
+		<%if(utente.getTipo().equalsIgnoreCase("cliente")){ %>
+		<option value=amministratore>amministratore</option>
+		<option value=amministratoreOrdini>amministratoreOrdini</option>
+		<%}else if(utente.getTipo().equalsIgnoreCase("amministratore")) {%>
+		<option value=cliente>cliente</option>
+		<option value=amministratoreOrdini>amministratoreOrdini</option>
+		<%}else{ %>
+		<option value=cliente>cliente</option>
+		<option value=amministratore>amministratore</option>
+		<%} %>
+		</select>
+		<input type=submit value=modifica>
+	</form>
+</div>
 <%} 
 
 request.getSession().removeAttribute("utenteCercato");
 %>
+<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="Amministratore.js"></script>
 
 
 </body>

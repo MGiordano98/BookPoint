@@ -103,7 +103,7 @@ create table recensione
     on delete set null on update cascade,
     libro varchar(13),
     foreign key (libro) references libro(isbn)
-    on delete set null on update cascade
+    on delete cascade on update cascade
 );
 
 create table scrive
