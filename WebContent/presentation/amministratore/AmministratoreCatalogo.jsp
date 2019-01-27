@@ -18,7 +18,7 @@
 		<input id="bottone-aggiungi-libro" type="submit"
 			value="aggiungi libro" style="float: left">
 
-		<form class="search-container" action="ricerca">
+		<form id="form-ricerca-libri" class="search-container" action="ricerca">
 
 
 			<input size=50 type="text" id="search-bar" placeholder="Cerca libro"
@@ -95,12 +95,12 @@
 				Libro bean = (Libro) it.next();
 	%>
 
-	<div class="libro-trovato-display">
-		<div>
+	<div class="container-libri-trovati">
+		<div  class="immagine-libro-trovato">
 			<img alt="" src="../image/<%=bean.getFoto()%>" class="visualizza" name=<%=bean.getIsbn() %>>
 		</div>
-		<div>
-			<div>
+		<div class="container-informazioni-libro">
+			<div >
 				<h5><%=bean.getTitolo()%></h5>
 			</div>
 			<div>

@@ -762,10 +762,10 @@ body .no-padding {
 	}
 
 
-@media only screen and (max-width: 600px) {
+@media screen and (min-width: 670px) {
   .container-libri-trovati {
-
-	display:block;
+		
+	
 	}
 }
 
