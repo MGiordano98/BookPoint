@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class Recensione implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
+	private int id;
 	private String testo;
 	private String isbn;
 	private String email;
@@ -15,11 +16,20 @@ public class Recensione implements Serializable{
 		super();
 	}
 
-	public Recensione(String testo,String isbn, String email) {
+	public Recensione(int id, String testo, String isbn, String email) {
 		super();
 		this.testo = testo;
 		this.isbn = isbn;
 		this.email = email;
+		this.id = id;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getTesto() {

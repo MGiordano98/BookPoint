@@ -40,7 +40,7 @@ public class AggiungiRecensione extends HttpServlet {
 		
 		System.out.println(testo +" " + isbn + " " + email);
 		
-		Recensione recensione= new Recensione(testo, isbn, email);
+		Recensione recensione= new Recensione(0, testo, isbn, email);
 		try {
 			manager.aggiungiRecensione(recensione);
 		} catch (SQLException e) {

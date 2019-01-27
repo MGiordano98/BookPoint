@@ -95,7 +95,7 @@ Recensione recensione=(Recensione) it2.next();%>
      <tr>
      	<td>
      		<form action="">
-     			<input type=hidden  value=<%= %>name="idRecensione">
+     			<input type=hidden  value=<%=recensione.getId() %>name="idRecensione">
      			<input type=submit value=x>
      		</form>
      	</td>
