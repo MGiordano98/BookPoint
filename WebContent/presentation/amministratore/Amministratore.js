@@ -81,13 +81,7 @@ $(document).ready(function(){
 		});
 	
 	$("#search-button").click(function(){
-		var testo= $("#search-bar").val();
-		var categoria= $("#categoria").val();
-		alert(testo + " " + categoria);
-		
-		$.post("ricerca",{"testo":testo, "categoria":categoria}, function(){
-			window.location.href= "AmministratoreCatalogo.jsp";
-		});
+		$("#form-ricerca-libri").submit();
 	});
 	
 	$("#bottone-aggiungi-libro").click(function(){
@@ -109,7 +103,6 @@ $(document).ready(function(){
 		alert(isbn);
 		$.post("visualizzaLibro",{"isbn":isbn}, function(data, status){
 			window.location.href= "AmministratoreVisualizzaLibro.jsp";
-		
 		});
 		
 	});
