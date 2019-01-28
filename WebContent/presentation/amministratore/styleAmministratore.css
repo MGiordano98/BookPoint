@@ -205,6 +205,25 @@ form.example::after {
 	 margin-left:40%;
 }
 
+.formModificaTipo{
+	background-color:ivory;
+	display:none; 
+	position:fixed;
+	margin-top:1%;
+	margin-left:42%;
+}
+
+.table-bordered{
+	background-color:ivory;
+}
+
+.td-bold{
+	font-weight:bold;
+	}
+.td-serif{
+	font-family:serif;
+}
+
 
 /* css catalogo*/
 .container-libri-trovati{

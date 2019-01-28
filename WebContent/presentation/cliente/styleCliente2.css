@@ -539,6 +539,9 @@ media-heading h2{
 	border-radius:4px;
 	margin-right:2%;
 	margin-top:3%;
+	width:36%;
+	margin-left:40%;
+	
 }
 
 
@@ -572,6 +575,7 @@ media-heading h2{
 	border:1px solid;
 	margin-right:2%;
 	margin-top:3%;
+	width:50%;
 }
 
 

@@ -28,8 +28,8 @@
 				Indirizzo indirizzo = (Indirizzo) it.next();
 		%>
 
-			<div class="grid-item">
-				<table>
+			<div class="grid-item ">
+				<table class="table-striped">
 					<tr>
 						<td><h3>via</h3></td>
 						<td><%=indirizzo.getVia()%></td>

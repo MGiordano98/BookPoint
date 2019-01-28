@@ -32,7 +32,7 @@
 		%>
 
 			<div class="grid-item-carte">
-				<table>
+				<table class="table-striped">
 					<tr>
 						<td><h3>Numero carta</h3></td>
 						<td><%=carta.getNumCarta() %></td>

@@ -110,9 +110,7 @@ header{
 	 display:inline-block;
 }
 
-.search-container input{
-	width:90%;
-}
+
 
 .container-cerca selcet{
 	width:250px;
@@ -129,21 +127,32 @@ header{
 
 .container-ordine{
 	 margin-top:5%;
-	 width:300px;
+	width:400px;
 	 margin-left:40%;
 }
+.container-ordine table{
+	width:40%;
+	border: 1px solid;
+	border-collapse: separate; 
+	border-spacing: 0 1em;
+	}
 
 /*css modificaAttributo*/
 .modificaAttributo{
 	display:none;
-	position:fixed;
-	background: rgba(128,128,128);
+	float:right;
+	background-color:ivory;
 	width:20%;
-	margin-left:42%;
-	margin-top:-12%;
+	margin-right:7%;
+	margin-top:-14%;
 	padding:10px;
 	font-weight: bold;
 	text-align: center;
 	border: 1px solid;
 	
 }
+.container-ordine table{
+	background-color:ivory;	
+}
+
+

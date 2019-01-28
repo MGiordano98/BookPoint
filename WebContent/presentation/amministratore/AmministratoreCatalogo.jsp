@@ -24,14 +24,14 @@
 			<i class="fas fa-plus"></i>
 		</button>
 
-		<form class="example" action="action_page.php">
-		<select class="form-control" id="sel1">
+		<form class="example" action="ricerca">
+		<select class="form-control" name="categoria"id="sel1">
         <option>Avventura</option>
         <option>Romanzo</option>
         <option>Giallo</option>
         <option>Verde</option>
       </select>
-			<input type="text" placeholder="cerca libro..." name="search">
+			<input type="text" placeholder="cerca libro..." name="testo">
 			<button class=" btn btn-danger"id="search-button" type="submit">
 				<i class="fa fa-search"></i>
 			</button>

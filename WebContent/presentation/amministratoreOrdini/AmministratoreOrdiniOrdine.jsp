@@ -16,8 +16,9 @@
 	<div class="container-cerca">
 		<div class="cerca">
 			<form class="search-container" action="ricercaOrdine">
-				<input type="text" id="search-bar" placeholder="Cerca ordine"
-					name="numOrdine"> <input type="submit" value="Cerca ordine">
+				<input   type="text" id="search-bar" placeholder="Cerca ordine"
+					name="numOrdine"> 
+					<input class="btn btn-danger" type="submit" value="Cerca ordine">
 			</form>
 		</div>
 	</div>
@@ -29,7 +30,7 @@
 		<h1>
 			Ordine n°<%=ordine.getIdOrdine()%></h1>
 		<table
-			style="border: 2px solid; border-collapse: separate; border-spacing: 0 1em;">
+			>
 
 
 			<tr>
@@ -60,7 +61,7 @@
 		}
 	%>
 
-	<div class="modificaAttributo" id="div-modifica-stato">
+<div class="modificaAttributo" id="div-modifica-stato">
 	<form action="cambiaStato">
 		<table>
 			<tr>

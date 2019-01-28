@@ -23,21 +23,21 @@
 } else{%>
 <div class="container-account">
 <h3><%=utente.getNome()%> <%=utente.getCognome() %></h3>
-<table style="border:2px solid;">
+<table class="table-bordered">
   
   
     <tr>
-      <td>Email</td>
-      <td><%=utente.getEmail() %></td>
+      <td class="td-bold">Email</td>
+      <td class="td-serif"><%=utente.getEmail() %></td>
    
     </tr>
       <tr>
-      <td>Tipo</td>
-      <td><%=utente.getTipo() %></td>
+      <td class="td-bold">Tipo</td>
+      <td class="td-serif"><%=utente.getTipo() %></td>
    
     </tr>
         <tr>
-      <td><center><input class="btn btn-danger " type="submit" value="modifica" class=modificaTipo></center></td>
+      <td><center><input class="btn btn-danger modificaTipo" type="submit" value="modifica" class=modificaTipo></center></td>
       <td>
       	<form action="eliminaUtente">
       		<input type=hidden value=<%=utente.getEmail()%> name=email>
@@ -50,8 +50,8 @@
 </table>
 </div>
 
-<div class="formModificaTipo" style="display:none; position:fixed; width:15%; margin-left:42%; top:30%;">
-	<form action="cambiaTipo">
+<div class="formModificaTipo" >
+	<form style="margin-top:5%;" action="cambiaTipo">
 		<input type="hidden" value=<%=utente.getEmail() %> name="email">
 		<select name=tipo>
 		<%if(utente.getTipo().equalsIgnoreCase("cliente")){ %>
@@ -65,7 +65,7 @@
 		<option value=amministratore>amministratore</option>
 		<%} %>
 		</select>
-		<input type=submit value=modifica>
+		<input class="btn btn-danger" type=submit value=modifica>
 	</form>
 </div>
 <%} 

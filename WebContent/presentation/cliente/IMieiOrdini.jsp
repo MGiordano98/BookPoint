@@ -27,7 +27,7 @@
 %>
 
 	<div class="container-ordini">
-		<table class="tableordini1">
+		<table class="tableordini1 table-striped">
 			<tr class="tr1">
 				<td class="td-grassetto">Numero ordine</td>
 				<td><%=ordine.getIdOrdine() %></td>
@@ -66,7 +66,7 @@
 			while(it2.hasNext()){
 				Libro libro=(Libro)it2.next();%>
 
-		<table class="tableordini2">
+		<table class="tableordini2 table-striped">
 			<th>Titolo</th>
 			<th>Quantità</th>
 			<th>Prezzo</th>
