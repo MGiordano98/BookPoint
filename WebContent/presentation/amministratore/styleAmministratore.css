@@ -104,30 +104,100 @@ header{
 
 /*css ricerca*/
 
-.cerca{
-	 width:60%;
-	 text-align:right;
-	 display:inline-block;
+.example{
+	margin-left:10%;
+	margin-top:2%;
 }
 
-form{
-	width:50%;
-	margin-top:0.1%;
+.form-control{
+	float:left;
+	width:20%;
 }
 
-.container-cerca selcet{
-	width:250px;
+.container-barra{
+	position:relative;
+}
+
+.add-libro{
+	position:absolute;
+	right:0;
+	margin-right:11%;
+	margin-top:0.4%;
+	
+}
+
+.aggiungi-autori{
+	position:relative;
+	width:40%;
+}
+
+.aggiungi-autori button{
+	position:absolute;
+	right:0;
+}
+
+
+
+#bottone-aggiungi-libro
+{
+	float:right;
+}
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 50%;
+ 	
+}
+
+form.example button {
+  float: left;
+  width: 10%;
+  padding: 10px;
+
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
 .container-inserimento{
-	 margin-top:5%;
+	margin-top:2%;
+	display: none; 
+	margin-left: 20%;
 }
-.container-inserimento ul{
-	 list-style-type: none;
+
+.container-inserimento form{
+	margin:inherit;
+	}
+.td-bold{
+	font-weight:bold;
 }
+
+
+
+
+
+
+
+
+
 
 
 /*css account*/
+.search-container{
+	text-align:center;	
+}
 
 .container-account{
 	 margin-top:5%;

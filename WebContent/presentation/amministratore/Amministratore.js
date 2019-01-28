@@ -84,7 +84,7 @@ $(document).ready(function(){
 		$("#form-ricerca-libri").submit();
 	});
 	
-	$("#bottone-aggiungi-libro").click(function(){
+	$(".add-libro").click(function(){
 		$(".container-inserimento").slideToggle();
 		$("#libro-non-trovato-display").hide();
 		$(".libro-trovato-display").hide();

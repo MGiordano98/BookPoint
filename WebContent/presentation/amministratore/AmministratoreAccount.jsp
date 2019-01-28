@@ -11,9 +11,9 @@
 <% Utente utente=(Utente) request.getSession().getAttribute("utenteCercato") ;%>
 <div class="container-cerca">
 <div class="cerca">
-  <form class="search-container" action="ricercaAccount" >
+  <form class=" search-container" action="ricercaAccount" >
     <input  type="text" id="search-bar" placeholder="Cerca account" name="email">
-    <input type="submit" value="Cerca account">
+    <input class="btn btn-danger " type="submit" value="Cerca account">
   </form>
 </div>
 </div>
@@ -22,7 +22,7 @@
 	
 } else{%>
 <div class="container-account">
-<h1><%=utente.getNome()%> <%=utente.getCognome() %></h1>
+<h3><%=utente.getNome()%> <%=utente.getCognome() %></h3>
 <table style="border:2px solid;">
   
   
@@ -37,11 +37,11 @@
    
     </tr>
         <tr>
-      <td><center><input type="submit" value="modifica" class=modificaTipo></center></td>
+      <td><center><input class="btn btn-danger " type="submit" value="modifica" class=modificaTipo></center></td>
       <td>
       	<form action="eliminaUtente">
       		<input type=hidden value=<%=utente.getEmail()%> name=email>
-      		<center><input type="submit" value="elimina"></center>
+      		<center><input class="btn btn-danger " type="submit" value="elimina"></center>
       	</form>
       </td>
    

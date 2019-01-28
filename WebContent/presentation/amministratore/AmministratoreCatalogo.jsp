@@ -4,6 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <link rel="stylesheet" type="text/css" href="styleAmministratore.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>BookPoint</title>
@@ -14,67 +17,100 @@
 		Collection<?> libri = (Collection<?>) request.getSession().getAttribute("libri");
 	%>
 
-	<div class="barra-superiore" style="display: inline;">
-		<input id="bottone-aggiungi-libro" type="submit"
-			value="aggiungi libro" style="float: left">
 
-		<form id="form-ricerca-libri" class="search-container" action="ricerca">
+	<div class="container-barra">
 
+<button class="btn btn-danger add-libro">
+			<i class="fas fa-plus"></i>
+		</button>
 
-			<input size=50 type="text" id="search-bar" placeholder="Cerca libro"
-				name="testo"> <a><i id="search-button"
-				class="fas fa-search fa-lg"></i></a> <select name="categoria"
-				id="categoria" style="float: right">
-				<option value=""></option>
-				<option value="Romanzo">Romanzo</option>
-				<option value="opel">Opel</option>
-				<option value="audi">Audi</option>
-			</select>
-
+		<form class="example" action="action_page.php">
+		<select class="form-control" id="sel1">
+        <option>Avventura</option>
+        <option>Romanzo</option>
+        <option>Giallo</option>
+        <option>Verde</option>
+      </select>
+			<input type="text" placeholder="cerca libro..." name="search">
+			<button class=" btn btn-danger"id="search-button" type="submit">
+				<i class="fa fa-search"></i>
+			</button>
 		</form>
-
 	</div>
 
 	<!-- AGGIUNGI LIBRO -->
-	<div class="container-inserimento"
-		style="display: none; margin-left: 40%;">
+	<div class="container-inserimento">
 
 		<!-- FORM -->
 		<form action="aggiungiLibro" method="post">
+			<table>
+				<!-- INSERIMENTO DATI LIBRO -->
+				<tr>
+					<td class="td-bold"><label for="isbn">Isbn</label></td>
+					<td><input id="isbn" type="text" name="isbn"
+						placeholder="isbn"><br></td>
+				</tr>
 
-			<!-- INSERIMENTO DATI LIBRO -->
-			<label for="isbn">Isbn</label><input id="isbn" type="text"
-				name="isbn" placeholder="isbn"><br>
-				 <label for="titolo">titolo</label><input
-				id="titolo" type="text" name="titolo" placeholder="titolo"><br>
-			<label for="trama">trama</label><input id="trama" type="text"
-				name="trama" placeholder="trama"><br> 
-				<label
-				for="casaEditrice">casa editrice</label><input id="casaEditrice"
-				type="text" name="casaEditrice" placeholder="casa editrice"><br>
-			<label for="prezzo">prezzo</label><input id="prezzo" type="text"
-				name="prezzo" placeholder="prezzo"><br> 
-				<label
-				for="quantità">quantità</label><input type="number" id="quantità"
-				min="1" max="100" name="quantita" value="1"><br>
-			<label for="categoria">categoria</label><input id="categoria"
-				type="text" name="categoria" placeholder="categoria"><br>
-			<label for="foto">foto</label><input id="foto" type="file" name="foto"
-				accept="image/*"><br>
-			<label for="dataUscita">data uscita</label>
-			<input id="dataUscita" type="date" name="dataUscita"><br>
-			<button type="button" id="bottone-inserisci-autori">Inserisci
-				autori</button>
+				<tr>
+					<td class="td-bold"><label for="titolo">titolo</label></td>
+					<td><input id="titolo" type="text" name="titolo"
+						placeholder="titolo"><br></td>
+				</tr>
 
-			<!-- AGGIUNGI AUTORI -->
-			<div class="aggiungi-autori" style="display: none">
-				<button type="button" class="btn bottone-aggiungi-autore">+</button>
-				<div class="aggiungi-autore">
+				<tr>
+					<td class="td-bold"><label for="trama">trama</label></td>
+					<td><input id="trama" type="text" name="trama"
+						placeholder="trama"><br></td>
+				</tr>
+
+				<tr>
+					<td class="td-bold"><label for="casaEditrice">casa editrice</label></td>
+					<td><input id="casaEditrice" type="text" name="casaEditrice"
+						placeholder="casa editrice"><br></td>
+				</tr>
+
+				<tr>
+					<td class="td-bold"><label for="prezzo">prezzo</label></td>
+					<td><input id="prezzo" type="text" name="prezzo"
+						placeholder="prezzo"><br></td>
+				</tr>
+
+				<tr>
+					<td class="td-bold"><label for="quantità">quantità</label></td>
+					<td><input type="number" id="quantità" min="1" max="100"
+						name="quantita" value="1"><br></td>
+				</tr>
+
+				<tr>
+					<td class="td-bold"><label for="categoria">categoria</label></td>
+					<td><input id="categoria" type="text" name="categoria"
+						placeholder="categoria"><br></td>
+				</tr>
+
+				<tr>
+					<td class="td-bold"><label for="foto">foto</label></td>
+					<td><input id="foto" type="file" name="foto" accept="image/*"><br></td>
+				</tr>
+
+
+				<tr>
+					<td class="td-bold"><label for="dataUscita">data uscita</label></td>
+					<td><input id="dataUscita" type="date" name="dataUscita"><br></td>
+				</tr>
+
+				<tr>
+					<td ><button type="button" class="btn btn-danger" id="bottone-inserisci-autori">Inserisci
+							autori</button></td>
+					<td><input class=" btn btn-primary"type="submit"><br></td>
+				</tr>
+				<!-- AGGIUNGI AUTORI -->
+			</table>
+			<div class="aggiungi-autori td-bold" style="display: none">
+				<button type="button" class="btn btn-danger bottone-aggiungi-autore">+</button>
+				<div class="aggiungi-autore ">
 					Nome: <input type="text" name="autore">
 				</div>
 			</div>
-			<input type="submit"><br>
-
 		</form>
 
 	</div>
@@ -96,11 +132,12 @@
 	%>
 
 	<div class="container-libri-trovati">
-		<div  class="immagine-libro-trovato">
-			<img alt="" src="../image/<%=bean.getFoto()%>" class="visualizza" name=<%=bean.getIsbn() %>>
+		<div class="immagine-libro-trovato">
+			<img alt="" src="../image/<%=bean.getFoto()%>" class="visualizza"
+				name=<%=bean.getIsbn()%>>
 		</div>
 		<div class="container-informazioni-libro">
-			<div >
+			<div>
 				<h5><%=bean.getTitolo()%></h5>
 			</div>
 			<div>
