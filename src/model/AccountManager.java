@@ -237,10 +237,11 @@ public class AccountManager {
 	 * @param cvv
 	 * @throws SQLException 
 	 */
-	public void aggiungiCarta(String email, CartaDiCredito carta) throws SQLException {
+	public boolean aggiungiCarta(String email, CartaDiCredito carta) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
 		
+		boolean result= false;
 		String insertQ= "INSERT INTO cartadicredito (numeroDiCarta, intestatario, dataScadenza, cvv, utente)"
 				+ " VALUES (?, ?, ?, ?, ?)";
 		
@@ -254,6 +255,8 @@ public class AccountManager {
 			
 			pStatement.executeUpdate();
 			connection.commit();
+			
+			
 		}finally {
 			try {
 				if(pStatement!= null) {
@@ -261,8 +264,11 @@ public class AccountManager {
 				}
 			}finally {
 				DriverMaagerConnectionPool.releaseConnection(connection);
+				result= true;
 			}
 		}
+		
+		return result;
 	}
 
 	/**
@@ -271,10 +277,11 @@ public class AccountManager {
 	 * @param numCarta
 	 * @throws SQLException 
 	 */
-	public void rimuoviCarta(int numCarta) throws SQLException {
+	public boolean rimuoviCarta(int numCarta) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
 		
+		boolean result= false;
 		String deleteQ= "DELETE FROM cartadicredito WHERE numeroDiCarta = ?";
 		
 		try {
@@ -290,8 +297,11 @@ public class AccountManager {
 				}
 			}finally {
 				DriverMaagerConnectionPool.releaseConnection(connection);
+				result=true;
 			}
 		}
+		
+		return result;
 	}
 
 	/**
@@ -303,10 +313,11 @@ public class AccountManager {
 	 * @param città
 	 * @throws SQLException 
 	 */
-	public void aggiungiIndirizzo(String email, Indirizzo indirizzo) throws SQLException {
+	public boolean aggiungiIndirizzo(String email, Indirizzo indirizzo) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
 		
+		boolean result= false;
 		String insertQ= "INSERT INTO indirizzo (via, cap, città, numeroCivico, utente)"
 				+ " VALUES (?, ?, ?, ?, ?)";
 		
@@ -327,8 +338,10 @@ public class AccountManager {
 				}
 			}finally {
 				DriverMaagerConnectionPool.releaseConnection(connection);
+				result=true;
 			}
 		}
+		return result;
 	}
 
 	/**
@@ -337,10 +350,11 @@ public class AccountManager {
 	 * @param idIndirizzo
 	 * @throws SQLException 
 	 */
-	public void rimuoviIndirizzo(int idIndirizzo) throws SQLException {
+	public boolean rimuoviIndirizzo(int idIndirizzo) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
 		
+		boolean result= false;
 		String deleteQ= "DELETE FROM indirizzo WHERE id = ?";
 		
 		try {
@@ -356,8 +370,10 @@ public class AccountManager {
 				}
 			}finally {
 				DriverMaagerConnectionPool.releaseConnection(connection);
+				result= true;
 			}
 		}
+		return result;
 	}
 
 	/**
@@ -370,10 +386,11 @@ public class AccountManager {
 	 * @param città
 	 * @throws SQLException 
 	 */
-	public void modificaIndirizzo(String email, Indirizzo indirizzo) throws SQLException {
+	public boolean modificaIndirizzo(String email, Indirizzo indirizzo) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
 		
+		boolean result=false;
 		String updateQ= "UPDATE indirizzo SET via = ?, nummeroCivico = ?, cap = ?, città = ?, email = ? WHERE id = ?";
 		
 		try {
@@ -394,8 +411,10 @@ public class AccountManager {
 				}
 			}finally {
 				DriverMaagerConnectionPool.releaseConnection(connection);
+				result= true;
 			}
 		}
+		return result;
 	}
 
 

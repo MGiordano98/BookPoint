@@ -21,17 +21,20 @@ public class InterazioneLibroManager {
 	 * @param email
 	 * @throws SQLException 
 	 */
-	public void aggiungiLibroPreferiti(String isbn, String email) throws SQLException {
+	public boolean aggiungiLibroPreferiti(String isbn, String email) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
 		
+		boolean result= false;
 		String insertQ= "INSERT INTO preferisce (utente, libro) values (?, ?)";
 		
 		try {
 			pStatement= connection.prepareStatement(insertQ);
 			pStatement.setString(1, email);
 			pStatement.setString(2, isbn);
-			pStatement.executeUpdate();
+			if(pStatement.executeUpdate()==1) {
+				result= true;
+			}
 			connection.commit();
 		}finally {
 			try {
@@ -42,6 +45,7 @@ public class InterazioneLibroManager {
 				DriverMaagerConnectionPool.releaseConnection(connection);
 			}
 		}
+		return result;
 	}
 
 	/**
@@ -50,16 +54,20 @@ public class InterazioneLibroManager {
 	 * @param email
 	 * @throws SQLException 
 	 */
-	public void rimuoviLibroPreferiti(String isbn, String email) throws SQLException {
+	public boolean rimuoviLibroPreferiti(String isbn, String email) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
+		
+		boolean result= false;
 		String deleteQ= "DELETE FROM preferisce WHERE utente = ? AND libro = ?";
 		
 		try {
 			pStatement= connection.prepareStatement(deleteQ);
 			pStatement.setString(1, email);
 			pStatement.setString(2, isbn);
-			pStatement.executeUpdate();
+			if(pStatement.executeUpdate()==1) {
+				result= true;
+			}
 			connection.commit();
 		}finally {
 			try {
@@ -70,6 +78,7 @@ public class InterazioneLibroManager {
 				DriverMaagerConnectionPool.releaseConnection(connection);
 			}
 		}
+		return result;
 	}
 
 	/**
@@ -78,10 +87,11 @@ public class InterazioneLibroManager {
 	 * @param isbn
 	 * @throws SQLException 
 	 */
-	public void aggiungiRecensione(Recensione recensione) throws SQLException {
+	public boolean aggiungiRecensione(Recensione recensione) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
 		
+		boolean result= false;
 		String insertQ= "INSERT INTO recensione (testo, libro, utente) VALUES (?, ?, ?)";
 		
 		try {
@@ -89,7 +99,9 @@ public class InterazioneLibroManager {
 			pStatement.setString(1, recensione.getTesto());
 			pStatement.setString(2, recensione.getIsbn());
 			pStatement.setString(3, recensione.getEmail());
-			pStatement.executeUpdate();
+			if(pStatement.executeUpdate()==1) {
+				result= true;
+			}
 			connection.commit();
 		}finally {
 			try {
@@ -100,6 +112,7 @@ public class InterazioneLibroManager {
 				DriverMaagerConnectionPool.releaseConnection(connection);
 			}
 		}
+		return result;
 	}
 
 	/**
@@ -107,16 +120,19 @@ public class InterazioneLibroManager {
 	 * @param idRecensione
 	 * @throws SQLException 
 	 */
-	public void rimuoviRecensione(int idRecensione) throws SQLException {
+	public boolean rimuoviRecensione(int idRecensione) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
 		
+		boolean result= false;
 		String deleteQ= "DELETE FROM recensione WHERE id= ?";
 		
 		try {
 			pStatement= connection.prepareStatement(deleteQ);
 			pStatement.setInt(1, idRecensione);
-			pStatement.executeUpdate();
+			if(pStatement.executeUpdate()==1) {
+				result= true;
+			}
 			connection.commit();
 		}finally {
 			try {
@@ -127,6 +143,7 @@ public class InterazioneLibroManager {
 				DriverMaagerConnectionPool.releaseConnection(connection);
 			}
 		}
+		return result;
 	}
 	
 	public Collection<Recensione> getRecensioni(String isbn) throws SQLException{
