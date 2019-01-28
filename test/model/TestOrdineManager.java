@@ -58,6 +58,7 @@ public class TestOrdineManager extends TestCase {
 		ArrayList<Libro> libri= carrello.getLibri();
 		Libro libro= new Libro();
 		libro.setIsbn("9789753102001");
+		libro.setQuantit‡(50);
 		libro.setQuantit‡Selezionata(5);
 		libri.add(libro);
 		carrello.setLibri(libri);
@@ -86,15 +87,9 @@ public class TestOrdineManager extends TestCase {
 	
 	public static Test suite() {
 		TestSuite suite= new TestSuite();
-	//	suite.addTest(new TestOrdineManager("rimuoviDalCarrello"));
 		suite.addTestSuite(TestOrdineManager.class);
 
 		return suite;
 	}
 	
-	public static void main() {
-		
-		TestRunner.run(suite());
-
-	}
 }

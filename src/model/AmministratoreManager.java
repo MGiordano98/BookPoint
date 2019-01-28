@@ -38,44 +38,48 @@ public class AmministratoreManager {
 
 			//  Viene inserito il libro
 			String insertSQL = "INSERT INTO libro"
-					+ " (isbn, titolo, trama, foto, casaEditrice, prezzo, quantit‡Disponibile, categoria)"
-					+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+					+ " (isbn, titolo, trama, foto, casaEditrice, prezzo, quantit‡Disponibile, categoria, dataUscita)"
+					+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 
 
 			preparedStatement = connection.prepareStatement(insertSQL);
-			preparedStatement.setString(1, libro.getIsbn());
-			preparedStatement.setString(2, libro.getTitolo());
-			preparedStatement.setString(3, libro.getTrama());
-			preparedStatement.setString(4, libro.getFoto());
+			preparedStatement.setString(1, libro.getIsbn());	System.out.println(libro.getIsbn());
+			preparedStatement.setString(2, libro.getTitolo());	System.out.println(libro.getTitolo());
+			preparedStatement.setString(3, libro.getTrama());	System.out.println(libro.getTrama());
+			preparedStatement.setString(4, libro.getFoto());	System.out.println(libro.getFoto());
 			preparedStatement.setString(5, libro.getCasaEditrice());
 			preparedStatement.setDouble(6, libro.getPrezzo());
 			preparedStatement.setInt(7, libro.getQuantit‡());
 			preparedStatement.setString(8, libro.getCategoria());
+			preparedStatement.setDate(9, libro.getDataUscita());
 
 			if(preparedStatement.executeUpdate()==1) {
 				result=true;
 			}
-			
+
 			connection.commit();
 
 			//per ogni autore verifichiamo se Ë presente nel database, se non Ë presente lo inseriamo nella tabella autore e poi inseriamo
 			//una tupla nella tabbella scrive.
 			//Se non Ë presente inseriamo solamente una tupla nella tabella scrive.
 			ArrayList<Autore> libri= libro.getAutori();
+			System.out.println(libri.size());
 			for(Autore temp : libri){
 
 				if(!presenteAutore(temp,connection)){
-					insertAutore(temp.getNome(), connection);
+					insertAutore(temp.getNome());
 				}
-					if(!insertScrive(temp.getNome(),libro.getIsbn(),connection)) {
-						result= false;
-					}
-				
+				if(!insertScrive(temp.getNome(),libro.getIsbn(),connection)) {
+					result= false;
+				}
+
 			}
 
 			connection.commit();
-		} finally {
+		}catch(Exception e) {
+			return false;
+		}	finally {
 			try {
 				if (preparedStatement != null)
 					preparedStatement.close();
@@ -88,24 +92,26 @@ public class AmministratoreManager {
 	}
 
 	private boolean insertScrive(String nome, String isbn, Connection connection) throws SQLException {
-		
+
 		PreparedStatement preparedStatement=null;
 		boolean result= false;
-		
+
 		try{
 			String InsertSQL="insert into scrive(autore, libro) "
 					+ "values(?, ?)";
-			
+
 			preparedStatement=connection.prepareStatement(InsertSQL);
 			preparedStatement.setString(1,nome);
 			preparedStatement.setString(2,isbn);
-			
+
 			if(preparedStatement.executeUpdate()==1) {
 				result= true;
 			}
-			
+
 			connection.commit();
-			
+
+		}catch(Exception e){
+			return false;
 		} finally{
 			try {
 				if (preparedStatement != null)
@@ -117,22 +123,53 @@ public class AmministratoreManager {
 		return result;
 	}
 
-	private boolean insertAutore(String nome, Connection connection) throws SQLException {
+	public boolean insertAutore(String nome) throws SQLException {
+		Connection connection= DriverMaagerConnectionPool.getConnection();
 		
 		PreparedStatement preparedStatement=null;
 		boolean result= false;
 		try{
 			String InsertSQL="insert into autore(nome) "
 					+ "values(?)";
-			
+
 			preparedStatement=connection.prepareStatement(InsertSQL);
 			preparedStatement.setString(1,nome);
+
+			if(preparedStatement.executeUpdate()==1) {
+				result= true;
+			}
+
+			connection.commit();
+		}catch(Exception e){
+			return false;
+		} finally{
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				DriverMaagerConnectionPool.releaseConnection(connection);
+			}
+		}
+		return result;
+	}
+	
+	public boolean rimuoviAutore(Autore autore) throws SQLException {
+		Connection connection= DriverMaagerConnectionPool.getConnection();
+		
+		PreparedStatement preparedStatement= null;
+		boolean result= false;
+		try {
+			String deleteQ="delete from autore where nome= ?";
 			
+			preparedStatement= connection.prepareStatement(deleteQ);
+			preparedStatement.setString(1, autore.getNome());
 			if(preparedStatement.executeUpdate()==1) {
 				result= true;
 			}
 			
 			connection.commit();
+		}catch(Exception e){
+			return false;
 		} finally{
 			try {
 				if (preparedStatement != null)
@@ -144,7 +181,7 @@ public class AmministratoreManager {
 		return result;
 	}
 
-	
+
 	//DA FINIRE
 	private boolean presenteAutore(Autore autore, Connection connection) throws SQLException {
 
@@ -155,7 +192,7 @@ public class AmministratoreManager {
 				+ "WHERE nome = ?";
 
 		boolean trovato=false;
-		
+
 		try{
 			preparedStatement=connection.prepareStatement(checkSQL);
 			preparedStatement.setString(1, autore.getNome());
@@ -163,10 +200,8 @@ public class AmministratoreManager {
 			ResultSet rs=preparedStatement.executeQuery();
 
 			if(rs.next()){
-				trovato= true;;
+				trovato= true;
 			}
-
-
 		}finally{
 			try {
 				if (preparedStatement != null)
@@ -202,6 +237,8 @@ public class AmministratoreManager {
 				result= true;
 			}
 			connection.commit();
+		}catch(Exception e){
+			return false;
 		}finally {
 			try {
 				preparedStatement.close();
@@ -212,6 +249,7 @@ public class AmministratoreManager {
 		return result;
 	}
 
+	/*
 	public boolean modificaCopieVendute(String isbn, int nuovoAttributo) throws SQLException {
 		Connection connection= null;
 		PreparedStatement preparedStatement= null;
@@ -235,7 +273,7 @@ public class AmministratoreManager {
 			}
 		}
 		return result;
-	}
+	}*/
 
 	public boolean modificaCategoria(String isbn, String nuovoAttributo) throws SQLException {
 		Connection connection= null;
@@ -248,11 +286,13 @@ public class AmministratoreManager {
 			preparedStatement= connection.prepareStatement(updateQ);
 			preparedStatement.setString(1, nuovoAttributo);
 			preparedStatement.setString(2, isbn);
-			
+
 			if(preparedStatement.executeUpdate()==1) {
 				result= true;
 			}
 			connection.commit();
+		}catch(Exception e){
+			return false;
 		}finally {
 			try {
 				preparedStatement.close();
@@ -278,6 +318,8 @@ public class AmministratoreManager {
 				result= true;
 			}
 			connection.commit();
+		}catch(Exception e){
+			return false;
 		}finally {
 			try {
 				preparedStatement.close();
@@ -303,6 +345,8 @@ public class AmministratoreManager {
 				result= true;
 			}
 			connection.commit();
+		}catch(Exception e){
+			return false;
 		}finally {
 			try {
 				preparedStatement.close();
@@ -328,6 +372,8 @@ public class AmministratoreManager {
 				result= true;
 			}
 			connection.commit();
+		}catch(Exception e){
+			return false;
 		}finally {
 			try {
 				preparedStatement.close();
@@ -353,6 +399,8 @@ public class AmministratoreManager {
 				result= true;
 			}
 			connection.commit();
+		}catch(Exception e){
+			return false;
 		}finally {
 			try {
 				preparedStatement.close();
@@ -361,7 +409,7 @@ public class AmministratoreManager {
 			}
 		}
 		return result;
-		
+
 	}
 
 	public boolean modificaTrama(String isbn, String nuovoAttributo) throws SQLException {
@@ -379,6 +427,8 @@ public class AmministratoreManager {
 				result= true;
 			}
 			connection.commit();
+		}catch(Exception e){
+			return false;
 		}finally {
 			try {
 				preparedStatement.close();
@@ -404,6 +454,8 @@ public class AmministratoreManager {
 				result= true;
 			}
 			connection.commit();
+		}catch(Exception e){
+			return false;
 		}finally {
 			try {
 				preparedStatement.close();
@@ -434,6 +486,8 @@ public class AmministratoreManager {
 				result= true;
 			}
 			connection.commit();
+		}catch(Exception e){
+			return false;
 		}finally {
 			try {
 				preparedStatement.close();
@@ -464,6 +518,8 @@ public class AmministratoreManager {
 				result= true;
 			}
 			connection.commit();
+		}catch(Exception e){
+			return false;
 		}finally {
 			try {
 				preparedStatement.close();
@@ -507,7 +563,7 @@ public class AmministratoreManager {
 			}
 		}
 
-		
+
 		return utente;
 	}
 
@@ -533,7 +589,10 @@ public class AmministratoreManager {
 				result= true;
 			}
 			connection.commit();
-		}finally {
+		}catch(Exception e){
+			return false;
+		}
+			finally {
 			try {
 				preparedStatement.close();
 			}finally {
@@ -563,6 +622,8 @@ public class AmministratoreManager {
 				result= true;
 			}
 			connection.commit();
+		}catch(Exception e){
+			return false;
 		}finally {
 			try {
 				preparedStatement.close();
