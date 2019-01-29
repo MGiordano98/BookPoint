@@ -43,7 +43,7 @@ create table indirizzo
 
 create table cartaDiCredito
 (
-	numeroDiCarta varchar(16),
+	numeroDiCarta varchar(16) primary key,
     intestatario varchar(30),
     dataScadenza date,
     cvv varchar(3),
