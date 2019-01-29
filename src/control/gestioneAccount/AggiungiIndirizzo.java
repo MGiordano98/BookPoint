@@ -37,7 +37,7 @@ public class AggiungiIndirizzo extends HttpServlet {
 		String via= request.getParameter("via");
 		int numCivico= Integer.parseInt(request.getParameter("numCivico"));
 		String cap= request.getParameter("cap");
-		String città= request.getParameter("città");
+		String città= request.getParameter("citta");
 		
 		try {
 			Indirizzo indirizzo= new Indirizzo();
@@ -51,7 +51,7 @@ public class AggiungiIndirizzo extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		RequestDispatcher dispatcher= request.getRequestDispatcher("GestioneIndirizzi.jsp");
+		RequestDispatcher dispatcher= request.getRequestDispatcher("ricercaIndirizzi");
 		dispatcher.forward(request, response);
 	}
 

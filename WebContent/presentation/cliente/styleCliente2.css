@@ -533,6 +533,11 @@ media-heading h2{
 
 /*css indirizzi*/
 
+.container-inserimento{
+	margin-top:2%;
+	display: none; 
+	margin-left: 20%;
+}
 
 .grid-item  {
 	border:2px solid red;

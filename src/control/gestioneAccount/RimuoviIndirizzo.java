@@ -41,7 +41,7 @@ public class RimuoviIndirizzo extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		RequestDispatcher dispatcher= request.getRequestDispatcher("GestioneIndirizzi.jsp");
+		RequestDispatcher dispatcher= request.getRequestDispatcher("ricercaIndirizzi");
 		dispatcher.forward(request, response);
 	}
 
