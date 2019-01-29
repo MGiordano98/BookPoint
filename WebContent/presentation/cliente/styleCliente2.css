@@ -539,16 +539,15 @@ media-heading h2{
 	margin-left: 20%;
 }
 
-.grid-item  {
-	border:2px solid red;
+.grid-item-indirizzi  {
 	border-radius:4px;
+	border:2px solid red;
 	margin-right:2%;
 	margin-top:3%;
-	width:36%;
-	margin-left:40%;
-	
+	width:60%;
+	background-color:ivory;
+	padding:10px;
 }
-
 
 
 .grid-container
@@ -558,7 +557,6 @@ media-heading h2{
     grid-template-columns: auto auto;
 	margin-top:3%;
 	margin-left:10%;
-	margin-right:10%;
 	position:relative;
 }
 
@@ -569,21 +567,25 @@ media-heading h2{
 	  display: grid;
   grid-template-columns: auto auto;
 	margin-top:3%;
-	margin-left:10%;
-	margin-right:10%;
+	margin-left:15%;
 	position:relative;
 }
 
 
 
 .grid-item-carte  {
-	border:1px solid;
+	border-radius:4px;
+	border:2px solid red;
 	margin-right:2%;
 	margin-top:3%;
-	width:50%;
+	width:60%;
+	background-color:ivory;
+	padding:10px;
 }
 
-
+.table-striped{
+	width:-webkit-fill-available;
+}
 
 
 
@@ -771,12 +773,7 @@ body .no-padding {
 	}
 
 
-@media screen and (min-width: 670px) {
-  .container-libri-trovati {
-		
-	
-	}
-}
+
 
 
 
@@ -815,14 +812,14 @@ body .no-padding {
 }
 
 .container-ordini{
+	background-color:ivory;
 	margin: 1% 20% 2% 25%;
 	border:2px solid red;
 	border-radius:5px;
 }
 
 .tableordini2{
-	margin-top:1%;
-	margin-left:15%;
+	margin-top:3%;
 }
 
 /*css gestione account*/

@@ -41,7 +41,7 @@ public class RimuoviCarta extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		RequestDispatcher dispatcher= request.getRequestDispatcher("GestioneCarteDiCredito.jsp");
+		RequestDispatcher dispatcher= request.getRequestDispatcher("ricercaCarte");
 		dispatcher.forward(request, response);
 	}
 

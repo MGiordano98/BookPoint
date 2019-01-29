@@ -34,26 +34,27 @@
 				Indirizzo indirizzo = (Indirizzo) it.next();
 		%>
 
-		<div class="grid-item ">
+		<div class="grid-item-indirizzi ">
 			<table class="table-striped">
 				<tr>
-					<td><h3>via</h3></td>
+					<td><h5>via</h5></td>
 					<td><%=indirizzo.getVia()%></td>
 				</tr>
 				<tr>
-					<td><h3>numero civico</h3></td>
+					<td><h5>numero civico</h5></td>
 					<td><%=indirizzo.getNumCivico()%></td>
 				</tr>
 				<tr>
-					<td><h3>Cap</h3></td>
+					<td><h5>Cap</h5></td>
 					<td><%=indirizzo.getCap()%></td>
 				</tr>
 				<tr>
-					<td><h3>citta</h3></td>
+					<td><h5>citta</h5></td>
 					<td><%=indirizzo.getCittà()%></td>
 				</tr>
+				
 				<tr>
-					<td><form action="rimuoviIndirizzo">
+					<td><form action="rimuoviIndirizzo" method="post">
 							<input type="hidden" name="idIndirizzo"
 								value="<%=indirizzo.getId()%>">
 							<button type="submit"
@@ -146,7 +147,7 @@
 <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-    <form action="aggiungiIndirizzo">
+    <form action="aggiungiIndirizzo" method="post">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Aggiungi indirizzo</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -155,7 +156,7 @@
       </div>
       <div class="modal-body">
         <table>
-							<!-- Modifica  DATI Indirizzo -->
+							<!-- agigungi  DATI Indirizzo -->
 							<tr>
 								<td class="td-bold"><label for="isbn">Via</label></td>
 								<td><input id="via" type="text" name="via"

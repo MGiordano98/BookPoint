@@ -37,11 +37,10 @@ public class AggiungiCarta extends HttpServlet {
 		String email= request.getParameter("email");
 		String numCarta= request.getParameter("numCarta");
 		String intestatario= request.getParameter("intestatario");
-		int mese= Integer.parseInt(request.getParameter("mese"));
-		int anno= Integer.parseInt(request.getParameter("anno"));
+		String data= request.getParameter("dataScadenza");
 		String cvv= request.getParameter("cvv");
 		
-		Date dataScadenza= Date.valueOf(anno + "-" + mese + "-01");
+		Date dataScadenza= Date.valueOf(data);
 		try {
 			CartaDiCredito carta = new CartaDiCredito(numCarta, intestatario, dataScadenza, cvv);
 			manager.aggiungiCarta(email, carta);
@@ -50,7 +49,7 @@ public class AggiungiCarta extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		RequestDispatcher dispatcher= request.getRequestDispatcher("GestioneCarteDiCredito.jsp");
+		RequestDispatcher dispatcher= request.getRequestDispatcher("ricercaCarte");
 		dispatcher.forward(request, response);
 	}
 
