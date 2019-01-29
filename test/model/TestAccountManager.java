@@ -1,13 +1,11 @@
 package model;
 
-import static org.junit.Assert.*;
 
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Iterator;
 
-import bean.Carrello;
 import bean.CartaDiCredito;
 import bean.Indirizzo;
 import bean.Utente;
@@ -49,7 +47,10 @@ public class TestAccountManager extends TestCase{
 		String email= utente.getEmail();
 		String password= utente.getPassword();
 		Utente utente= manager.login(email, password);
-		assertNotNull(utente);
+		assertNotNull(utente.getEmail());
+		assertNotNull(utente.getNome());
+		assertNotNull(utente.getCognome());
+		assertNotNull(utente.getTipo());
 	}
 	
 	public void testChangePassword() throws SQLException {
@@ -70,7 +71,17 @@ public class TestAccountManager extends TestCase{
 	
 	public void testRicercaCarte() throws SQLException {
 		String email= "g.teodoro@studenti.unisa.it";
-		assertNotNull(manager.ricercaCarte(email));
+		Collection<CartaDiCredito> carte= manager.ricercaCarte(email);
+		assertTrue(carte.size()>0);
+		
+		Iterator<CartaDiCredito> it= carte.iterator();
+		while(it.hasNext()) {
+			CartaDiCredito carta= it.next();
+			assertNotNull(carta.getNumCarta());
+			assertNotNull(carta.getIntestatario());
+			assertNotNull(carta.getData());
+			assertNotNull(carta.getCvv());
+		}
 	}
 	
 	public void testRicercaIndirizzi() throws SQLException {
