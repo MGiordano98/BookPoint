@@ -7,7 +7,6 @@ import bean.Libro;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 
 public class TestOrdineManager extends TestCase {
 	private OrdineManager manager;

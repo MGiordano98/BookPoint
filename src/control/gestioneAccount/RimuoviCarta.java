@@ -32,7 +32,7 @@ public class RimuoviCarta extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int numCarta= Integer.parseInt(request.getParameter("numCarta"));
+		String numCarta= request.getParameter("numCarta");
 		
 		try {
 			manager.rimuoviCarta(numCarta);

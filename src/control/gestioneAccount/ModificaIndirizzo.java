@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.Indirizzo;
+import bean.Utente;
 import model.AccountManager;
 
 /**
@@ -33,12 +34,13 @@ public class ModificaIndirizzo extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String email= request.getParameter("email");
 		int idIndirizzo= Integer.parseInt(request.getParameter("idIndirizzo"));
 		String via= request.getParameter("via");
 		int numCivico= Integer.parseInt(request.getParameter("numCivico"));
 		String cap= request.getParameter("cap");
 		String città= request.getParameter("città");
+		Utente utente= (Utente) request.getSession().getAttribute("utente");
+		String email= utente.getEmail();
 		
 		try {
 			Indirizzo indirizzo= new Indirizzo();
@@ -47,7 +49,7 @@ public class ModificaIndirizzo extends HttpServlet {
 			indirizzo.setNumCivico(numCivico);
 			indirizzo.setCap(cap);
 			indirizzo.setCittà(città);
-			manager.modificaIndirizzo(email, indirizzo);
+			manager.modificaIndirizzo(indirizzo, email);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

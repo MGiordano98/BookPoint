@@ -12,7 +12,6 @@ import bean.Utente;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 
 public class TestAmministratoreManager extends TestCase{
 	private AmministratoreManager manager;
@@ -121,7 +120,6 @@ public class TestAmministratoreManager extends TestCase{
 	
 	
 	public void testEliminaRecensione() throws SQLException {
-		String isbn= libro.getIsbn();
 		int idRecensione= 8;
 		boolean result= manager.eliminaRecensione(idRecensione);
 		assertEquals(true, result);

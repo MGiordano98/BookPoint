@@ -84,6 +84,8 @@ public class AccountManager {
 			}
 			connection.commit();
 			
+		}catch(Exception e){
+			return false;
 		}finally {
 			try {
 				if(pStatement!= null) {
@@ -111,18 +113,18 @@ public class AccountManager {
 		try {			
 			if(checkVecchiaPassword(email, vecchiaPassword, connection)) {
 			
-				String updateQ= "UPDATE utente WHERE email = ? SET psw = ?";
+				String updateQ= "UPDATE utente SET psw = ? WHERE email = ?";
 				
 				pStatement= connection.prepareStatement(updateQ);
-				pStatement.setString(1, email);
-				pStatement.setString(2, nuovaPassword);
-				int result= pStatement.executeUpdate();
-				if(result==1) {
+				pStatement.setString(1, nuovaPassword);
+				pStatement.setString(2, email);
+				if(pStatement.executeUpdate()==1) {
 					passCambiata= true;
 				}
-				
 				connection.commit();
 			}
+		}catch(Exception e){
+			return false;
 		}finally {
 			try {
 				if(pStatement!= null) {
@@ -253,10 +255,14 @@ public class AccountManager {
 			pStatement.setString(4, carta.getCvv());
 			pStatement.setString(5, email);
 			
-			pStatement.executeUpdate();
+			if(pStatement.executeUpdate()==1) {
+				result= true;
+			}
 			connection.commit();
 			
 			
+		}catch(Exception e){
+			return false;
 		}finally {
 			try {
 				if(pStatement!= null) {
@@ -264,7 +270,6 @@ public class AccountManager {
 				}
 			}finally {
 				DriverMaagerConnectionPool.releaseConnection(connection);
-				result= true;
 			}
 		}
 		
@@ -277,7 +282,7 @@ public class AccountManager {
 	 * @param numCarta
 	 * @throws SQLException 
 	 */
-	public boolean rimuoviCarta(int numCarta) throws SQLException {
+	public boolean rimuoviCarta(String numCarta) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
 		
@@ -286,10 +291,14 @@ public class AccountManager {
 		
 		try {
 			pStatement= connection.prepareStatement(deleteQ);
-			pStatement.setInt(1, numCarta);
+			pStatement.setString(1, numCarta);
 			
-			pStatement.executeUpdate();
+			if(pStatement.executeUpdate()==1) {
+				result= true;
+			}
 			connection.commit();			
+		}catch(Exception e){
+			return false;
 		}finally {
 			try {
 				if(pStatement!= null) {
@@ -297,7 +306,6 @@ public class AccountManager {
 				}
 			}finally {
 				DriverMaagerConnectionPool.releaseConnection(connection);
-				result=true;
 			}
 		}
 		
@@ -329,8 +337,12 @@ public class AccountManager {
 			pStatement.setInt(4, indirizzo.getNumCivico());
 			pStatement.setString(5, email);
 			
-			pStatement.executeUpdate();
+			if(pStatement.executeUpdate()==1) {
+				result= true;
+			}
 			connection.commit();
+		}catch(Exception e){
+			return false;
 		}finally {
 			try {
 				if(pStatement!= null) {
@@ -338,7 +350,6 @@ public class AccountManager {
 				}
 			}finally {
 				DriverMaagerConnectionPool.releaseConnection(connection);
-				result=true;
 			}
 		}
 		return result;
@@ -361,8 +372,12 @@ public class AccountManager {
 			pStatement= connection.prepareStatement(deleteQ);
 			pStatement.setInt(1, idIndirizzo);
 			
-			pStatement.executeUpdate();
+			if(pStatement.executeUpdate()==1) {
+				result= true;
+			}
 			connection.commit();			
+		}catch(Exception e){
+			return false;
 		}finally {
 			try {
 				if(pStatement!= null) {
@@ -370,7 +385,6 @@ public class AccountManager {
 				}
 			}finally {
 				DriverMaagerConnectionPool.releaseConnection(connection);
-				result= true;
 			}
 		}
 		return result;
@@ -386,24 +400,28 @@ public class AccountManager {
 	 * @param città
 	 * @throws SQLException 
 	 */
-	public boolean modificaIndirizzo(String email, Indirizzo indirizzo) throws SQLException {
+	public boolean modificaIndirizzo(Indirizzo indirizzo, String email) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
 		
 		boolean result=false;
-		String updateQ= "UPDATE indirizzo SET via = ?, nummeroCivico = ?, cap = ?, città = ?, email = ? WHERE id = ?";
+		String updateQ= "UPDATE indirizzo SET via = ?, numeroCivico = ?, cap = ?, città = ?, utente = ? WHERE id = ?";
 		
 		try {
 			pStatement= connection.prepareStatement(updateQ);
-			pStatement.setInt(1, indirizzo.getId());
-			pStatement.setString(2, indirizzo.getVia());
-			pStatement.setInt(3, indirizzo.getNumCivico());
-			pStatement.setString(4, indirizzo.getCap());
-			pStatement.setString(5, indirizzo.getCittà());
-			pStatement.setString(6, email);
+			pStatement.setString(1, indirizzo.getVia());
+			pStatement.setInt(2, indirizzo.getNumCivico());
+			pStatement.setString(3, indirizzo.getCap());
+			pStatement.setString(4, indirizzo.getCittà());
+			pStatement.setString(5, email);
+			pStatement.setInt(6, indirizzo.getId());
 			
-			pStatement.executeUpdate();
+			if(pStatement.executeUpdate()==1) {
+				result=true;
+			}
 			connection.commit();
+		}catch(Exception e){
+			return false;
 		}finally {
 			try {
 				if(pStatement!= null) {
@@ -411,7 +429,6 @@ public class AccountManager {
 				}
 			}finally {
 				DriverMaagerConnectionPool.releaseConnection(connection);
-				result= true;
 			}
 		}
 		return result;
