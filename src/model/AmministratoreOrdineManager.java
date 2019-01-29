@@ -91,7 +91,7 @@ public class AmministratoreOrdineManager {
 		PreparedStatement pStatement= null;
 		
 		boolean result= false;
-		String updateQ= "UPDATE ordine SET dataConsegna = ? , oraConsegna = ? WHERE numero = ?";
+		String updateQ= "UPDATE ordine SET dataConsegna = ?, oraConsegna = ? WHERE numero = ?";
 		
 		try {
 			pStatement= connection.prepareStatement(updateQ);
