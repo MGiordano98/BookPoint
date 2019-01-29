@@ -151,10 +151,7 @@ public class TestAmministratoreManager extends TestCase{
 		assertEquals(true, manager.eliminaUtente(email));
 	}
 	
-	public void testRimuoviAutore() throws SQLException {
-		Autore autore= new Autore("Antoine de Saint-Exupéry");
-		assertEquals(true, manager.rimuoviAutore(autore));
-	}
+
 	
 	public static Test suite() {
 		TestSuite suite= new TestSuite();

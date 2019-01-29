@@ -7,7 +7,9 @@ import java.util.Collection;
 import java.util.Iterator;
 
 import bean.Libro;
+import junit.framework.Test;
 import junit.framework.TestCase;
+import junit.framework.TestSuite;
 
 public class TestLibroManager extends TestCase{
 
@@ -27,8 +29,20 @@ public class TestLibroManager extends TestCase{
 		super.tearDown();
 	}
 	
-	public void TestRicercaTesto() throws SQLException{
-		Collection<Libro> libriCercati=manager.ricerca("d","");
+	public void testRicerca() throws SQLException{
+		Collection<Libro> libriCercati=manager.ricerca("*","");
+		assertTrue(libriCercati.size()==0);
+		
+		libriCercati=manager.ricerca("Il piccolo principe","");
+		assertTrue(libriCercati.size()==0);
+		
+		libriCercati=manager.ricerca("Il barone rampante","*");
+		assertTrue(libriCercati.size()==0);
+		
+		libriCercati=manager.ricerca("Il barone rampante","Cavallo");
+		assertTrue(libriCercati.size()==0);
+		
+		libriCercati=manager.ricerca("Il barone rampante","Romanzo");
 		assertTrue(libriCercati.size()>0);
 		
 		Iterator<Libro> it=libriCercati.iterator();
@@ -48,46 +62,10 @@ public class TestLibroManager extends TestCase{
 		}
 	}
 	
-	public void TestRicercaCategoria() throws SQLException{
-		Collection<Libro> libriCercati=manager.ricerca("","Romanzo");
-		assertTrue(libriCercati.size()>0);
+	public static Test suite() {
+		TestSuite suite= new TestSuite();
+		suite.addTest(new TestLibroManager("testRicerca"));
 		
-		Iterator<Libro> it=libriCercati.iterator();
-		while(it.hasNext()){
-			Libro libro=it.next();
-			assertNotNull(libro.getIsbn());
-			assertNotNull(libro.getTitolo());
-			assertNotNull(libro.getTrama());
-			assertNotNull(libro.getFoto());
-			assertNotNull(libro.getCasaEditrice());
-			assertNotNull(libro.getPrezzo());
-			assertNotNull(libro.getQuantit‡());
-			assertNotNull(libro.getCategoria());
-			assertNotNull(libro.getCopieVendute());
-			assertNotNull(libro.getDataUscita());
-			assertNotNull(libro.getQuantit‡Selezionata());
-		}
+		return suite;
 	}
-	
-	public void TestRicercaTestoCategoria() throws SQLException{
-		Collection<Libro> libriCercati=manager.ricerca("d","Romanzo");
-		assertTrue(libriCercati.size()>0);
-		
-		Iterator<Libro> it=libriCercati.iterator();
-		while(it.hasNext()){
-			Libro libro=it.next();
-			assertNotNull(libro.getIsbn());
-			assertNotNull(libro.getTitolo());
-			assertNotNull(libro.getTrama());
-			assertNotNull(libro.getFoto());
-			assertNotNull(libro.getCasaEditrice());
-			assertNotNull(libro.getPrezzo());
-			assertNotNull(libro.getQuantit‡());
-			assertNotNull(libro.getCategoria());
-			assertNotNull(libro.getCopieVendute());
-			assertNotNull(libro.getDataUscita());
-			assertNotNull(libro.getQuantit‡Selezionata());
-		}
-	}
-	
 }

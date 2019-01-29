@@ -123,7 +123,7 @@ public class AmministratoreManager {
 		return result;
 	}
 
-	public boolean insertAutore(String nome) throws SQLException {
+	private boolean insertAutore(String nome) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		
 		PreparedStatement preparedStatement=null;
@@ -153,35 +153,6 @@ public class AmministratoreManager {
 		return result;
 	}
 	
-	public boolean rimuoviAutore(Autore autore) throws SQLException {
-		Connection connection= DriverMaagerConnectionPool.getConnection();
-		
-		PreparedStatement preparedStatement= null;
-		boolean result= false;
-		try {
-			String deleteQ="delete from autore where nome= ?";
-			
-			preparedStatement= connection.prepareStatement(deleteQ);
-			preparedStatement.setString(1, autore.getNome());
-			if(preparedStatement.executeUpdate()==1) {
-				result= true;
-			}
-			
-			connection.commit();
-		}catch(Exception e){
-			return false;
-		} finally{
-			try {
-				if (preparedStatement != null)
-					preparedStatement.close();
-			} finally {
-				DriverMaagerConnectionPool.releaseConnection(connection);
-			}
-		}
-		return result;
-	}
-
-
 	//DA FINIRE
 	private boolean presenteAutore(Autore autore, Connection connection) throws SQLException {
 
