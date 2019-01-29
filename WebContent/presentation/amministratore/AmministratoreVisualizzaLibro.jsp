@@ -33,16 +33,6 @@ Collection<Recensione> recensioni=libro.getRecensioni();
       <td colspan="2"><%=libro.getTitolo() %></td>
 	  <td><center><input type="submit" value="modifica"  class="modificaTitolo"></center></td>
     </tr>
-     <tr>
-      <td>Autore</td>
-      <td colspan="2"><%Collection<Autore> autori=libro.getAutori();
-      Iterator it=autori.iterator();
-      while(it.hasNext()){
-      Autore autore=(Autore)it.next();%>
-      <%=autore.getNome() %>
-      <%} %></td>
-      <td><center><input type="submit" value="modifica"></center></td>
-    </tr>
       <tr>
       <td>Editore</td>
       <td colspan="2"><%=libro.getCasaEditrice() %></td>
@@ -167,6 +157,8 @@ Recensione recensione=(Recensione) it2.next();%>
 		<input type=submit value=modifica>
 	</form>
 </div>
+
+
 
 <script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

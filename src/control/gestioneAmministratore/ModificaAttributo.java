@@ -44,7 +44,6 @@ public class ModificaAttributo extends HttpServlet {
 			case "prezzo": manager.modificaPrezzo(isbn,Double.parseDouble(nuovoAttributo)); break;
 			case "quantit‡Disponibile": manager.modificaQuantit‡Disponibile(isbn,Integer.parseInt(nuovoAttributo)); break;
 			case "categoria": manager.modificaCategoria(isbn,nuovoAttributo); break;
-		//	case "copieVendute": manager.modificaCopieVendute(isbn,Integer.parseInt(nuovoAttributo)); break;
 			case "dataUscita": int anno= Integer.parseInt("anno");
 							   int mese= Integer.parseInt("mese");
 							   int giorno= Integer.parseInt("giorno");

@@ -249,32 +249,7 @@ public class AmministratoreManager {
 		return result;
 	}
 
-	/*
-	public boolean modificaCopieVendute(String isbn, int nuovoAttributo) throws SQLException {
-		Connection connection= null;
-		PreparedStatement preparedStatement= null;
-
-		boolean result= false;
-		connection= DriverMaagerConnectionPool.getConnection();
-		try {
-			String updateQ = "UPDATE libro SET copieVendute = ? WHERE isbn = ?";
-			preparedStatement= connection.prepareStatement(updateQ);
-			preparedStatement.setInt(1, nuovoAttributo);
-			preparedStatement.setString(2, isbn);
-			if(preparedStatement.executeUpdate()==1) {
-				result= true;
-			}
-			connection.commit();
-		}finally {
-			try {
-				preparedStatement.close();
-			}finally {
-				DriverMaagerConnectionPool.releaseConnection(connection);
-			}
-		}
-		return result;
-	}*/
-
+	
 	public boolean modificaCategoria(String isbn, String nuovoAttributo) throws SQLException {
 		Connection connection= null;
 		PreparedStatement preparedStatement= null;
