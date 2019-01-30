@@ -33,12 +33,14 @@ public class Carrello {
 	}
 
 
-	public void aggiungiAlCarrello(Libro libro, int quantit‡) {
+	public boolean aggiungiAlCarrello(Libro libro, int quantit‡) {
 		boolean trovato=false;
+		boolean aggiunto=false;
 		for(Libro lib: libri) {
 			if(lib.getIsbn().equalsIgnoreCase(libro.getIsbn())) {
 				lib.setQuantit‡Selezionata(lib.getQuantit‡Selezionata() + quantit‡);
 				trovato=true;
+				aggiunto=true;
 				break;
 			}
 		}
@@ -46,45 +48,58 @@ public class Carrello {
 			libro.setQuantit‡Selezionata(quantit‡);
 			libri.add(libro);
 			totale= totale+(libro.getPrezzo()*quantit‡);
+			aggiunto=true;
 		}
+		
+		return aggiunto;
 	}
 
-	public void aumentaQuantit‡(String isbn) {
+	public boolean aumentaQuantit‡(String isbn) {
+		boolean successo=false;
 		for(Libro temp : libri){
 
 			if(temp.getIsbn().equalsIgnoreCase(isbn)){
 				if(temp.getQuantit‡Selezionata()<temp.getQuantit‡()) {
 					temp.setQuantit‡Selezionata(temp.getQuantit‡Selezionata()+1);
 					totale= totale+ temp.getPrezzo();
+					successo=true;
 					break;
 				}
 			}
 		}
+		
+		return successo;
 	}
 
-	public void diminuisciQuantit‡(String isbn) {
+	public boolean diminuisciQuantit‡(String isbn) {
+		boolean successo=false;
 		for(Libro temp : libri){
 
 			if(temp.getIsbn().equalsIgnoreCase(isbn)){
 				if(temp.getQuantit‡Selezionata()>1) {
 					temp.setQuantit‡Selezionata(temp.getQuantit‡Selezionata()-1);
 					totale= totale- temp.getPrezzo();
+					successo=true;
 					break;
 				}
 			}
 		}
+		return successo;
 	}
 
-	public void rimuoviLibro(String isbn) {
+	public boolean rimuoviLibro(String isbn) {
+		boolean successo=false;
 		for(Libro temp : libri){
 
 			if(temp.getIsbn().equalsIgnoreCase(isbn)){
 
 				libri.remove(temp);
 				totale= totale- (temp.getQuantit‡Selezionata() * temp.getPrezzo());
+				successo=true;
 				break;
 			}
 		}
+		return successo;
 	}
 
 	public Libro getLibro(String isbn) {
