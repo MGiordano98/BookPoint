@@ -62,7 +62,7 @@ public class TestLibroManager extends TestCase{
 		}
 	}
 	
-	public void TestGetLibriPiùVenduti() throws SQLException{
+	public void testGetLibriPiùVenduti() throws SQLException{
 		Collection<Libro> libriPiùVenduti=manager.getLibriPiùVenduti();
 		assertTrue(libriPiùVenduti.size()>0);
 		
@@ -83,7 +83,7 @@ public class TestLibroManager extends TestCase{
 		}
 	}
 	
-	public void TestGetLibriInEvidenza() throws SQLException{
+	public void testGetLibriInEvidenza() throws SQLException{
 		Collection<Libro> libriInEvidenza=manager.getLibriPiùVenduti();
 		assertTrue(libriInEvidenza.size()>0);
 		
@@ -104,7 +104,7 @@ public class TestLibroManager extends TestCase{
 		}
 	}
 	
-	public void TestVisualizzaLibro() throws SQLException{
+	public void testVisualizzaLibro() throws SQLException{
 		Libro libro=manager.visualizzaLibro("12");
 		assertNull(libro);
 		
@@ -130,7 +130,9 @@ public class TestLibroManager extends TestCase{
 	public static Test suite() {
 		TestSuite suite= new TestSuite();
 		suite.addTest(new TestLibroManager("testRicerca"));
-		
+		suite.addTest(new TestLibroManager("testGetLibriPiùVenduti"));
+		suite.addTest(new TestLibroManager("testGetLibriInEvidenza"));
+		suite.addTest(new TestLibroManager("testVisualizzaLibro"));
 		
 		return suite;
 	}
