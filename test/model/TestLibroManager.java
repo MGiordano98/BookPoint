@@ -62,9 +62,77 @@ public class TestLibroManager extends TestCase{
 		}
 	}
 	
+	public void testGetLibriPiùVenduti() throws SQLException{
+		Collection<Libro> libriPiùVenduti=manager.getLibriPiùVenduti();
+		assertTrue(libriPiùVenduti.size()>0);
+		
+		Iterator<Libro> it=libriPiùVenduti.iterator();
+		while(it.hasNext()){
+			Libro libro=it.next();
+			assertNotNull(libro.getIsbn());
+			assertNotNull(libro.getTitolo());
+			assertNotNull(libro.getTrama());
+			assertNotNull(libro.getFoto());
+			assertNotNull(libro.getCasaEditrice());
+			assertNotNull(libro.getPrezzo());
+			assertNotNull(libro.getQuantità());
+			assertNotNull(libro.getCategoria());
+			assertNotNull(libro.getCopieVendute());
+			assertNotNull(libro.getDataUscita());
+			assertNotNull(libro.getQuantitàSelezionata());
+		}
+	}
+	
+	public void testGetLibriInEvidenza() throws SQLException{
+		Collection<Libro> libriInEvidenza=manager.getLibriPiùVenduti();
+		assertTrue(libriInEvidenza.size()>0);
+		
+		Iterator<Libro> it=libriInEvidenza.iterator();
+		while(it.hasNext()){
+			Libro libro=it.next();
+			assertNotNull(libro.getIsbn());
+			assertNotNull(libro.getTitolo());
+			assertNotNull(libro.getTrama());
+			assertNotNull(libro.getFoto());
+			assertNotNull(libro.getCasaEditrice());
+			assertNotNull(libro.getPrezzo());
+			assertNotNull(libro.getQuantità());
+			assertNotNull(libro.getCategoria());
+			assertNotNull(libro.getCopieVendute());
+			assertNotNull(libro.getDataUscita());
+			assertNotNull(libro.getQuantitàSelezionata());
+		}
+	}
+	
+	public void testVisualizzaLibro() throws SQLException{
+		Libro libro=manager.visualizzaLibro("12");
+		assertNull(libro);
+		
+		libro=manager.visualizzaLibro("1234567891234");
+		assertNull(libro);
+		
+		libro=manager.visualizzaLibro("9788804679622");
+		assertNotNull(libro);
+		
+		assertNotNull(libro.getIsbn());
+		assertNotNull(libro.getTitolo());
+		assertNotNull(libro.getTrama());
+		assertNotNull(libro.getFoto());
+		assertNotNull(libro.getCasaEditrice());
+		assertNotNull(libro.getPrezzo());
+		assertNotNull(libro.getQuantità());
+		assertNotNull(libro.getCategoria());
+		assertNotNull(libro.getCopieVendute());
+		assertNotNull(libro.getDataUscita());
+		assertNotNull(libro.getQuantitàSelezionata());
+	}
+	
 	public static Test suite() {
 		TestSuite suite= new TestSuite();
 		suite.addTest(new TestLibroManager("testRicerca"));
+		suite.addTest(new TestLibroManager("testGetLibriPiùVenduti"));
+		suite.addTest(new TestLibroManager("testGetLibriInEvidenza"));
+		suite.addTest(new TestLibroManager("testVisualizzaLibro"));
 		
 		return suite;
 	}
