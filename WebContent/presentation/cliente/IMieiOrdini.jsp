@@ -10,7 +10,7 @@
 </head>
 <body>
 
-
+<div class="divfisso-mio" style="min-width:600px;">
 <%@ include file="header.jsp"%>
 
 <% Collection<?> ordini = (Collection<?>) request.getSession().getAttribute("ordini"); %>
@@ -47,7 +47,7 @@
 
 		<td><form action="VisualizzaFattura" method="post">
 		<input type="hidden" value=<%=ordine.getIdOrdine()%> name="numOrdine">
-		<button type="submit">Fattura!</button></form></td>
+		<button type="submit">Fattura</button></form></td>
 		</tr>
 		
 				<tr class="tr3">
@@ -90,6 +90,8 @@
 
 
  <%@ include file="footer.jsp"%>
+ 
+ </div>
  
 <script src="https://code.jquery.com/jquery-3.3.1.stdm.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/tdbs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>

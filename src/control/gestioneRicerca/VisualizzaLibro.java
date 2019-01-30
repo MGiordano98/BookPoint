@@ -33,7 +33,7 @@ public class VisualizzaLibro extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String isbn= request.getParameter("isbn");
-		System.out.println("ciao");
+		System.out.println("PIPPO");
 		Libro libro= null;
 		
 		try {
@@ -44,6 +44,8 @@ public class VisualizzaLibro extends HttpServlet {
 		
 		request.getSession().setAttribute("libro", libro);
 		
+		RequestDispatcher dispatcher= request.getRequestDispatcher("/presentation/cliente/VisualizzaLibro.jsp");
+		dispatcher.forward(request, response);	
 	}
 
 	/**

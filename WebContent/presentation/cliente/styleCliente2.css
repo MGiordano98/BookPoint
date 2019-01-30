@@ -812,6 +812,7 @@ body .no-padding {
 }
 
 .container-ordini{
+	min-width:600px;
 	background-color:ivory;
 	margin: 1% 20% 2% 25%;
 	border:2px solid red;
@@ -826,3 +827,22 @@ body .no-padding {
 .divaccesso{
 	text-align:center;
 }
+
+
+
+@media (max-width:850px){
+	.container-ordini{
+		margin:1% 0%;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+

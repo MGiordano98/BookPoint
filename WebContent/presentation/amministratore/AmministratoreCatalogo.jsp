@@ -25,11 +25,12 @@
 		</button>
 
 		<form class="example" action="ricerca">
-		<select class="form-control" name="categoria"id="sel1">
-        <option>Avventura</option>
-        <option>Romanzo</option>
-        <option>Giallo</option>
-        <option>Verde</option>
+		<select class="form-control" name="categoria" id="sel1" placeholder="categoria">
+		<option selected hidden value="">categoria</option>
+        <option value="Avventura">Avventura</option>
+        <option value="Romanzo">Romanzo</option>
+        <option value="Giallo">Giallo</option>
+        <option value="Verde">Verde</option>
       </select>
 			<input type="text" placeholder="cerca libro..." name="testo">
 			<button class=" btn btn-danger"id="search-button" type="submit">
