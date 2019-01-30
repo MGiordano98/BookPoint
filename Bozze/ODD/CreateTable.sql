@@ -100,7 +100,7 @@ create table recensione
     testo varchar(300),
     utente varchar(60),
     foreign key (utente) references utente(email)
-    on delete set null on update cascade,
+    on delete cascade on update cascade,
     libro varchar(13),
     foreign key (libro) references libro(isbn)
     on delete cascade on update cascade
