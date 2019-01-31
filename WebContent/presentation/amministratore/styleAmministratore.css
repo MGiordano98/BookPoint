@@ -244,18 +244,25 @@ form.example::after {
 	width:100%;
 }
 
-.container-informazioni-libro{
-	position:absolute;
-	top:0;
-	right:0;
-	width:80%;
+.container-recensione{
+	width:50%;
 }
-
-.container-informazioni-libro h5{
+.container-recensione p{
+	word-break:break-word;
+}
+.container-recensione h6{
 	font-weight:bold;
 	}
-
-
-.container-informazioni-libro h6{
-	font-family:cursive;
-	}
+	
+.container-informazioni-recensioni button{
+	cursor:pointer;
+	height: 20px;
+	width: 25px;
+	position:absolute;
+	font-size: 10px;
+	top:0;right:0;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-left: 0px;
+}

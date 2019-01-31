@@ -37,6 +37,8 @@ public class Login extends HttpServlet {
 		String email= request.getParameter("email");
 		String password= request.getParameter("password");
 		
+		
+		
 		Utente utente=null;
 		try {
 			utente= manager.login(email, password);

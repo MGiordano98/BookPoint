@@ -314,13 +314,16 @@ center img{
 
 /*Css barra di ricerca*/
 .container-cerca{
+	display:inline-flex; 
+	width:90%;
+	margin-left:8%;
 	margin-top:1%;
 	margin-bottom:1%;
 }
-
-.cerca{
-    width:60%;text-align:right;display:inline-block;
+.container-cerca input{
+	 width:70%;
 }
+
 
 #search-bar{
 	width:70%; 
@@ -670,6 +673,34 @@ media-heading h2{
 	cursor: pointer;
 }
 
+.bottone-recensione{
+	width:250px;	
+	margin-left:54%;
+}
+
+.container-recensione{
+	width:50%;
+}
+.container-recensione p{
+	word-break:break-word;
+}
+.container-recensione h6{
+	font-weight:bold;
+	}
+	
+.container-informazioni-recensioni button{
+	cursor:pointer;
+	height: 20px;
+	width: 25px;
+	position:absolute;
+	font-size: 10px;
+	top:0;right:0;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-left: 0px;"	
+}
+
 /*css libri*/
 .col-md-3 {
 	display: inline-block;
@@ -726,9 +757,6 @@ body .no-padding {
 	cursor: pointer;
 }
 
-@media(display-width:980px){
-
-}
 
 
 .container-libri-evidenza{
@@ -823,11 +851,6 @@ body .no-padding {
 	margin-top:3%;
 }
 
-/*css gestione account*/
-.divaccesso{
-	text-align:center;
-}
-
 
 
 @media (max-width:850px){
@@ -839,9 +862,27 @@ body .no-padding {
 
 
 
+/*css gestione account*/
+.divaccesso{
+	text-align:center;
+	width:30%;
+	margin-left:35%;
+	background-color:ivory;
+	height:250px;
+	margin-top :5%;
+	margin-bottom:5%;	
+}
 
 
-
+.divaccesso form{
+	display:grid;
+	}
+.divaccesso button{
+	width:250px;
+	}
+.divaccesso h5{
+	width:40%;
+	}
 
 
 

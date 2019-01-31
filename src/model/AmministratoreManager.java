@@ -388,7 +388,6 @@ public class AmministratoreManager {
 	public boolean modificaTitolo(String isbn, String nuovoAttributo) throws SQLException {
 		Connection connection= null;
 		PreparedStatement preparedStatement= null;
-
 		boolean result= false;
 		connection= DriverMaagerConnectionPool.getConnection();
 		try {
