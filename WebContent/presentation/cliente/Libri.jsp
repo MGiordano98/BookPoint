@@ -22,19 +22,22 @@
 
 <!-- Search Bar -->
 <form class="search-container" action="ricerca" id="form-ricerca-libri">
-<div class="container-cerca" >
-<div class="cerca">
+<div class="container-cerca"  >
+
+  		<select class="form-control" name="categoria" id="sel1" placeholder="categoria">
+		<option selected hidden value="">categoria</option>
+        <option value="Avventura">Avventura</option>
+        <option value="Romanzo">Romanzo</option>
+        <option value="Giallo">Giallo</option>
+        <option value="Verde">Verde</option>
+      </select>
+    <input  type="text" placeholder="cerca libro..." name="testo">
+   <button class=" btn btn-danger"id="search-button" type="submit">
+				<i class="fa fa-search"></i>
+			</button>
   
-    <input  type="text" id="search-bar" placeholder="Cerca libro" name="testo">
-    <a><i id="search-button" class="fas fa-search fa-lg"></i></a>
-  
-</div>
-<select name="categoria" id="categoria">
-  <option value=""></option>
-  <option value="Romanzo">Romanzo</option>
-  <option value="opel">Opel</option>
-  <option value="audi">Audi</option>
-</select>
+
+
 </div>
 </form>
  
@@ -50,7 +53,7 @@
 	
 	
 	<!-- Libri in evidenza -->
-	<div id="demo"
+	<div id="demo" style="margin-left:4%;"
 		class="carousel slide carousel-mio" data-ride="carousel"
 		data-interval="false">
 

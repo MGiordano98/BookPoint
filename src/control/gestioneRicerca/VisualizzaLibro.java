@@ -33,7 +33,6 @@ public class VisualizzaLibro extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String isbn= request.getParameter("isbn");
-		System.out.println("PIPPO");
 		Libro libro= null;
 		
 		try {

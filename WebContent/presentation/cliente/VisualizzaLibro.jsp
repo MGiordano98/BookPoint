@@ -26,15 +26,15 @@
 		<div class="container-visualizza-libro2">
 
 			<%
-			if(request.getSession().getAttribute("utente")!=null){
-		%>
+				if (request.getSession().getAttribute("utente") != null) {
+			%>
 			<form action=aggiungiLibroPreferiti method="post" id="form-preferiti">
-				<img id="star-preferiti" src="../image/star.jpg">
-				<input type="hidden" name="isbn" value="<%=libro.getIsbn() %>">
+				<img id="star-preferiti" src="../image/star.jpg"> <input
+					type="hidden" name="isbn" value="<%=libro.getIsbn()%>">
 			</form>
 			<%
-			}
-		%>
+				}
+			%>
 
 			<div class="intestazione-visualizza-libro">
 				<h2><%=libro.getTitolo()%></h2>
@@ -67,12 +67,13 @@
 		<div class="quantita-libro">
 			<span>Euro <%=libro.getPrezzo()%></span> <span>Quantità
 				disponibile: <%=libro.getQuantità()%></span>
-			<form action="aggiungiAlCarrello">
+			<form action="aggiungiAlCarrello" method="post">
 				<span>Quantità selezionata: <input type="number" min="1"
 					max="<%=libro.getQuantità()%>" name="quantità" value="1"></span> <input
 					type="hidden" name="isbn" value="<%=libro.getIsbn()%>">
 				<center>
-					<input type="submit" value="aggiungi al carrello">
+					<button class="btn btn-danger" type="submit"
+						value="aggiungi al carrello">Aggiungi al carrello</button>
 				</center>
 			</form>
 		</div>
@@ -81,15 +82,19 @@
 
 	<div class="container-recensione-libro">
 		<h2>Recensioni</h2>
-		<div>
+		<div class="container-recensione" style="background-color:ivory;">
 
 			<%
 				for (Recensione recensione : libro.getRecensioni()) {
 			%>
-
-			<%=recensione.getEmail()%>
+			<form action="rimuoviRecensione" method="post">
+		<div class="container-informazioni-recensioni" style="background-color:white; position:relative">
+			<h6><%=recensione.getEmail()%></h6>
 			<p><%=recensione.getTesto()%></p>
-
+			<input type="hidden" value="<%=recensione.getId() %>" name="idRecensione">
+			<button   type="submit" class="btn btn-danger bottone-elimina"> x </button>
+</div>
+</form>
 			<%
 				}
 			%>
@@ -97,12 +102,13 @@
 		</div>
 
 	</div>
-	<form action="aggiungiRecensione">
+	<form action="aggiungiRecensione" method="post">
 		<div class="container-aggiungi-recensione">
 			<textarea rows="4" cols="20" placeholder="Testo..." name="testo">
 </textarea>
 			<input type="hidden" name="isbn" value="<%=libro.getIsbn()%>">
-			<input type="submit" value="aggiungi recensione">
+			<button class="btn btn-danger bottone-recensione" type="submit"
+				value="aggiungi recensione">Aggiungi recensione</button>
 		</div>
 	</form>
 
@@ -122,6 +128,5 @@
 		crossorigin="anonymous"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
 	<script src="cliente.js"></script>
-
 </body>
 </html>

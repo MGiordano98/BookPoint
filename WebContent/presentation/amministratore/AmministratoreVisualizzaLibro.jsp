@@ -25,44 +25,44 @@ Collection<Recensione> recensioni=libro.getRecensioni();
   <tbody>
   <tr>
       <td>Immagine</td>
-      <td colspan="2"><%=libro.getFoto() %></td>
-    <td> <center> <input type="submit" value="modifica" class="modificaFoto"></center></td>
+      <td colspan="2" id="fotoLibro"><%=libro.getFoto() %></td>
+    <td> <center><button  class="btn btn-danger" type="submit" value="modifica"  class="modificaImmagine">Modifica</button></center></td>
     </tr>
       <tr>
       <td>Titolo</td>
-      <td colspan="2"><%=libro.getTitolo() %></td>
-	  <td><center><input type="submit" value="modifica"  class="modificaTitolo"></center></td>
+      <td colspan="2" id="titoloLibro"><%=libro.getTitolo() %></td>
+	  <td><center><button data-toggle="modal" data-target="#exampleModal" class="btn btn-danger" type="submit" value="modifica"  class="modificaTitolo">Modifica</button></center></td>
     </tr>
       <tr>
       <td>Editore</td>
       <td colspan="2"><%=libro.getCasaEditrice() %></td>
-	  <td><center><input type="submit" value="modifica"  class="modificaEditore"></center></td>
+	  <td><center><button class="btn btn-danger" type="submit" value="modifica"  class="modificaEditore">Modifica</button></center></td>
     </tr>
      <tr>
       <td>ISBN</td>
       <td colspan="2"><%=libro.getIsbn() %></td>
-      <td><center><input type="submit" value="modifica"  class="modificaIsbn"></center></td>
+      <td><center><button class="btn btn-danger" type="submit" value="modifica"  class="modificaISBN">Modifica</button></center></td>
     </tr>
       <tr>
       <td>Categoria</td>
       <td colspan="2"><%=libro.getCategoria()%></td>
-	  <td><center><input type="submit" value="modifica"  class="modificaCategoria"></center></td>
+	  <td><center><button class="btn btn-danger" type="submit" value="modifica"  class="modificaCategoria">Modifica</button></center></td>
     </tr>
       
      <tr>
       <td>Descrizione</td>
       <td style="word-wrap:break-word;"colspan="2"><%=libro.getTrama() %></td>
-      <td><center><input type="submit" value="modifica"  class="modificaDescrizione"></center></td>
+      <td><center><button class="btn btn-danger" type="submit" value="modifica"  class="modificaDescrizione">Modifica</button></center></td>
     </tr>
      <tr>
       <td>Prezzo</td>
       <td colspan="2"><%=libro.getPrezzo()+"€" %></td>
-      <td><center><input type="submit" value="modifica"  class="modificaPrezzo"></center></td>
+      <td><center><button class="btn btn-danger" type="submit" value="modifica"  class="modificaPrezzo">Modifica</button></center></td>
     </tr>
       <tr>
       <td>Quantita</td>
       <td colspan="2"><%=libro.getQuantità()%></td>
-	  <td><center><input type="submit" value="modifica"  class="modificaQuantita	"></center></td>
+	  <td><center><button class="btn btn-danger" type="submit" value="modifica"  class="modificaQauntita">Modifica</button></center></td>
     </tr>
   </tbody>
 </table>
@@ -94,69 +94,63 @@ Recensione recensione=(Recensione) it2.next();%>
 </table>
 
 
-<div class="formModificaFoto" style="display:none; position:fixed; width:15%; margin-left:42%; top:30%;">
-	<form action="modificaAttributo">
-		<input type="hidden" value="foto" name="tipo">
-		<input type="hidden" value=<%=libro.getIsbn() %> name="isbn">
-		<input type="text" name="nuovoAttributo">
-		<input type=submit value=modifica>
-	</form>
-</div>
-
-<div class="formModificaTitolo" style="display:none; position:fixed; width:15%; margin-left:42%; top:30%;">
-	<form action="modificaAttributo">
-		<input type="hidden" value="titolo" name="tipo">
-		<input type="hidden" value=<%=libro.getIsbn() %> name="isbn">
-		<input type="text" name="nuovoAttributo">
-		<input type="submit" value="modifica">
-	</form>
-</div>
-
-<div class="formModificaEditore" style="display:none; position:fixed; width:15%; margin-left:42%; top:30%;">
-	<form action="modificaAttributo">
-		<input type="hidden" value="casaEditrice" name="tipo">
-		<input type="hidden" value=<%=libro.getIsbn() %> name="isbn">
-		<input type="text" name="nuovoAttributo">
-		<input type=submit value=modifica>
-	</form>
-</div>
-
-<div class="formModificaCategoria" style="display:none; position:fixed; width:15%; margin-left:42%; top:30%;">
-	<form action="modificaAttributo">
-		<input type="hidden" value="categoria" name="tipo">
-		<input type="hidden" value=<%=libro.getIsbn() %> name="isbn">
-		<input type="text" name="nuovoAttributo">
-		<input type=submit value=modifica>
-	</form>
-</div>
-
-<div class="formModificaDescrizione" style="display:none; position:fixed; width:15%; margin-left:42%; top:30%;">
-	<form action="modificaAttributo">
-		<input type="hidden" value="trama" name="tipo">
-		<input type="hidden" value=<%=libro.getIsbn() %> name="isbn">
-		<input type="text" name="nuovoAttributo">
-		<input type=submit value=modifica>
-	</form>
-</div>
 
 
-<div class="formModificaPrezzo" style="display:none; position:fixed; width:15%; margin-left:42%; top:30%;">
-	<form action="modificaAttributo">
-		<input type="hidden" value="prezzo" name="tipo">
-		<input type="hidden" value=<%=libro.getIsbn() %> name="isbn">
-		<input type="text" name="nuovoAttributo">
-		<input type=submit value=modifica>
-	</form>
-</div>
 
-<div class="formModificaQuantita" style="display:none; position:fixed; width:15%; margin-left:42%; top:30%;">
-	<form action="modificaAttributo">
-		<input type="hidden" value="quantità" name="tipo">
-		<input type="hidden" value=<%=libro.getIsbn() %> name="isbn">
-		<input type="text" name="nuovoAttributo">
-		<input type=submit value=modifica>
-	</form>
-</div>
+<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<h5 class="modal-title" id="exampleModalLabel">Modifica
+					Titolo</h5>
+
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+
+					<div class="modal-body">
+						<table>
+							<!-- Modifica  DATI Libro -->
+							<tr>
+						
+								<td class="td-bold"><label for="isbn">Titolo</label></td>
+								<td><input type="text" name="nuovoAttributo" id="titoloNuovoAttributo"><br></td>
+							</tr>
+
+						</table>
+
+					<input type="hidden" name="tipo" value="titolo" id="titoloTipo">
+
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary modificaButton" id="titolo">Modifica</button>
+					</div>
+
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

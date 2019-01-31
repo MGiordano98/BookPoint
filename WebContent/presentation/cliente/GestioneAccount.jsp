@@ -16,16 +16,16 @@
 
 <div class="divaccesso">
 	
-<h3>Vuoi cambiare la password?</h3>
+<h3>Cambia Password</h3>
 <form action="utente" method="post">
-	Vecchia password
+	<h5>Vecchia password</h5>
 	<input type="password" name="vecchia" required pattern="^[A-Za-z0-9]*$">
 	<br>
-	Nuova password
+	<h5>Nuova password</h5>
 	<input type="password" name="nuova" required pattern="^[A-Za-z0-9]*$">
 	<br>
 	<input type="hidden" name="action" value="cambiaPassword">
-	<button type="submit"> Cambia!</button>
+	<center><button class="btn btn-danger" type="submit"> Cambia!</button></center>
 	</form>
 </div>
 
