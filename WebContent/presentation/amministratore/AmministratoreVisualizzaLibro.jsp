@@ -68,7 +68,7 @@ Collection<Recensione> recensioni=libro.getRecensioni();
 </table>
 
 
-<div clss="container-recensione-libro">
+<div class="container-recensione-libro">
 <h2>Recensioni</h2>
 <div class="container-recensione" style="position:relative;background-color:ivory">
 
