@@ -26,7 +26,7 @@ Collection<Recensione> recensioni=libro.getRecensioni();
   <tr>
       <td>Immagine</td>
       <td colspan="2" id="fotoLibro"><%=libro.getFoto() %></td>
-    <td> <center><button  class="btn btn-danger" type="submit" value="modifica"  class="modificaImmagine">Modifica</button></center></td>
+    <td> <center><button data-toggle="modal" data-target="#exampleModal0" class="btn btn-danger" type="submit" value="modifica"  class="modificaImmagine">Modifica</button></center></td>
     </tr>
       <tr>
       <td>Titolo</td>
@@ -35,66 +35,64 @@ Collection<Recensione> recensioni=libro.getRecensioni();
     </tr>
       <tr>
       <td>Editore</td>
-      <td colspan="2"><%=libro.getCasaEditrice() %></td>
-	  <td><center><button class="btn btn-danger" type="submit" value="modifica"  class="modificaEditore">Modifica</button></center></td>
+      <td colspan="2" id="editoreLibro" ><%=libro.getCasaEditrice() %></td>
+	  <td><center><button data-toggle="modal" data-target="#exampleModal1" class="btn btn-danger" type="submit" value="modifica"  class="modificaEditore">Modifica</button></center></td>
     </tr>
      <tr>
       <td>ISBN</td>
-      <td colspan="2"><%=libro.getIsbn() %></td>
-      <td><center><button class="btn btn-danger" type="submit" value="modifica"  class="modificaISBN">Modifica</button></center></td>
+      <td colspan="2" id="isbnLibro" ><%=libro.getIsbn() %></td>
+      <td><center><button data-toggle="modal" data-target="#exampleModal2" class="btn btn-danger" type="submit" value="modifica"  class="modificaISBN">Modifica</button></center></td>
     </tr>
       <tr>
       <td>Categoria</td>
-      <td colspan="2"><%=libro.getCategoria()%></td>
-	  <td><center><button class="btn btn-danger" type="submit" value="modifica"  class="modificaCategoria">Modifica</button></center></td>
+      <td colspan="2" id="categoriaLibro"><%=libro.getCategoria()%></td>
+	  <td><center><button data-toggle="modal" data-target="#exampleModal3" class="btn btn-danger" type="submit" value="modifica"  class="modificaCategoria">Modifica</button></center></td>
     </tr>
       
      <tr>
       <td>Descrizione</td>
-      <td style="word-wrap:break-word;"colspan="2"><%=libro.getTrama() %></td>
-      <td><center><button class="btn btn-danger" type="submit" value="modifica"  class="modificaDescrizione">Modifica</button></center></td>
+      <td  id="descrizioneLibro" style="word-wrap:break-word;"colspan="2"><%=libro.getTrama() %></td>
+      <td><center><button data-toggle="modal" data-target="#exampleModal4" class="btn btn-danger" type="submit" value="modifica"  class="modificaDescrizione">Modifica</button></center></td>
     </tr>
      <tr>
       <td>Prezzo</td>
-      <td colspan="2"><%=libro.getPrezzo()+"€" %></td>
-      <td><center><button class="btn btn-danger" type="submit" value="modifica"  class="modificaPrezzo">Modifica</button></center></td>
+      <td colspan="2" id="prezzoLibro" ><%=libro.getPrezzo()+"€" %></td>
+      <td><center><button data-toggle="modal" data-target="#exampleModal5" class="btn btn-danger" type="submit" value="modifica"  class="modificaPrezzo">Modifica</button></center></td>
     </tr>
       <tr>
       <td>Quantita</td>
-      <td colspan="2"><%=libro.getQuantità()%></td>
-	  <td><center><button class="btn btn-danger" type="submit" value="modifica"  class="modificaQauntita">Modifica</button></center></td>
+      <td colspan="2" id="quantitaLibro"><%=libro.getQuantità()%></td>
+	  <td><center><button data-toggle="modal" data-target="#exampleModal6" class="btn btn-danger" type="submit" value="modifica"  class="modificaQauntita">Modifica</button></center></td>
     </tr>
   </tbody>
 </table>
 
 
-<h1>Recensioni</h1>
+<div clss="container-recensione-libro">
+<h2>Recensioni</h2>
+<div class="container-recensione" style="position:relative;background-color:ivory">
 
-<table >
   
 <% 
 Iterator it2=recensioni.iterator();
 while(it2.hasNext()){
 Recensione recensione=(Recensione) it2.next();%>
-    <tr>
-      <td><%=recensione.getEmail() %></td>
-     </tr>
-     <tr>
-      <td><%=recensione.getTesto() %></td>
-     </tr>
-     <tr>
-     	<td>
-     		<form action="eliminaRecensione">
-     			<input type=hidden  value="<%=recensione.getId() %>" name="idRecensione">
-     			<input type=submit value="x">
+   
+
+     		<form action="eliminaRecensione" method="post">
+     		<div class="container-informazioni-recensioni "style="position:relative">
+     		<h6><%=recensione.getEmail() %></h6>
+			<p><%=recensione.getTesto() %></p>
+     		<input type=hidden  value="<%=recensione.getId() %>" name="idRecensione">
+			<button   type="submit" class="btn btn-danger bottone-elimina"> x </button>
+     </div>
      		</form>
-     	</td>
-     </tr>
+     
   <%} %>
-</table>
 
+</div>
 
-
+</div>
 
 
 <!-- Modal -->
@@ -136,8 +134,276 @@ Recensione recensione=(Recensione) it2.next();%>
 			</div>
 		</div>
 	</div>
+	
+		<div class="modal fade" id="exampleModal0" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<h5 class="modal-title" id="exampleModalLabel">Modifica
+					Immagine</h5>
 
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
 
+					<div class="modal-body">
+						<table>
+							<!-- Modifica  DATI Libro -->
+							<tr>
+						
+								<td class="td-bold"><label for="isbn">Immagine</label></td>
+								<td><input type="text" name="nuovoAttributo" id="immagineNuovoAttributo"><br></td>
+							</tr>
+
+						</table>
+
+					<input type="hidden" name="tipo" value="immagine" id="immagineTipo">
+
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary modificaButton" id="immagine">Modifica</button>
+					</div>
+
+			</div>
+		</div>
+	</div>
+	
+		<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<h5 class="modal-title" id="exampleModalLabel">Modifica
+					Editore</h5>
+
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+
+					<div class="modal-body">
+						<table>
+							<!-- Modifica  DATI Libro -->
+							<tr>
+						
+								<td class="td-bold"><label for="isbn">Editore</label></td>
+								<td><input type="text" name="nuovoAttributo" id="editoreNuovoAttributo"><br></td>
+							</tr>
+
+						</table>
+
+					<input type="hidden" name="tipo" value="editore" id="editoreTipo">
+
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary modificaButton" id="editore">Modifica</button>
+					</div>
+
+			</div>
+		</div>
+	</div>
+		<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<h5 class="modal-title" id="exampleModalLabel">Modifica
+					isbn</h5>
+
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+
+					<div class="modal-body">
+						<table>
+							<!-- Modifica  DATI Libro -->
+							<tr>
+						
+								<td class="td-bold"><label for="isbn">isbn</label></td>
+								<td><input type="text" name="nuovoAttributo" id="isbnNuovoAttributo"><br></td>
+							</tr>
+
+						</table>
+
+					<input type="hidden" name="tipo" value="isbn" id="isbnTipo">
+
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary modificaButton" id="isbn">Modifica</button>
+					</div>
+
+			</div>
+		</div>
+	</div>
+		<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<h5 class="modal-title" id="exampleModalLabel">Modifica
+					Categoria</h5>
+
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+
+					<div class="modal-body">
+						<table>
+							<!-- Modifica  DATI Libro -->
+							<tr>
+						
+								<td class="td-bold"><label for="isbn">Categoria</label></td>
+								<td><input type="text" name="nuovoAttributo" id="categoriaNuovoAttributo"><br></td>
+							</tr>
+
+						</table>
+
+					<input type="hidden" name="tipo" value="categoria" id="categoriaTipo">
+
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary modificaButton" id="categoria">Modifica</button>
+					</div>
+
+			</div>
+		</div>
+	</div>
+		<div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<h5 class="modal-title" id="exampleModalLabel">Modifica
+					Descrizione</h5>
+
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+
+					<div class="modal-body">
+						<table>
+							<!-- Modifica  DATI Libro -->
+							<tr>
+						
+								<td class="td-bold"><label for="isbn">Descrizione</label></td>
+								<td><input type="text" name="nuovoAttributo" id="descrizioneNuovoAttributo"><br></td>
+							</tr>
+
+						</table>
+
+					<input type="hidden" name="tipo" value="descrizione" id="descrizioneTipo">
+
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary modificaButton" id="descrizione">Modifica</button>
+					</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="exampleModal5" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<h5 class="modal-title" id="exampleModalLabel">Modifica
+					Prezzo</h5>
+
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+
+					<div class="modal-body">
+						<table>
+							<!-- Modifica  DATI Libro -->
+							<tr>
+						
+								<td class="td-bold"><label for="isbn">Prezzo</label></td>
+								<td><input type="text" name="nuovoAttributo" id="prezzoNuovoAttributo"><br></td>
+							</tr>
+
+						</table>
+
+					<input type="hidden" name="tipo" value="prezzo" id="prezzoTipo">
+
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary modificaButton" id="prezzo">Modifica</button>
+					</div>
+
+			</div>
+		</div>
+	</div>
+	
+		<div class="modal fade" id="exampleModal6" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<h5 class="modal-title" id="exampleModalLabel">Modifica
+					Quantita</h5>
+
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+
+					<div class="modal-body">
+						<table>
+							<!-- Modifica  DATI Libro -->
+							<tr>
+						
+								<td class="td-bold"><label for="isbn">Quantita</label></td>
+								<td><input type="text" name="nuovoAttributo" id="quantitaNuovoAttributo"><br></td>
+							</tr>
+
+						</table>
+
+					<input type="hidden" name="tipo" value="quantita" id="quantitaTipo">
+
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary modificaButton" id="quantita">Modifica</button>
+					</div>
+
+			</div>
+		</div>
+	</div>
 
 
 

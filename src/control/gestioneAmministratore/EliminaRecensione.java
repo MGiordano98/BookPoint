@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.Libro;
 import model.AmministratoreManager;
 
 /**
@@ -33,6 +34,7 @@ public class EliminaRecensione extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int idRecensione= Integer.parseInt(request.getParameter("idRecensione"));
+		Libro libro= (Libro) request.getSession().getAttribute("libro");
 		
 		try {
 			am.eliminaRecensione(idRecensione);
@@ -40,7 +42,7 @@ public class EliminaRecensione extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		RequestDispatcher dispatcher= request.getRequestDispatcher("AmministratoreVisualizzaLibro.jsp");
+		RequestDispatcher dispatcher= request.getRequestDispatcher("visualizzaLibro?isbn="+libro.getIsbn());
 		dispatcher.forward(request, response);
 	}
 
