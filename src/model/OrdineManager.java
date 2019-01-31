@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 
 import bean.Carrello;
 import bean.Libro;
@@ -74,6 +75,7 @@ public class OrdineManager {
 			
 			ordine.setIdOrdine(idOrdine);
 			int result2 =doSaveLibriAcquistati(connection, ordine);
+			int result3 =doUpdateQuantit‡(connection, ordine);
 			
 			if(result1!=0 && result2!=0) result=true;
 		}finally {
@@ -90,8 +92,6 @@ public class OrdineManager {
 		return result;
 	}
 
-
-	
 	private int doSaveLibriAcquistati(Connection connection, Ordine ordine) throws SQLException {
 		PreparedStatement pStatement= null;
 		String insertQ= "INSERT INTO libriAcquistati (ordine, libro, titolo, quantit‡, prezzoAcquisto)"
@@ -122,7 +122,64 @@ public class OrdineManager {
 		return result;
 	}
 
+	private int doUpdateQuantit‡(Connection connection, Ordine ordine) throws SQLException {
+		PreparedStatement pStatement= null;
+		String selectQ= "SELECT quantit‡Disponibile, copieVendute FROM libro WHERE isbn=?";
+		Collection<Libro> libriAcquistati= ordine.getLibri();
+		boolean fallimento= false;
+		int result=0;
+		try {
+			for(Libro l: libriAcquistati) {
+				pStatement= connection.prepareStatement(selectQ);
+				pStatement.setString(1, l.getIsbn());
+				ResultSet rs= pStatement.executeQuery();
+				if(rs.next()) {
+					int quantit‡Disponibile= rs.getInt("quantit‡Disponibile");
+					int copieVendute= rs.getInt("copieVendute");
+					if(doUpdateQuantit‡Disponibile(connection, copieVendute, quantit‡Disponibile, l.getQuantit‡Selezionata(), l.getIsbn())==1) {
+						fallimento= true;
+					}
+				}
+			}
+		}finally {
+			try {
+				if(pStatement!=null)
+					pStatement.close();
+			}finally {
+				DriverMaagerConnectionPool.releaseConnection(connection);
+			}
+		}
+		if(!fallimento) result=1; 
+		return result;
+		
+	}
 	
+	private int doUpdateQuantit‡Disponibile(Connection connection, int copieVendute, int quantit‡Disponibile,
+			int quantit‡Selezionata, String isbn) throws SQLException {
+		PreparedStatement pStatement= null;
+		String updateQ= "UPDATE libro SET quantit‡Disponibile= ?, copieVendute= ? WHERE isbn= ?";
+		int result=0;
+		try {
+			pStatement= connection.prepareStatement(updateQ);
+			pStatement.setInt(1, quantit‡Disponibile - quantit‡Selezionata);
+			pStatement.setInt(2, copieVendute+ quantit‡Selezionata);
+			pStatement.setString(3, isbn);
+			if(pStatement.executeUpdate()==1) {
+				result=1;
+			}
+			connection.commit();
+		}finally {
+			try {
+				if(pStatement!=null)
+					pStatement.close();
+			}finally {
+				DriverMaagerConnectionPool.releaseConnection(connection);
+			}
+		}
+		return result;
+		
+	}
+
 	public Carrello aggiungiAlCarrello(Carrello carrello, Libro libro, int quantit‡) {
 		
 		carrello.aggiungiAlCarrello(libro, quantit‡);
