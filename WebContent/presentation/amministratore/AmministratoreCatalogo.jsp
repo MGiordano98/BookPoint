@@ -150,8 +150,11 @@
 					}
 				%>
 			</div>
-			<div>
+			<div><%if(bean.getTrama().length()>=200){ %>
 				<p><%=bean.getTrama().substring(0, 200)%></p>
+				<%} else { %>
+				<p><%=bean.getTrama() %>
+				<%} %>
 			</div>
 		</div>
 

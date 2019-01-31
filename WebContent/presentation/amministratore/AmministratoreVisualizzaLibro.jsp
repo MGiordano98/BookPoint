@@ -75,20 +75,22 @@ Collection<Recensione> recensioni=libro.getRecensioni();
   
 <% 
 Iterator it2=recensioni.iterator();
+int i=0;
 while(it2.hasNext()){
 Recensione recensione=(Recensione) it2.next();%>
    
 
+     		<div class="container-informazioni-recensioni" id="div-recensione<%=i %>" style="position:relative">
      		<form action="eliminaRecensione" method="post">
-     		<div class="container-informazioni-recensioni "style="position:relative">
      		<h6><%=recensione.getEmail() %></h6>
 			<p><%=recensione.getTesto() %></p>
-     		<input type=hidden  value="<%=recensione.getId() %>" name="idRecensione">
-			<button   type="submit" class="btn btn-danger bottone-elimina"> x </button>
-     </div>
+     		<input type="hidden"  value="<%=recensione.getId() %>" name="idRecensione" id="recensione<%=i%>">
+			<button   type="button" class="btn btn-danger bottone-elimina" id="<%=i%>"> x </button>
      		</form>
+     		</div>
+     		
      
-  <%} %>
+  <%i++; } %>
 
 </div>
 

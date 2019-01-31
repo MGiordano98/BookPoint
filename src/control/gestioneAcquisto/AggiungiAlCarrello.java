@@ -42,7 +42,7 @@ public class AggiungiAlCarrello extends HttpServlet {
 		}
 		
 		String isbn= request.getParameter("isbn");
-		int quantità= Integer.parseInt(request.getParameter("quantità"));
+		int quantità= Integer.parseInt(request.getParameter("quantita"));
 		try {
 			Libro lib= libroManager.visualizzaLibro(isbn);
 			carrello =manager.aggiungiAlCarrello(carrello, lib, quantità);
