@@ -25,7 +25,8 @@ $(document).ready(function() {
 	});
 	
 	$(".modifica-quantità.aumenta").click(function(){
-		var isbn= $(this).attr("title");
+		alert("aaaaaaaaa");
+		var isbn= $(this).attr("title"); alert(isbn);
 		
 		$.post("aumentaQuantità",{"isbn":isbn}, function(data, status){
 			var quantità= parseInt($("#quantità"+isbn).text());

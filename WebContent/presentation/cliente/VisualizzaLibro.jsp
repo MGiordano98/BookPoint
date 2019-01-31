@@ -69,7 +69,7 @@
 				disponibile: <%=libro.getQuantità()%></span>
 			<form action="aggiungiAlCarrello" method="post">
 				<span>Quantità selezionata: <input type="number" min="1"
-					max="<%=libro.getQuantità()%>" name="quantità" value="1"></span> <input
+					max="<%=libro.getQuantità()%>" name="quantita" value="1"></span> <input
 					type="hidden" name="isbn" value="<%=libro.getIsbn()%>">
 				<center>
 					<button class="btn btn-danger" type="submit"

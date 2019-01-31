@@ -64,7 +64,7 @@
                         
                         <td class="col-sm-3 col-md-2" style="text-align: center;">
                                                 
-                        <button type="button" class="btn btn-md quantità-selezionata" id="quantità<%=libro.getIsbn()%>"> <%=libro.getQuantitàSelezionata()%> </button>
+                        <button type="button" class="btn btn-md quantita-selezionata" id="quantità<%=libro.getIsbn()%>"> <%=libro.getQuantitàSelezionata()%> </button>
                         <div style="display:inline; float:right ">
                         <a class="modifica-quantità aumenta" title="<%=libro.getIsbn()%>"><strong>+</strong></a>
                         <a class="modifica-quantità diminuisci" title="<%=libro.getIsbn()%>"><strong>-</strong></a>
