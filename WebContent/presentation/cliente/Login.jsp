@@ -34,7 +34,7 @@ if(request.getSession().getAttribute("admin")!=null){
     </div>
     <div class="form-group">
       <label for="exampleDropdownFormPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password" name="password" pattern="^[a-zA-Z0-9\S]{4,12}$" required>
+      <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password" name="password" pattern="^[a-zA-Z0-9_.,\-+*!#@?]{8,25}$" title="ciao" required>
     </div>
     <br>
     <%
