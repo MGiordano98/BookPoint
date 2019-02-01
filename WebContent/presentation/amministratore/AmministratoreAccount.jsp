@@ -51,7 +51,7 @@
 </div>
 
 <div class="formModificaTipo" >
-	<form style="margin-top:5%;" action="cambiaTipo">
+	<form action="cambiaTipo">
 		<input type="hidden" value=<%=utente.getEmail() %> name="email">
 		<select name=tipo>
 		<%if(utente.getTipo().equalsIgnoreCase("cliente")){ %>

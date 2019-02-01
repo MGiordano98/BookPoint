@@ -23,6 +23,10 @@ header{
 	display:none;
 }
 
+.logout{
+	margin-left:25%;
+}
+
 .topnav {
   overflow: hidden;
   background-color: red;
@@ -155,4 +159,9 @@ header{
 	background-color:ivory;	
 }
 
-
+.td-padding{
+	padding-right:25%;
+}
+.td-padding1{
+	padding-right:5%;
+}

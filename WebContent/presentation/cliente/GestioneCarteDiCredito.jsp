@@ -97,26 +97,26 @@
         <table>
 							<!-- aggiungi  DATI carta -->
 							<tr>
-								<td class="td-bold"><label for="isbn">Numero di carta</label></td>
+								<td class="td-bold"><label for="numCarta">Numero di carta</label></td>
 								<td><input id="numCarta" type="text" name="numCarta"
 									placeholder="numero di carta"><br></td>
 							</tr>
 
 							<tr>
-								<td class="td-bold"><label for="titolo">Intestatario
+								<td class="td-bold"><label for="intestatario">Intestatario
 										</label></td>
 								<td><input id="intestatario" type="text" name="intestatario"
 									placeholder="intestatario"><br></td>
 							</tr>
 
 							<tr>
-								<td class="td-bold"><label for="trama">Data scadenza</label></td>
+								<td class="td-bold"><label for="dataScandeza">Data scadenza</label></td>
 								<td><input type="date" id="dataScadenza" type="text" name="dataScadenza"
 									placeholder="CAP"><br></td>
 							</tr>
 
 							<tr>
-								<td class="td-bold"><label for="casaEditrice">CVV</label></td>
+								<td class="td-bold"><label for="cvv">CVV</label></td>
 								<td><input id="cvv" type="text" name="cvv"
 									placeholder="CVV"><br></td>
 							</tr>

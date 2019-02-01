@@ -34,14 +34,14 @@ if(request.getSession().getAttribute("admin")!=null){
     </div>
     <div class="form-group">
       <label for="exampleDropdownFormPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password" name="password" pattern="^[a-zA-Z0-9_.,\-+*!#@?]{8,25}$" title="ciao" required>
+      <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password" name="password" title="ciao" required>
     </div>
     <br>
     <%
     if(request.getSession().getAttribute("esiste")!=null)
     if((boolean)request.getSession().getAttribute("esiste")==false){
     %>
-    <p id="error" style="color:red">password o email errati</p>
+    <p id="error">password o email errati</p>
     <%request.getSession().removeAttribute("esiste"); } %>
    <button class="btn brn-primary" id="loginButton">Login</button>
  	</form>

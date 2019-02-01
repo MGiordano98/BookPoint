@@ -53,7 +53,7 @@
 	
 	
 	<!-- Libri in evidenza -->
-	<div id="demo" style="margin-left:4%;"
+	<div id="demo"
 		class="carousel slide carousel-mio" data-ride="carousel"
 		data-interval="false">
 

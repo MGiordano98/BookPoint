@@ -10,8 +10,8 @@
 
 <%@ include file="header.jsp"%>
 
-<div style="margin-left:40%;margin-top:5%;">
-<h2 style="color:green;">Acquisto Completato</h2>
+<div class="completa-acquisto" >
+<h2 >Acquisto Completato</h2>
 </div>
 
 

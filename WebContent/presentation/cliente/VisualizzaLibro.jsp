@@ -82,13 +82,13 @@
 
 	<div class="container-recensione-libro">
 		<h2>Recensioni</h2>
-		<div class="container-recensione" style="background-color:ivory;">
+		<div class="container-recensione" >
 
 			<%
 				for (Recensione recensione : libro.getRecensioni()) {
 			%>
 			<form action="rimuoviRecensione" method="post">
-		<div class="container-informazioni-recensioni" style="background-color:white; position:relative">
+		<div class="container-informazioni-recensioni" >
 			<h6><%=recensione.getEmail()%></h6>
 			<p><%=recensione.getTesto()%></p>
 			<input type="hidden" value="<%=recensione.getId() %>" name="idRecensione">

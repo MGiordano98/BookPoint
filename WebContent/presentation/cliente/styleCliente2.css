@@ -232,6 +232,19 @@ center img{
 }
 
 
+.img-carrello{
+	margin-left:250px;
+}
+
+.utente{
+	margin-right:140px;float:none;
+}
+
+.navbar-left-mio{
+	margin-left:50px;
+}
+
+
 
 /* CSS FOOTER*/
 .footer{
@@ -430,6 +443,10 @@ media-heading h2{
 	}
 }
 
+#error{
+	color:red;
+}
+
 .divlogin{
 	padding:10% 10% 10% 10%;
 }
@@ -603,6 +620,15 @@ media-heading h2{
 	
 }
 
+.container-recensione{
+	background-color:ivory;
+}
+
+.container-informazioni-recensioni{
+	background-color:white; 
+	position:relative;
+}
+
 .visualizza-libro-immagine{
 	margin-right: 1%;
 }
@@ -751,6 +777,7 @@ body .no-padding {
 .carousel-mio.slide.carousel{
 	height: 280px;
 	margin-bottom: 30px;
+	margin-left:4%;
 }
 
 .visualizza{
@@ -835,6 +862,10 @@ body .no-padding {
 	font-weight:bold;
 }
 
+.divfisso-mio{
+	min-width:600px;
+}
+
 .td-padding{
 	padding-right:70px;
 }
@@ -885,5 +916,22 @@ body .no-padding {
 	}
 
 
+/*css completa acquisto*/
+.completa-acquisto{
+	margin-left:40%;
+	margin-top:5%;
+}
 
+.completa-acquisto h2{
+	color:green;
+	}
+	
+.td-center{
+	text-align: center;
+}	
+
+.container-carrello{
+	display:inline; 
+	float:right; 
+}
 

@@ -213,6 +213,10 @@ form.example::after {
 	margin-left:42%;
 }
 
+.formModificaTipo form{
+	margin-top:5%;
+}
+
 .table-bordered{
 	background-color:ivory;
 }
@@ -234,6 +238,13 @@ form.example::after {
 	margin-bottom:2%;
 	position:relative;
 	background-color:mintcream;
+}
+
+.container-informazioni-libro{
+	 position:absolute;
+	 right:0;
+	 top:0;
+	 width:80%;
 }
 
 .immagine-libro-trovato{
@@ -266,3 +277,24 @@ form.example::after {
 	padding-right: 0px;
 	padding-left: 0px;
 }
+
+.aggiungi-autori {
+	display: none;
+}
+
+/* visualizza libro css*/
+
+#descrizioneLibro{
+	word-wrap:break-word;
+}
+
+.container-recensione{
+	position:relative;
+	background-color:ivory;
+}
+
+.container-informazioni-recensioni{
+	position:relative;
+}
+
+ 

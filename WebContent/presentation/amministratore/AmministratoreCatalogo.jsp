@@ -106,7 +106,7 @@
 				</tr>
 				<!-- AGGIUNGI AUTORI -->
 			</table>
-			<div class="aggiungi-autori td-bold" style="display: none">
+			<div class="aggiungi-autori td-bold" >
 				<button type="button" class="btn btn-danger bottone-aggiungi-autore">+</button>
 				<div class="aggiungi-autore ">
 					Nome: <input type="text" name="autore">

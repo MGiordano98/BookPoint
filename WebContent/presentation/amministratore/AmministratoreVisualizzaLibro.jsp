@@ -51,7 +51,7 @@ Collection<Recensione> recensioni=libro.getRecensioni();
       
      <tr>
       <td>Descrizione</td>
-      <td  id="descrizioneLibro" style="word-wrap:break-word;"colspan="2"><%=libro.getTrama() %></td>
+      <td  id="descrizioneLibro" colspan="2"><%=libro.getTrama() %></td>
       <td><center><button data-toggle="modal" data-target="#exampleModal4" class="btn btn-danger" type="submit" value="modifica"  class="modificaDescrizione">Modifica</button></center></td>
     </tr>
      <tr>
@@ -70,7 +70,7 @@ Collection<Recensione> recensioni=libro.getRecensioni();
 
 <div class="container-recensione-libro">
 <h2>Recensioni</h2>
-<div class="container-recensione" style="position:relative;background-color:ivory">
+<div class="container-recensione" >
 
   
 <% 
@@ -80,7 +80,7 @@ while(it2.hasNext()){
 Recensione recensione=(Recensione) it2.next();%>
    
 
-     		<div class="container-informazioni-recensioni" id="div-recensione<%=i %>" style="position:relative">
+     		<div class="container-informazioni-recensioni" id="div-recensione<%=i %>" >
      		<form action="eliminaRecensione" method="post">
      		<h6><%=recensione.getEmail() %></h6>
 			<p><%=recensione.getTesto() %></p>
@@ -117,7 +117,7 @@ Recensione recensione=(Recensione) it2.next();%>
 							<!-- Modifica  DATI Libro -->
 							<tr>
 						
-								<td class="td-bold"><label for="isbn">Titolo</label></td>
+								<td class="td-bold"><label for="titolo">Titolo</label></td>
 								<td><input type="text" name="nuovoAttributo" id="titoloNuovoAttributo"><br></td>
 							</tr>
 
@@ -156,7 +156,7 @@ Recensione recensione=(Recensione) it2.next();%>
 							<!-- Modifica  DATI Libro -->
 							<tr>
 						
-								<td class="td-bold"><label for="isbn">Immagine</label></td>
+								<td class="td-bold"><label for="immagine">Immagine</label></td>
 								<td><input type="text" name="nuovoAttributo" id="immagineNuovoAttributo"><br></td>
 							</tr>
 
@@ -195,7 +195,7 @@ Recensione recensione=(Recensione) it2.next();%>
 							<!-- Modifica  DATI Libro -->
 							<tr>
 						
-								<td class="td-bold"><label for="isbn">Editore</label></td>
+								<td class="td-bold"><label for="editore">Editore</label></td>
 								<td><input type="text" name="nuovoAttributo" id="editoreNuovoAttributo"><br></td>
 							</tr>
 
@@ -271,7 +271,7 @@ Recensione recensione=(Recensione) it2.next();%>
 							<!-- Modifica  DATI Libro -->
 							<tr>
 						
-								<td class="td-bold"><label for="isbn">Categoria</label></td>
+								<td class="td-bold"><label for="categoria">Categoria</label></td>
 								<td><input type="text" name="nuovoAttributo" id="categoriaNuovoAttributo"><br></td>
 							</tr>
 
@@ -309,7 +309,7 @@ Recensione recensione=(Recensione) it2.next();%>
 							<!-- Modifica  DATI Libro -->
 							<tr>
 						
-								<td class="td-bold"><label for="isbn">Descrizione</label></td>
+								<td class="td-bold"><label for="descrizione">Descrizione</label></td>
 								<td><input type="text" name="nuovoAttributo" id="descrizioneNuovoAttributo"><br></td>
 							</tr>
 
@@ -348,7 +348,7 @@ Recensione recensione=(Recensione) it2.next();%>
 							<!-- Modifica  DATI Libro -->
 							<tr>
 						
-								<td class="td-bold"><label for="isbn">Prezzo</label></td>
+								<td class="td-bold"><label for="prezzo">Prezzo</label></td>
 								<td><input type="text" name="nuovoAttributo" id="prezzoNuovoAttributo"><br></td>
 							</tr>
 
@@ -387,7 +387,7 @@ Recensione recensione=(Recensione) it2.next();%>
 							<!-- Modifica  DATI Libro -->
 							<tr>
 						
-								<td class="td-bold"><label for="isbn">Quantita</label></td>
+								<td class="td-bold"><label for="quantita">Quantita</label></td>
 								<td><input type="text" name="nuovoAttributo" id="quantitaNuovoAttributo"><br></td>
 							</tr>
 

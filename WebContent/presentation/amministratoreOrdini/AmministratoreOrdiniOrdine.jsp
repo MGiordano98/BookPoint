@@ -15,7 +15,7 @@
 
 	<div class="container-cerca">
 		<div class="cerca">
-			<form class="search-container" action="ricercaOrdine">
+			<form class="search-container" action="ricercaOrdine" method="post">
 				<input   type="text" id="search-bar" placeholder="Cerca ordine"
 					name="numOrdine"> 
 					<input class="btn btn-danger" type="submit" value="Cerca ordine">
@@ -34,23 +34,23 @@
 
 
 			<tr>
-				<td style="padding-right: 25%;">Stato</td>
-				<td style="padding-right: 25%;"><input type="text" id="stato"
+				<td class="td-padding" >Stato</td>
+				<td class="td-padding" ><input type="text" id="stato"
 					value="<%=ordine.getStato()%>" name="name" readonly></td>
-				<td style="padding-right: 5%;"><button class="btn btn-danger" id="button-1">Modifica
+				<td class="td-padding1"><button class="btn btn-danger" id="button-1">Modifica
 						stato</button></td>
 			</tr>
 			<tr>
-				<td style="padding-right: 25%;">Ora consegna</td>
-				<td style="padding-right: 25%;"><input type="text" id="ora"
+				<td class="td-padding" >Ora consegna</td>
+				<td class="td-padding" ><input type="text" id="ora"
 					value="<%=ordine.getOra()%>" name="ora" readonly></td>
-				<td style="padding-right: 5%;"></td>
+				<td class="td-padding1"></td>
 			</tr>
 			<tr>
-				<td style="padding-right: 25%;">Data Consegna</td>
-				<td style="padding-right: 25%;"><input type="text" id="data"
+				<td class="td-padding" >Data Consegna</td>
+				<td class="td-padding" ><input type="text" id="data"
 					value="<%=ordine.getDataConsegna()%>" name="data" readonly></td>
-				<td style="padding-right: 5%;"><button class="btn btn-danger" id="button-2">Modifica
+				<td class="td-padding1"><button class="btn btn-danger" id="button-2">Modifica
 						data e ora</button></td>
 			</tr>
 
@@ -62,7 +62,7 @@
 	%>
 
 <div class="modificaAttributo" id="div-modifica-stato">
-	<form action="cambiaStato">
+	<form action="cambiaStato" method="post">
 		<table>
 			<tr>
 				<td><label>Stato: </label><input type="text"

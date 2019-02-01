@@ -99,26 +99,26 @@
 						<table>
 							<!-- Modifica  DATI Indirizzo -->
 							<tr>
-								<td class="td-bold"><label for="isbn">Via</label></td>
+								<td class="td-bold"><label for="via">Via</label></td>
 								<td><input id="via" type="text" name="via"
 									placeholder="via"><br></td>
 							</tr>
 
 							<tr>
-								<td class="td-bold"><label for="titolo">Numero
+								<td class="td-bold"><label for="numCivico">Numero
 										Civico</label></td>
 								<td><input id="numCivico" type="text" name="numCivico"
 									placeholder="Numero Civico"><br></td>
 							</tr>
 
 							<tr>
-								<td class="td-bold"><label for="trama">CAP</label></td>
+								<td class="td-bold"><label for="cap">CAP</label></td>
 								<td><input id="cap" type="text" name="cap"
 									placeholder="CAP"><br></td>
 							</tr>
 
 							<tr>
-								<td class="td-bold"><label for="casaEditrice">Città</label></td>
+								<td class="td-bold"><label for="citta">Città</label></td>
 								<td><input id="città" type="text" name="citta"
 									placeholder="Città"><br></td>
 							</tr>

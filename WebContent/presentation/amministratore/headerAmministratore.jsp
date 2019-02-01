@@ -17,7 +17,7 @@
 
 
 <div class="topnav" id="myTopnav">
-	<a class="navbar-brand navbar-left-mio" href="Home.jsp">
+	<a class="navbar-brand navbar-left-mio" >
 		<i class="fas fa-book fa-lg"></i>
 	  </a>
 	  

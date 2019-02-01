@@ -16,12 +16,12 @@
 <center><img src="../image/logo.jpg"></center>
 
 <div class="topnav" id="myTopnav">
-	<a style="margin-left:50px;"class="navbar-brand navbar-left-mio" href="Home.jsp">
+	<a class="navbar-brand navbar-left-mio" href="Home.jsp">
 		<i class="fas fa-book fa-lg"></i>
 	  </a>
 	  
 	  <a href="../../VisualizzaCatalogo">Libri</a>
-	  <a style="margin-left:250px;" class="nav-link" href="Carrello.jsp"><i class="fas fa-shopping-cart"></i></a>
+	  <a  class="nav-link img-carrello" href="Carrello.jsp"><i class="fas fa-shopping-cart"></i></a>
 	  <% Utente utente=(Utente) session.getAttribute("utente"); 
 	  if(utente!=null) {%>
 	  <a href="../../VisualizzaPreferiti">Preferiti</a>
@@ -29,7 +29,7 @@
 	  <%} else { %>
 	  <a href="../../VisualizzaPreferiti"> </a>
 	  <%}if(utente==null){ %>
-	  <a style="margin-right:140px;float:none;"class="nav-link utente" href="Login.jsp" ><i class="fas fa-user-circle fa-lg"></i>  </a>
+	  <a  class="nav-link utente" href="Login.jsp" ><i class="fas fa-user-circle fa-lg"></i>  </a>
 	  <%} else {%>
 	   <a class="nav-link utente-login" href="Login.jsp" ><i class="fas fa-user-circle fa-lg"></i>  </a>
 	   <a class="logout" href="logout"><i class="fas fa-sign-out-alt"></i></a>

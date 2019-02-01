@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<div class="divfisso-mio" style="min-width:600px;">
+<div class="divfisso-mio" >
 <%@ include file="header.jsp"%>
 
 <% Collection<?> ordini = (Collection<?>) request.getSession().getAttribute("ordini"); %>
