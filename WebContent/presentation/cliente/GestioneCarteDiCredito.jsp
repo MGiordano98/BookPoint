@@ -99,26 +99,26 @@
 							<tr>
 								<td class="td-bold"><label for="numCarta">Numero di carta</label></td>
 								<td><input id="numCarta" type="text" name="numCarta"
-									placeholder="numero di carta"><br></td>
+									placeholder="numero di carta" pattern="/^\d{16}$/"><br></td>
 							</tr>
 
 							<tr>
 								<td class="td-bold"><label for="intestatario">Intestatario
 										</label></td>
 								<td><input id="intestatario" type="text" name="intestatario"
-									placeholder="intestatario"><br></td>
+									placeholder="intestatario" pattern=" /^[A-Za-z]+[ ]*[A-Za-z]*$/" ><br></td>
 							</tr>
 
 							<tr>
 								<td class="td-bold"><label for="dataScandeza">Data scadenza</label></td>
 								<td><input type="date" id="dataScadenza" type="text" name="dataScadenza"
-									placeholder="CAP"><br></td>
+									placeholder="CAP" ><br></td>
 							</tr>
 
 							<tr>
 								<td class="td-bold"><label for="cvv">CVV</label></td>
 								<td><input id="cvv" type="text" name="cvv"
-									placeholder="CVV"><br></td>
+									placeholder="CVV" pattern="/^\d{3}$/"><br></td>
 							</tr>
 						</table>
 						<input type="hidden" value=<%=utente2.getEmail() %>

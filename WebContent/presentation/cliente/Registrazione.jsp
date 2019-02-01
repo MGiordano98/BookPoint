@@ -23,9 +23,9 @@
       <label for="exampleDropdownFormEmail1">Cognome</label>
       <input type="text" class="form-control" id="cognome" placeholder="cognome" name="cognome" pattern="^[a-zA-Z\S]{3,}$" required>
       <label for="exampleDropdownFormEmail1">Indirizzo E-mail</label>
-      <input type="email" class="form-control" id="email" placeholder="email@example.com" name="email" required>
+      <input type="email" class="form-control" id="email" placeholder="email@example.com" name="email" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" required>
       <label for="exampleDropdownFormPassword1">Password</label>
-      <input type="password" class="form-control" id="password" placeholder="Password" name="password" pattern="^[a-zA-Z0-9\S]{4,12}$" required>
+      <input type="password" class="form-control" id="password" placeholder="Password" name="password" pattern="^[a-zA-Z0-9_.,\-+*!#@?]{8,25}$" required>
     <button type="submit" class="btn btn-primary">Invia</button>
     </div>
   </form>
