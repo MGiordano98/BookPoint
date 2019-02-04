@@ -4,6 +4,9 @@ import static org.junit.Assert.*;
 
 import java.sql.Date;
 import java.util.ArrayList;
+
+import carrello.Carrello;
+
 import java.sql.Date;
 import junit.framework.Test;
 import junit.framework.TestCase;

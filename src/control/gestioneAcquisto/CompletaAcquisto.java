@@ -16,10 +16,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bean.Carrello;
 import bean.Indirizzo;
 import bean.Ordine;
 import bean.Utente;
+import carrello.Carrello;
 import model.OrdineManager;
 
 /**

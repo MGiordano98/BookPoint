@@ -1,6 +1,8 @@
-package bean;
+package carrello;
 
 import java.util.ArrayList;
+
+import bean.Libro;
 
 public class Carrello {
 	private ArrayList<Libro> libri;

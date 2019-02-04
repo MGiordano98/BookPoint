@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
-import bean.Carrello;
 import bean.Libro;
 import bean.Ordine;
+import carrello.Carrello;
 import connectionPool.*;
 
 @SuppressWarnings("unused")
@@ -180,32 +180,4 @@ public class OrdineManager {
 		
 	}
 
-	public Carrello aggiungiAlCarrello(Carrello carrello, Libro libro, int quantità) {
-		
-		carrello.aggiungiAlCarrello(libro, quantità);
-		
-		return carrello;
-		
-	}
-	
-	public Carrello aumentaQuantità(Carrello carrello,String isbn) {
-		
-		carrello.aumentaQuantità(isbn);
-		
-		return carrello;
-	}
-	
-	public Carrello diminuisciQuantità(Carrello carrello,String isbn) {
-		
-		carrello.diminuisciQuantità(isbn);
-		
-		return carrello;
-	}
-	
-	public Carrello rimuoviDalCarrello(Carrello carrello, String isbn) {
-		
-		carrello.rimuoviLibro(isbn);
-		
-		return carrello;
-	}
 }

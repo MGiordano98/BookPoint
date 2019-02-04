@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bean.Carrello;
 import bean.Libro;
+import carrello.Carrello;
 import model.OrdineManager;
 
 /**
@@ -43,7 +43,7 @@ public class DiminuisciQuantità extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		
 		String isbn= request.getParameter("isbn");
-		carrello= manager.diminuisciQuantità(carrello, isbn);
+		carrello.diminuisciQuantità(isbn);
 		Libro lib= carrello.getLibro(isbn);
 		
 		request.getSession().setAttribute("carrello", carrello);

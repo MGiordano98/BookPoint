@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bean.Carrello;
+import carrello.Carrello;
 import model.OrdineManager;
 
 /**
@@ -39,7 +39,7 @@ public class EliminaDalCarrello extends HttpServlet {
 		
 		String isbn= request.getParameter("isbn");
 		System.out.println(isbn);
-		carrello= manager.rimuoviDalCarrello(carrello, isbn);
+		carrello.rimuoviLibro(isbn);
 		
 		request.getSession().setAttribute("carrello", carrello);
 		RequestDispatcher dispatcher= request.getRequestDispatcher("Carrello.jsp");
