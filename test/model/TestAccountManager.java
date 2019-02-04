@@ -70,8 +70,17 @@ public class TestAccountManager extends TestCase{
 	}
 	
 	public void testRicercaCarte() throws SQLException {
-		String email= "g.teodoro@studenti.unisa.it";
+		String email= "g.teodoro studenti.unisa.it";
 		Collection<CartaDiCredito> carte= manager.ricercaCarte(email);
+		assertNull(carte);
+		
+		email= "g.varone@studenti.unisa.it";
+		carte= manager.ricercaCarte(email);
+		assertNull(carte);
+		
+		
+		email= "g.teodoro@studenti.unisa.it";
+		carte= manager.ricercaCarte(email);
 		assertTrue(carte.size()>0);
 		
 		Iterator<CartaDiCredito> it= carte.iterator();
@@ -85,8 +94,28 @@ public class TestAccountManager extends TestCase{
 	}
 	
 	public void testRicercaIndirizzi() throws SQLException {
-		String email= "g.teodoro@studenti.unisa.it";
-		assertNotNull(manager.ricercaIndirizzi(email));
+		String email= "g.teodoro studenti.unisa.it";
+		Collection<Indirizzo> indirizzi= manager.ricercaIndirizzi(email);
+		assertNull(indirizzi);
+		
+		email= "g.varone@studenti.unisa.it";
+		indirizzi= manager.ricercaIndirizzi(email);
+		assertNull(indirizzi);
+		
+		
+		email= "g.teodoro@studenti.unisa.it";
+		indirizzi= manager.ricercaIndirizzi(email);
+		assertTrue(indirizzi.size()>0);
+		
+		Iterator<Indirizzo> it= indirizzi.iterator();
+		while(it.hasNext()) {
+			Indirizzo indirizzo= it.next();
+			assertNotNull(indirizzo.getId());
+			assertNotNull(indirizzo.getCap());
+			assertNotNull(indirizzo.getCittà());
+			assertNotNull(indirizzo.getVia());
+			assertNotNull(indirizzo.getNumCivico());
+		}
 	}
 	
 	public void testAggiungiCarta() throws SQLException {

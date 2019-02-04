@@ -1,16 +1,19 @@
 use bookpoint;
 
 Insert into utente(email, nome, cognome, dataDiNascita, psw,tipo)
-values('g.teodoro@studenti.unisa.it','Gennaro','Teodoro','1997-11-14','Gennaro','Cliente');
+values('g.teodoro@studenti.unisa.it','Gennaro','Teodoro','1997-11-14','@Gennaro0','Cliente');
 
 Insert into utente(email, nome, cognome, dataDiNascita, psw,tipo)
-values('v.sammartino@studenti.unisa.it','Vittorio','Sammartino','1997-06-24','Vittorio','Cliente');
+values('g.varone@studenti.unisa.it','Giulio','Varone','1997-10-14','@Giulio0','Cliente');
 
 Insert into utente(email, nome, cognome, dataDiNascita, psw,tipo)
-values('m.giordano162@studenti.unisa.it','Massimo','Giordano','1998-01-05','Massimo','Amministratore');
+values('v.sammartino@studenti.unisa.it','Vittorio','Sammartino','1997-06-24','@Vittorio0','Cliente');
 
 Insert into utente(email, nome, cognome, dataDiNascita, psw,tipo)
-values('g.buonocore15@studenti.unisa.it','Giovanni','Buonocore','1997-06-07','Giovanni','AmministratoreOrdine');
+values('m.giordano162@studenti.unisa.it','Massimo','Giordano','1998-01-05','@Massimo0','Amministratore');
+
+Insert into utente(email, nome, cognome, dataDiNascita, psw,tipo)
+values('g.buonocore15@studenti.unisa.it','Giovanni','Buonocore','1997-06-07','@Giovanni0','AmministratoreOrdine');
 
 insert into indirizzo(via,numeroCivico,cap,città,utente)
 values('Enrico Fermi',9,'80040','Terzigno','g.teodoro@studenti.unisa.it');
