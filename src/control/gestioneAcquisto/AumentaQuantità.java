@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-import bean.Carrello;
 import bean.Libro;
+import carrello.Carrello;
 import model.OrdineManager;
 
 /**
@@ -45,7 +45,7 @@ public class AumentaQuantità extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		
 		String isbn= request.getParameter("isbn");
-		carrello= manager.aumentaQuantità(carrello, isbn);
+		carrello.aumentaQuantità(isbn);
 		Libro lib= carrello.getLibro(isbn);
 		
 		request.getSession().setAttribute("carrello", carrello);

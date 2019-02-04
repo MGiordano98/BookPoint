@@ -5,9 +5,9 @@ import java.sql.SQLException;
 import java.sql.Time;
 import java.util.ArrayList;
 
-import bean.Carrello;
 import bean.Libro;
 import bean.Ordine;
+import carrello.Carrello;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;

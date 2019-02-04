@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bean.Carrello;
 import bean.Libro;
+import carrello.Carrello;
 import model.LibroManager;
 import model.OrdineManager;
 
@@ -45,7 +45,7 @@ public class AggiungiAlCarrello extends HttpServlet {
 		int quantità= Integer.parseInt(request.getParameter("quantita"));
 		try {
 			Libro lib= libroManager.visualizzaLibro(isbn);
-			carrello =manager.aggiungiAlCarrello(carrello, lib, quantità);
+			carrello.aggiungiAlCarrello(lib, quantità);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
