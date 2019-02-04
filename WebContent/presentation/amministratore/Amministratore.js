@@ -10,76 +10,6 @@ $(document).ready(function(){
 	});
 
 
-	$(".modificaFoto").click(function(){
-		$(".formModificaFoto").slideToggle();
-		$(".formModificaQuantita").hide;
-		$(".formModificaTitolo").hide();
-		$(".formModificaEditore").hide();
-		$(".formModificaCategoria").hide();
-		$(".formModificaDescrizione").hide();
-		$(".formModificaPrezzo").hide();	
-	});
-
-	$(".modificaQuantita").click(function(){
-		$(".formModificaQuantità").slideToggle();
-		$(".formModificaFoto").hide();
-		$(".formModificaTitolo").hide();
-		$(".formModificaEditore").hide();
-		$(".formModificaCategoria").hide();
-		$(".formModificaDescrizione").hide();
-		$(".formModificaPrezzo").hide();
-	});
-
-	$(".modificaTitolo").click(function(){
-		$(".formModificaTitolo").slideToggle();
-		$(".formModificaFoto").hide();
-		$(".formModificaQuantita").hide;
-		$(".formModificaEditore").hide();
-		$(".formModificaCategoria").hide();
-		$(".formModificaDescrizione").hide();
-		$(".formModificaPrezzo").hide();
-	});
-
-	$(".modificaEditore").click(function(){
-		$(".formModificaEditore").slideToggle();
-		$(".formModificaCategoria").hide();
-		$(".formModificaDescrizione").hide();
-		$(".formModificaPrezzo").hide();
-		$(".formModificaFoto").hide();
-		$(".formModificaQuantita").hide;
-		$(".formModificaTitolo").hide();
-	});
-
-	$(".modificaCategoria").click(function(){
-		$(".formModificaCategoria").slideToggle();
-		$(".formModificaDescrizione").hide();
-		$(".formModificaPrezzo").hide();
-		$(".formModificaFoto").hide();
-		$(".formModificaQuantita").hide;
-		$(".formModificaTitolo").hide();
-		$(".formModificaEditore").hide();
-	});
-
-	$(".modificaDescrizione").click(function(){
-		$(".formModificaDescrizione").slideToggle();
-		$(".formModificaPrezzo").hide();
-		$(".formModificaFoto").hide();
-		$(".formModificaQuantita").hide;
-		$(".formModificaTitolo").hide();
-		$(".formModificaEditore").hide();
-		$(".formModificaCategoria").hide();
-	});
-
-	$(".modificaPrezzo").click(function(){
-		$(".formModificaPrezzo").slideToggle();
-		$(".formModificaFoto").hide();
-		$(".formModificaQuantita").hide;
-		$(".formModificaTitolo").hide();
-		$(".formModificaEditore").hide();
-		$(".formModificaCategoria").hide();
-		$(".formModificaDescrizione").hide();
-	});
-
 	$("#search-button").click(function(){
 		$("#form-ricerca-libri").submit();
 	});
@@ -100,7 +30,6 @@ $(document).ready(function(){
 
 	$(".visualizza").click(function(){
 		var isbn= $(this).attr("name");
-		alert(isbn);
 		$.post("visualizzaLibro",{"isbn":isbn}, function(data, status){
 			window.location.href= "AmministratoreVisualizzaLibro.jsp";
 		});
@@ -109,13 +38,12 @@ $(document).ready(function(){
 
 	$(".modificaButton").click(function(){
 		var id= this.id;
-		var tipo= $("#"+id+"Tipo").val(); alert($("#"+id+"Tipo").val());
-		var nuovoAttributo= $("#"+id+"NuovoAttributo").val(); alert($("#"+id+"NuovoAttributo").val());
+		var tipo= $("#"+id+"Tipo").val();
+		var nuovoAttributo= $("#"+id+"NuovoAttributo").val();
 
 		$.post("modificaAttributo", {"tipo":tipo, "nuovoAttributo":nuovoAttributo},function(data, statuts){
 			if(data.result){
 				$("#"+id+"Libro").text(data.nuovoAttributo);
-				alert(data.nuovoAttributo);
 			}
 		});
 	});
@@ -123,7 +51,7 @@ $(document).ready(function(){
 	$(".bottone-elimina").click(function(){
 		alert("aaa");
 		var id= this.id;
-		var idRecensione= $("#recensione"+id).val(); alert($("#recensione"+id).val());
+		var idRecensione= $("#recensione"+id).val(); 
 		$.post("eliminaRecensione", {"idRecensione": idRecensione}, function(data){
 			$("#div-recensione"+id).remove();
 		});

@@ -163,9 +163,7 @@ center img{
   margin-left:12%;
 }
 
-.nav-link.utente{
-	margin-left:-4%;
-}
+
 .nav-link.utente-login{
 	display:none;
 }
@@ -758,7 +756,6 @@ body .no-padding {
 
 .slider.no-padding.carousel-inner.container img {
 	height: 280px;
-	width: 230px;
 	padding: 5%;
 }
 
