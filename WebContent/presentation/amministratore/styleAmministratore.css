@@ -297,4 +297,12 @@ form.example::after {
 	position:relative;
 }
 
+.close-mio.close{
+	position:absolute;
+	right:0;
+	top:0;
+	padding-right:25px;
+	margin:0;
+	padding:0;
+}
  

@@ -43,15 +43,12 @@ if(request.getSession().getAttribute("admin")!=null){
     %>
     <p id="error">password o email errati</p>
     <%request.getSession().removeAttribute("esiste"); } %>
-   <button class="btn brn-primary" id="loginButton">Login</button>
+   <button class="btn btn-danger" id="loginButton">Login</button>
  	</form>
-  <div class="dropdown-divider"></div>
-     <span class="spanlogin">Non hai ancora un account Book Point?</span><br>
-     <span class="spanlogin"><a href="Registrazione.jsp">Crea il tuo account Book Point!</a></span>
-</div>
+ 
 </div>
 
-
+</div>
 
 
 

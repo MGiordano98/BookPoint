@@ -26,7 +26,7 @@ Collection<Recensione> recensioni=libro.getRecensioni();
   <tr>
       <td>Immagine</td>
       <td colspan="2" id="fotoLibro"><%=libro.getFoto() %></td>
-    <td> <center><button data-toggle="modal" data-target="#exampleModal0" class="btn btn-danger" type="submit" value="modifica"  class="modificaImmagine">Modifica</button></center></td>
+    <td> <center></center></td>
     </tr>
       <tr>
       <td>Titolo</td>
@@ -63,6 +63,15 @@ Collection<Recensione> recensioni=libro.getRecensioni();
       <td>Quantita</td>
       <td colspan="2" id="quantitaLibro"><%=libro.getQuantità()%></td>
 	  <td><center><button data-toggle="modal" data-target="#exampleModal6" class="btn btn-danger" type="submit" value="modifica"  class="modificaQauntita">Modifica</button></center></td>
+    </tr>
+      <tr>
+      <td></td>
+      <td><center><form action="eliminaLibro" method="post">
+      		<input type="hidden" name="isbn" value="<%=libro.getIsbn() %>" >
+      		<button class="btn btn-danger" type="submit" value="elimina" >Elimina</button>
+      		
+      		</form></center></td>
+	  <td></td>
     </tr>
   </tbody>
 </table>
@@ -106,7 +115,7 @@ Recensione recensione=(Recensione) it2.next();%>
 					Titolo</h5>
 
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
+						<button type="button" class="close close-mio" data-dismiss="modal"
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -137,45 +146,7 @@ Recensione recensione=(Recensione) it2.next();%>
 		</div>
 	</div>
 	
-		<div class="modal fade" id="exampleModal0" tabindex="-1" role="dialog"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<h5 class="modal-title" id="exampleModalLabel">Modifica
-					Immagine</h5>
-
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-
-					<div class="modal-body">
-						<table>
-							<!-- Modifica  DATI Libro -->
-							<tr>
-						
-								<td class="td-bold"><label for="immagine">Immagine</label></td>
-								<td><input type="text" name="nuovoAttributo" id="immagineNuovoAttributo"><br></td>
-							</tr>
-
-						</table>
-
-					<input type="hidden" name="tipo" value="immagine" id="immagineTipo">
-
-					</div>
-
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary modificaButton" id="immagine">Modifica</button>
-					</div>
-
-			</div>
-		</div>
-	</div>
-	
+			
 		<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
@@ -184,7 +155,7 @@ Recensione recensione=(Recensione) it2.next();%>
 					Editore</h5>
 
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
+						<button type="button" class="close close-mio" data-dismiss="modal"
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -222,7 +193,7 @@ Recensione recensione=(Recensione) it2.next();%>
 					isbn</h5>
 
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
+						<button type="button" class="close close-mio" data-dismiss="modal"
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -260,7 +231,7 @@ Recensione recensione=(Recensione) it2.next();%>
 					Categoria</h5>
 
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
+						<button type="button" class="close close-mio" data-dismiss="modal"
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -298,7 +269,7 @@ Recensione recensione=(Recensione) it2.next();%>
 					Descrizione</h5>
 
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
+						<button type="button" class="close close-mio" data-dismiss="modal"
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -337,7 +308,7 @@ Recensione recensione=(Recensione) it2.next();%>
 					Prezzo</h5>
 
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
+						<button type="button" class="close close-mio" data-dismiss="modal"
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -376,7 +347,7 @@ Recensione recensione=(Recensione) it2.next();%>
 					Quantita</h5>
 
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
+						<button type="button" class="close close-mio" data-dismiss="modal"
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -388,7 +359,8 @@ Recensione recensione=(Recensione) it2.next();%>
 							<tr>
 						
 								<td class="td-bold"><label for="quantita">Quantita</label></td>
-								<td><input type="text" name="nuovoAttributo" id="quantitaNuovoAttributo"><br></td>
+								<td><input type="number"  min="1" max="100"
+						value="1" name="nuovoAttributo" id="quantitaNuovoAttributo"><br></td>
 							</tr>
 
 						</table>
