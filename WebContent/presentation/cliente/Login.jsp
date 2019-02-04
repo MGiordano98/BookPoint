@@ -30,7 +30,7 @@ if(request.getSession().getAttribute("admin")!=null){
     <form class="px-4 px-3" action="login" method="post" name="login" id="form">
     <div class="form-group">
       <label for="exampleDropdownFormEmail1">Indirizzo E-mail</label>
-      <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com" name="email"  pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" required>
+      <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com" name="email"  required>
     </div>
     <div class="form-group">
       <label for="exampleDropdownFormPassword1">Password</label>

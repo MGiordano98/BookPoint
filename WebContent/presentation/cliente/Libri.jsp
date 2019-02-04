@@ -40,18 +40,20 @@
 
 </div>
 </form>
- 
+ 	
  <%if(libri==null){ %>
  
  
-<div class="container-libri-evidenza">
-
+ 
+	
+ 
 	<% if(libriInEvidenza!=null && libriInEvidenza.size()>0){
 	int i=0;
 	
 	%>
-	
-	
+	 
+<div class="container-libri-evidenza">
+	<h4>Libri in Evidenza</h4>
 	<!-- Libri in evidenza -->
 	<div id="demo"
 		class="carousel slide carousel-mio" data-ride="carousel"
@@ -91,9 +93,11 @@
 			</a> <a class="carousel-control-next dopo" href="#demo" data-slide="next">
 				<span class="carousel-control-next-icon"></span>
 			</a>
-	</div>
+		</div>
+</div></div>
 	<%}	 %>
 	
+ 	
 	
 <% if(libriPiùVenduti!=null && libriPiùVenduti.size()>0){
 	int i=0;
@@ -101,6 +105,9 @@
 	%>
 	
 	
+	
+<div class="container-libri-venduti">
+	<h4>Libri Venduti</h4>
 	<!-- Libri più venduti -->
 	<div id="demo2"
 		class="carousel slide carousel-mio" data-ride="carousel"
@@ -142,10 +149,12 @@
 			</a>
 	</div>
 	
+</div>
+
 	<%}	 %>
 
 
-</div>
+
 <%} else if(libri.size()==0){%>
 
 <div>

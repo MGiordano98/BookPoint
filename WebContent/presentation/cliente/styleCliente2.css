@@ -777,7 +777,6 @@ body .no-padding {
 .carousel-mio.slide.carousel{
 	height: 280px;
 	margin-bottom: 30px;
-	margin-left:4%;
 }
 
 .visualizza{
@@ -789,7 +788,13 @@ body .no-padding {
 .container-libri-evidenza{
 	width: 90%;
  	margin-right:5%; 
- 	margin-left:5%; 
+ 	margin-left:8%; 
+ 	margin-top: 50px;
+}
+.container-libri-venduti{
+	width: 90%;
+ 	margin-right:5%; 
+ 	margin-left:8%; 
  	margin-top: 50px;
 }
 
