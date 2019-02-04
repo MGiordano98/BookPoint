@@ -4,7 +4,7 @@
  
 <!DOCTYPE html>
 <html>
- <%@ page language="java" contentType="text/html; charset=utf-8" import="java.util.*, control.gestioneAcquisto.*, model.*,java.lang.Math" %>
+ <%@ page language="java" contentType="text/html; charset=utf-8" import="java.util.*, control.gestioneAcquisto.*, model.*,java.lang.Math, carrello.*" %>
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="styleCliente2.css"> 
