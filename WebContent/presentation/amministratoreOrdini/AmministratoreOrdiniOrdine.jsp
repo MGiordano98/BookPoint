@@ -65,9 +65,17 @@
 	<form action="cambiaStato" method="post">
 		<table>
 			<tr>
-				<td><label>Stato: </label><input type="text"
-					placeholder="stato" name="modifica-stato" id="modifica-stato">
-					<button type="submit" class="btn btn-danger" id="button-modifica-stato">Modifica</button></td>
+				<td><label>Stato: </label>
+				
+				<select class="form-control" name="modifica-stato" id="modifica-stato" placeholder="categoria">
+        <option value="<%= ordine.getStato() %>"><%= ordine.getStato() %></option>
+        <option value="Consegnato">Consegnato</option>
+        <option value="In transito">In transito</option>
+        <option value="Verde">..</option>
+      </select>
+				
+				
+					<td><button type="submit" class="btn btn-danger" id="button-modifica-stato">Modifica</button></td>
 			</tr>
 		</table>
 	</form>

@@ -1,0 +1,131 @@
+{
+  "id": "fb25085a-0414-4c27-a031-0440f5d15595",
+  "version": "2.0",
+  "name": "Progetto_IS",
+  "url": "http://localhost:8080/BookPoint/presentation/cliente/Home.jsp",
+  "tests": [{
+    "id": "597cd8fa-e212-4afc-bade-f8b1a7f1e79f",
+    "name": "TC_1.1",
+    "commands": [{
+      "id": "87d45227-c435-4368-98f2-aba8af1292c9",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/BookPoint/presentation/cliente/Home.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "99118b3c-53c2-403e-92c1-ab2d0af1f568",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1363x728",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f2a6661b-3b64-4bfd-afb4-b4c3eef2ff95",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-sign-out-alt",
+      "targets": [
+        ["css=.fa-sign-out-alt", "css:finder"],
+        ["css=i.fas.fa-sign-out-alt", "css"],
+        ["xpath=//div[@id='myTopnav']/a[7]/i", "xpath:idRelative"],
+        ["xpath=//a[7]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "db037227-3cd3-4e17-b4c9-0af5d7fb0fb3",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4b362cf4-9ff4-4d9c-9022-2d739c49200b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.utente",
+      "targets": [
+        ["css=.utente", "css:finder"],
+        ["css=a.nav-link.utente", "css"],
+        ["xpath=//div[@id='myTopnav']/a[5]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'Login.jsp')]", "xpath:href"],
+        ["xpath=//a[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9f38345a-559a-4620-8297-1c9b14946eb5",
+      "comment": "",
+      "command": "click",
+      "target": "id=exampleDropdownFormEmail1",
+      "targets": [
+        ["id=exampleDropdownFormEmail1", "id"],
+        ["name=email", "name"],
+        ["css=#exampleDropdownFormEmail1", "css:finder"],
+        ["css=#exampleDropdownFormEmail1", "css"],
+        ["xpath=//input[@id='exampleDropdownFormEmail1']", "xpath:attributes"],
+        ["xpath=//form[@id='form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4d8a95ba-2dac-4b6b-973e-a1361e90b027",
+      "comment": "",
+      "command": "type",
+      "target": "id=exampleDropdownFormEmail1",
+      "targets": [
+        ["id=exampleDropdownFormEmail1", "id"],
+        ["name=email", "name"],
+        ["css=#exampleDropdownFormEmail1", "css:finder"],
+        ["css=#exampleDropdownFormEmail1", "css"],
+        ["xpath=//input[@id='exampleDropdownFormEmail1']", "xpath:attributes"],
+        ["xpath=//form[@id='form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "v.sammartino@studenti.unisa.it"
+    }, {
+      "id": "eb9aff75-0289-474a-aa81-d0e3c1b2d622",
+      "comment": "",
+      "command": "type",
+      "target": "id=exampleDropdownFormPassword1",
+      "targets": [
+        ["id=exampleDropdownFormPassword1", "id"],
+        ["name=password", "name"],
+        ["css=#exampleDropdownFormPassword1", "css:finder"],
+        ["css=#exampleDropdownFormPassword1", "css"],
+        ["xpath=//input[@id='exampleDropdownFormPassword1']", "xpath:attributes"],
+        ["xpath=//form[@id='form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Vittorio"
+    }, {
+      "id": "be09d580-192e-4e7e-ae25-09e1d41be5f2",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=exampleDropdownFormPassword1",
+      "targets": [
+        ["id=exampleDropdownFormPassword1", "id"],
+        ["name=password", "name"],
+        ["css=#exampleDropdownFormPassword1", "css:finder"],
+        ["css=#exampleDropdownFormPassword1", "css"],
+        ["xpath=//input[@id='exampleDropdownFormPassword1']", "xpath:attributes"],
+        ["xpath=//form[@id='form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }]
+  }, {
+    "id": "a7977313-75da-44ab-8f03-faaeffe744ef",
+    "name": "TC_1.2",
+    "commands": []
+  }],
+  "suites": [{
+    "id": "2f93fd09-db2a-421d-bce0-18a197a5bbe9",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost:8080/BookPoint/presentation/cliente/Home.jsp"],
+  "plugins": []
+}

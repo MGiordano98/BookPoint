@@ -34,7 +34,7 @@ if(request.getSession().getAttribute("admin")!=null){
     </div>
     <div class="form-group">
       <label for="exampleDropdownFormPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password" name="password" title="ciao" required>
+      <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password" name="password"   required>
     </div>
     <br>
     <%
