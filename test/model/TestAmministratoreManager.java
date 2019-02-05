@@ -3,7 +3,10 @@ package model;
 
 import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import bean.Autore;
 import bean.Libro;
@@ -15,10 +18,7 @@ import junit.framework.TestSuite;
 
 public class TestAmministratoreManager extends TestCase{
 	private AmministratoreManager manager;
-	private ArrayList<Autore> autori;
-	private ArrayList<Recensione> recensioni;
-	private Libro libro;
-	private Libro libroEmpty;
+	
 	
 	public TestAmministratoreManager(String name) {
 		super(name);
@@ -27,24 +27,6 @@ public class TestAmministratoreManager extends TestCase{
 	@Override
 	public void setUp() throws Exception{
 		manager= new AmministratoreManager();
-		autori= new ArrayList<Autore>();
-		autori.add(new Autore("Antoine de Saint-Exupéry"));
-		recensioni= new ArrayList<Recensione>();
-		recensioni.add(new Recensione(0,"cavallo","9788854172388","g.teodoro@studenti.unisa.it"));
-		libroEmpty= new Libro();
-		libro= new Libro();
-		libro.setIsbn("9788854172388");
-		libro.setTitolo("Il piccolo principe");
-		libro.setTrama("Ecco il mio segreto. È molto semplice: si vede bene solo con il cuore. L'essenziale è invisibile agli occhi.\r\n" + 
-				"Il Piccolo Principe è la storia dell’incontro in mezzo al deserto tra un aviatore e un buffo ometto vestito da principe che è arrivato sulla Terra dallo spazio. Ma c’è molto di più di una semplice amicizia in questo libro surreale, filosofico e magico.");
-		libro.setFoto("9788854172388.jpg");
-		libro.setCategoria("fantasy");
-		libro.setCasaEditrice("Newton Compton");
-		libro.setAutori(autori);
-		libro.setPrezzo(12);
-		libro.setCopieVendute(50);
-		libro.setDataUscita(Date.valueOf("2010-10-10"));
-		libro.setRecensioni(recensioni);
 	}
 	
 	@Override
@@ -52,103 +34,171 @@ public class TestAmministratoreManager extends TestCase{
 		super.tearDown();
 	}
 	
-	public void testAggiungiLibroError() throws SQLException {
-		boolean result= manager.aggiungiLibro(libroEmpty);
-		assertFalse(result);
-	}
 	
 	public void testAggiungiLibro() throws SQLException {
-		boolean result= manager.aggiungiLibro(libro);
-		assertEquals(true, result);
+		Libro libro=null;
+		assertFalse(manager.aggiungiLibro(libro));
+		
+		libro=new Libro();
+		libro.setIsbn("1234");
+		assertFalse(manager.aggiungiLibro(libro));
+		
+		libro=new Libro();
+		libro.setIsbn("1234567891234");
+		libro.setTitolo("@");
+		assertFalse(manager.aggiungiLibro(libro));
+		
+		libro=new Libro();
+		libro.setIsbn("1234567891234");
+		libro.setTitolo("Il piccolo principe");
+		libro.setTrama("TestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTestoTesto");
+		assertFalse(manager.aggiungiLibro(libro));
+		
+		libro=new Libro();
+		libro.setIsbn("1234567891234");
+		libro.setTitolo("Il piccolo principe");
+		libro.setTrama("Testo");
+		libro.setTrama("*");
+		assertFalse(manager.aggiungiLibro(libro));
+		
+		libro=new Libro();
+		libro.setIsbn("1234567891234");
+		libro.setTitolo("Il piccolo principe");
+		libro.setTrama("Testo");
+		libro.setTrama("Romanzo");
+		libro.setPrezzo(-1.00);
+		assertFalse(manager.aggiungiLibro(libro));
+		
+		libro=new Libro();
+		libro.setIsbn("1234567891234");
+		libro.setTitolo("Il piccolo principe");
+		libro.setTrama("Testo");
+		libro.setTrama("Romanzo");
+		libro.setPrezzo(1.00);
+		libro.setQuantità(-1);
+		assertFalse(manager.aggiungiLibro(libro));
+		
+		libro=new Libro();
+		libro.setIsbn("1234567891234");
+		libro.setTitolo("Il piccolo principe");
+		libro.setTrama("Testo");
+		libro.setTrama("Romanzo");
+		libro.setPrezzo(1.00);
+		libro.setQuantità(1);
+		libro.setAutori(null);
+		assertFalse(manager.aggiungiLibro(libro));
+		
+		libro=new Libro();
+		libro.setIsbn("1234567891234");
+		libro.setTitolo("Il piccolo principe");
+		libro.setTrama("Testo");
+		libro.setTrama("Romanzo");
+		libro.setPrezzo(1.00);
+		libro.setQuantità(1);
+		ArrayList<Autore> autori=new ArrayList<Autore>();
+		libro.setAutori(autori);
+		assertFalse(manager.aggiungiLibro(libro));
+		
+		libro=new Libro();
+		libro.setIsbn("1234567891234");
+		libro.setTitolo("Il piccolo principe");
+		libro.setTrama("Testo");
+		libro.setTrama("Romanzo");
+		libro.setPrezzo(1.00);
+		libro.setQuantità(1);
+		autori=new ArrayList<Autore>();
+		Autore autore= new Autore("Giovanni");
+		autori.add(autore);
+		libro.setAutori(autori);
+		libro.setDataUscita(Date.valueOf("2000-10-20"));
+		assertFalse(manager.aggiungiLibro(libro));
+		
+		libro=new Libro();
+		libro.setIsbn("1234567891234");
+		libro.setTitolo("Il piccolo principe");
+		libro.setTrama("Testo");
+		libro.setTrama("Romanzo");
+		libro.setPrezzo(1.00);
+		libro.setQuantità(1);
+		autori=new ArrayList<Autore>();
+		autore= new Autore("Giovanni");
+		autori.add(autore);
+		libro.setAutori(autori);
+		GregorianCalendar data= new GregorianCalendar();
+		data.add(Calendar.DAY_OF_MONTH, 1);
+		Date dataUscita= new Date(data.getTime().getTime());
+		libro.setDataUscita(dataUscita);
+		assertFalse(manager.aggiungiLibro(libro));
+		
+		libro=new Libro();
+		libro.setIsbn("1234567891234");
+		libro.setTitolo("Il piccolo principe");
+		libro.setTrama("Testo");
+		libro.setTrama("Romanzo");
+		libro.setPrezzo(1.00);
+		libro.setQuantità(1);
+		autori=new ArrayList<Autore>();
+		autore= new Autore("Giovanni");
+		autori.add(autore);
+		libro.setAutori(autori);
+		data= new GregorianCalendar();
+		dataUscita= new Date(data.getTime().getTime());
+		libro.setDataUscita(dataUscita);
+		assertTrue(manager.aggiungiLibro(libro));
+		
+		
 	}
 	
 	public void testModificaDataUscita() throws SQLException {
-		String isbn= libro.getIsbn();
-		Date data= Date.valueOf("2020-9-9");
-		boolean result= manager.modificaDataUscita(isbn, data);
-		assertEquals(true, result);
+		
 	}
 	
 	public void testModificaCategoria() throws SQLException {
-		String isbn= libro.getIsbn();
-		String categoria= "avventura";
-		boolean result= manager.modificaCategoria(isbn, categoria);
-		assertEquals(true, result);
+		
 	}
 	
 	public void testModificaQuantitàDisponibile() throws SQLException {
-		String isbn= libro.getIsbn();
-		int quantità= 20;
-		boolean result= manager.modificaQuantitàDisponibile(isbn, quantità);
-		assertEquals(true, result);
+		
 	}
 	
 	public void testModificaPrezzo() throws SQLException {
-		String isbn= libro.getIsbn();
-		double prezzo= 20.5;
-		boolean result= manager.modificaPrezzo(isbn, prezzo);
-		assertEquals(true, result);
+		
 	}
 	
 	public void testModificaCasaEditrice() throws SQLException {
-		String isbn= libro.getIsbn();
-		String casaEditrice= "New York";
-		boolean result= manager.modificaCasaEditrice(isbn, casaEditrice);
-		assertEquals(true, result);
+		
 	}
 	
 	public void testModificaFoto() throws SQLException {
-		String isbn= libro.getIsbn();
-		String foto= "pippo.jsp";
-		boolean result= manager.modificaFoto(isbn, foto);
-		assertEquals(true, result);
+		
 	}
 	
 	public void testModificaTrama() throws SQLException {
-		String isbn= libro.getIsbn();
-		String trama= "baaaaab";
-		boolean result= manager.modificaTrama(isbn, trama);
-		assertEquals(true, result);
+		
 	}
 	
 	public void testModificaTitolo() throws SQLException {
-		String isbn= libro.getIsbn();
-		String titolo= "poor";
-		boolean result= manager.modificaTitolo(isbn, titolo);
-		assertEquals(true, result);
+		
 	}
 	
-	
 	public void testEliminaRecensione() throws SQLException {
-		int idRecensione= 8;
-		boolean result= manager.eliminaRecensione(idRecensione);
-		assertEquals(true, result);
+		
 	}
 	
 	public void testEliminaLibro() throws SQLException {
-		String isbn= libro.getIsbn();
-		boolean result= manager.eliminaLibro(isbn);
-		assertEquals(true, result);
+		
 	}
 	
 	public void testRicercaAccount() throws SQLException {
-		String email= "g.buonocore15@studenti.unisa.it";
-		Utente utente= manager.ricercaAccount(email);
-		assertNotNull(utente.getEmail());
-		assertNotNull(utente.getNome());
-		assertNotNull(utente.getCognome());
-		assertNotNull(utente.getTipo());
+		
 	}
 	
 	public void testCambiaTipo() throws SQLException {
-		String email="g.buonocore15@studenti.unisa.it";
-		String tipo="cliente";
-		assertEquals(true, manager.cambiaTipo(email, tipo));
+		
 	}
 	
 	public void testEliminaUtente() throws SQLException {
-		String email="v.sammartino@studenti.unisa.it";
-		assertEquals(true, manager.eliminaUtente(email));
+		
 	}
 	
 
