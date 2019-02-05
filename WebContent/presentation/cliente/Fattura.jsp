@@ -185,7 +185,7 @@
                       
                       </td>
                       <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #1e2b33;  line-height: 18px;  vertical-align: top; padding:10px 0;" align="right">
-                      	<%=libro.getPrezzo()* libro.getQuantità() %>
+                       <%=Math.round((libro.getQuantità() * libro.getPrezzo())*100.0)/100.0 %>
                       </td>
                     </tr>
                     <tr>
@@ -232,7 +232,7 @@
                       </td>
                       <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #000; line-height: 22px; vertical-align: top; text-align:right; ">
                         <strong>
-                       	<%= ordine.getPrezzoTot() %>
+                       	<%=Math.round(ordine.getPrezzoTot()*100.0)/100.0 %>
                        	</strong>
                       </td>
                     </tr>

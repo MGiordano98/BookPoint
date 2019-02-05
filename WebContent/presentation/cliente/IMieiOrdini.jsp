@@ -74,8 +74,8 @@
 			<tr>
 				<td class="td-padding" ><%=libro.getTitolo() %></td>
 				<td class="td-padding"><%=libro.getQuantità() %></td>
-				<td class="td-padding"><%=libro.getPrezzo() %></td>
-				<td><%=libro.getQuantità()*libro.getPrezzo() %></td>
+				<td class="td-padding"><%=Math.round(libro.getPrezzo()*100.0)/100.0 %></td>
+				<td><%=Math.round((libro.getQuantità() * libro.getPrezzo())*100.0)/100.0 %></td>
 			</tr>
 	
 	</table>

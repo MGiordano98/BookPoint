@@ -55,7 +55,12 @@
                         <td class="col-sm-6 col-md-5">
                         <div class="media">
                             <a class="thumbnail pull-left "> <img class="media-object" id="" src="../image/<%=libro.getFoto()%>" >	</a>
-                            <p class="thumbnail trama"><%=libro.getTrama().substring(0, 200) %>...</p>
+                            <p class="thumbnail trama">
+                            <%if(libro.getTrama().length()>200){ %>
+                            <%=libro.getTrama().substring(0, 200) %>
+                            <%}else{ %>
+                            <%=libro.getTrama() %>
+                            <%} %>...</p>
                             <div class="media-body">
                                 <h4 class="media-heading" id="nome"></h4>                         
                             </div>

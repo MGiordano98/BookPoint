@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8" import="bean.Utente"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -12,7 +12,7 @@
 <div class="container-cerca">
 <div class="cerca">
   <form class=" search-container" action="ricercaAccount" >
-    <input  type="text" id="search-bar" placeholder="Cerca account" name="email">
+    <label for="search-bar">Email: </label><input type="email" id="search-bar" placeholder="Cerca account" name="email" required>
     <input class="btn btn-danger " type="submit" value="Cerca account">
   </form>
 </div>

@@ -77,6 +77,10 @@ public class CompletaAcquisto extends HttpServlet {
 			e.printStackTrace();
 		}
 		
+		if(acquistoCompletato) {
+			request.getSession().removeAttribute("carrello");
+		}
+		
 		request.getSession().setAttribute("acquistoCompletato", acquistoCompletato);
 		RequestDispatcher dispatcher= request.getRequestDispatcher("AcquistoCompletato.jsp");
 		dispatcher.forward(request, response);
