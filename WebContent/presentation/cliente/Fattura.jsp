@@ -2,13 +2,19 @@
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
- <%@ page language="java" contentType="text/html; charset=utf-8" import="java.util.*, control.*, model.*" %>
+ <%@ page language="java" contentType="text/html; charset=utf-8" import="java.util.*, control.*, model.*, bean.*" %>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Fattura</title>
 </head>
 <body>
 
+<%
+	
+	
+	Ordine ordine = (Ordine) request.getSession().getAttribute("ordineDaVisualizzare");						//scorro i bean	
+	Collection<Libro> libri= ordine.getLibri();
+%> 
 
 
 
@@ -75,7 +81,7 @@
                     <table width="220" border="0" cellpadding="0" cellspacing="0" align="left" class="col">
                       <tbody>
                         <tr>
-                          <td align="left"> <img src="image/LogoPizzaOmino.jpg" width="50" height="50	" alt="logo" border="0" /></td>
+                          <td align="left"> <img src="../image/logo.jpg" width="120" height="50	" alt="logo" border="0" /></td>
                         </tr>
                         <tr class="hiddenMobile">
                           <td height="40"></td>
@@ -112,8 +118,8 @@
                         </tr>
                         <tr>
                           <td style="font-size: 12px; color: #5b5b5b; font-family: 'Open Sans', sans-serif; line-height: 18px; vertical-align: top; text-align: right;">
-                            <small>ORDER</small> ORDINE NUMBER <br />
-                            <small>DATA ORDINE </small>
+                            <small>ORDINE: </small>  <%=ordine.getIdOrdine() %> <br />
+                            <small>DATA ORDINE: <%=ordine.getDataEffettuata()%> <%=ordine.getOra() %> </small>
                           </td>
                         </tr>
                       </tbody>
@@ -165,21 +171,29 @@
                       <td height="10" colspan="4"></td>
                     </tr>
                     
-                    
-               
+                    <%
+                            Iterator it=libri.iterator();
+			while(it.hasNext()){
+				Libro libro=(Libro)it.next();
+				 %>
                     <tr>
                       <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #ff0000;  line-height: 18px;  vertical-align: top; padding:10px 0;" class="article">
-                        
+                        <%=libro.getTitolo() %>
                       </td>
-                      <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e;  line-height: 18px;  vertical-align: top; padding:10px 0;" align="center"></td>
-                      <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #1e2b33;  line-height: 18px;  vertical-align: top; padding:10px 0;" align="right"></td>
+                      <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e;  line-height: 18px;  vertical-align: top; padding:10px 0;" align="center">
+                      	<%=libro.getQuantità() %>
+                      
+                      </td>
+                      <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #1e2b33;  line-height: 18px;  vertical-align: top; padding:10px 0;" align="right">
+                      	<%=libro.getPrezzo()* libro.getQuantità() %>
+                      </td>
                     </tr>
                     <tr>
                       <td height="1" colspan="4" style="border-bottom:1px solid #e4e4e4"></td>
                     </tr>
-                    
-                    
-                    
+                    <% 
+                    }
+                    %>
                     
                     
                     
@@ -217,7 +231,9 @@
                         <strong>TOTALE FINALE</strong>
                       </td>
                       <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #000; line-height: 22px; vertical-align: top; text-align:right; ">
-                        <strong>prezzo tot</strong>
+                        <strong>
+                       	<%= ordine.getPrezzoTot() %>
+                       	</strong>
                       </td>
                     </tr>
 
@@ -270,7 +286,7 @@
                                 Book Point Napoli Email: info@bookpoint.it <br>
                                 Telefono: (+39) 348 953 55 42	<br>
 								Indirizzo Postale: Nocera Superiore - 84015 Salerno (SA) <br>
-								Indirizzo Email Agriturismo: agritur@bookpoint.com <br>
+								 <br>
                               </td>
                             </tr>
                           </tbody>
@@ -292,7 +308,7 @@
                             </tr>
                             <tr>
                               <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #5b5b5b; line-height: 20px; vertical-align: top; ">
-                                Numero carta <BR>
+                                Numero carta <%=ordine.getNumCarta() %> <BR>
                                 <!--  INTESTATARIO <BR>-->
                               </td>
                             </tr>
@@ -328,7 +344,7 @@
                             </tr>
                             <tr>
                               <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #5b5b5b; line-height: 20px; vertical-align: top; ">
-                               <BR>
+                               <%=ordine.getCittà() %> &nbsp <%=ordine.getVia() %><BR>
                               </td>
                             </tr>
                           </tbody>
@@ -376,7 +392,7 @@
               <tbody>
                 <tr>
                   <td style="font-size: 12px; color: #5b5b5b; font-family: 'Open Sans', sans-serif; line-height: 18px; vertical-align: top; text-align: left;">
-                    Have a nice day.
+                   
                   </td>
                 </tr>
               </tbody>

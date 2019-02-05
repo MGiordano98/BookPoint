@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.Iterator;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,6 +44,8 @@ public class VisualizzaFattura extends HttpServlet {
 		Ordine ordine= (Ordine) o;
 		
 		request.getSession().setAttribute("ordineDaVisualizzare", ordine);
+		RequestDispatcher dispatcher= request.getRequestDispatcher("/presentation/cliente/Fattura.jsp");
+		dispatcher.forward(request, response);	
 	}
 
 	/**
