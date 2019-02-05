@@ -91,7 +91,7 @@
 					</div>
 				</div>
 				<div class="image">
-					<img src="../image/.jpg">
+					<img src="../image/libro4.jpg">
 				</div>
 			</div>
 		</div>

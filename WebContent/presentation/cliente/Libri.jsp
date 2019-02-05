@@ -31,7 +31,7 @@
         <option value="Giallo">Giallo</option>
         <option value="Verde">Verde</option>
       </select>
-    <input  type="text" placeholder="cerca libro..." name="testo">
+    <input  type="text" placeholder="cerca libro..." name="testo" pattern="[a-zA-Z_._.]{0-100}">
    <button class=" btn btn-danger"id="search-button" type="submit">
 				<i class="fa fa-search"></i>
 			</button>

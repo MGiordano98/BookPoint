@@ -101,7 +101,7 @@
 							<tr>
 								<td class="td-bold"><label for="via">Via</label></td>
 								<td><input id="via" type="text" name="via"
-									placeholder="via" pattern="[a-zA-Z_]{0-30}" title="La via deve contenere solo da lettere con lunghezza massima di 30 caratteri"><br></td>
+									placeholder="via" pattern="[a-zA-Z_]{0,30}" title="La via deve contenere solo da lettere con lunghezza massima di 30 caratteri"><br></td>
 							</tr>
 
 							<tr>
@@ -120,7 +120,7 @@
 							<tr>
 								<td class="td-bold"><label for="citta">Città</label></td>
 								<td><input id="città" type="text" name="citta"
-									placeholder="Città" pattern="[a-zA-Z_]{0-30}" title="La città deve essere formato solo da lettere"><br></td>
+									placeholder="Città" pattern="[a-zA-Z_]{0,30}" title="La città deve essere formato solo da lettere"><br></td>
 							</tr>
 						</table>
 
