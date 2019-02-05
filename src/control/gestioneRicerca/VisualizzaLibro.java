@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.Libro;
+import bean.Utente;
 import model.LibroManager;
 
 /**
@@ -32,6 +33,7 @@ public class VisualizzaLibro extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Utente utente= (Utente) request.getSession().getAttribute("utente");
 		String isbn= request.getParameter("isbn");
 		Libro libro= null;
 		
@@ -43,7 +45,13 @@ public class VisualizzaLibro extends HttpServlet {
 		
 		request.getSession().setAttribute("libro", libro);
 		
-		RequestDispatcher dispatcher= request.getRequestDispatcher("/presentation/cliente/VisualizzaLibro.jsp");
+		System.out.println(utente.getTipo());
+		
+		String url="";
+		if(utente==null || utente.getTipo().equalsIgnoreCase("cliente")) url="/presentation/cliente/VisualizzaLibro.jsp";
+		else if(utente.getTipo().equalsIgnoreCase("amministratore")) url="/presentation/amministratore/AmministratoreVisualizzaLibro.jsp";
+
+		RequestDispatcher dispatcher= request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);	
 	}
 

@@ -36,18 +36,6 @@ $(document).ready(function(){
 
 	});
 
-	$(".modificaButton").click(function(){
-		var id= this.id;
-		var tipo= $("#"+id+"Tipo").val();
-		var nuovoAttributo= $("#"+id+"NuovoAttributo").val();
-
-		$.post("modificaAttributo", {"tipo":tipo, "nuovoAttributo":nuovoAttributo},function(data, statuts){
-			if(data.result){
-				$("#"+id+"Libro").text(data.nuovoAttributo);
-			}
-		});
-	});
-	
 	$(".bottone-elimina").click(function(){
 		alert("aaa");
 		var id= this.id;

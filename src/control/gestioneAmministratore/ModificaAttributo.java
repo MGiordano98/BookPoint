@@ -36,10 +36,8 @@ public class ModificaAttributo extends HttpServlet {
 		String isbn= libro.getIsbn();
 		String tipo= request.getParameter("tipo");
 		String nuovoAttributo= request.getParameter("nuovoAttributo");
+		System.out.println(isbn + " " + tipo + " " + nuovoAttributo);
 		boolean result= false;
-		
-		response.setContentType("application/json");
-		response.setCharacterEncoding("UTF-8");
 		
 		if(nuovoAttributo!=null && !nuovoAttributo.equals("")){
 			try {
@@ -49,7 +47,7 @@ public class ModificaAttributo extends HttpServlet {
 				case "foto": result=manager.modificaFoto(isbn,nuovoAttributo); break;
 				case "casaEditrice": result=manager.modificaCasaEditrice(isbn,nuovoAttributo); break;
 				case "prezzo": result=manager.modificaPrezzo(isbn,Double.parseDouble(nuovoAttributo)); break;
-				case "quantit‡Disponibile": result=manager.modificaQuantit‡Disponibile(isbn,Integer.parseInt(nuovoAttributo)); break;
+				case "quantitaDisponibile": result=manager.modificaQuantit‡Disponibile(isbn,Integer.parseInt(nuovoAttributo)); break;
 				case "categoria": result=manager.modificaCategoria(isbn,nuovoAttributo); break;
 				case "dataUscita": result=manager.modificaDataUscita(isbn,Date.valueOf(nuovoAttributo)); break;
 				}
@@ -58,11 +56,8 @@ public class ModificaAttributo extends HttpServlet {
 			}
 		}
 		
-		String risposta= "{\"result\": \""+result+"\","
-				+ "\"tipo\": \""+tipo+"\","
-						+ "\"nuovoAttributo\": \""+nuovoAttributo+"\"}";
-		System.out.println(risposta);
-		response.getWriter().write(risposta);
+		RequestDispatcher dispatcher= request.getRequestDispatcher("visualizzaLibro?isbn="+isbn);
+		dispatcher.forward(request, response);	
 	}
 
 	/**

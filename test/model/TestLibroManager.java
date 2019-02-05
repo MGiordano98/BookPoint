@@ -30,8 +30,7 @@ public class TestLibroManager extends TestCase{
 	}
 	
 	public void testRicerca() throws SQLException{
-		Collection<Libro> libriCercati=manager.ricerca("*","");
-		assertTrue(libriCercati.size()==0);
+		Collection<Libro> libriCercati;
 		
 		libriCercati=manager.ricerca("Il piccolo principe","");
 		assertTrue(libriCercati.size()==0);
