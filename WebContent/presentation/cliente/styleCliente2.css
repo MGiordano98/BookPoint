@@ -647,6 +647,13 @@ media-heading h2{
 
 .intestazione-visualizza-libro h2{
 	display:inline;
+	word-break:break-word;	
+}
+
+.container-ordini h4{
+	color:red;
+	margin-top:4%;
+	text-align:center;
 }
 
 .intestazione-preferiti h4{

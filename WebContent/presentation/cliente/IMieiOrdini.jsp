@@ -59,12 +59,17 @@
 		
 		
 		</table>
-
+		<h4>Contenuto ordine</h4>
 		<% Iterator it2 = ordine.getLibri().iterator(); 
 			while(it2.hasNext()){
 				Libro libro=(Libro)it2.next();%>
 
+
 		<table class="tableordini2 table-striped">
+		
+		
+		
+		
 			<th>Titolo</th>
 			<th>Quantità</th>
 			<th>Prezzo</th>

@@ -191,11 +191,14 @@
 	</div>
 
 
-
 <%}
 	request.getSession().removeAttribute("libri");
 }%>
+
+
+</div>
 	<%@ include file="footer.jsp"%>
+
 	
 	
 	<script
