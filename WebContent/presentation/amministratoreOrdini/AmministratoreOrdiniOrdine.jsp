@@ -57,10 +57,6 @@
 		</table>
 	</div>
 
-	<%
-		}
-	%>
-
 <div class="modificaAttributo" id="div-modifica-stato">
 	<form action="cambiaStato" method="post">
 		<table>
@@ -100,6 +96,12 @@
 		</table>
 	</form>
 	</div>
+	
+	
+	<%
+		}
+	%>
+	
 
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
