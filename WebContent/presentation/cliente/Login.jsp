@@ -38,11 +38,11 @@ if(request.getSession().getAttribute("admin")!=null){
     </div>
     <br>
     <%
-    if(request.getSession().getAttribute("esiste")!=null)
-    if((boolean)request.getSession().getAttribute("esiste")==false){
+    if(request.getSession().getAttribute("utenteNonTrovato")!=null)
+    if((boolean)request.getSession().getAttribute("utenteNonTrovato")==true){
     %>
     <p id="error">password o email errati</p>
-    <%request.getSession().removeAttribute("esiste"); } %>
+    <%request.getSession().removeAttribute("utenteNonTrovato"); } %>
    <button class="btn btn-danger" id="loginButton">Login</button>
  	</form>
  
