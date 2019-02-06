@@ -45,7 +45,7 @@ public class VisualizzaLibro extends HttpServlet {
 		
 		request.getSession().setAttribute("libro", libro);
 		
-		System.out.println(utente.getTipo());
+		System.out.println(utente);
 		
 		String url="";
 		if(utente==null || utente.getTipo().equalsIgnoreCase("cliente")) url="/presentation/cliente/VisualizzaLibro.jsp";

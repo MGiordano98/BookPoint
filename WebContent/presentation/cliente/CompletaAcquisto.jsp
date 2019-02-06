@@ -31,6 +31,7 @@
 						while (it.hasNext()) {
 							CartaDiCredito carta = (CartaDiCredito) it.next();
 				%>
+				<option></option>
 				<option value="<%=carta.getNumCarta()%>">**** **** ****
 					<%=carta.getNumCarta().substring(11, 16)%></option>
 
@@ -61,6 +62,7 @@
 						while (it.hasNext()) {
 							Indirizzo indirizzo = (Indirizzo) it.next();
 				%>
+				<option></option>
 				<option value="<%=indirizzo.getId()%>"><%=indirizzo.getVia()%>
 					<%=indirizzo.getNumCivico()%>
 					<%=indirizzo.getCittà()%>
