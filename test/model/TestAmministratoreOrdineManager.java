@@ -33,22 +33,36 @@ public class TestAmministratoreOrdineManager extends TestCase{
 	}
 	
 	public void testRicercaOrdine() throws SQLException {
-		int numOrdine= 3;
-		Ordine ordine= manager.ricercaOrdine(numOrdine);
-		assertNotNull(ordine);
+	 
+		assertNull(manager.ricercaOrdine(-1));
+		assertNull(manager.ricercaOrdine(100));
+		assertNull(manager.ricercaOrdine(1));
 	}
 	
 	public void testCambiaStato() throws SQLException {
-		int numOrdine= 3;
-		String stato= "In Preparazione";
-		assertTrue(manager.cambiaStato(numOrdine, stato));
+		
+		assertTrue(manager.cambiaStato(-1,""));
+		assertTrue(manager.cambiaStato(100, ""));
+		assertTrue(manager.cambiaStato(1, "nel carrello"));
+		assertTrue(manager.cambiaStato(1,"Consegnato"));
 	}
 	
 	public void testCambiaDataEOra() throws SQLException {
-		int numOrdine= 3;
-		Date data= Date.valueOf("2020-01-01");
-		Time ora= Time.valueOf("10:10:10");
-		assertTrue(manager.cambiaDataEOra(numOrdine, data, ora));
+		
+		assertFalse(manager.cambiaDataEOra(-1, null, null));
+		assertFalse(manager.cambiaDataEOra(100, null, null));
+		
+		Time ora=Time.valueOf("30:10:10");
+		assertFalse(manager.cambiaDataEOra(1, null, ora));
+		
+		ora=Time.valueOf("10:10:10");
+		Date data=Date.valueOf("01-01-2001");
+		assertFalse(manager.cambiaDataEOra(1, data, ora));
+		
+		data=Date.valueOf("01-01-2001");
+		ora=Time.valueOf("10:10:10");
+		assertTrue(manager.cambiaDataEOra(1, data, ora));
+		
 	}
 	
 	public static Test suite() {

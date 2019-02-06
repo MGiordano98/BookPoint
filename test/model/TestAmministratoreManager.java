@@ -3,14 +3,12 @@ package model;
 
 import java.sql.Date;
 import java.sql.SQLException;
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import bean.Autore;
 import bean.Libro;
-import bean.Recensione;
 import bean.Utente;
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -149,55 +147,53 @@ public class TestAmministratoreManager extends TestCase{
 		
 	}
 	
-	public void testModificaDataUscita() throws SQLException {
-		
-	}
-	
-	public void testModificaCategoria() throws SQLException {
-		
-	}
-	
-	public void testModificaQuantit‡Disponibile() throws SQLException {
-		
-	}
-	
-	public void testModificaPrezzo() throws SQLException {
-		
-	}
-	
-	public void testModificaCasaEditrice() throws SQLException {
-		
-	}
-	
-	public void testModificaFoto() throws SQLException {
-		
-	}
-	
-	public void testModificaTrama() throws SQLException {
-		
-	}
-	
-	public void testModificaTitolo() throws SQLException {
-		
-	}
-	
 	public void testEliminaRecensione() throws SQLException {
-		
+		assertFalse(manager.eliminaRecensione(-1));
+		assertFalse(manager.eliminaRecensione(100));
+		assertTrue(manager.eliminaRecensione(1));	
 	}
 	
 	public void testEliminaLibro() throws SQLException {
 		
+		assertFalse(manager.eliminaLibro("1"));
+		assertFalse(manager.eliminaLibro("1234567891234"));
+		assertTrue(manager.eliminaLibro("9788868363574"));
 	}
 	
 	public void testRicercaAccount() throws SQLException {
+		
+		Utente utente=manager.ricercaAccount("ciao.it");
+		assertNull(utente);
+	
+		
+		utente=manager.ricercaAccount("m.garofalo@studenti.unisa.it");
+		assertNull(utente);
+
+		
+		utente=manager.ricercaAccount("g.teodoro@studenti.unisa.it");
+		assertNotNull(utente);
+		assertNotNull(utente.getCognome());
+		assertNotNull(utente.getEmail());
+		assertNotNull(utente.getNome());
+		assertNotNull(utente.getPassword());
+		assertNotNull(utente.getTipo());
+		assertNotNull(utente.getDataDiNascita());
 		
 	}
 	
 	public void testCambiaTipo() throws SQLException {
 		
+		assertFalse(manager.cambiaTipo("ciao",""));
+		assertFalse(manager.cambiaTipo("m.garofalo@studenti.unisa.it",""));
+		assertFalse(manager.cambiaTipo("m.giordano@studenti.unisa.it","Amministratore condominio"));
+		assertTrue(manager.cambiaTipo("m.giordano@studenti.unisa.it","Cliente"));
 	}
 	
 	public void testEliminaUtente() throws SQLException {
+		
+		assertFalse(manager.eliminaUtente("giacomo"));
+		assertFalse(manager.eliminaUtente("m.garofalo@studenti.unisa.it"));
+		assertFalse(manager.eliminaUtente("m.giordano@studenti.unisa.it"));
 		
 	}
 	
@@ -206,22 +202,11 @@ public class TestAmministratoreManager extends TestCase{
 	public static Test suite() {
 		TestSuite suite= new TestSuite();
 		suite.addTest(new TestAmministratoreManager("testAggiungiLibro"));
-		suite.addTest(new TestAmministratoreManager("testModificaCategoria"));
-		suite.addTest(new TestAmministratoreManager("testModificaQuantit‡Disponibile"));
-		suite.addTest(new TestAmministratoreManager("testModificaPrezzo"));
-		suite.addTest(new TestAmministratoreManager("testModificaDataUscita"));
-		suite.addTest(new TestAmministratoreManager("testModificaCasaEditrice"));
-		suite.addTest(new TestAmministratoreManager("testModificaFoto"));
-		suite.addTest(new TestAmministratoreManager("testModificaTrama"));
-		suite.addTest(new TestAmministratoreManager("testModificaTitolo"));
 		suite.addTest(new TestAmministratoreManager("testEliminaRecensione"));
 		suite.addTest(new TestAmministratoreManager("testEliminaLibro"));
-		suite.addTest(new TestAmministratoreManager("testAggiungiLibroError"));
 		suite.addTest(new TestAmministratoreManager("testRicercaAccount"));
 		suite.addTest(new TestAmministratoreManager("testCambiaTipo"));
 		suite.addTest(new TestAmministratoreManager("testEliminaUtente"));
-		suite.addTest(new TestAmministratoreManager("testRimuoviAutore"));
-		
 		return suite;
 	}
 	

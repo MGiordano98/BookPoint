@@ -37,19 +37,25 @@ public class Ricerca extends HttpServlet {
 		String testo= request.getParameter("testo");
 		String categoria= request.getParameter("categoria");
 		
-		System.out.println("ricerca "+ testo + " " + categoria);
 		Collection<Libro> libri=null;
+		boolean nessunLibroTrovato=false;
+		
 		try {
 			libri= manager.ricerca(testo, categoria);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		if(libri.size()==0) {
+			nessunLibroTrovato= true;
+		}
+		request.getSession().setAttribute("nessunLibroTrovato", nessunLibroTrovato);
 		request.getSession().setAttribute("libri", libri);
+		
 		String redirect="";
 		Utente utente=(Utente)request.getSession().getAttribute("utente");
 		
-		if(utente.getTipo()==null){
+		if(utente==null){
 			redirect="Libri.jsp";
 		}
 		else if(utente.getTipo().equalsIgnoreCase("cliente")){

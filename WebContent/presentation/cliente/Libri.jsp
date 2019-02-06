@@ -155,7 +155,7 @@
 
 
 
-<%} else if(libri.size()==0){%>
+<%} else if((boolean) request.getSession().getAttribute("nessunLibroTrovato")){%>
 
 <div>
 	<h2>Nessun libro trovato</h2>

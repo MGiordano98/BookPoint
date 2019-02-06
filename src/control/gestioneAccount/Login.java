@@ -33,11 +33,10 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("ciaoa");
 		String email= request.getParameter("email");
 		String password= request.getParameter("password");
 		
-		
+		boolean utenteNonTrovato=false;
 		
 		Utente utente=null;
 		try {
@@ -47,21 +46,25 @@ public class Login extends HttpServlet {
 			e.printStackTrace();
 		}
 		
+		if(utente==null) {
+			utenteNonTrovato= true;
+		}
+		
+		request.getSession().setAttribute("utenteNonTrovato", utenteNonTrovato);
 		request.getSession().setAttribute("utente", utente);
 		
 		String redirect="";
 		
-		if(utente.getTipo().equalsIgnoreCase("cliente")) {
+		if(utente==null) {
+			redirect="Login.jsp";
+		}else if(utente.getTipo().equalsIgnoreCase("cliente")) {
 			redirect="Home.jsp";
 		}else if(utente.getTipo().equalsIgnoreCase("amministratore")){
 			redirect="../amministratore/AmministratoreCatalogo.jsp";
 		}else if(utente.getTipo().equalsIgnoreCase("amministratoreOrdine")){
 			redirect="../amministratoreOrdini/AmministratoreOrdiniOrdine.jsp";
-		}else {
-			redirect="Login.jsp";
 		}
 		response.sendRedirect(redirect);
-		
 	}
 
 	/**
