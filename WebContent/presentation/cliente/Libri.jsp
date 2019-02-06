@@ -117,7 +117,7 @@
 		<div class="container carousel-inner no-padding slider">
 			<div class="carousel-item active car-item">
 			<%
-			Iterator it=libriInEvidenza.iterator();
+			Iterator it=libriPiùVenduti.iterator();
 			while(it.hasNext()){
 		
 			Libro bean= (Libro) it.next();
