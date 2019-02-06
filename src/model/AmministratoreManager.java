@@ -41,13 +41,11 @@ public class AmministratoreManager {
 					+ " (isbn, titolo, trama, foto, casaEditrice, prezzo, quantit‡Disponibile, categoria, dataUscita)"
 					+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-
-
 			preparedStatement = connection.prepareStatement(insertSQL);
-			preparedStatement.setString(1, libro.getIsbn());	System.out.println(libro.getIsbn());
-			preparedStatement.setString(2, libro.getTitolo());	System.out.println(libro.getTitolo());
-			preparedStatement.setString(3, libro.getTrama());	System.out.println(libro.getTrama());
-			preparedStatement.setString(4, libro.getFoto());	System.out.println(libro.getFoto());
+			preparedStatement.setString(1, libro.getIsbn());
+			preparedStatement.setString(2, libro.getTitolo());
+			preparedStatement.setString(3, libro.getTrama());
+			preparedStatement.setString(4, libro.getFoto());
 			preparedStatement.setString(5, libro.getCasaEditrice());
 			preparedStatement.setDouble(6, libro.getPrezzo());
 			preparedStatement.setInt(7, libro.getQuantit‡());

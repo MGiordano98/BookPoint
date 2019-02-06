@@ -38,9 +38,15 @@ public class Carrello {
 	public boolean aggiungiAlCarrello(Libro libro, int quantit‡) {
 		boolean trovato=false;
 		boolean aggiunto=false;
+		int quantit‡B=0;
 		for(Libro lib: libri) {
 			if(lib.getIsbn().equalsIgnoreCase(libro.getIsbn())) {
-				lib.setQuantit‡Selezionata(lib.getQuantit‡Selezionata() + quantit‡);
+				quantit‡B= lib.getQuantit‡Selezionata();
+				if((lib.getQuantit‡Selezionata()+quantit‡)< lib.getQuantit‡()) {
+					lib.setQuantit‡Selezionata(lib.getQuantit‡Selezionata() + quantit‡);
+				}else {
+					lib.setQuantit‡Selezionata(lib.getQuantit‡());
+				}
 				trovato=true;
 				aggiunto=true;
 				break;
@@ -49,10 +55,12 @@ public class Carrello {
 		if(!trovato) {
 			libro.setQuantit‡Selezionata(quantit‡);
 			libri.add(libro);
-			totale= totale+(libro.getPrezzo()*quantit‡);
 			aggiunto=true;
+		}else {
+			totale-= quantit‡B* libro.getPrezzo();
 		}
-		
+		totale= totale+(libro.getPrezzo()*quantit‡);
+				
 		return aggiunto;
 	}
 
