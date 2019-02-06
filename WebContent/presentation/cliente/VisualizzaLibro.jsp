@@ -29,7 +29,10 @@
 				if (request.getSession().getAttribute("utente") != null) {
 			%>
 			<form action=aggiungiLibroPreferiti method="post" id="form-preferiti">
-				<img id="star-preferiti" src="../image/star.jpg"> <input
+				
+				
+				
+				<img id="star-preferiti" src="../image/star1.jpg"> <input
 					type="hidden" name="isbn" value="<%=libro.getIsbn()%>">
 			</form>
 			<%

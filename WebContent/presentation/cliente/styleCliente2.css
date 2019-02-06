@@ -635,11 +635,13 @@ media-heading h2{
 	max-height: 400px; 
 }
 
-#star-preferiti{
-	witdh:34px;
+#star-preferiti {
+	
 	height:34px;
 	float:right;
 }
+
+
 
 .container-visualizza-libro2{
 	position:relative;
