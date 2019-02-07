@@ -15,13 +15,14 @@
 
 <header> 
 
+<!-- <center><img src="../image/logo.jpg"></center>  -->
 
 <div class="topnav" id="myTopnav">
-	<a class="navbar-brand navbar-left-mio" href="Home.jsp">
+	<a class="navbar-brand navbar-left-mio">
 		<i class="fas fa-book fa-lg"></i>
 	  </a>
 	  
-	  <a href="#">Ordine</a>
+	  <a href="">Ordine</a>
 	  <a class="logout" href="logout">Logout</a>
 
     	

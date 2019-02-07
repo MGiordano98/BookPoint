@@ -15,6 +15,7 @@
 
 <header> 
 
+<!-- <center><img src="../image/logo.jpg"></center>  -->
 
 <div class="topnav" id="myTopnav">
 	<a class="navbar-brand navbar-left-mio" >

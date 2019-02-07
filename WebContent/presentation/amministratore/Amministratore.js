@@ -25,7 +25,8 @@ $(document).ready(function(){
 	});
 
 	$(".bottone-aggiungi-autore").click(function(){
-		$(".aggiungi-autori").append("<div class=\"aggiungi-autore\">Nome: <input type=\"text\" name=\"autore\"> </div>");
+		$(".aggiungi-autori").append("<div class=\"aggiungi-autore\">Nome: <input type=\"text\" name=\"autore\" " +
+				"pattern=\"[A-Za-z_\x20]{1,100}\" title=\"il nome dell' autore non deve contenere caratteri speciali e numeri\" required> </div>");
 	});
 
 	$(".visualizza").click(function(){

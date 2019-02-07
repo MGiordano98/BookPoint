@@ -1,3 +1,16 @@
+<%
+	if (request.getSession().getAttribute("utente") != null) {
+		Utente utente = (Utente) request.getSession().getAttribute("utente");
+		if (!utente.getTipo().equalsIgnoreCase("amministratore")) {
+			if (utente.getTipo().equalsIgnoreCase("amministratoreordine")) {
+				response.sendRedirect("../amministratoreOrdini/AmministratoreOrdiniOrdine.jsp");
+			} else {
+				response.sendRedirect("../cliente/Home.jsp");
+			}
+		} else {
+%>
+
+
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8" import="java.util.*,bean.*"%>
 <!DOCTYPE html>
@@ -166,7 +179,7 @@
 
 								<td class="td-bold"><label for="titolo">Titolo</label></td>
 								<td><input type="text" name="nuovoAttributo"
-									id="titoloNuovoAttributo" pattern=[a-zA-Z0-9_]{0,100} title="Il titolo non deve superare i 100 caratteri"><br></td>
+									id="titoloNuovoAttributo" pattern=[A-Za-z0-9_\x20]{0,100} title="Il titolo non deve superare i 100 caratteri" required><br></td>
 							</tr>
 
 						</table>
@@ -208,7 +221,7 @@
 
 								<td class="td-bold"><label for="editore">Editore</label></td>
 								<td><input type="text" name="nuovoAttributo"
-									id="editoreNuovoAttributo" pattern="[a-zA-Z_]{0,30}" title="Il campo editore deve essere formato da sole lettere e non deve superare i 30 caratteri"><br></td>
+									id="editoreNuovoAttributo" pattern="[a-zA-Z_\x20]{0,30}" title="Il campo editore deve essere formato da sole lettere e non deve superare i 30 caratteri" required><br></td>
 							</tr>
 
 						</table>
@@ -222,47 +235,6 @@
 							data-dismiss="modal">Close</button>
 						<button type="submit" class="btn btn-primary modificaButton"
 							id="editore">Modifica</button>
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</form>
-	<form action="modificaAttributo" method="post">
-		<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog"
-			aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<h5 class="modal-title" id="exampleModalLabel">Modifica isbn</h5>
-
-					<div class="modal-header">
-						<button type="button" class="close close-mio" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-
-					<div class="modal-body">
-						<table>
-							<!-- Modifica  DATI Libro -->
-							<tr>
-
-								<td class="td-bold"><label for="isbn">isbn</label></td>
-								<td><input type="text" name="nuovoAttributo"
-									id="isbnNuovoAttributo"><br></td>
-							</tr>
-
-						</table>
-
-						<input type="hidden" name="tipo" value="isbn" id="isbnTipo">
-
-					</div>
-
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">Close</button>
-						<button type="submit" class="btn btn-primary modificaButton"
-							id="isbn">Modifica</button>
 					</div>
 
 				</div>
@@ -291,7 +263,7 @@
 
 								<td class="td-bold"><label for="categoria">Categoria</label></td>
 								<td><input type="text" name="nuovoAttributo"
-									id="categoriaNuovoAttributo" pattern=[a-zA-Z_]{0,30} title="Il campo categoria deve essere formata da sole lettere"><br></td>
+									id="categoriaNuovoAttributo" pattern=[a-zA-Z_\x20]{0,30} title="Il campo categoria deve essere formata da sole lettere" required><br></td>
 							</tr>
 
 						</table>
@@ -334,7 +306,7 @@
 
 								<td class="td-bold"><label for="descrizione">Descrizione</label></td>
 								<td><input type="text" name="nuovoAttributo"
-									id="descrizioneNuovoAttributo" pattern=[a-zA-Z0-9_]{0,1700} title="La descrizione non deve superare i 1700 caratteri"><br></td>
+									id="descrizioneNuovoAttributo" pattern=[a-zA-Z0-9_\x20]{0,1700} title="La descrizione non deve superare i 1700 caratteri" required><br></td>
 							</tr>
 
 						</table>
@@ -376,7 +348,7 @@
 
 								<td class="td-bold"><label for="prezzo">Prezzo</label></td>
 								<td><input type="text" name="nuovoAttributo"
-									id="prezzoNuovoAttributo" pattern=\d+(,\d{1,2})?$ title="Il prezzo non deve essere negativo"><br></td>
+									id="prezzoNuovoAttributo" pattern=\d+(,\d{1,2})?$ title="Il prezzo non deve essere negativo" required><br></td>
 							</tr>
 
 						</table>
@@ -424,7 +396,7 @@
 						</table>
 
 						<input type="hidden" name="tipo" value="quantitaDisponibile"
-							id="quantitaTipo" pattern=[0-9]{0,4} title="La quantità deve essere formata da soli numeri positivi">
+							id="quantitaTipo">
 
 					</div>
 
@@ -450,3 +422,10 @@
 
 </body>
 </html>
+
+<%
+	}
+}else{
+	response.sendRedirect("../cliente/Home.jsp");
+}
+%>

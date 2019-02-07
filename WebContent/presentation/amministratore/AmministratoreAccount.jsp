@@ -1,3 +1,17 @@
+
+<%
+	if (request.getSession().getAttribute("utente") != null) {
+		Utente utente = (Utente) request.getSession().getAttribute("utente");
+		if (!utente.getTipo().equalsIgnoreCase("amministratore")) {
+			if (utente.getTipo().equalsIgnoreCase("amministratoreordine")) {
+				response.sendRedirect("../amministratoreOrdini/AmministratoreOrdiniOrdine.jsp");
+			} else {
+				response.sendRedirect("../cliente/Home.jsp");
+			}
+		} else {
+%>
+
+
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8" import="bean.Utente"%>
 <!DOCTYPE html>
@@ -8,7 +22,7 @@
 </head>
 <body>
 <%@ include file="headerAmministratore.jsp"%>
-<% Utente utente=(Utente) request.getSession().getAttribute("utenteCercato") ;%>
+<% Utente utenteCercato=(Utente) request.getSession().getAttribute("utenteCercato") ;%>
 <div class="container-cerca">
 <div class="cerca">
   <form class=" search-container" action="ricercaAccount" >
@@ -18,29 +32,29 @@
 </div>
 </div>
 
-<%if(utente==null){
+<%if(utenteCercato==null){
 	
 } else{%>
 <div class="container-account">
-<h3><%=utente.getNome()%> <%=utente.getCognome() %></h3>
+<h3><%=utenteCercato.getNome()%> <%=utenteCercato.getCognome() %></h3>
 <table class="table-bordered">
   
   
     <tr>
       <td class="td-bold">Email</td>
-      <td class="td-serif"><%=utente.getEmail() %></td>
+      <td class="td-serif"><%=utenteCercato.getEmail() %></td>
    
     </tr>
       <tr>
       <td class="td-bold">Tipo</td>
-      <td class="td-serif"><%=utente.getTipo() %></td>
+      <td class="td-serif"><%=utenteCercato.getTipo() %></td>
    
     </tr>
         <tr>
       <td><center><input class="btn btn-danger modificaTipo" type="submit" value="modifica" class=modificaTipo></center></td>
       <td>
       	<form action="eliminaUtente">
-      		<input type=hidden value=<%=utente.getEmail()%> name=email>
+      		<input type=hidden value=<%=utenteCercato.getEmail()%> name=email>
       		<center><input class="btn btn-danger " type="submit" value="elimina"></center>
       	</form>
       </td>
@@ -52,12 +66,12 @@
 
 <div class="formModificaTipo" >
 	<form action="cambiaTipo">
-		<input type="hidden" value=<%=utente.getEmail() %> name="email">
+		<input type="hidden" value=<%=utenteCercato.getEmail() %> name="email">
 		<select name=tipo>
-		<%if(utente.getTipo().equalsIgnoreCase("cliente")){ %>
+		<%if(utenteCercato.getTipo().equalsIgnoreCase("cliente")){ %>
 		<option value=amministratore>amministratore</option>
 		<option value=amministratoreOrdini>amministratoreOrdini</option>
-		<%}else if(utente.getTipo().equalsIgnoreCase("amministratore")) {%>
+		<%}else if(utenteCercato.getTipo().equalsIgnoreCase("amministratore")) {%>
 		<option value=cliente>cliente</option>
 		<option value=amministratoreOrdini>amministratoreOrdini</option>
 		<%}else{ %>
@@ -81,3 +95,10 @@ request.getSession().removeAttribute("utenteCercato");
 
 </body>
 </html>
+
+<%
+	}
+}else{
+	response.sendRedirect("../cliente/Home.jsp");
+}
+%>

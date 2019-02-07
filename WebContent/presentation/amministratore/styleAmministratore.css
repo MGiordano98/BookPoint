@@ -12,6 +12,9 @@ body
 header{
 	background-color: #f8f9fa;
 }
+center img{
+	max-width:400px;
+}
 .divFisso{
 	min-width:1477px;
 }
@@ -280,6 +283,11 @@ form.example::after {
 
 .aggiungi-autori {
 	display: none;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.aggiungi-autore{
+	margin-top:3px;
 }
 
 /* visualizza libro css*/

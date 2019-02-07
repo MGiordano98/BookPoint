@@ -12,6 +12,10 @@ body
 header{
 	background-color: #f8f9fa;
 }
+
+center img{
+	max-width:400px;
+}
 .divFisso{
 	min-width:1477px;
 }
