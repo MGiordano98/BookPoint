@@ -11,107 +11,21 @@
     "id": "eb97e5ea-cbc7-40e1-9010-7de105aff41f",
     "name": "Gestione Ricerca TC_1.1.1",
     "commands": [{
-      "id": "d83682f2-1aff-4de1-a566-b0c5e4a42f3c",
+      "id": "aa027d05-20fa-4d45-946d-6f379b00178e",
       "comment": "",
       "command": "open",
       "target": "http://localhost:8080/BookPoint/presentation/cliente/Home.jsp",
       "targets": [],
       "value": ""
     }, {
-      "id": "463d447e-67c1-4d24-9fd9-5d8c78b113b4",
+      "id": "9c4fd04d-9b1b-44ad-bb7d-d40c793d2878",
       "comment": "",
       "command": "setWindowSize",
       "target": "1382x744",
       "targets": [],
       "value": ""
     }, {
-      "id": "9fdb2fef-b193-46ad-a7f2-53e1c4979412",
-      "comment": "",
-      "command": "click",
-      "target": "css=.fa-user-circle",
-      "targets": [
-        ["css=.fa-user-circle", "css:finder"],
-        ["xpath=//div[@id='myTopnav']/a[5]/i", "xpath:idRelative"],
-        ["xpath=//a[5]/i", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "ffe62461-97bc-4350-b2b1-9a88cb8d6d8c",
-      "comment": "",
-      "command": "click",
-      "target": "id=exampleDropdownFormEmail1",
-      "targets": [
-        ["id=exampleDropdownFormEmail1", "id"],
-        ["name=email", "name"],
-        ["css=#exampleDropdownFormEmail1", "css:finder"],
-        ["css=#exampleDropdownFormEmail1", "css"],
-        ["xpath=//input[@id='exampleDropdownFormEmail1']", "xpath:attributes"],
-        ["xpath=//form[@id='form']/div/input", "xpath:idRelative"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "0a3565ae-c2fc-422e-8425-d7b8386346a5",
-      "comment": "",
-      "command": "type",
-      "target": "id=exampleDropdownFormEmail1",
-      "targets": [
-        ["id=exampleDropdownFormEmail1", "id"],
-        ["name=email", "name"],
-        ["css=#exampleDropdownFormEmail1", "css:finder"],
-        ["css=#exampleDropdownFormEmail1", "css"],
-        ["xpath=//input[@id='exampleDropdownFormEmail1']", "xpath:attributes"],
-        ["xpath=//form[@id='form']/div/input", "xpath:idRelative"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": "v.sammartino@studenti.unisa.it"
-    }, {
-      "id": "a63df98f-6692-4e2d-ab71-8f2ec45ff1ce",
-      "comment": "",
-      "command": "click",
-      "target": "id=exampleDropdownFormPassword1",
-      "targets": [
-        ["id=exampleDropdownFormPassword1", "id"],
-        ["name=password", "name"],
-        ["css=#exampleDropdownFormPassword1", "css:finder"],
-        ["css=#exampleDropdownFormPassword1", "css"],
-        ["xpath=//input[@id='exampleDropdownFormPassword1']", "xpath:attributes"],
-        ["xpath=//form[@id='form']/div[2]/input", "xpath:idRelative"],
-        ["xpath=//div[2]/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "ed0d7efc-afbb-44d3-825e-44f67b3a1561",
-      "comment": "",
-      "command": "type",
-      "target": "id=exampleDropdownFormPassword1",
-      "targets": [
-        ["id=exampleDropdownFormPassword1", "id"],
-        ["name=password", "name"],
-        ["css=#exampleDropdownFormPassword1", "css:finder"],
-        ["css=#exampleDropdownFormPassword1", "css"],
-        ["xpath=//input[@id='exampleDropdownFormPassword1']", "xpath:attributes"],
-        ["xpath=//form[@id='form']/div[2]/input", "xpath:idRelative"],
-        ["xpath=//div[2]/input", "xpath:position"]
-      ],
-      "value": "@Vittorio0"
-    }, {
-      "id": "f527f94f-422c-44e5-89e1-1e1f32822660",
-      "comment": "",
-      "command": "sendKeys",
-      "target": "id=exampleDropdownFormPassword1",
-      "targets": [
-        ["id=exampleDropdownFormPassword1", "id"],
-        ["name=password", "name"],
-        ["css=#exampleDropdownFormPassword1", "css:finder"],
-        ["css=#exampleDropdownFormPassword1", "css"],
-        ["xpath=//input[@id='exampleDropdownFormPassword1']", "xpath:attributes"],
-        ["xpath=//form[@id='form']/div[2]/input", "xpath:idRelative"],
-        ["xpath=//div[2]/input", "xpath:position"]
-      ],
-      "value": "${KEY_ENTER}"
-    }, {
-      "id": "479466d2-c844-481e-8937-87a2e29f5bcb",
+      "id": "7b236db7-3578-48e3-9370-89e42d965b9d",
       "comment": "",
       "command": "click",
       "target": "linkText=Libri",
@@ -125,7 +39,7 @@
       ],
       "value": ""
     }, {
-      "id": "c6b8c773-242b-441e-a3b5-a7853d7c6fa9",
+      "id": "96ccfceb-a357-4cf5-9737-777c05ad77bf",
       "comment": "",
       "command": "click",
       "target": "name=testo",
@@ -139,7 +53,7 @@
       ],
       "value": ""
     }, {
-      "id": "0e1af6ef-e76f-42f0-9a7c-44adff7f8807",
+      "id": "a031dd1a-06a0-41c7-81a8-ddb2b28328ea",
       "comment": "",
       "command": "type",
       "target": "name=testo",
@@ -153,7 +67,7 @@
       ],
       "value": "il piccolo principe"
     }, {
-      "id": "785b8133-2102-4282-924c-f0dbacea81ec",
+      "id": "588e342b-86be-4fdb-a421-a66f5294456c",
       "comment": "",
       "command": "click",
       "target": "id=search-button",
@@ -164,18 +78,6 @@
         ["xpath=//button[@id='search-button']", "xpath:attributes"],
         ["xpath=//form[@id='form-ricerca-libri']/div/button", "xpath:idRelative"],
         ["xpath=//button", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "f5cd53a9-f584-4659-8189-14962015fb2d",
-      "comment": "",
-      "command": "click",
-      "target": "css=.fa-sign-out-alt",
-      "targets": [
-        ["css=.fa-sign-out-alt", "css:finder"],
-        ["css=i.fas.fa-sign-out-alt", "css"],
-        ["xpath=//div[@id='myTopnav']/a[7]/i", "xpath:idRelative"],
-        ["xpath=//a[7]/i", "xpath:position"]
       ],
       "value": ""
     }]
@@ -474,32 +376,34 @@
     "id": "b0c4a5d1-11bf-4d55-a864-f6412d219633",
     "name": "Gestione Acquisto TC_2.2.1",
     "commands": [{
-      "id": "8b89a2cb-0192-4890-be13-fc4089d1a917",
+      "id": "8b533c0e-ff86-43c4-a980-ff9c18d9acc2",
       "comment": "",
       "command": "open",
       "target": "http://localhost:8080/BookPoint/presentation/cliente/Home.jsp",
       "targets": [],
       "value": ""
     }, {
-      "id": "11457337-4dd7-47c4-aec0-dc875dc5893b",
+      "id": "95b1d4b3-12d5-43aa-a5b4-8405797c35a0",
       "comment": "",
       "command": "setWindowSize",
       "target": "1366x728",
       "targets": [],
       "value": ""
     }, {
-      "id": "6b38e20a-adc3-4bc6-96c9-d82dc25c1056",
+      "id": "b1fdea14-54f3-4d1f-a20d-959da6ba7bbc",
       "comment": "",
       "command": "click",
-      "target": "css=.fa-user-circle",
+      "target": "css=.utente",
       "targets": [
-        ["css=.fa-user-circle", "css:finder"],
-        ["xpath=//div[@id='myTopnav']/a[5]/i", "xpath:idRelative"],
-        ["xpath=//a[5]/i", "xpath:position"]
+        ["css=.utente", "css:finder"],
+        ["css=a.nav-link.utente", "css"],
+        ["xpath=//div[@id='myTopnav']/a[5]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'Login.jsp')]", "xpath:href"],
+        ["xpath=//a[5]", "xpath:position"]
       ],
       "value": ""
     }, {
-      "id": "b5c54fe2-b4b4-4257-8dc7-c4f842ea06bd",
+      "id": "57b0c997-fbc9-4d60-9ebb-8ac1967e9edc",
       "comment": "",
       "command": "click",
       "target": "id=exampleDropdownFormEmail1",
@@ -514,7 +418,7 @@
       ],
       "value": ""
     }, {
-      "id": "14895469-e128-490c-a116-ab310b6b62cd",
+      "id": "89d18d67-1546-42c3-a3af-4d39db29170e",
       "comment": "",
       "command": "type",
       "target": "id=exampleDropdownFormEmail1",
@@ -527,9 +431,9 @@
         ["xpath=//form[@id='form']/div/input", "xpath:idRelative"],
         ["xpath=//input", "xpath:position"]
       ],
-      "value": "v.sammartino@studenti.unisa.it"
+      "value": "g.teodoro@studenti.unisa.it"
     }, {
-      "id": "3965978d-8b63-46b0-86bd-ee005b39d3f1",
+      "id": "3121032b-f16d-423c-aa32-f043befc4d67",
       "comment": "",
       "command": "click",
       "target": "id=exampleDropdownFormPassword1",
@@ -544,7 +448,7 @@
       ],
       "value": ""
     }, {
-      "id": "8ed8b8f9-71cf-4437-9410-bf9619999dc5",
+      "id": "f3fcce0d-054b-4cba-b451-30aa34a0cf3b",
       "comment": "",
       "command": "type",
       "target": "id=exampleDropdownFormPassword1",
@@ -557,9 +461,21 @@
         ["xpath=//form[@id='form']/div[2]/input", "xpath:idRelative"],
         ["xpath=//div[2]/input", "xpath:position"]
       ],
-      "value": "@Vittorio0"
+      "value": "@Gennaro0"
     }, {
-      "id": "705d119b-a638-4444-9048-41eab8095d39",
+      "id": "6f785d37-88bf-4ead-a54b-9c1ac08a80ff",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-shopping-cart",
+      "targets": [
+        ["css=.fa-shopping-cart", "css:finder"],
+        ["css=i.fas.fa-shopping-cart", "css"],
+        ["xpath=//div[@id='myTopnav']/a[3]/i", "xpath:idRelative"],
+        ["xpath=//a[3]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d6333d06-90f1-4cfd-bb55-324039958291",
       "comment": "",
       "command": "sendKeys",
       "target": "id=exampleDropdownFormPassword1",
@@ -574,7 +490,7 @@
       ],
       "value": "${KEY_ENTER}"
     }, {
-      "id": "7d36efcd-60b5-4c83-880c-a20f2a77af4e",
+      "id": "48160140-7b0e-4496-87cf-b1eaf7667b28",
       "comment": "",
       "command": "click",
       "target": "linkText=Libri",
@@ -588,7 +504,7 @@
       ],
       "value": ""
     }, {
-      "id": "71b603ed-3661-4876-8076-27ff7cf979b3",
+      "id": "857e2b8a-0fa5-4184-ac7a-6bebc08a4a4b",
       "comment": "",
       "command": "click",
       "target": "name=9788817105156",
@@ -602,7 +518,7 @@
       ],
       "value": ""
     }, {
-      "id": "6638843a-e5c8-4e1d-9acb-c1f83cef297f",
+      "id": "57fb41a2-261a-43c5-b7fa-4908117f4e9d",
       "comment": "",
       "command": "click",
       "target": "css=.btn:nth-child(1)",
@@ -614,20 +530,7 @@
       ],
       "value": ""
     }, {
-      "id": "33dc89dc-4e64-4d9b-ba53-4b1c3e60358e",
-      "comment": "",
-      "command": "click",
-      "target": "css=.img-carrello",
-      "targets": [
-        ["css=.img-carrello", "css:finder"],
-        ["css=a.nav-link.img-carrello", "css"],
-        ["xpath=//div[@id='myTopnav']/a[3]", "xpath:idRelative"],
-        ["xpath=//a[contains(@href, 'Carrello.jsp')]", "xpath:href"],
-        ["xpath=//a[3]", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "657b7af3-bfce-4254-9605-408a5349a5b6",
+      "id": "e02925c9-b1e1-41eb-ae91-dc7ad83c6f95",
       "comment": "",
       "command": "click",
       "target": "id=ordinaButton",
@@ -641,7 +544,7 @@
       ],
       "value": ""
     }, {
-      "id": "db6f07c4-9703-4ab0-b154-5dbed83590a2",
+      "id": "9c635f09-6b82-4814-a66f-6524e8a2802b",
       "comment": "",
       "command": "click",
       "target": "css=.btn",
@@ -656,34 +559,32 @@
     "id": "a95a6dee-6749-49d0-a6fa-fded8bd81b4b",
     "name": "Gestione Acquisto TC_2.2.2",
     "commands": [{
-      "id": "a091b206-ab4a-4b67-a1e9-1f531f0fcfff",
+      "id": "1a12d5c5-38e1-4692-b6f3-3c2b03d42720",
       "comment": "",
       "command": "open",
       "target": "http://localhost:8080/BookPoint/presentation/cliente/Home.jsp",
       "targets": [],
       "value": ""
     }, {
-      "id": "3b227770-48d4-4d3c-b647-27215056f532",
+      "id": "98acad69-37e5-4a31-8f08-b7930f7597dc",
       "comment": "",
       "command": "setWindowSize",
       "target": "1366x728",
       "targets": [],
       "value": ""
     }, {
-      "id": "11a200d2-1994-4dcb-a7b7-eaf83226d15d",
+      "id": "93294fda-f5b5-4d17-9266-27d1c32ed87f",
       "comment": "",
       "command": "click",
-      "target": "css=.utente",
+      "target": "css=.fa-user-circle",
       "targets": [
-        ["css=.utente", "css:finder"],
-        ["css=a.nav-link.utente", "css"],
-        ["xpath=//div[@id='myTopnav']/a[5]", "xpath:idRelative"],
-        ["xpath=//a[contains(@href, 'Login.jsp')]", "xpath:href"],
-        ["xpath=//a[5]", "xpath:position"]
+        ["css=.fa-user-circle", "css:finder"],
+        ["xpath=//div[@id='myTopnav']/a[5]/i", "xpath:idRelative"],
+        ["xpath=//a[5]/i", "xpath:position"]
       ],
       "value": ""
     }, {
-      "id": "3156f5cb-7992-4ee1-8729-0349f75f4b77",
+      "id": "8e8424a1-7b2d-4c60-b53d-85cadf6bb3ed",
       "comment": "",
       "command": "click",
       "target": "id=exampleDropdownFormEmail1",
@@ -698,7 +599,7 @@
       ],
       "value": ""
     }, {
-      "id": "1e42ac01-db91-4adb-a7a5-d46643dfa60b",
+      "id": "bea6b8bf-c373-462c-a9b1-e6c82fa3fd6a",
       "comment": "",
       "command": "type",
       "target": "id=exampleDropdownFormEmail1",
@@ -711,9 +612,9 @@
         ["xpath=//form[@id='form']/div/input", "xpath:idRelative"],
         ["xpath=//input", "xpath:position"]
       ],
-      "value": "v.sammartino@studenti.unisa.it"
+      "value": "g.teodoro@studenti.unisa.it"
     }, {
-      "id": "c39b20f0-b8e1-4ffe-9514-491385e485bc",
+      "id": "dfeec908-0040-42d2-8edb-835ab311f976",
       "comment": "",
       "command": "click",
       "target": "id=exampleDropdownFormPassword1",
@@ -728,7 +629,7 @@
       ],
       "value": ""
     }, {
-      "id": "a7203517-2350-43c3-9544-48d68a6811c3",
+      "id": "f85b57a1-7270-4af4-83a5-2317f7cd3fa1",
       "comment": "",
       "command": "type",
       "target": "id=exampleDropdownFormPassword1",
@@ -741,9 +642,9 @@
         ["xpath=//form[@id='form']/div[2]/input", "xpath:idRelative"],
         ["xpath=//div[2]/input", "xpath:position"]
       ],
-      "value": "@vittorio0"
+      "value": "@Gennaro0"
     }, {
-      "id": "b2db36c6-19f7-4848-883c-49efeeed2537",
+      "id": "1ec55305-70d3-4412-991b-5cd74c180201",
       "comment": "",
       "command": "sendKeys",
       "target": "id=exampleDropdownFormPassword1",
@@ -758,7 +659,7 @@
       ],
       "value": "${KEY_ENTER}"
     }, {
-      "id": "37f3453e-ea16-49ee-9572-0427710fcea2",
+      "id": "b2cd8458-9408-4f1f-8b0e-e11ad5d21427",
       "comment": "",
       "command": "click",
       "target": "linkText=Libri",
@@ -772,7 +673,7 @@
       ],
       "value": ""
     }, {
-      "id": "99122d76-c61a-4f11-b81a-fb200f88dedc",
+      "id": "816229f6-426b-4cca-8651-cb9320299da4",
       "comment": "",
       "command": "click",
       "target": "name=9788817105156",
@@ -786,7 +687,7 @@
       ],
       "value": ""
     }, {
-      "id": "a60d8430-c0d8-49c5-96b3-1e6b977b79b3",
+      "id": "1d046864-e7fc-4644-b62c-4386adaa95c5",
       "comment": "",
       "command": "click",
       "target": "css=.btn:nth-child(1)",
@@ -798,7 +699,7 @@
       ],
       "value": ""
     }, {
-      "id": "e91ccd73-304d-4e0d-a6c3-bdcab8f00f93",
+      "id": "9ffee1a3-5572-41f1-98af-cd57155ca44e",
       "comment": "",
       "command": "click",
       "target": "css=.img-carrello",
@@ -811,7 +712,7 @@
       ],
       "value": ""
     }, {
-      "id": "6567baa9-c458-4efd-9572-027c954058dc",
+      "id": "af9ae9ac-4419-420e-a4a6-2b1e31403799",
       "comment": "",
       "command": "click",
       "target": "id=ordinaButton",
@@ -825,7 +726,7 @@
       ],
       "value": ""
     }, {
-      "id": "bb4ad293-f168-4a1b-95c1-6157e5a7252b",
+      "id": "922cefcf-ae54-4b81-9163-8acd0f9da676",
       "comment": "",
       "command": "click",
       "target": "name=numCarta",
@@ -838,14 +739,14 @@
       ],
       "value": ""
     }, {
-      "id": "f4021e0a-5bbe-4f2e-aaeb-1318c00c9527",
+      "id": "da2baced-59be-4b3d-8449-cb5ccedfbc6c",
       "comment": "",
       "command": "select",
       "target": "name=numCarta",
       "targets": [],
-      "value": "label=**** **** **** 00001"
+      "value": "label=**** **** **** 00000"
     }, {
-      "id": "4d62ec1c-9332-476e-b560-9b196cac6af7",
+      "id": "8b79b3d8-99d4-4d28-98b6-56bd762b3b1a",
       "comment": "",
       "command": "click",
       "target": "name=numCarta",
@@ -858,7 +759,7 @@
       ],
       "value": ""
     }, {
-      "id": "6601abc2-9e82-4aff-9947-7f7618f18a48",
+      "id": "900e4349-f08b-45fa-a78b-8dae54be6add",
       "comment": "",
       "command": "click",
       "target": "css=.btn",
@@ -868,49 +769,39 @@
         ["xpath=//input", "xpath:position"]
       ],
       "value": ""
-    }, {
-      "id": "0e4b019a-ce0b-4a63-8ef8-65f4b7a2e241",
-      "comment": "",
-      "command": "click",
-      "target": "css=.fa-sign-out-alt",
-      "targets": [
-        ["css=.fa-sign-out-alt", "css:finder"],
-        ["css=i.fas.fa-sign-out-alt", "css"],
-        ["xpath=//div[@id='myTopnav']/a[7]/i", "xpath:idRelative"],
-        ["xpath=//a[7]/i", "xpath:position"]
-      ],
-      "value": ""
     }]
   }, {
     "id": "e51f5d5b-345a-4184-8fa7-992f1faa86f7",
     "name": "Gestione Acquisto TC_2.2.3",
     "commands": [{
-      "id": "45626094-1c60-4a2e-b2e3-1b3ef5046d19",
+      "id": "f9c31056-6f64-402b-83ca-cf5b18ed620b",
       "comment": "",
       "command": "open",
       "target": "http://localhost:8080/BookPoint/presentation/cliente/Home.jsp",
       "targets": [],
       "value": ""
     }, {
-      "id": "fbc3bf96-d7d3-42f8-b1c1-b5d5562cb710",
+      "id": "12c0fe90-a479-4b7a-9f30-5cc12fb04544",
       "comment": "",
       "command": "setWindowSize",
       "target": "1382x744",
       "targets": [],
       "value": ""
     }, {
-      "id": "aad00c55-1ce8-47c5-996b-27ee5a738e25",
+      "id": "4b13d93d-6087-47c7-af9f-d72c35e6339c",
       "comment": "",
       "command": "click",
-      "target": "css=.fa-user-circle",
+      "target": "css=.utente",
       "targets": [
-        ["css=.fa-user-circle", "css:finder"],
-        ["xpath=//div[@id='myTopnav']/a[5]/i", "xpath:idRelative"],
-        ["xpath=//a[5]/i", "xpath:position"]
+        ["css=.utente", "css:finder"],
+        ["css=a.nav-link.utente", "css"],
+        ["xpath=//div[@id='myTopnav']/a[5]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'Login.jsp')]", "xpath:href"],
+        ["xpath=//a[5]", "xpath:position"]
       ],
       "value": ""
     }, {
-      "id": "2d131add-97f8-4d84-b3f4-de11b97ef151",
+      "id": "984e2da4-c976-4bcf-b7dc-b692d437a384",
       "comment": "",
       "command": "click",
       "target": "id=exampleDropdownFormEmail1",
@@ -925,7 +816,7 @@
       ],
       "value": ""
     }, {
-      "id": "d9c427d0-55f7-4726-8c8f-561ebaff0c88",
+      "id": "47b64bb2-49ec-4291-802f-08b8f94745ac",
       "comment": "",
       "command": "type",
       "target": "id=exampleDropdownFormEmail1",
@@ -938,9 +829,20 @@
         ["xpath=//form[@id='form']/div/input", "xpath:idRelative"],
         ["xpath=//input", "xpath:position"]
       ],
-      "value": "v.sammartino@studenti.unisa.it"
+      "value": "g.teodoro@studenti.unisa.it"
     }, {
-      "id": "89ae1aeb-7393-4bc4-8c70-ee73ac8ea9eb",
+      "id": "6394a323-3e90-467f-8de1-ee928a5f3137",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-group:nth-child(2)",
+      "targets": [
+        ["css=.form-group:nth-child(2)", "css:finder"],
+        ["xpath=//form[@id='form']/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ab2cb6a3-6b7c-4f2b-b82a-218b4a660303",
       "comment": "",
       "command": "click",
       "target": "id=exampleDropdownFormPassword1",
@@ -955,7 +857,7 @@
       ],
       "value": ""
     }, {
-      "id": "f45b0a6b-b361-46e5-ba96-6e856688339c",
+      "id": "f034c928-de44-4650-812d-150ed6aef342",
       "comment": "",
       "command": "type",
       "target": "id=exampleDropdownFormPassword1",
@@ -968,9 +870,9 @@
         ["xpath=//form[@id='form']/div[2]/input", "xpath:idRelative"],
         ["xpath=//div[2]/input", "xpath:position"]
       ],
-      "value": "@Vittorio0"
+      "value": "@Gennaro0"
     }, {
-      "id": "6d15ddd8-58b2-4940-b64a-533bf766bd1b",
+      "id": "5859b99f-6edf-4e8f-86ce-50fc82fd69da",
       "comment": "",
       "command": "sendKeys",
       "target": "id=exampleDropdownFormPassword1",
@@ -985,7 +887,7 @@
       ],
       "value": "${KEY_ENTER}"
     }, {
-      "id": "a5f8fdb4-4b26-4933-a698-00b585f6129c",
+      "id": "3f5728a6-c517-4c32-8354-7f3a2db4e5ad",
       "comment": "",
       "command": "click",
       "target": "linkText=Libri",
@@ -999,7 +901,7 @@
       ],
       "value": ""
     }, {
-      "id": "43e38d00-39d4-47d5-8441-563c80bfa3ea",
+      "id": "fb6445bf-c511-4eb3-92ee-82b0334a965a",
       "comment": "",
       "command": "click",
       "target": "name=9788817105156",
@@ -1013,7 +915,7 @@
       ],
       "value": ""
     }, {
-      "id": "1bb098c6-e0a7-4f0e-a087-d4a4806b003c",
+      "id": "b34ce86d-48cc-4313-ba84-594eba518ead",
       "comment": "",
       "command": "click",
       "target": "css=.btn:nth-child(1)",
@@ -1025,47 +927,7 @@
       ],
       "value": ""
     }, {
-      "id": "dca49a3e-7ba0-4ce5-a077-b629475c2143",
-      "comment": "",
-      "command": "click",
-      "target": "linkText=Libri",
-      "targets": [
-        ["linkText=Libri", "linkText"],
-        ["css=a:nth-child(2)", "css:finder"],
-        ["xpath=//a[contains(text(),'Libri')]", "xpath:link"],
-        ["xpath=//div[@id='myTopnav']/a[2]", "xpath:idRelative"],
-        ["xpath=//a[contains(@href, '../../VisualizzaCatalogo')]", "xpath:href"],
-        ["xpath=//a[2]", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "1d0ccd82-a099-43a2-9ab5-41016612639a",
-      "comment": "",
-      "command": "click",
-      "target": "name=9788804687290",
-      "targets": [
-        ["name=9788804687290", "name"],
-        ["css=#demo .active > .col-xs-3:nth-child(2) > .visualizza", "css:finder"],
-        ["css=img[name=\"9788804687290\"]", "css"],
-        ["xpath=//img[@name='9788804687290']", "xpath:attributes"],
-        ["xpath=//div[@id='demo']/div/div/div[2]/img", "xpath:idRelative"],
-        ["xpath=//div[2]/img", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "d975e1ad-68f3-4176-a66e-491e68cf2b01",
-      "comment": "",
-      "command": "click",
-      "target": "css=.btn:nth-child(1)",
-      "targets": [
-        ["css=.btn:nth-child(1)", "css:finder"],
-        ["css=button.btn.btn-danger", "css"],
-        ["xpath=//button[@value='aggiungi al carrello']", "xpath:attributes"],
-        ["xpath=//button", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "2a69c457-d26f-4ace-b5a6-86d01bc2e0c2",
+      "id": "b266d5e0-727a-48a9-860d-58040c8d108d",
       "comment": "",
       "command": "click",
       "target": "css=.fa-shopping-cart",
@@ -1077,7 +939,7 @@
       ],
       "value": ""
     }, {
-      "id": "03822306-0f05-4e27-b3a3-9c85be13624e",
+      "id": "77b40f51-951d-463f-a7ce-c9a19a159a30",
       "comment": "",
       "command": "click",
       "target": "id=ordinaButton",
@@ -1091,7 +953,7 @@
       ],
       "value": ""
     }, {
-      "id": "9473a147-e744-4404-b01f-db5c7bb33031",
+      "id": "5e9d808c-3550-456c-9752-503db3fbb533",
       "comment": "",
       "command": "click",
       "target": "name=numCarta",
@@ -1104,14 +966,14 @@
       ],
       "value": ""
     }, {
-      "id": "33e0c081-6ac7-4a08-b1d6-0b2fa248d367",
+      "id": "5413caeb-872b-4db8-bb4a-6027af3053a5",
       "comment": "",
       "command": "select",
       "target": "name=numCarta",
       "targets": [],
-      "value": "label=**** **** **** 00001"
+      "value": "label=**** **** **** 00000"
     }, {
-      "id": "a907a1c0-6d71-437d-9961-1785feaf8873",
+      "id": "3db55374-0e3b-474f-a9ff-4b9992e7ad2c",
       "comment": "",
       "command": "click",
       "target": "name=numCarta",
@@ -1124,7 +986,7 @@
       ],
       "value": ""
     }, {
-      "id": "ad05b6ff-84b6-42c6-aac4-46cbd6bd4944",
+      "id": "bd36e708-0936-432a-b6db-3f963fb7a76b",
       "comment": "",
       "command": "click",
       "target": "name=idIndirizzo",
@@ -1137,14 +999,14 @@
       ],
       "value": ""
     }, {
-      "id": "39fcf568-c8e5-4e36-b295-4f6365e14bf0",
+      "id": "5137bf67-da54-4c11-aa46-554170572eba",
       "comment": "",
       "command": "select",
       "target": "name=idIndirizzo",
       "targets": [],
-      "value": "label=Striscia 14 Avellino 83050"
+      "value": "label=Enrico Fermi 9 Terzigno 80040"
     }, {
-      "id": "6cadec96-16aa-4806-b450-776af3e49cc6",
+      "id": "1ba4bdf8-a558-4457-b9c1-262d7b39d972",
       "comment": "",
       "command": "click",
       "target": "name=idIndirizzo",
@@ -1157,7 +1019,7 @@
       ],
       "value": ""
     }, {
-      "id": "11a5a63c-cf31-4d2f-bbce-ffb52cf90ba9",
+      "id": "22f03664-afdf-4fca-a7cd-371b113d6a0d",
       "comment": "",
       "command": "click",
       "target": "css=.btn",
@@ -1165,18 +1027,6 @@
         ["css=.btn", "css:finder"],
         ["xpath=//input[@value=\"Completa l'acquisto\"]", "xpath:attributes"],
         ["xpath=//input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "cdcb2d31-5813-4780-8340-0de8fd172f1e",
-      "comment": "",
-      "command": "click",
-      "target": "css=.fa-sign-out-alt",
-      "targets": [
-        ["css=.fa-sign-out-alt", "css:finder"],
-        ["css=i.fas.fa-sign-out-alt", "css"],
-        ["xpath=//div[@id='myTopnav']/a[7]/i", "xpath:idRelative"],
-        ["xpath=//a[7]/i", "xpath:position"]
       ],
       "value": ""
     }]
@@ -1506,34 +1356,32 @@
     "id": "b7ab37db-9782-422f-b633-87ac813e46a4",
     "name": "Gestione Ordine TC_3.1.1",
     "commands": [{
-      "id": "dc42a2b8-9a0c-4a22-a920-5f638c11bef4",
+      "id": "071c2d4e-75bd-46bb-a55f-b13ebbb98b45",
       "comment": "",
       "command": "open",
       "target": "http://localhost:8080/BookPoint/presentation/cliente/Home.jsp",
       "targets": [],
       "value": ""
     }, {
-      "id": "144a3845-2c10-4b9a-a348-e2f155b5ce24",
+      "id": "83a5786f-4b86-4301-8fe4-d0b70fc692b7",
       "comment": "",
       "command": "setWindowSize",
       "target": "1382x744",
       "targets": [],
       "value": ""
     }, {
-      "id": "8f735a27-dd36-4d7f-987b-7eb17ee94793",
+      "id": "dd7ab4b9-982b-4ff7-88ff-6714235ce9c2",
       "comment": "",
       "command": "click",
-      "target": "css=.utente",
+      "target": "css=.fa-user-circle",
       "targets": [
-        ["css=.utente", "css:finder"],
-        ["css=a.nav-link.utente", "css"],
-        ["xpath=//div[@id='myTopnav']/a[5]", "xpath:idRelative"],
-        ["xpath=//a[contains(@href, 'Login.jsp')]", "xpath:href"],
-        ["xpath=//a[5]", "xpath:position"]
+        ["css=.fa-user-circle", "css:finder"],
+        ["xpath=//div[@id='myTopnav']/a[5]/i", "xpath:idRelative"],
+        ["xpath=//a[5]/i", "xpath:position"]
       ],
       "value": ""
     }, {
-      "id": "d78ae384-0599-4956-a6b5-c5bbaae60d76",
+      "id": "fef5f35b-fd43-4516-9964-92cd62443352",
       "comment": "",
       "command": "click",
       "target": "id=exampleDropdownFormEmail1",
@@ -1548,7 +1396,7 @@
       ],
       "value": ""
     }, {
-      "id": "106a8c6f-4e79-4805-8c40-3b1fe28265c9",
+      "id": "1cbd9cd6-0a42-4aa7-8a29-68bf0c4072dc",
       "comment": "",
       "command": "type",
       "target": "id=exampleDropdownFormEmail1",
@@ -1561,24 +1409,9 @@
         ["xpath=//form[@id='form']/div/input", "xpath:idRelative"],
         ["xpath=//input", "xpath:position"]
       ],
-      "value": "v.sammartino@studenti.unisa.it"
+      "value": "g.teodoro@studenti.unisa.it"
     }, {
-      "id": "293021bb-f3ec-41f7-a4c7-ff53f3595f6e",
-      "comment": "",
-      "command": "click",
-      "target": "id=exampleDropdownFormPassword1",
-      "targets": [
-        ["id=exampleDropdownFormPassword1", "id"],
-        ["name=password", "name"],
-        ["css=#exampleDropdownFormPassword1", "css:finder"],
-        ["css=#exampleDropdownFormPassword1", "css"],
-        ["xpath=//input[@id='exampleDropdownFormPassword1']", "xpath:attributes"],
-        ["xpath=//form[@id='form']/div[2]/input", "xpath:idRelative"],
-        ["xpath=//div[2]/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "36a0026f-29e3-4597-820c-8a67d3c3b07c",
+      "id": "42cced5d-d336-44ac-b4d4-5476053396e6",
       "comment": "",
       "command": "type",
       "target": "id=exampleDropdownFormPassword1",
@@ -1591,9 +1424,9 @@
         ["xpath=//form[@id='form']/div[2]/input", "xpath:idRelative"],
         ["xpath=//div[2]/input", "xpath:position"]
       ],
-      "value": "@Vittorio0"
+      "value": "@Gennaro0"
     }, {
-      "id": "86405316-c08c-45bf-92f6-3e7024cae1ea",
+      "id": "2e2b50dd-664f-4396-ab32-39f67c996c38",
       "comment": "",
       "command": "sendKeys",
       "target": "id=exampleDropdownFormPassword1",
@@ -1608,7 +1441,20 @@
       ],
       "value": "${KEY_ENTER}"
     }, {
-      "id": "39c951d3-375b-4051-b5a8-76a0839b8bfa",
+      "id": "f03730b6-3102-4d1d-b428-48ad8cb6d9b7",
+      "comment": "",
+      "command": "click",
+      "target": "id=myTopnav",
+      "targets": [
+        ["id=myTopnav", "id"],
+        ["css=#myTopnav", "css:finder"],
+        ["css=#myTopnav", "css"],
+        ["xpath=//div[@id='myTopnav']", "xpath:attributes"],
+        ["xpath=//div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "674d976c-312f-41d9-88a8-116782365229",
       "comment": "",
       "command": "click",
       "target": "css=.nav-link:nth-child(5) > .fas",
@@ -1619,7 +1465,7 @@
       ],
       "value": ""
     }, {
-      "id": "343e8255-9a7a-4be5-bbdc-91be085e24a3",
+      "id": "0e7084ba-4da3-43ff-838d-01771c2df988",
       "comment": "",
       "command": "click",
       "target": "css=.grid-item-account:nth-child(1) img",
@@ -5744,21 +5590,21 @@
     "id": "c1eb93c0-5be8-458a-86fa-d93802cfb341",
     "name": "Gestione Amministratore TC_4.5.2",
     "commands": [{
-      "id": "ee85e1b7-5eb3-4e39-a36d-90b912fb2676",
+      "id": "cebc1d09-5466-40f2-b54a-b8eab72732e4",
       "comment": "",
       "command": "open",
       "target": "http://localhost:8080/BookPoint/presentation/cliente/Home.jsp",
       "targets": [],
       "value": ""
     }, {
-      "id": "41c2b97d-243f-40a5-b667-fa8f8ea9cb13",
+      "id": "69be6a78-9ab8-44f6-848e-3c361a44ca32",
       "comment": "",
       "command": "setWindowSize",
       "target": "1382x744",
       "targets": [],
       "value": ""
     }, {
-      "id": "3c743f92-3e44-4bcf-b94e-9dbbe0add058",
+      "id": "f564dde0-ad93-4a86-8f5b-1be546c536da",
       "comment": "",
       "command": "click",
       "target": "css=.fa-user-circle",
@@ -5769,19 +5615,7 @@
       ],
       "value": ""
     }, {
-      "id": "e15137ca-2a8e-4253-925a-613ae00d5eb0",
-      "comment": "",
-      "command": "click",
-      "target": "css=.form-group:nth-child(1)",
-      "targets": [
-        ["css=.form-group:nth-child(1)", "css:finder"],
-        ["css=div.form-group", "css"],
-        ["xpath=//form[@id='form']/div", "xpath:idRelative"],
-        ["xpath=//form/div", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "4e2a5b9b-b9e1-4129-8790-63ef5c6e10ca",
+      "id": "db2f2505-633f-43f5-a0c9-7fc34b14aca9",
       "comment": "",
       "command": "click",
       "target": "id=exampleDropdownFormEmail1",
@@ -5796,7 +5630,7 @@
       ],
       "value": ""
     }, {
-      "id": "295bb6d0-9e95-421e-94bf-e8af5e859ae2",
+      "id": "f1201cc9-1435-4911-a99b-8e1a716c93a8",
       "comment": "",
       "command": "type",
       "target": "id=exampleDropdownFormEmail1",
@@ -5811,7 +5645,7 @@
       ],
       "value": "m.giordano162@studenti.unisa.it"
     }, {
-      "id": "e0348343-2bf8-42e0-a606-a0e232cd1f42",
+      "id": "367742f5-38c5-4713-b19c-259af58c11a8",
       "comment": "",
       "command": "type",
       "target": "id=exampleDropdownFormPassword1",
@@ -5826,7 +5660,7 @@
       ],
       "value": "@Massimo0"
     }, {
-      "id": "50b9066d-9a9a-415c-bdab-f1e931e6daa9",
+      "id": "f8d733ca-8b75-4e3f-966c-100a46496672",
       "comment": "",
       "command": "sendKeys",
       "target": "id=exampleDropdownFormPassword1",
@@ -5841,7 +5675,7 @@
       ],
       "value": "${KEY_ENTER}"
     }, {
-      "id": "5565d525-3530-4898-9d4c-fc6932c4de83",
+      "id": "b0538107-933b-40e0-b174-d96dcbcba4da",
       "comment": "",
       "command": "click",
       "target": "linkText=Account",
@@ -5855,18 +5689,7 @@
       ],
       "value": ""
     }, {
-      "id": "e80cf8d4-14c7-4734-957c-a211e9945881",
-      "comment": "",
-      "command": "click",
-      "target": "css=.search-container",
-      "targets": [
-        ["css=.search-container", "css:finder"],
-        ["xpath=//form[@action='ricercaAccount']", "xpath:attributes"],
-        ["xpath=//form", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "3fe14ea3-3e7f-4b50-be70-36a031589695",
+      "id": "991dd951-a2e5-49e1-a63f-a75676703503",
       "comment": "",
       "command": "click",
       "target": "id=search-bar",
@@ -5880,7 +5703,7 @@
       ],
       "value": ""
     }, {
-      "id": "764714bf-d8ae-425b-9968-3619601b13fc",
+      "id": "6e9e3e34-b9de-40d9-86f6-b631b5752c42",
       "comment": "",
       "command": "type",
       "target": "id=search-bar",
@@ -5892,9 +5715,9 @@
         ["xpath=//input[@id='search-bar']", "xpath:attributes"],
         ["xpath=//input", "xpath:position"]
       ],
-      "value": "v.sammartino@studenti.unisa.it"
+      "value": "g.teodoro@studenti.unisa.it"
     }, {
-      "id": "f6ba907c-78ef-4a5b-b9b5-65ba9e6de050",
+      "id": "8fec43b6-dfc8-4d98-b227-83552dff330e",
       "comment": "",
       "command": "click",
       "target": "css=.btn",
@@ -5906,7 +5729,7 @@
       ],
       "value": ""
     }, {
-      "id": "60904bcf-c81b-4174-b7c8-cea12975074e",
+      "id": "561f770b-ee70-496c-97ae-28b94816c383",
       "comment": "",
       "command": "click",
       "target": "css=.modificaTipo",
@@ -5917,7 +5740,7 @@
       ],
       "value": ""
     }, {
-      "id": "12f10f10-0755-4fa1-ba44-0e24d98fb436",
+      "id": "91310de2-1fe2-41bd-babf-cae30aba3bb7",
       "comment": "",
       "command": "click",
       "target": "name=tipo",
@@ -5930,7 +5753,27 @@
       ],
       "value": ""
     }, {
-      "id": "2ab8526a-7a46-485c-8c39-09bf3f47e665",
+      "id": "e0037648-e157-44d6-aece-f7a5860527ae",
+      "comment": "",
+      "command": "select",
+      "target": "name=tipo",
+      "targets": [],
+      "value": "label=amministratoreOrdini"
+    }, {
+      "id": "cb285bb4-68ae-438d-a2fa-9c230724b639",
+      "comment": "",
+      "command": "click",
+      "target": "name=tipo",
+      "targets": [
+        ["name=tipo", "name"],
+        ["css=select", "css:finder"],
+        ["css=select[name=\"tipo\"]", "css"],
+        ["xpath=//select[@name='tipo']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ec7d22be-3064-46b0-b09f-26b7e7993472",
       "comment": "",
       "command": "click",
       "target": "css=.formModificaTipo .btn",
@@ -6130,7 +5973,7 @@
         ["xpath=//input[@id='search-bar']", "xpath:attributes"],
         ["xpath=//input", "xpath:position"]
       ],
-      "value": "v.sammartino@studenti.unisa.it"
+      "value": "g.teodoro@studenti.unisa.it"
     }, {
       "id": "abb606f5-2e9d-41c0-a389-61797124bc5a",
       "comment": "",
@@ -6158,7 +6001,7 @@
     }]
   }, {
     "id": "5ecd0a6a-4294-4107-a85e-11700873646c",
-    "name": "Gestione Amministratore Ordini TC_5.1.1",
+    "name": "Gestione Amministratore Ordine TC_5.1.1",
     "commands": [{
       "id": "25abf988-add3-4f13-aca0-811a42f65a6e",
       "comment": "",
@@ -6261,7 +6104,7 @@
     }]
   }, {
     "id": "65542aa5-2b43-4659-ab57-85440384190a",
-    "name": "Gestione Amministratore Ordine TC_5.1.1",
+    "name": "Gestione Amministratore Ordine TC_5.1.2",
     "commands": [{
       "id": "6b27148c-efbd-43ee-963f-174f96a091b6",
       "comment": "",
