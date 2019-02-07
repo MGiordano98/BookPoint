@@ -38,6 +38,7 @@ public class RicercaOrdine extends HttpServlet {
 		HttpSession session= request.getSession();
 		int numOrdine= Integer.parseInt(request.getParameter("numOrdine"));
 		Ordine ordine= null;
+		boolean ordineNonTrovato=false;
 		try {
 			ordine= manager.ricercaOrdine(numOrdine);
 		} catch (SQLException e) {
@@ -45,6 +46,10 @@ public class RicercaOrdine extends HttpServlet {
 			e.printStackTrace();
 		}
 		
+		if(ordine==null) {
+			ordineNonTrovato= true;
+		}
+		session.setAttribute("ordineNonTrovato", ordineNonTrovato);
 		session.setAttribute("ordine", ordine);
 		RequestDispatcher dispatcher= request.getRequestDispatcher("AmministratoreOrdiniOrdine.jsp");
 		dispatcher.forward(request, response);

@@ -22,14 +22,15 @@ public class AmministratoreOrdineManager {
 		PreparedStatement pStatement= null;
 		
 		String selectQ= "SELECT * FROM ordine WHERE numero = ?";
-		Ordine ordine= new Ordine();
+		Ordine ordine= null;
 		
 		try {
 			pStatement= connection.prepareStatement(selectQ);
 			pStatement.setInt(1, numOrdine);
 			ResultSet rs= pStatement.executeQuery();
 			
-			while(rs.next()) {
+			if(rs.next()) {
+				ordine= new Ordine();
 				ordine.setCittà(rs.getString("città"));
 				ordine.setDataEffettuata(rs.getDate("dataOrdine"));
 				ordine.setDataConsegna(rs.getDate("dataConsegna"));
