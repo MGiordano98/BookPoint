@@ -22,7 +22,9 @@
 </head>
 <body>
 <%@ include file="headerAmministratore.jsp"%>
-<% Utente utenteCercato=(Utente) request.getSession().getAttribute("utenteCercato") ;%>
+<% Utente utenteCercato=(Utente) request.getSession().getAttribute("utenteCercato");%>
+
+
 <div class="container-cerca">
 <div class="cerca">
   <form class=" search-container" action="ricercaAccount" >
@@ -34,7 +36,11 @@
 
 <%if(utenteCercato==null){
 	
-} else{%>
+} else if(request.getSession().getAttribute("accountNonTrovato")!=null) 
+	   if((boolean) request.getSession().getAttribute("accountNonTrovato")){%>
+<h2>Account Non Trovato</h2>
+<%}else{ %>
+
 <div class="container-account">
 <h3><%=utenteCercato.getNome()%> <%=utenteCercato.getCognome() %></h3>
 <table class="table-bordered">

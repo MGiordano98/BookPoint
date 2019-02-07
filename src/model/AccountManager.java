@@ -32,7 +32,7 @@ public class AccountManager {
 			pStatement.setString(1, email);
 			pStatement.setString(2, password);
 			ResultSet rs= pStatement.executeQuery();
-			while(rs.next()) {
+			if(rs.next()) {
 				utente= new Utente();
 				utente.setEmail(rs.getString("email"));
 				utente.setNome(rs.getString("nome"));

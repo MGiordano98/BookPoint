@@ -472,7 +472,7 @@ public class AmministratoreManager {
 	/**
 	 * 
 	 * @param isbn l'isbn del libro da eliminare
-	 * @return
+	 * @return true se il libro è stato eliminato con successo, altrimenti false
 	 * @throws SQLException
 	 */
 	public boolean eliminaLibro(String isbn) throws SQLException {
@@ -504,8 +504,9 @@ public class AmministratoreManager {
 
 	/**
 	 * 
-	 * @param idRecensione
-	 * @throws SQLException 
+	 * @param idRecensione id della recensione da eliminare
+	 * @return true se la recensione è stata eliminata con successo, altrimenti false
+	 * @throws SQLException
 	 */
 	public boolean eliminaRecensione(int idRecensione) throws SQLException {
 		Connection connection= null;
@@ -536,21 +537,23 @@ public class AmministratoreManager {
 
 	/**
 	 * 
-	 * @param email
-	 * @throws SQLException 
+	 * @param email l'email dell'account da ricercare
+	 * @return un Utente vuoto se non è stato ritrovato nessun account, altrimenti un Utente con i dati dell'account cercato
+	 * @throws SQLException
 	 */
 	public Utente ricercaAccount(String email) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement preparedStatement= null;
 
 		String selectQ= "SELECT * FROM utente WHERE email = ?";
-		Utente utente= new Utente();
+		Utente utente= null;
 		try {
 			preparedStatement= connection.prepareStatement(selectQ);
 			preparedStatement.setString(1, email);
 			ResultSet rs= preparedStatement.executeQuery();
 
-			while(rs.next()) {
+			if(rs.next()) {
+				utente= new Utente();
 				utente.setEmail(email);
 				utente.setNome(rs.getString("nome"));
 				utente.setDataDiNascita(rs.getDate("dataDiNascita"));
@@ -573,9 +576,10 @@ public class AmministratoreManager {
 
 	/**
 	 * 
-	 * @param email
-	 * @param tipo
-	 * @throws SQLException 
+	 * @param email l'email dell'account di cui si deve cambiare il tipo
+	 * @param tipo il nuovo tipo
+	 * @return true se il tipo è stato cambiato con successo, altrimenti false
+	 * @throws SQLException
 	 */
 	public boolean cambiaTipo(String email, String tipo) throws SQLException {
 		Connection connection= null;
@@ -608,8 +612,9 @@ public class AmministratoreManager {
 
 	/**
 	 * 
-	 * @param email
-	 * @throws SQLException 
+	 * @param email l'email dell'account da eliminare
+	 * @return true se l'account è stato eliminato con successo, altrimenti false
+	 * @throws SQLException
 	 */
 	public boolean eliminaUtente(String email) throws SQLException {
 		Connection connection= null;
