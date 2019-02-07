@@ -26,14 +26,14 @@ import model.AmministratoreManager;
 @WebServlet("/AggiungiLibro")
 public class AggiungiLibro extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private static AmministratoreManager am= new AmministratoreManager();
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public AggiungiLibro() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	private static AmministratoreManager am= new AmministratoreManager();
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public AggiungiLibro() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -43,30 +43,32 @@ public class AggiungiLibro extends HttpServlet {
 		double prezzo;
 		int quantita;
 		ArrayList<Autore> autori= new ArrayList<Autore>();
-		
+
 		isbn= request.getParameter("isbn");		System.out.println(isbn);
 		titolo= request.getParameter("titolo"); System.out.println(titolo);
 		trama= request.getParameter("trama");	System.out.println(trama);
 		foto= request.getParameter("foto");		System.out.println(foto);
-		
+
 		casaEditrice= request.getParameter("casaEditrice");	System.out.println(casaEditrice);
 		categoria= request.getParameter("categoria");		System.out.println(categoria);
 		prezzo= Double.parseDouble(request.getParameter("prezzo"));		System.out.println(prezzo);
 		quantita= Integer.parseInt(request.getParameter("quantita"));	System.out.println(quantita);
-		
+
 		String[] nomiAutori=request.getParameterValues("autore");
-		System.out.println(nomiAutori.length);
-		
-		for(String autore : nomiAutori) {
-			System.out.println(autore);
-			autori.add(new Autore(autore));
+		if(nomiAutori==null) {
+			autori.add(new Autore("Sconosciuto"));
+		}else {
+			for(String autore : nomiAutori) {
+				System.out.println(autore);
+				autori.add(new Autore(autore));
+			}
 		}
-		
+
 		Date dataUscita= Date.valueOf(request.getParameter("dataUscita"));
 		System.out.println(request.getParameter("dataUscita"));
-		
+
 		Libro libro= new Libro(isbn, titolo, trama, isbn+".jpg", casaEditrice, prezzo, quantita, categoria, autori, dataUscita);
-		
+
 		try {
 			am.aggiungiLibro(libro);
 		} catch (SQLException e) {
@@ -74,7 +76,7 @@ public class AggiungiLibro extends HttpServlet {
 		}
 		RequestDispatcher dispatcher= request.getRequestDispatcher("AmministratoreCatalogo.jsp");
 		dispatcher.forward(request, response);
-		
+
 	}
 
 	/**

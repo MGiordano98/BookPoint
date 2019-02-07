@@ -72,7 +72,7 @@
 						while (it.hasNext()) {
 							Indirizzo indirizzo = (Indirizzo) it.next();
 				%>
-				
+				<option></option>
 				<option value="<%=indirizzo.getId()%>"><%=indirizzo.getVia()%>
 					<%=indirizzo.getNumCivico()%>
 					<%=indirizzo.getCittà()%>

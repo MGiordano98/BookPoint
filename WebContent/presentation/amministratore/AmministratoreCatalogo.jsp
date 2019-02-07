@@ -79,7 +79,7 @@
 				<tr>
 					<td class="td-bold"><label for="trama">trama</label></td>
 					<td><input id="trama" type="text" name="trama"
-						placeholder="trama" pattern=[a-zA-Z0-9_\x20]{0,1700}
+						placeholder="trama" pattern={0,1700}
 						title="La descrizione non deve superare i 1700 caratteri" required><br></td>
 				</tr>
 
@@ -123,7 +123,7 @@
 				<tr>
 					<td class="td-bold"><label for="dataUscita">data
 							uscita</label></td>
-					<td><input id="dataUscita" type="date" name="dataUscita"><br></td>
+					<td><input id="dataUscita" type="date" name="dataUscita" required><br></td>
 				</tr>
 
 				<!-- AGGIUNGI AUTORI -->
