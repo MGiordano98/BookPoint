@@ -15,9 +15,10 @@ public class AccountManager {
 
 	/**
 	 * 
-	 * @param email
-	 * @param password
-	 * @throws SQLException 
+	 * @param email l'email inserita dall'utente durante il login
+	 * @param password la password inserita dall'utente durante il login
+	 * @return null se non ha trovato l'account o un Utente se ha trovato l'account
+	 * @throws SQLException
 	 */
 	public Utente login(String email, String password) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
@@ -25,8 +26,6 @@ public class AccountManager {
 		
 		String selectQ= "SELECT * FROM utente WHERE email = ? AND psw = ?";
 		Utente utente= null;
-		
-		System.out.println("ciao");
 		
 		try {
 			pStatement= connection.prepareStatement(selectQ);
@@ -40,8 +39,6 @@ public class AccountManager {
 				utente.setCognome(rs.getString("cognome"));
 				utente.setDataDiNascita(rs.getDate("dataDiNascita"));
 				utente.setTipo(rs.getString("tipo"));
-				
-				System.out.println(utente.getEmail() + " " + utente.getNome() + " " + utente.getCognome());
 			}
 		}finally {
 			try {
@@ -55,13 +52,13 @@ public class AccountManager {
 		
 		return utente;
 	}
-
+/*
 	/**
 	 * 
 	 * @param email
 	 * @param password
 	 * @throws SQLException 
-	 */
+	 
 	public boolean registrazione(Utente utente) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
@@ -97,14 +94,15 @@ public class AccountManager {
 		}
 		
 		return registrato;
-	}
+	}*/
 	
 	/**
 	 * 
-	 * @param email
-	 * @param vecchiaPassword
-	 * @param nuovaPassword
-	 * @throws SQLException 
+	 * @param email l'email dell'utente loggato
+	 * @param vecchiaPassword la vecchia password inserita dall'utente
+	 * @param nuovaPassword la nuova password da inserire
+	 * @return true se la password è stata cambiata con successo, altrimenti false
+	 * @throws SQLException
 	 */
 	public boolean changePassword(String email, String vecchiaPassword, String nuovaPassword) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
@@ -138,6 +136,11 @@ public class AccountManager {
 		return passCambiata;
 	}
 
+	/**
+	 * 
+	 * @return true se la vecchia password inserita dall'utente è uguale alla password attuale, false altrimenti
+	 * @throws SQLException
+	 */
 	private boolean checkVecchiaPassword(String email, String vecchiaPassword, Connection connection) throws SQLException {
 		PreparedStatement pStatement= null;
 		
@@ -157,8 +160,9 @@ public class AccountManager {
 
 	/**
 	 * 
-	 * @param email
-	 * @throws SQLException 
+	 * @param email l'email dell'utente loggato
+	 * @return una lista vuota se non ci sono carte associate all'account, altrimenti una lista con le carte associate
+	 * @throws SQLException
 	 */
 	public Collection<CartaDiCredito> ricercaCarte(String email) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
@@ -194,8 +198,10 @@ public class AccountManager {
 
 	/**
 	 * 
-	 * @param email
-	 * @throws SQLException 
+	 * @param email l'email dell'utente loggato
+	 * @return una lista vuota se non ci sono indirizzi associati all'account, altrimenti una lista con 
+	 * gli indirizzi associati
+	 * @throws SQLException
 	 */
 	public Collection<Indirizzo> ricercaIndirizzi(String email) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
@@ -232,12 +238,10 @@ public class AccountManager {
 
 	/**
 	 * 
-	 * @param email
-	 * @param numCarta
-	 * @param intestatario
-	 * @param dataScadenza
-	 * @param cvv
-	 * @throws SQLException 
+	 * @param email l'email dell'utente loggato
+	 * @param carta la carta da aggiungere
+	 * @return true se la carta è stata aggiunta con successo, altrimenti false
+	 * @throws SQLException
 	 */
 	public boolean aggiungiCarta(String email, CartaDiCredito carta) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
@@ -278,9 +282,9 @@ public class AccountManager {
 
 	/**
 	 * 
-	 * @param email
-	 * @param numCarta
-	 * @throws SQLException 
+	 * @param numCarta il numero della carta da rimuovere
+	 * @return true se la carta è stata rimossa con successo, altrimenti false
+	 * @throws SQLException
 	 */
 	public boolean rimuoviCarta(String numCarta) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
@@ -314,12 +318,10 @@ public class AccountManager {
 
 	/**
 	 * 
-	 * @param email
-	 * @param via
-	 * @param numCivico
-	 * @param cap
-	 * @param città
-	 * @throws SQLException 
+	 * @param email l'email dell'utente loggato
+	 * @param indirizzo l'indirizzo da aggiungere
+	 * @return true se l'indirizzo è stato aggiunto con successo, altrimenti false
+	 * @throws SQLException
 	 */
 	public boolean aggiungiIndirizzo(String email, Indirizzo indirizzo) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
@@ -357,9 +359,9 @@ public class AccountManager {
 
 	/**
 	 * 
-	 * @param email
-	 * @param idIndirizzo
-	 * @throws SQLException 
+	 * @param idIndirizzo l'id dell'indirizzo da rimuovere
+	 * @return true se l'indirizzo è stato rimosso con successo, altrimenti false
+	 * @throws SQLException
 	 */
 	public boolean rimuoviIndirizzo(int idIndirizzo) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
@@ -392,13 +394,10 @@ public class AccountManager {
 
 	/**
 	 * 
-	 * @param email
-	 * @param idIndirizzo
-	 * @param via
-	 * @param numCivico
-	 * @param CAP
-	 * @param città
-	 * @throws SQLException 
+	 * @param indirizzo l'indirizzo contenente i paramentri da modificare
+	 * @param email l'email dell'account associato
+	 * @return true se la modifica è avveuta con successo, altrimenti false
+	 * @throws SQLException
 	 */
 	public boolean modificaIndirizzo(Indirizzo indirizzo, String email) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();

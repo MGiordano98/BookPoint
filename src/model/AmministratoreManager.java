@@ -14,20 +14,14 @@ import connectionPool.DriverMaagerConnectionPool;
 
 public class AmministratoreManager {
 
+	
+
 	/**
 	 * 
-	 * @param isbn
-	 * @param titolo
-	 * @param trama
-	 * @param foto
-	 * @param casaEditrice
-	 * @param prezzo
-	 * @param quantit‡Disponibile
-	 * @param Categoria
-	 * @throws SQLException 
+	 * @param libro il libro da aggiungere
+	 * @return true se il libro Ë stato aggiunto con successo, altrimenti false
+	 * @throws SQLException
 	 */
-
-	//DA FINIRE
 	public boolean aggiungiLibro(Libro libro) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -62,7 +56,6 @@ public class AmministratoreManager {
 			//una tupla nella tabbella scrive.
 			//Se non Ë presente inseriamo solamente una tupla nella tabella scrive.
 			ArrayList<Autore> libri= libro.getAutori();
-			System.out.println(libri.size());
 			for(Autore temp : libri){
 
 				if(!presenteAutore(temp,connection)){
@@ -89,6 +82,14 @@ public class AmministratoreManager {
 		return result;
 	}
 
+	/**
+	 * 
+	 * @param nome il nome dell'autore
+	 * @param isbn l'isbn del libro scritto dall'autore
+	 * @param connection la connessione con il database
+	 * @return true se l'inserimento Ë avvenuto con successo, altrimenti false
+	 * @throws SQLException
+	 */
 	private boolean insertScrive(String nome, String isbn, Connection connection) throws SQLException {
 
 		PreparedStatement preparedStatement=null;
@@ -121,6 +122,12 @@ public class AmministratoreManager {
 		return result;
 	}
 
+	/**
+	 * 
+	 * @param nome il nome dell'autore
+	 * @return true se l'inserimento dell'autore Ë avvenuto con successo, altrimenti false
+	 * @throws SQLException
+	 */
 	private boolean insertAutore(String nome) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		
@@ -151,7 +158,13 @@ public class AmministratoreManager {
 		return result;
 	}
 	
-	//DA FINIRE
+	/**
+	 * 
+	 * @param autore l'autore di cui si deve controllare la presenza
+	 * @param connection la connessione al db
+	 * @return true se l'autore Ë gi‡ presente nel db, altrimenti false
+	 * @throws SQLException
+	 */
 	private boolean presenteAutore(Autore autore, Connection connection) throws SQLException {
 
 		PreparedStatement preparedStatement= null;
@@ -186,11 +199,11 @@ public class AmministratoreManager {
 
 	/**
 	 * 
-	 * @param tipo
-	 * @param nuovoAttributo
-	 * @throws SQLException 
+	 * @param isbn del libro di cui si deve modificare la data d'uscita
+	 * @param nuovoAttributo la nuova data d'uscita
+	 * @return true se la data d'uscita Ë stata modificata con successo, altrimenti false
+	 * @throws SQLException
 	 */
-
 	public boolean modificaDataUscita(String isbn, Date nuovoAttributo) throws SQLException {
 		Connection connection= null;
 		PreparedStatement preparedStatement= null;
@@ -218,7 +231,13 @@ public class AmministratoreManager {
 		return result;
 	}
 
-	
+	/**
+	 * 
+	 * @param isbn l'isbn del libro di cui si deve modificare la categoria
+	 * @param nuovoAttributo la nuova categoria
+	 * @return true se la categoria Ë stata modificata con successo, altrimenti false
+	 * @throws SQLException
+	 */
 	public boolean modificaCategoria(String isbn, String nuovoAttributo) throws SQLException {
 		Connection connection= null;
 		PreparedStatement preparedStatement= null;
@@ -247,6 +266,13 @@ public class AmministratoreManager {
 		return result;
 	}
 
+	/**
+	 * 
+	 * @param isbn l'isbn del libro di cui si deve modificare la quantit‡ disponibile
+	 * @param nuovoAttributo la nuova quantit‡ disponibile
+	 * @return true se la quantit‡ disponibile Ë stata modificata con successo, altrimenti false
+	 * @throws SQLException
+	 */
 	public boolean modificaQuantit‡Disponibile(String isbn, int nuovoAttributo) throws SQLException {
 		Connection connection= null;
 		PreparedStatement preparedStatement= null;
@@ -274,6 +300,13 @@ public class AmministratoreManager {
 		return result;
 	}
 
+	/**
+	 * 
+	 * @param isbn l'isbn del libro di cui si deve modificare il prezzo
+	 * @param nuovoAttributo il nuovo prezzo
+	 * @return true se il prezzo Ë stato modificato con successo, altrimenti false
+	 * @throws SQLException
+	 */
 	public boolean modificaPrezzo(String isbn, double nuovoAttributo) throws SQLException {
 		Connection connection= null;
 		PreparedStatement preparedStatement= null;
@@ -301,6 +334,13 @@ public class AmministratoreManager {
 		return result;
 	}
 
+	/**
+	 * 
+	 * @param isbn l'isbn del libro di cui si deve modificare la casa editrice
+	 * @param nuovoAttributo la nuova casa editrice
+	 * @return true se la casa editrice Ë stata modificata con successo, altrimenti false
+	 * @throws SQLException
+	 */
 	public boolean modificaCasaEditrice(String isbn, String nuovoAttributo) throws SQLException {
 		Connection connection= null;
 		PreparedStatement preparedStatement= null;
@@ -328,6 +368,13 @@ public class AmministratoreManager {
 		return result;
 	}
 
+	/**
+	 * 
+	 * @param isbn l'isbn del libro di cui si deve modificare la foto
+	 * @param nuovoAttributo la nuova foto
+	 * @return true se la foto Ë stata modificata con successo, altrimenti false
+	 * @throws SQLException
+	 */
 	public boolean modificaFoto(String isbn, String nuovoAttributo) throws SQLException {
 		Connection connection= null;
 		PreparedStatement preparedStatement= null;
@@ -353,9 +400,15 @@ public class AmministratoreManager {
 			}
 		}
 		return result;
-
 	}
 
+	/**
+	 * 
+	 * @param isbn l'isbn del libro di cui si deve modificare la trama
+	 * @param nuovoAttributo la nuova trama
+	 * @return true se la trama Ë stata modifica con successo, altrimenti false
+	 * @throws SQLException
+	 */
 	public boolean modificaTrama(String isbn, String nuovoAttributo) throws SQLException {
 		Connection connection= null;
 		PreparedStatement preparedStatement= null;
@@ -383,6 +436,13 @@ public class AmministratoreManager {
 		return result;
 	}
 
+	/**
+	 * 
+	 * @param isbn l'isbn del libro di cui si deve modificare il titolo
+	 * @param nuovoAttributo il nuovo titolo 
+	 * @return true se il titolo Ë stato modificato con successo, altrimenti false
+	 * @throws SQLException
+	 */
 	public boolean modificaTitolo(String isbn, String nuovoAttributo) throws SQLException {
 		Connection connection= null;
 		PreparedStatement preparedStatement= null;
@@ -411,8 +471,9 @@ public class AmministratoreManager {
 
 	/**
 	 * 
-	 * @param isbn
-	 * @throws SQLException 
+	 * @param isbn l'isbn del libro da eliminare
+	 * @return
+	 * @throws SQLException
 	 */
 	public boolean eliminaLibro(String isbn) throws SQLException {
 		Connection connection= null;
