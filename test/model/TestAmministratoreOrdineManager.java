@@ -3,13 +3,6 @@ package model;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Time;
-import java.util.Collection;
-import java.util.Iterator;
-
-import bean.CartaDiCredito;
-import bean.Indirizzo;
-import bean.Ordine;
-import bean.Utente;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;

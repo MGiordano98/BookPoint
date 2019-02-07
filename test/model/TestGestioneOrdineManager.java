@@ -1,8 +1,7 @@
 package model;
 
-import static org.junit.Assert.*;
 
-import java.sql.Date;
+
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Iterator;
@@ -105,7 +104,7 @@ public class TestGestioneOrdineManager extends TestCase{
 	
 	public static Test suite() {
 		TestSuite suite= new TestSuite();
-		suite.addTest(new TestAccountManager("testVisualizzaStorico"));
+		suite.addTest(new TestGestioneOrdineManager("testVisualizzaStorico"));
 		
 		return suite;
 	}

@@ -1,13 +1,7 @@
 package model;
 
 
-import java.sql.Date;
 import java.sql.SQLException;
-import java.util.Collection;
-import java.util.Iterator;
-
-import bean.CartaDiCredito;
-import bean.Indirizzo;
 import bean.Utente;
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -43,12 +37,11 @@ public class TestAccountManager extends TestCase{
 		utente= manager.login("m.giordano@studenti.unisa.it","#Massimo0");
 		assertNull(utente);
 		
-		utente= manager.login("m.giordano@studenti.unisa.it","@Massimo0");
+		utente= manager.login("m.giordano162@studenti.unisa.it","@Massimo0");
 		assertNotNull(utente);
 		assertNotNull(utente.getCognome());
 		assertNotNull(utente.getEmail());
 		assertNotNull(utente.getNome());
-		assertNotNull(utente.getPassword());
 		assertNotNull(utente.getTipo());
 		assertNotNull(utente.getDataDiNascita());
 	}

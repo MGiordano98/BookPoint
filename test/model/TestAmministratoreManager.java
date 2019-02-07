@@ -186,7 +186,7 @@ public class TestAmministratoreManager extends TestCase{
 		assertFalse(manager.cambiaTipo("ciao",""));
 		assertFalse(manager.cambiaTipo("m.garofalo@studenti.unisa.it",""));
 		assertFalse(manager.cambiaTipo("m.giordano@studenti.unisa.it","Amministratore condominio"));
-		assertTrue(manager.cambiaTipo("m.giordano@studenti.unisa.it","Cliente"));
+		assertTrue(manager.cambiaTipo("m.giordano162@studenti.unisa.it","Cliente"));
 	}
 	
 	public void testEliminaUtente() throws SQLException {

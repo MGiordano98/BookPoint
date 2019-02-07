@@ -38,7 +38,7 @@ $(document).ready(function(){
 	});
 
 	$(".bottone-elimina").click(function(){
-		alert("aaa");
+		
 		var id= this.id;
 		var idRecensione= $("#recensione"+id).val(); 
 		$.post("eliminaRecensione", {"idRecensione": idRecensione}, function(data){
