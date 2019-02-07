@@ -49,11 +49,6 @@ public class AggiungiLibro extends HttpServlet {
 		trama= request.getParameter("trama");	System.out.println(trama);
 		foto= request.getParameter("foto");		System.out.println(foto);
 		
-		
-	//	File file= new File("C://Users/maxim/OneDrive/Desktop/cart.png");
-	//	BufferedImage buffImage= ImageIO.read(file);
-	//	ImageIO.write(buffImage, "png", new File("../presentation/image/"+isbn+".png"));
-		
 		casaEditrice= request.getParameter("casaEditrice");	System.out.println(casaEditrice);
 		categoria= request.getParameter("categoria");		System.out.println(categoria);
 		prezzo= Double.parseDouble(request.getParameter("prezzo"));		System.out.println(prezzo);

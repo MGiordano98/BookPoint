@@ -1,10 +1,13 @@
 <%
-if(request.getSession().getAttribute("admin")!=null){
-	boolean admin= (boolean) request.getSession().getAttribute("admin");
-	if(!admin){
-		response.sendRedirect("account.jsp");
-	}
-}
+	if (request.getSession().getAttribute("utente") != null) {
+		Utente utenteC = (Utente) request.getSession().getAttribute("utente");
+		if (!utenteC.getTipo().equalsIgnoreCase("cliente")) {
+			if (utenteC.getTipo().equalsIgnoreCase("amministratore")) {
+				response.sendRedirect("../amministratore/AmministratoreCatalogo.jsp");
+			} else {
+				response.sendRedirect("../amministratoreOrdini/AmministratoreOrdiniOrdine.jsp");
+			}
+		}}
 %>
 
 <!DOCTYPE html>

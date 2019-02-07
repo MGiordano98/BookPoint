@@ -1,7 +1,18 @@
+<%
+	if (request.getSession().getAttribute("utente") != null) {
+		Utente utenteC = (Utente) request.getSession().getAttribute("utente");
+		if (!utenteC.getTipo().equalsIgnoreCase("cliente")) {
+			if (utenteC.getTipo().equalsIgnoreCase("amministratore")) {
+				response.sendRedirect("../amministratore/AmministratoreCatalogo.jsp");
+			} else {
+				response.sendRedirect("../amministratoreOrdini/AmministratoreOrdiniOrdine.jsp");
+			}
+		}}
+%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"
 	import="java.util.*,bean.*,control.gestioneAcquisto.*"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="styleCliente2.css">
@@ -14,6 +25,7 @@
 	<%@ include file="header.jsp"%>
 
 	<%
+		if(request.getSession().getAttribute("libro")!= null){
 		Libro libro = (Libro) request.getSession().getAttribute("libro");
 	%>
 
@@ -114,6 +126,7 @@
 		</div>
 	</form>
 
+<%} %>
 
 
 	<%@ include file="footer.jsp"%>

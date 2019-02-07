@@ -1,4 +1,14 @@
-
+<%
+	if (request.getSession().getAttribute("utente") != null) {
+		Utente utenteC = (Utente) request.getSession().getAttribute("utente");
+		if (!utenteC.getTipo().equalsIgnoreCase("cliente")) {
+			if (utenteC.getTipo().equalsIgnoreCase("amministratore")) {
+				response.sendRedirect("../amministratore/AmministratoreCatalogo.jsp");
+			} else {
+				response.sendRedirect("../amministratoreOrdini/AmministratoreOrdiniOrdine.jsp");
+			}
+		} else {
+%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -213,3 +223,9 @@
 
 </body>
 </html>
+<%
+	}
+}else{
+	response.sendRedirect("Login.jsp");
+}
+%>
