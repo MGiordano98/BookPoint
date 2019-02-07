@@ -35,7 +35,7 @@
 			<%
 				if (carte != null) {
 			%>
-			<select name="numCarta">
+			<select name="numCarta" required>
 				<%
 					Iterator it = carte.iterator();
 						while (it.hasNext()) {
@@ -66,7 +66,7 @@
 			<%
 				if (indirizzi != null) {
 			%>
-			<select name="idIndirizzo">
+			<select name="idIndirizzo" required>
 				<%
 					Iterator it = indirizzi.iterator();
 						while (it.hasNext()) {
