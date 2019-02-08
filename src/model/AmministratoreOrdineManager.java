@@ -71,7 +71,7 @@ public class AmministratoreOrdineManager {
 
 		try{
 			if(numOrdine<=0) throw new IllegalArgumentException("Numero ordine errato");
-			if(!stato.equals("In preparazione") &&  !stato.equals("In transiro") && !stato.equals("In consegna") && !stato.equals("Consegnato")) throw new IllegalArgumentException("Stato errato");
+			if(!stato.equalsIgnoreCase("In preparazione") &&  !stato.equalsIgnoreCase("In transito") && !stato.equalsIgnoreCase("In consegna") && !stato.equalsIgnoreCase("Consegnato")) throw new IllegalArgumentException("Stato errato");
 			try {
 				pStatement= connection.prepareStatement(updateQ);
 				pStatement.setString(1, stato);
