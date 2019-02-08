@@ -348,7 +348,7 @@
 
 								<td class="td-bold"><label for="prezzo">Prezzo</label></td>
 								<td><input type="text" name="nuovoAttributo"
-									id="prezzoNuovoAttributo" pattern=\d+(,\d{1,2})?$ title="Il prezzo non deve essere negativo" required><br></td>
+									id="prezzoNuovoAttributo" pattern=\d+(\x2E\d{1,2})?$ title="Il prezzo deve essere del formato '1.00'" required><br></td>
 							</tr>
 
 						</table>

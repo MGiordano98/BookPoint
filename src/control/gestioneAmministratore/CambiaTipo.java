@@ -42,7 +42,7 @@ public class CambiaTipo extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		RequestDispatcher dispatcher= request.getRequestDispatcher("AmministratoreAccount.jsp");
+		RequestDispatcher dispatcher= request.getRequestDispatcher("ricercaAccount?email="+email);
 		dispatcher.forward(request, response);
 	}
 
