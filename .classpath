@@ -15,6 +15,5 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="C:/JUnit/junit-4.10.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/apache-tomcat-8.0.50/lib/servlet-api.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -90,10 +90,7 @@ if(request.getSession().getAttribute("accountNonTrovato")!=null)
 		<input class="btn btn-danger" type=submit value=modifica>
 	</form>
 </div>
-<%}
-
-request.getSession().removeAttribute("utenteCercato");
-%>
+<%} %>
 <script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script
