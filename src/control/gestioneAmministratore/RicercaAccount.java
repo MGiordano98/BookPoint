@@ -34,6 +34,7 @@ public class RicercaAccount extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email= request.getParameter("email");
+		System.out.println(email);
 		Utente utente= null;
 		boolean accountNonTrovato= false;
 		try {
