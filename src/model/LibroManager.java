@@ -20,9 +20,10 @@ public class LibroManager {
 
 	/**
 	 * 
-	 * @param testo
-	 * @param categoria
-	 * @throws SQLException 
+	 * @param testo il testo della ricerca (nome libro o nome autore)
+	 * @param categoria la categoria inserita
+	 * @return una collection vuota se non è stato trovato alcun libro, altrimenti una collection con i libri trovati
+	 * @throws SQLException
 	 */
 	public Collection<Libro> ricerca(String testo, String categoria) throws SQLException {
 		Connection connection = null;
@@ -75,6 +76,12 @@ public class LibroManager {
 		return libri;
 	}
 
+	/**
+	 * 
+	 * @return una collection vuota se non sono presenti libri nel db, altrimenti ritorna una collection con i libri
+	 * più venduti in ordine decrescente
+ 	 * @throws SQLException
+	 */
 	public Collection<Libro> getLibriPiùVenduti() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -124,7 +131,12 @@ public class LibroManager {
 		return libri;
 	}
 	
-	
+	/**
+	 * 
+	 * @return una collection vuota se non sono presenti libri nel db, altrimenti ritorna una collection con i libri
+	 * in evidenza in ordine decrescente
+ 	 * @throws SQLException
+	 */
 	public Collection<Libro> getLibriInEvidenza() throws SQLException{
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -174,7 +186,12 @@ public class LibroManager {
 		return libri;
 	}
 
-
+	/**
+	 * 
+	 * @param isbn l'isbn del libro da visualizzare
+	 * @return null se non è stato trovato il libro, altrimenti un Libro contenente i dati del libro cercato
+	 * @throws SQLException
+	 */
 	public Libro visualizzaLibro(String isbn) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
@@ -214,6 +231,13 @@ public class LibroManager {
 		return libro;
 	}
 	
+	/**
+	 * 
+	 * @param connection la connessione al db
+	 * @param isbn l'isbn del libro di cui si devono ottenere le recensioni
+	 * @return un array vuoto se non sono state trovate recensioni associate al libro, altrimenti un array con le recensioni
+	 * @throws SQLException
+	 */
 	private ArrayList<Recensione> getRecensioni(Connection connection, String isbn) throws SQLException {
 		PreparedStatement pStatement=null;
 		ArrayList<Recensione> recensioni= new ArrayList<Recensione>();
@@ -231,7 +255,13 @@ public class LibroManager {
 		return recensioni;
 	}
 
-	//PER GENNARO
+	/**
+	 * 
+	 * @param connection la connessione al db
+	 * @param isbn l'isbn del libro di cui si devono ottenere gli autori
+	 * @return un array vuoto se non sono stati autori associati al libro, altrimenti un array di autori
+	 * @throws SQLException
+	 */
 	private ArrayList<Autore> getAutori(Connection connection, String isbn) throws SQLException {
 		PreparedStatement pStatement=null;
 		ArrayList<Autore> autori= new ArrayList<Autore>();

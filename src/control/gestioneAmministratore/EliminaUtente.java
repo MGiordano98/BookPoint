@@ -18,22 +18,22 @@ import model.AmministratoreManager;
 @WebServlet("/EliminaUtente")
 public class EliminaUtente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private static AmministratoreManager am= new AmministratoreManager();
-	
+	private static AmministratoreManager am= new AmministratoreManager();
+
 	/**
-     * @see HttpServlet#HttpServlet()
-     */
-    public EliminaUtente() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public EliminaUtente() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email= request.getParameter("email");
-		
+
 		try {
 			am.eliminaUtente(email);
 		} catch (SQLException e) {
@@ -46,7 +46,7 @@ public class EliminaUtente extends HttpServlet {
 		if(request.getSession().getAttribute("accountNonTrovato") != null) {
 			request.getSession().removeAttribute("accountNonTrovato");
 		}
-		
+
 		RequestDispatcher dispatcher= request.getRequestDispatcher("AmministratoreAccount.jsp");
 		dispatcher.forward(request, response);
 	}

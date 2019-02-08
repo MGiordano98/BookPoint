@@ -15,8 +15,9 @@ public class AmministratoreOrdineManager {
 
 	/**
 	 * 
-	 * @param numOrdine
-	 * @throws SQLException 
+	 * @param numOrdine il numero dell'ordine da ricercare
+	 * @return null se non ha trovato l'ordine, altrimenti ritorna un Ordine con i dati dell'ordine cercato
+	 * @throws SQLException
 	 */
 	public Ordine ricercaOrdine(int numOrdine) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
@@ -56,9 +57,10 @@ public class AmministratoreOrdineManager {
 
 	/**
 	 * 
-	 * @param numOrdine
-	 * @param stato
-	 * @throws SQLException 
+	 * @param numOrdine il numero dell'ordine di cui si deve cambiare lo stato
+	 * @param stato il nuovo stato
+	 * @return true se lo stato è stato cambiato con successo, altrimenti false
+	 * @throws SQLException
 	 */
 	public boolean cambiaStato(int numOrdine, String stato) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
@@ -93,10 +95,11 @@ public class AmministratoreOrdineManager {
 
 	/**
 	 * 
-	 * @param numOrdine
-	 * @param data
-	 * @param ora
-	 * @throws SQLException 
+	 * @param numOrdine il numero dell'ordine di cui si deve cambiare la data e l'ora
+	 * @param data la nuova data d'arrivo
+	 * @param ora la nuova ora d'arrivo
+	 * @return true se la data e l'ora d'arrivo sono state cambiate con successo, altrimenti false
+	 * @throws SQLException
 	 */
 	public boolean cambiaDataEOra(int numOrdine, Date data, Time ora) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
