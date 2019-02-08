@@ -73,7 +73,7 @@ create table ordine
 create table libriAcquistati
 (
 	prezzoAcquisto float(10),
-    quantità integer(10),
+    quantità integer(4),
     titolo varchar(50),
     ordine integer(20),
     libro varchar(13),

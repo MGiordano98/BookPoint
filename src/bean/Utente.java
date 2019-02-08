@@ -102,19 +102,7 @@ public class Utente implements Serializable{
 		this.tipo = tipo;
 	}
 
-	public void getAttribute() {
-		// TODO - implement Utente.getAttribute
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param attribute
-	 */
-	public void setAttribute(int attribute) {
-		// TODO - implement Utente.setAttribute
-		throw new UnsupportedOperationException();
-	}
+	
 
 }
 

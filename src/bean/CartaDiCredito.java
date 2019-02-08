@@ -73,18 +73,5 @@ public class CartaDiCredito implements Serializable{
 		this.cvv = cvv;
 	}
 
-	public void getAttribute() {
-		// TODO - implement CartaDiCredito.getAttribute
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param attribute
-	 */
-	public void setAttribute(int attribute) {
-		// TODO - implement CartaDiCredito.setAttribute
-		throw new UnsupportedOperationException();
-	}
-
+	
 }
