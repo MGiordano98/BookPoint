@@ -30,7 +30,7 @@
 
 <div class="divlogin">
 	<img src="../image/libro.jpg" class="imglogin">
-    <form class="px-4 px-3" action="login" method="post" name="login" id="form">
+    <form class="px-4 px-3" action="login" method="post" name="login" id="form" onsubmit="cripta()">
     <div class="form-group">
       <label for="exampleDropdownFormEmail1">Indirizzo E-mail</label>
       <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com" name="email"  required>
@@ -56,10 +56,14 @@
 
 
 <%@ include file="footer.jsp"%>
-                      
+      
+      
+      
  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-<script src="ScriptJQ.js"></script> 
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script> 
+<script>
+</script>
+
 
 
 </body>
