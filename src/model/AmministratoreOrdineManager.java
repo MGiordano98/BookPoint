@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
+import java.util.GregorianCalendar;
 
 import bean.Ordine;
 import connectionPool.DriverMaagerConnectionPool;
@@ -22,14 +23,15 @@ public class AmministratoreOrdineManager {
 		PreparedStatement pStatement= null;
 		
 		String selectQ= "SELECT * FROM ordine WHERE numero = ?";
-		Ordine ordine= new Ordine();
+		Ordine ordine=null;
 		
 		try {
 			pStatement= connection.prepareStatement(selectQ);
 			pStatement.setInt(1, numOrdine);
 			ResultSet rs= pStatement.executeQuery();
 			
-			while(rs.next()) {
+			if(rs.next()) {
+				ordine=new Ordine();
 				ordine.setCittà(rs.getString("città"));
 				ordine.setDataEffettuata(rs.getDate("dataOrdine"));
 				ordine.setDataConsegna(rs.getDate("dataConsegna"));
@@ -61,6 +63,9 @@ public class AmministratoreOrdineManager {
 		boolean result= false;
 		String updateQ= "UPDATE ordine SET stato = ? WHERE numero = ?";
 		
+		try{
+			if(numOrdine<=0) throw new IllegalArgumentException("Numero ordine errato");
+			if(!stato.equals("In preparazione") &&  !stato.equals("In transiro") && !stato.equals("In consegna") && !stato.equals("Consegnato")) throw new IllegalArgumentException("Stato errato");
 		try {
 			pStatement= connection.prepareStatement(updateQ);
 			pStatement.setString(1, stato);
@@ -76,9 +81,12 @@ public class AmministratoreOrdineManager {
 				DriverMaagerConnectionPool.releaseConnection(connection);
 			}
 		}
+		}catch(IllegalArgumentException e){
+			e.printStackTrace();
+		}
 		return result;
 	}
-
+	
 	/**
 	 * 
 	 * @param numOrdine
@@ -92,7 +100,11 @@ public class AmministratoreOrdineManager {
 		
 		boolean result= false;
 		String updateQ= "UPDATE ordine SET dataConsegna = ?, oraConsegna = ? WHERE numero = ?";
-		
+		try{
+			
+			if(numOrdine<=0) throw new IllegalArgumentException("Numero ordine errato");
+			if(data==null) throw new IllegalArgumentException("Data errata");
+			if(ora==null) throw new IllegalArgumentException("Ora errata");
 		try {
 			pStatement= connection.prepareStatement(updateQ);
 			pStatement.setDate(1, data);
@@ -108,6 +120,9 @@ public class AmministratoreOrdineManager {
 			}finally {
 				DriverMaagerConnectionPool.releaseConnection(connection);
 			}
+		}
+		}catch(IllegalArgumentException e){
+			e.printStackTrace();
 		}
 		return result;
 	}

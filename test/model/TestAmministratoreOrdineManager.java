@@ -29,14 +29,14 @@ public class TestAmministratoreOrdineManager extends TestCase{
 	 
 		assertNull(manager.ricercaOrdine(-1));
 		assertNull(manager.ricercaOrdine(100));
-		assertNull(manager.ricercaOrdine(1));
+		assertNotNull(manager.ricercaOrdine(1));
 	}
 	
 	public void testCambiaStato() throws SQLException {
 		
-		assertTrue(manager.cambiaStato(-1,""));
-		assertTrue(manager.cambiaStato(100, ""));
-		assertTrue(manager.cambiaStato(1, "nel carrello"));
+		assertFalse(manager.cambiaStato(-1,""));
+		assertFalse(manager.cambiaStato(100, ""));
+		assertFalse(manager.cambiaStato(1, "nel carrello"));
 		assertTrue(manager.cambiaStato(1,"Consegnato"));
 	}
 	
@@ -49,10 +49,9 @@ public class TestAmministratoreOrdineManager extends TestCase{
 		assertFalse(manager.cambiaDataEOra(1, null, ora));
 		
 		ora=Time.valueOf("10:10:10");
-		Date data=Date.valueOf("01-01-2001");
-		assertFalse(manager.cambiaDataEOra(1, data, ora));
+		assertFalse(manager.cambiaDataEOra(1, null, ora));
 		
-		data=Date.valueOf("01-01-2001");
+		Date data=Date.valueOf("2001-10-10");
 		ora=Time.valueOf("10:10:10");
 		assertTrue(manager.cambiaDataEOra(1, data, ora));
 		

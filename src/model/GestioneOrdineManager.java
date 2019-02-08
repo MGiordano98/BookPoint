@@ -42,6 +42,7 @@ public class GestioneOrdineManager {
 				ordine.setNumCarta(rs.getString("numeroCarta"));
 				ordine.setStato(rs.getString("stato"));
 				
+				
 				ordine.setLibri(getLibri(connection, ordine));
 				ordini.add(ordine);
 				

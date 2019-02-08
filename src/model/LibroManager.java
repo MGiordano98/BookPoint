@@ -56,6 +56,7 @@ public class LibroManager {
 				bean.setQuantit‡(rs.getInt("quantit‡Disponibile"));
 				bean.setCategoria(rs.getString("categoria"));
 				bean.setCopieVendute(rs.getInt("copieVendute"));
+				bean.setDataUscita(rs.getDate("dataUscita"));
 				
 				bean.setRecensioni(getRecensioni(connection, bean.getIsbn()));
 				bean.setAutori(getAutori(connection, bean.getIsbn()));
@@ -177,7 +178,7 @@ public class LibroManager {
 	public Libro visualizzaLibro(String isbn) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
-		Libro libro=new Libro();
+		Libro libro=null;
 		
 		String selectQ= "SELECT * FROM libro WHERE isbn= ?";
 		
@@ -185,7 +186,8 @@ public class LibroManager {
 			pStatement= connection.prepareStatement(selectQ);
 			pStatement.setString(1, isbn);
 			ResultSet rs= pStatement.executeQuery();
-			while(rs.next()){
+			if(rs.next()){
+				libro=new Libro();
 				libro.setIsbn(rs.getString("isbn"));
 				libro.setPrezzo(rs.getDouble("prezzo"));
 				libro.setTitolo(rs.getString("titolo"));

@@ -34,14 +34,14 @@ public class TestGestioneOrdineManager extends TestCase{
 	
 	public void testVisualizzaStorico() throws SQLException{
 		Collection<Ordine> ordini=manager.visualizzaStorico("*");
-		assertNull(ordini);
+		assertTrue(ordini.isEmpty());
 		
 		ordini=manager.visualizzaStorico("antonio@gmail.it");
-		assertNull(ordini);
+		assertTrue(ordini.isEmpty());
 		
 		ordini=manager.visualizzaStorico("g.teodoro@studenti.unisa.it");
-		assertNotNull(ordini);;
-		assertTrue(ordini.size()>0);
+		assertNotNull(ordini);
+		assertTrue(!ordini.isEmpty());
 		
 		Iterator<Ordine> it=ordini.iterator();
 		while(it.hasNext()){
@@ -51,7 +51,6 @@ public class TestGestioneOrdineManager extends TestCase{
 			
 			assertNotNull(ordine.getCap());
 			assertNotNull(ordine.getCittà());
-			assertNotNull(ordine.getEmail());
 			assertNotNull(ordine.getNumCarta());
 			assertNotNull(ordine.getStato());
 			assertNotNull(ordine.getVia());
@@ -72,34 +71,11 @@ public class TestGestioneOrdineManager extends TestCase{
 				Libro libro=it2.next();
 				
 				assertNotNull(libro);
-				assertNotNull(libro.getCasaEditrice());
-				assertNotNull(libro.getCategoria());
-				assertNotNull(libro.getFoto());
-				assertNotNull(libro.getIsbn());
 				assertNotNull(libro.getTitolo());
-				assertNotNull(libro.getTrama());
-				assertNotNull(libro.getCopieVendute());
-				assertNotNull(libro.getDataUscita());
 				assertNotNull(libro.getPrezzo());
-				assertNotNull(libro.getQuantità());
-				
-				assertNotNull(libro.getAutori());
-				assertTrue(!libro.getAutori().isEmpty());
-				
-				Iterator<Autore> it3=libro.getAutori().iterator();
-				while(it3.hasNext()){
-					Autore autore=it3.next();
-					
-					assertNotNull(autore);
-					assertNotNull(autore.getNome());
-				}
-				
+				assertNotNull(libro.getQuantità());				
 			}
-			
-			
 		}
-				
-		
 	}
 	
 	public static Test suite() {

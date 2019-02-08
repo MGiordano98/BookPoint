@@ -43,7 +43,7 @@ public class TestAmministratoreManager extends TestCase{
 		
 		libro=new Libro();
 		libro.setIsbn("1234567891234");
-		libro.setTitolo("@");
+		libro.setTitolo("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1");
 		assertFalse(manager.aggiungiLibro(libro));
 		
 		libro=new Libro();
@@ -56,14 +56,14 @@ public class TestAmministratoreManager extends TestCase{
 		libro.setIsbn("1234567891234");
 		libro.setTitolo("Il piccolo principe");
 		libro.setTrama("Testo");
-		libro.setTrama("*");
+		libro.setCategoria("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1");
 		assertFalse(manager.aggiungiLibro(libro));
 		
 		libro=new Libro();
 		libro.setIsbn("1234567891234");
 		libro.setTitolo("Il piccolo principe");
 		libro.setTrama("Testo");
-		libro.setTrama("Romanzo");
+		libro.setCategoria("Romanzo");
 		libro.setPrezzo(-1.00);
 		assertFalse(manager.aggiungiLibro(libro));
 		
@@ -71,7 +71,7 @@ public class TestAmministratoreManager extends TestCase{
 		libro.setIsbn("1234567891234");
 		libro.setTitolo("Il piccolo principe");
 		libro.setTrama("Testo");
-		libro.setTrama("Romanzo");
+		libro.setCategoria("Romanzo");
 		libro.setPrezzo(1.00);
 		libro.setQuantità(-1);
 		assertFalse(manager.aggiungiLibro(libro));
@@ -80,7 +80,7 @@ public class TestAmministratoreManager extends TestCase{
 		libro.setIsbn("1234567891234");
 		libro.setTitolo("Il piccolo principe");
 		libro.setTrama("Testo");
-		libro.setTrama("Romanzo");
+		libro.setCategoria("Romanzo");
 		libro.setPrezzo(1.00);
 		libro.setQuantità(1);
 		libro.setAutori(null);
@@ -90,7 +90,7 @@ public class TestAmministratoreManager extends TestCase{
 		libro.setIsbn("1234567891234");
 		libro.setTitolo("Il piccolo principe");
 		libro.setTrama("Testo");
-		libro.setTrama("Romanzo");
+		libro.setCategoria("Romanzo");
 		libro.setPrezzo(1.00);
 		libro.setQuantità(1);
 		ArrayList<Autore> autori=new ArrayList<Autore>();
@@ -101,7 +101,7 @@ public class TestAmministratoreManager extends TestCase{
 		libro.setIsbn("1234567891234");
 		libro.setTitolo("Il piccolo principe");
 		libro.setTrama("Testo");
-		libro.setTrama("Romanzo");
+		libro.setCategoria("Romanzo");
 		libro.setPrezzo(1.00);
 		libro.setQuantità(1);
 		autori=new ArrayList<Autore>();
@@ -115,7 +115,7 @@ public class TestAmministratoreManager extends TestCase{
 		libro.setIsbn("1234567891234");
 		libro.setTitolo("Il piccolo principe");
 		libro.setTrama("Testo");
-		libro.setTrama("Romanzo");
+		libro.setCategoria("Romanzo");
 		libro.setPrezzo(1.00);
 		libro.setQuantità(1);
 		autori=new ArrayList<Autore>();
@@ -132,7 +132,7 @@ public class TestAmministratoreManager extends TestCase{
 		libro.setIsbn("1234567891234");
 		libro.setTitolo("Il piccolo principe");
 		libro.setTrama("Testo");
-		libro.setTrama("Romanzo");
+		libro.setCategoria("Romanzo");
 		libro.setPrezzo(1.00);
 		libro.setQuantità(1);
 		autori=new ArrayList<Autore>();
@@ -142,7 +142,25 @@ public class TestAmministratoreManager extends TestCase{
 		data= new GregorianCalendar();
 		dataUscita= new Date(data.getTime().getTime());
 		libro.setDataUscita(dataUscita);
-		assertTrue(manager.aggiungiLibro(libro));
+		libro.setCasaEditrice("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1");
+		assertFalse(manager.aggiungiLibro(libro));
+		
+		libro=new Libro();
+		libro.setIsbn("1234567891234");
+		libro.setTitolo("Il piccolo principe");
+		libro.setTrama("Testo");
+		libro.setCategoria("Romanzo");
+		libro.setPrezzo(1.00);
+		libro.setQuantità(1);
+		autori=new ArrayList<Autore>();
+		autore= new Autore("Giovanni");
+		autori.add(autore);
+		libro.setAutori(autori);
+		data= new GregorianCalendar();
+		dataUscita= new Date(data.getTime().getTime());
+		libro.setDataUscita(dataUscita);
+		libro.setCasaEditrice("Romanzo");
+		assertFalse(manager.aggiungiLibro(libro));
 		
 		
 	}
@@ -156,7 +174,7 @@ public class TestAmministratoreManager extends TestCase{
 	public void testEliminaLibro() throws SQLException {
 		
 		assertFalse(manager.eliminaLibro("1"));
-		assertFalse(manager.eliminaLibro("1234567891234"));
+		assertFalse(manager.eliminaLibro("1234567891239"));
 		assertTrue(manager.eliminaLibro("9788868363574"));
 	}
 	

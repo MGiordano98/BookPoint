@@ -29,9 +29,25 @@ public class OrdineManager {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement getIdStatement= null;
 		PreparedStatement pStatement= null;
+		boolean result = false;
+		
 		
 		String getIdQ="Select max(numero) as id from ordine";
 		int idOrdine=0;
+		try{
+			if(ordine==null) throw new IllegalArgumentException("Ordine nullo");
+			if(ordine.getDataEffettuata()==null) throw new IllegalArgumentException("Data Effettuata non corretta");
+			if(ordine.getOra()==null) throw new IllegalArgumentException("Ora non corretta");
+			if(ordine.getDataConsegna()==null) throw new IllegalArgumentException("Data Consegna non corretta ");
+			if(ordine.getPrezzoTot()<=0) throw new IllegalArgumentException("Prezzo tot non corretto");
+			if(ordine.getVia()==null || ordine.getVia().length()>30) throw new IllegalArgumentException("Via non corretta");
+			if(ordine.getNumCivico()<=0) throw new IllegalArgumentException("Numero Civico non corretto");
+			if(ordine.getCap()==null || ordine.getCap().length()!=5) throw new IllegalArgumentException("Cap non corretto");
+			if(ordine.getCittà()==null || ordine.getCittà().length()>30) throw new IllegalArgumentException("Città non corretta");
+			if(ordine.getStato()==null || (!ordine.getStato().equalsIgnoreCase("In preparazione") &&  !ordine.getStato().equalsIgnoreCase("In transito") && !ordine.getStato().equalsIgnoreCase("In consegna") && !ordine.getStato().equalsIgnoreCase("Consegnato"))) throw new IllegalArgumentException("Stato non corretto");
+			if(ordine.getNumCarta()==null || ordine.getNumCarta().length()!=16) throw new IllegalArgumentException("Numero Carta non corretto");
+			if(ordine.getEmail()==null || ordine.getEmail().length()>60 || !ordine.getEmail().contains("@")) throw new IllegalArgumentException("Email non corretta");
+		
 		try{
 			getIdStatement=connection.prepareStatement(getIdQ);
 			ResultSet rs1=getIdStatement.executeQuery();
@@ -54,7 +70,7 @@ public class OrdineManager {
 		
 		String insertQ= "INSERT INTO ordine (numero,dataOrdine, oraConsegna, dataConsegna, totale, via, numeroCivico, cap, città, stato, numeroCarta, utente)"
 				+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		boolean result = false;
+		
 		
 		try {
 			pStatement= connection.prepareStatement(insertQ);
@@ -87,6 +103,9 @@ public class OrdineManager {
 			}finally{
 				DriverMaagerConnectionPool.releaseConnection(connection);
 			}
+		}
+		}catch(IllegalArgumentException e){
+			e.printStackTrace();
 		}
 		
 		return result;
