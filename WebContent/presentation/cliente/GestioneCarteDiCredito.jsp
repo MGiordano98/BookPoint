@@ -116,7 +116,7 @@
 								<td class="td-bold"><label for="intestatario">Intestatario
 										</label></td>
 								<td><input id="intestatario" type="text" name="intestatario"
-									placeholder="intestatario" pattern="[a-zA-Z_]{0,30}" title="Il campo intestatario deve essere formato da sole lettere" required><br></td>
+									placeholder="intestatario" pattern="[a-zA-Z_\x20]{0,30}" title="Il campo intestatario deve essere formato da sole lettere" required><br></td>
 							</tr>
 
 							<tr>
@@ -128,7 +128,7 @@
 							<tr>
 								<td class="td-bold"><label for="cvv">CVV</label></td>
 								<td><input id="cvv" type="text" name="cvv"
-									placeholder="CVV" pattern="\d{3}$" title="Il CVV deve essere formato da soli numeri " required><br></td>
+									placeholder="CVV" pattern="\d{3}$" title="Il CVV deve essere formato da tre numeri " required><br></td>
 							</tr>
 						</table>
 						<input type="hidden" value=<%=utente2.getEmail() %>

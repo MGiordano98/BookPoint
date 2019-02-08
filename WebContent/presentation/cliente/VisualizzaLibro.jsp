@@ -117,6 +117,9 @@
 		</div>
 
 	</div>
+	<%
+	if(request.getSession().getAttribute("utente")!=null){
+	%>
 	<form action="aggiungiRecensione" method="post">
 		<div class="container-aggiungi-recensione">
 			<textarea rows="4" cols="20" placeholder="Testo..." name="testo" required></textarea>
@@ -126,7 +129,7 @@
 		</div>
 	</form>
 
-<%} %>
+<%}} %>
 
 
 	<%@ include file="footer.jsp"%>

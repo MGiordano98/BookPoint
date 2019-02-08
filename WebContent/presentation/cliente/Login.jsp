@@ -30,7 +30,14 @@
 
 <div class="divlogin">
 	<img src="../image/libro.jpg" class="imglogin">
+	<% int countLoginErrato=0;
+	  if(request.getSession().getAttribute("countLoginErrato")!=null){
+	  countLoginErrato= (int) request.getSession().getAttribute("countLoginErrato");
+	}
+	  if(countLoginErrato!=5){
+		%>
     <form class="px-4 px-3" action="login" method="post" name="login" id="form" onsubmit="cripta()">
+    <%} %>
     <div class="form-group">
       <label for="exampleDropdownFormEmail1">Indirizzo E-mail</label>
       <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com" name="email"  required>
@@ -46,8 +53,16 @@
     %>
     <p id="error">password o email errati</p>
     <%request.getSession().removeAttribute("utenteNonTrovato"); } %>
+    <%if(countLoginErrato==5){ %>
+    <p id="error">hai effettuato troppi tentativi, riprova più tardi</p>
+    <%} %>
    <button class="btn btn-danger" id="loginButton">Login</button>
+  	
+   <%if(countLoginErrato==5){ %>
+  	
  	</form>
+ 	<%} %>
+ 	
  
 </div>
 

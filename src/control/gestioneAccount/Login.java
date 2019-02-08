@@ -35,11 +35,13 @@ public class Login extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email= request.getParameter("email");
 		String password= request.getParameter("password");
-		if(request.getParameter("countLoginErrato")==null) {
-			request.getSession().setAttribute("countLoginErrato", 0);
+		
+		int countLoginErrato=0;
+		if(request.getSession().getAttribute("countLoginErrato")==null) {
+			request.getSession().setAttribute("countLoginErrato", countLoginErrato);
+		}else {
+		countLoginErrato= (int) request.getSession().getAttribute("countLoginErrato");
 		}
-		int countLoginErrato= Integer.parseInt(request.getSession().getAttribute("countLoginErrato").toString());
-		System.out.println(countLoginErrato);
 		
 		int i=0;
 		String passwordCriptata="";
@@ -48,8 +50,6 @@ public class Login extends HttpServlet {
 			a++;
 			passwordCriptata=passwordCriptata+a;
 		}
-		
-		System.out.print(passwordCriptata);
 		
 		boolean utenteNonTrovato=false;
 		
@@ -64,9 +64,8 @@ public class Login extends HttpServlet {
 		if(utente==null) {
 			utenteNonTrovato= true;
 			countLoginErrato++;
-			System.out.println(countLoginErrato);
 		}
-		
+		request.getSession().removeAttribute("countLoginErrato");
 		request.getSession().setAttribute("countLoginErrato", countLoginErrato);
 		request.getSession().setAttribute("utenteNonTrovato", utenteNonTrovato);
 		request.getSession().setAttribute("utente", utente);

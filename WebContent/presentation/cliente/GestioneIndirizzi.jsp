@@ -111,14 +111,14 @@
 							<tr>
 								<td class="td-bold"><label for="via">Via</label></td>
 								<td><input id="via" type="text" name="via"
-									placeholder="via" pattern="[a-zA-Z_]{0,30}" title="La via deve contenere solo da lettere con lunghezza massima di 30 caratteri"><br></td>
+									placeholder="via" pattern="[a-zA-Z_\x20]{0,30}" title="La via deve contenere solo da lettere con lunghezza massima di 30 caratteri"><br></td>
 							</tr>
 
 							<tr>
 								<td class="td-bold"><label for="numCivico">Numero
 										Civico</label></td>
 								<td><input id="numCivico" type="text" name="numCivico"
-									placeholder="Numero Civico" pattern="\d{3}$" title="Il numero civico deve essere formato da soli numeri"><br></td>
+									placeholder="Numero Civico" pattern="\d{1,3}" title="Il numero civico deve essere formato da soli numeri"><br></td>
 							</tr>
 
 							<tr>
@@ -130,7 +130,7 @@
 							<tr>
 								<td class="td-bold"><label for="citta">Città</label></td>
 								<td><input id="città" type="text" name="citta"
-									placeholder="Città" pattern="[a-zA-Z_]{0,30}" title="La città deve essere formato solo da lettere"><br></td>
+									placeholder="Città" pattern="[a-zA-Z_\x20]{0,30}" title="La città deve essere formato solo da lettere"><br></td>
 							</tr>
 						</table>
 
@@ -170,26 +170,26 @@
 							<tr>
 								<td class="td-bold"><label for="isbn">Via</label></td>
 								<td><input id="via" type="text" name="via"
-									placeholder="via"><br></td>
+									placeholder="via" pattern="[a-zA-Z_\x20]{0,30}" title="La via deve contenere solo da lettere con lunghezza massima di 30 caratteri"><br></td>
 							</tr>
 
 							<tr>
 								<td class="td-bold"><label for="titolo">Numero
 										Civico</label></td>
 								<td><input id="numCivico" type="text" name="numCivico"
-									placeholder="Numero Civico"><br></td>
+									placeholder="Numero Civico" pattern="\d{1,3}" title="Il numero civico deve essere formato da soli numeri"><br></td>
 							</tr>
 
 							<tr>
 								<td class="td-bold"><label for="trama">CAP</label></td>
 								<td><input id="cap" type="text" name="cap"
-									placeholder="CAP"><br></td>
+									placeholder="CAP" pattern=[0-9]{5} title="il CAP deve essere formato da soli numeri"><br></td>
 							</tr>
 
 							<tr>
 								<td class="td-bold"><label for="casaEditrice">Città</label></td>
 								<td><input id="città" type="text" name="citta"
-									placeholder="Città"><br></td>
+									placeholder="Città" pattern="[a-zA-Z_\x20]{0,30}" title="La città deve essere formato solo da lettere"><br></td>
 							</tr>
 						</table>
 						<input type="hidden" value=<%=utente2.getEmail() %>
