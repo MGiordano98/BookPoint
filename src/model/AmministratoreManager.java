@@ -552,7 +552,7 @@ public class AmministratoreManager {
 	/**
 	 * 
 	 * @param email l'email dell'account da ricercare
-	 * @return un Utente vuoto se non è stato ritrovato nessun account, altrimenti un Utente con i dati dell'account cercato
+	 * @return null se non è stato ritrovato nessun account, altrimenti un Utente con i dati dell'account cercato
 	 * @throws SQLException
 	 */
 	public Utente ricercaAccount(String email) throws SQLException {

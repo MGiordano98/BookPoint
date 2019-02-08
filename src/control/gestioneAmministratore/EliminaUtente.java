@@ -40,6 +40,12 @@ public class EliminaUtente extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		if(request.getSession().getAttribute("utenteCercato") != null) {
+			request.getSession().removeAttribute("utenteCercato");
+		}
+		if(request.getSession().getAttribute("accountNonTrovato") != null) {
+			request.getSession().removeAttribute("accountNonTrovato");
+		}
 		
 		RequestDispatcher dispatcher= request.getRequestDispatcher("AmministratoreAccount.jsp");
 		dispatcher.forward(request, response);
