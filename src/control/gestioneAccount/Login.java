@@ -36,11 +36,21 @@ public class Login extends HttpServlet {
 		String email= request.getParameter("email");
 		String password= request.getParameter("password");
 		
+		int i=0;
+		String passwordCriptata="";
+		for(i=0;i<password.length();i++){
+			char a=password.charAt(i);
+			a++;
+			passwordCriptata=passwordCriptata+a;
+		}
+		
+		System.out.print(passwordCriptata);
+		
 		boolean utenteNonTrovato=false;
 		
 		Utente utente=null;
 		try {
-			utente= manager.login(email, password);
+			utente= manager.login(email, passwordCriptata);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

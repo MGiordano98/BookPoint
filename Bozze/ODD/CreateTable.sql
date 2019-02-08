@@ -6,7 +6,7 @@ create table utente
 	nome varchar(30),
     cognome varchar(30),
     dataDiNascita date,
-    psw varchar(30),
+    psw varchar(30) not null,
     tipo varchar(20)
 );
 
