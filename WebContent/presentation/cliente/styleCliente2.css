@@ -187,9 +187,13 @@ center img{
     float: right;
     display: block;
   }
+.utente-login.nav-link{
+	pointer-events:none;
+	opacity:0.0;	
+}
 }
 
-@media screen and (max-width: 955px) {
+@media screen and (max-width: 1278px) {
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
     position: absolute;
@@ -201,6 +205,8 @@ center img{
     display: block;
     text-align: left;
   }
+    
+
 }
 
 .container{
