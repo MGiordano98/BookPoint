@@ -14,8 +14,9 @@ public class GestioneOrdineManager {
 
 	/**
 	 * 
-	 * @param email
-	 * @throws SQLException 
+	 * @param email l'email dell'utente di cui si deve visualizzare lo storico
+	 * @return una collection vuota se l'utente non ha effettuato nessun ordine in precedenza, altrimenti una Collection con gli ordini effettuati
+	 * @throws SQLException
 	 */
 	public Collection<Ordine> visualizzaStorico(String email) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
@@ -59,6 +60,13 @@ public class GestioneOrdineManager {
 		return ordini;
 	}
 
+	/**
+	 * 
+	 * @param connection connessione al db
+	 * @param ordine l'ordine di cui si devono prendere i libri acquistati
+	 * @return una collezione vuota se non è stato trovato nessun libro acquistato, altrimenti una Collection contenente i libri relativi all'ordine
+	 * @throws SQLException
+	 */
 	private Collection<Libro> getLibri(Connection connection, Ordine ordine) throws SQLException {
 		PreparedStatement pStatement= null;
 		Collection<Libro> libriAcquistati= new LinkedList<Libro>();

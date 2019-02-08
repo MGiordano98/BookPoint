@@ -37,7 +37,7 @@ public class RicercaAccount extends HttpServlet {
 		Utente utente= null;
 		boolean accountNonTrovato= false;
 		try {
-			utente = am.ricercaAccount(email);
+			utente= am.ricercaAccount(email);
 		} catch (SQLException e) {
 			
 			e.printStackTrace();

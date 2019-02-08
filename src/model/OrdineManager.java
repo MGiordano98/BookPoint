@@ -21,9 +21,9 @@ public class OrdineManager {
 
 	/**
 	 * 
-	 * @param numCarta
-	 * @param idIndirizzo
-	 * @throws SQLException 
+	 * @param ordine l'ordine effettuato dall'utente
+	 * @return true se l'ordine Ë stato registrato con successo, altrimenti false
+	 * @throws SQLException
 	 */
 	public boolean completaAcquisto(Ordine ordine) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
@@ -111,6 +111,13 @@ public class OrdineManager {
 		return result;
 	}
 
+	/**
+	 * 
+	 * @param connection la connessione al db
+	 * @param ordine l'ordine effettuato
+	 * @return 1 se i libri sono stati registrati con successo, altrimenti 0
+	 * @throws SQLException
+	 */
 	private int doSaveLibriAcquistati(Connection connection, Ordine ordine) throws SQLException {
 		PreparedStatement pStatement= null;
 		String insertQ= "INSERT INTO libriAcquistati (ordine, libro, titolo, quantit‡, prezzoAcquisto)"
@@ -141,6 +148,13 @@ public class OrdineManager {
 		return result;
 	}
 
+	/**
+	 * 
+	 * @param connection la connessione al db
+	 * @param ordine l'ordine effettuato dall'utente
+	 * @return 1 se la quantit‡ disponibile e le copie vendute sono state modificate con successo, altrimenti 0
+	 * @throws SQLException
+	 */
 	private int doUpdateQuantit‡(Connection connection, Ordine ordine) throws SQLException {
 		PreparedStatement pStatement= null;
 		String selectQ= "SELECT quantit‡Disponibile, copieVendute FROM libro WHERE isbn=?";
@@ -173,6 +187,16 @@ public class OrdineManager {
 		
 	}
 	
+	/**
+	 * 
+	 * @param connection la connessione al db
+	 * @param copieVendute le copie vendute del libro
+	 * @param quantit‡Disponibile la quantit‡ disponibile
+	 * @param quantit‡Selezionata la quantit‡ selezionata
+	 * @param isbn l'isbn del libro di cui si devono modificare la quantit‡ disponibile e le copie vendute
+	 * @return 1 se la quantit‡ disponibile e le copie vendute sono state modificate con successo, altrimenti 0
+	 * @throws SQLException
+	 */
 	private int doUpdateQuantit‡Disponibile(Connection connection, int copieVendute, int quantit‡Disponibile,
 			int quantit‡Selezionata, String isbn) throws SQLException {
 		PreparedStatement pStatement= null;

@@ -32,7 +32,7 @@ public class AmministratoreManager {
 			if(libro.getIsbn()==null || libro.getIsbn().length()!=13) throw new IllegalArgumentException("Isbn non corretto");
 			if(libro.getTitolo()==null || libro.getTitolo().length()>100) throw new IllegalArgumentException("Titolo non corretto");
 			if(libro.getTrama()==null || libro.getTrama().length()>1700) throw new IllegalArgumentException("Trama non corretta");
-			if(libro.getCasaEditrice()==null || libro.getCasaEditrice().length()!=30) throw new IllegalArgumentException("Casa Editrice non corretta");
+			if(libro.getCasaEditrice()==null || libro.getCasaEditrice().length()>30) throw new IllegalArgumentException("Casa Editrice non corretta");
 			if(libro.getPrezzo()<=0) throw new IllegalArgumentException("Prezzo non corretto");
 			if(libro.getQuantità()==0) throw new IllegalArgumentException("Quantità non corretta");
 			if(libro.getCategoria()==null || libro.getCategoria().length()>30) throw new IllegalArgumentException("Categoria non corretta");
@@ -552,7 +552,7 @@ public class AmministratoreManager {
 	/**
 	 * 
 	 * @param email l'email dell'account da ricercare
-	 * @return un Utente vuoto se non è stato ritrovato nessun account, altrimenti un Utente con i dati dell'account cercato
+	 * @return null se non è stato ritrovato nessun account, altrimenti un Utente con i dati dell'account cercato
 	 * @throws SQLException
 	 */
 	public Utente ricercaAccount(String email) throws SQLException {

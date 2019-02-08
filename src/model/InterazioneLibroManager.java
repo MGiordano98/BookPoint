@@ -17,9 +17,10 @@ public class InterazioneLibroManager {
 
 	/**
 	 * 
-	 * @param isbn
-	 * @param email
-	 * @throws SQLException 
+	 * @param isbn l'isbn del libro da aggiungere ai preferiti
+	 * @param email l'email dell'utente
+	 * @return true se il libro è stato aggiunto tra i preferito, altrimenti false
+	 * @throws SQLException
 	 */
 	public boolean aggiungiLibroPreferiti(String isbn, String email) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
@@ -50,9 +51,10 @@ public class InterazioneLibroManager {
 
 	/**
 	 * 
-	 * @param isbn
-	 * @param email
-	 * @throws SQLException 
+	 * @param isbn l'isbn del libro da rimuovere dai preferiti
+	 * @param email l'email dell'utente
+	 * @return true se il libro è stato rimosso dai preferiti, altrimenti false
+	 * @throws SQLException
 	 */
 	public boolean rimuoviLibroPreferiti(String isbn, String email) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
@@ -83,9 +85,9 @@ public class InterazioneLibroManager {
 
 	/**
 	 * 
-	 * @param testo
-	 * @param isbn
-	 * @throws SQLException 
+	 * @param recensione la recensione da aggiungere
+	 * @return true se la recensione è stata aggiunta con successo, altrimenti false
+	 * @throws SQLException
 	 */
 	public boolean aggiungiRecensione(Recensione recensione) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
@@ -117,8 +119,9 @@ public class InterazioneLibroManager {
 
 	/**
 	 * 
-	 * @param idRecensione
-	 * @throws SQLException 
+	 * @param idRecensione l'id della recensione da rimuovere
+	 * @return true se la recensione è stata rimossa con successo, altrimenti false
+	 * @throws SQLException
 	 */
 	public boolean rimuoviRecensione(int idRecensione) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
@@ -146,6 +149,12 @@ public class InterazioneLibroManager {
 		return result;
 	}
 	
+	/**
+	 * 
+	 * @param isbn l'isbn del libro di cui si devono prendere le recensioni
+	 * @return una collection vuota se non ci sono recensioni associate al libro, altrimenti una collection con le recensioni associate
+	 * @throws SQLException
+	 */
 	public Collection<Recensione> getRecensioni(String isbn) throws SQLException{
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement=null;
@@ -178,6 +187,12 @@ public class InterazioneLibroManager {
 		return recensioni;
 	}
 
+	/**
+	 * 
+	 * @param email l'email dell'utente di cui si devono prendere i libri preferiti
+	 * @return una collection vuota se non ci sono libri ai preferiti, altrimenti una collection con i libri aggiunti ai preferiti
+	 * @throws SQLException
+	 */
 	public Collection<Libro> getPreferiti(String email) throws SQLException {
 		Connection connection= DriverMaagerConnectionPool.getConnection();
 		PreparedStatement pStatement= null;
@@ -214,6 +229,13 @@ public class InterazioneLibroManager {
 		return libri;
 	}
 	
+	/**
+	 * 
+	 * @param connection la connessione al db
+	 * @param isbn l'isbn del libro di cui si devono prendere gli autori
+	 * @return un array vuoto se non ci sono autori associati all'account, altrimenti un array con gli autori
+	 * @throws SQLException
+	 */
 	private ArrayList<Autore> getAutori(Connection connection, String isbn) throws SQLException {
 		PreparedStatement pStatement=null;
 		ArrayList<Autore> autori= new ArrayList<Autore>();
