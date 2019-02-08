@@ -181,7 +181,7 @@ center img{
   display: none;
 }
 
-@media screen and (max-width: 955px) {
+@media screen and (max-width: 1278px) {
   .topnav a:not(:first-child) {display: none;}
   .topnav a.icon {
     float: right;
@@ -847,11 +847,11 @@ body .no-padding {
 /*CSS COMPLETA ACQUISTO*/
 .container-completa-acquisto{
 	margin: 20px 25%;
-	background-color: white;
+	background-color: ivory;
 	border-color:black;
 	border-style: solid;
 	border-width: 0.5px;
-	padding: 20px;
+	padding: 8px;
 	
 }
 
