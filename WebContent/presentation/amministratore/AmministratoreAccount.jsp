@@ -35,10 +35,12 @@
 </div>
 
 <%if(utenteCercato==null){
-	
-} else if(request.getSession().getAttribute("accountNonTrovato")!=null) 
-	   if((boolean) request.getSession().getAttribute("accountNonTrovato")){%>
+}
+if(request.getSession().getAttribute("accountNonTrovato")!=null) 
+	if((boolean) request.getSession().getAttribute("accountNonTrovato")){%>
 <h2>Account Non Trovato</h2>
+
+<%request.getSession().removeAttribute("accountNonTrovato"); %>
 <%}else{ %>
 
 <div class="container-account">
@@ -88,7 +90,7 @@
 		<input class="btn btn-danger" type=submit value=modifica>
 	</form>
 </div>
-<%} 
+<%}
 
 request.getSession().removeAttribute("utenteCercato");
 %>

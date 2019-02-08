@@ -38,14 +38,13 @@
 	</div>
 	<%
 		if (ordine == null) {
-		} else if (ordine.getIdOrdine() == 0) {
-	%>
+		}
+	if(request.getSession().getAttribute("ordineNonTrovato")!=null)
+	if((boolean) request.getSession().getAttribute("ordineNonTrovato")){%>
+	<h2>Ordine Non Trovato</h2>
 
-	<h2>Ordine non trovato</h2>
-
-	<%
-		} else {
-	%>
+	<%request.getSession().removeAttribute("ordineNonTrovato"); %>
+	<%}else{ %>
 	<div class="container-ordine">
 		<h1>
 			Ordine n°<%=ordine.getIdOrdine()%></h1>

@@ -39,9 +39,10 @@ public class CambiaDataEOra extends HttpServlet {
 		int numOrdine= ordine.getIdOrdine();
 		String data= request.getParameter("modifica-data");
 		String ora= request.getParameter("modifica-ora");
+		System.out.println(ora);
 		
 		try {
-			manager.cambiaDataEOra(numOrdine, Date.valueOf(data), Time.valueOf(ora));
+			manager.cambiaDataEOra(numOrdine, Date.valueOf(data), Time.valueOf(ora+":00"));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
