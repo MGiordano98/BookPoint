@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import java.sql.Time;
 import java.util.ArrayList;
 
-import bean.Autore;
 import bean.Libro;
 import bean.Ordine;
 import junit.framework.Test;

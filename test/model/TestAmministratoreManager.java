@@ -159,8 +159,8 @@ public class TestAmministratoreManager extends TestCase{
 		data= new GregorianCalendar();
 		dataUscita= new Date(data.getTime().getTime());
 		libro.setDataUscita(dataUscita);
-		libro.setCasaEditrice("Romanzo");
-		assertFalse(manager.aggiungiLibro(libro));
+		libro.setCasaEditrice("Mondadori");
+		assertTrue(manager.aggiungiLibro(libro));
 		
 		
 	}
