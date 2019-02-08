@@ -116,7 +116,7 @@
 								<td class="td-bold"><label for="intestatario">Intestatario
 										</label></td>
 								<td><input id="intestatario" type="text" name="intestatario"
-									placeholder="intestatario" pattern="[a-zA-Z_\x20]{0,30}" title="Il campo intestatario deve essere formato da sole lettere" required><br></td>
+									placeholder="intestatario" pattern="[a-zA-Z_\x20]{0,30}" title="Il campo intestatario deve essere formato da sole lettere e non deve superare i 30 caratteri" required><br></td>
 							</tr>
 
 							<tr>

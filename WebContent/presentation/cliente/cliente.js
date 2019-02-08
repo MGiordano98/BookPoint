@@ -4,13 +4,6 @@
 
 $(document).ready(function() {
 	
-/*	
-	$('#myModal').on('shown.bs.modal', function () {
-		  $('#myInput').trigger('focus');
-		});
-	
-*/	
-	
 	$(".visualizza").click(function(){
 		var isbn= $(this).attr("name");
 		$.post("visualizzaLibro",{"isbn":isbn}, function(data, status){
@@ -59,6 +52,7 @@ $(document).ready(function() {
 		var id= $("#idIndirizzo"+this.id);
 		$("#idIndirizzoDaModificare").val($("#idIndirizzo"+ this.id).val());
 	});
+	
 });
 
 

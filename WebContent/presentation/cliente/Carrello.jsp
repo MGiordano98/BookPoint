@@ -51,6 +51,7 @@
 			if(request.getSession().getAttribute("carrello")!=null){
 				Carrello carrello= (Carrello) request.getSession().getAttribute("carrello");
 				Collection<?> libri= carrello.getLibri();
+				if(libri.size()!=0){
 				Iterator it= libri.iterator();
 				
 				while(it.hasNext()){
@@ -139,7 +140,7 @@
    
                        </a>
 						
-					<%} %>
+					<%}} %>
 
                         </td>
                     </tr>

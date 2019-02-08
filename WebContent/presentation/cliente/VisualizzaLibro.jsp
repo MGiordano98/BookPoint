@@ -122,7 +122,7 @@
 	%>
 	<form action="aggiungiRecensione" method="post">
 		<div class="container-aggiungi-recensione">
-			<textarea rows="4" cols="20" placeholder="Testo..." name="testo" required></textarea>
+			<textarea rows="4" cols="20" placeholder="Testo..." name="testo" maxlength="300" required></textarea>
 			<input type="hidden" name="isbn" value="<%=libro.getIsbn()%>">
 			<button class="btn btn-danger bottone-recensione" type="submit"
 				value="aggiungi recensione">Aggiungi recensione</button>
@@ -146,5 +146,7 @@
 		crossorigin="anonymous"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
 	<script src="cliente.js"></script>
+	
+	
 </body>
 </html>

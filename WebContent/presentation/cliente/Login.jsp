@@ -44,7 +44,8 @@
     </div>
     <div class="form-group">
       <label for="exampleDropdownFormPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password" name="password"   required>
+      <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password" name="password" pattern="[a-zA-Z0-9_.,\-+*!#@?]{8,25}" 
+      			title="la lunghezza del campo password deve essere tra gli 8 ai 25" required>
     </div>
     <br>
     <%
