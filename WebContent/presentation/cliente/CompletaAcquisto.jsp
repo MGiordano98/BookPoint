@@ -36,12 +36,12 @@
 				if (carte != null) {
 			%>
 			<select name="numCarta" required>
+			<option></option>
 				<%
 					Iterator it = carte.iterator();
 						while (it.hasNext()) {
 							CartaDiCredito carta = (CartaDiCredito) it.next();
 				%>
-				<option></option>
 				<option value="<%=carta.getNumCarta()%>">**** **** ****
 					<%=carta.getNumCarta().substring(11, 16)%></option>
 
