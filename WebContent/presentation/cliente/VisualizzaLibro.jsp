@@ -146,5 +146,7 @@
 		crossorigin="anonymous"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
 	<script src="cliente.js"></script>
+	
+	
 </body>
 </html>
