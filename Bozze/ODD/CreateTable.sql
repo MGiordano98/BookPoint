@@ -37,6 +37,9 @@ create table indirizzo
     cap varchar(5),
     città varchar(30),
     utente varchar(60),
+    
+    unique(via,numeroCivico,cap,città),
+    
     foreign key (utente) references utente(email)
     on delete cascade on update cascade
 );
