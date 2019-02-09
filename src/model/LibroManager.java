@@ -32,7 +32,7 @@ public class LibroManager {
 		Collection<Libro> libri = new LinkedList<Libro>();
 
 		String selectSQL = "Select * from libro inner join scrive on isbn=libro where categoria like ?"
-				+ " And (titolo like ? Or autore like ?)";
+				+ " And (titolo like ? Or autore like ?) GROUP BY isbn";
 
 
 		try {
