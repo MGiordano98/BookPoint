@@ -205,8 +205,12 @@ center img{
     display: block;
     text-align: left;
   }
-    
+     
 
+}
+
+.preferito-mio{
+	pointer-events:none;
 }
 
 .container{

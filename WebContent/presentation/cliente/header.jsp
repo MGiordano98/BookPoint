@@ -27,7 +27,7 @@
 	  <a href="../../VisualizzaPreferiti">Preferiti</a>
 	  <a class="nav-link " href="AreaPersonale.jsp" ><i class="fas fa-user-circle fa-lg"></i>  </a>
 	  <%} else { %>
-	  <a href="../../VisualizzaPreferiti"> </a>
+	  <a href="../../VisualizzaPreferiti" class="preferito-mio"> </a>
 	  <%}if(utente==null){ %>
 	  <a  class="nav-link utente" href="Login.jsp" ><i class="fas fa-user-circle fa-lg"></i>  </a>
 	  <%} else {%>
