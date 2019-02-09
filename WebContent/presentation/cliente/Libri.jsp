@@ -81,7 +81,7 @@
 			if(i<4){
 			%>
 				<div class="col-xs-3 col-sm-3 col-md-3">
-					<img class="visualizza" src="../image/<%=bean.getFoto()%>" name="<%=bean.getIsbn()%>">
+					<img class="visualizza" src="../image/<%=bean.getFoto()%>" name="<%=bean.getIsbn()%>" onerror="this.src ='../image/defaultImg.jpg';">
 				</div>
 			<%	}else{ %>
 			<% if(i==4){  %>
@@ -89,7 +89,7 @@
 			<div class="carousel-item car-item">
 			<% }if(i>=4 && i<8){ %>
 				<div class="col-xs-3 col-sm-3 col-md-3">
-					<img class="visualizza" src="../image/<%=bean.getFoto()%>" name="<%=bean.getIsbn()%>">
+					<img class="visualizza" src="../image/<%=bean.getFoto()%>" name="<%=bean.getIsbn()%>" onerror="this.src ='../image/defaultImg.jpg';">
 				</div>
 			<%} %>
 			<%if(i==8){ %>
@@ -135,7 +135,7 @@
 			if(i<4){
 			%>
 				<div class="col-xs-3 col-sm-3 col-md-3">
-					<img class="visualizza" src="../image/<%=bean.getFoto()%>" name="<%=bean.getIsbn()%>">
+					<img class="visualizza" src="../image/<%=bean.getFoto()%>" name="<%=bean.getIsbn()%>" onerror="this.src ='../image/defaultImg.jpg';">
 				</div>
 			<%	}else{ %>
 			<% if(i==4){  %>
@@ -143,7 +143,7 @@
 			<div class="carousel-item car-item">
 			<% }if(i>=4 && i<8){ %>
 				<div class="col-xs-3 col-sm-3 col-md-3">
-					<img class="visualizza" src="../image/<%=bean.getFoto()%>" name="<%=bean.getIsbn()%>">
+					<img class="visualizza" src="../image/<%=bean.getFoto()%>" name="<%=bean.getIsbn()%>" onerror="this.src ='../image/defaultImg.jpg';">
 				</div>
 			<%} %>
 			<%if(i==8){ %>
@@ -179,7 +179,7 @@
 
 	<div class="container-libri-trovati">
 		<div class="immagine-libro-trovato">
-			<img alt="" src="../image/<%=bean.getFoto()%>" class="visualizza" name="<%=bean.getIsbn()%>">
+			<img alt="" src="../image/<%=bean.getFoto()%>" class="visualizza" name="<%=bean.getIsbn()%>" onerror="this.src ='../image/defaultImg.jpg';">
 		</div>
 		<div class="container-informazioni-libro">
 			<div>
