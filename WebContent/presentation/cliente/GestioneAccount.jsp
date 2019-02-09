@@ -28,7 +28,7 @@
 <div class="divaccesso">
 	
 <h3>Cambia Password</h3>
-<form action="utente" method="post">
+<form action="" method="post">
 	<h5>Vecchia password</h5>
 	<input type="password" name="vecchia" required pattern="^[A-Za-z0-9]*$">
 	<br>
