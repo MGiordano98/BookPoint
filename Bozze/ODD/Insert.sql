@@ -59,7 +59,7 @@ insert into ordine(numero,dataOrdine,totale,stato,dataConsegna,oraConsegna,utent
 values(1,'2019-01-07',8.40,'consegnato','2019-01-15','12:00:00','g.teodoro@studenti.unisa.it','Enrico Fermi',9,80040,'Terzigno','0000000000000000');
 
 insert into ordine(numero,dataOrdine,totale,stato,dataConsegna,oraConsegna,utente,via,numeroCivico,cap,città, numeroCarta)
-values(2,'2019-01-08',11.00,'consegnato','2019-01-16','12:00:00','v.sammartino@studenti.unisa.it','Striscia',14,8305,'Avellino','0000000000000001');
+values(2,'2019-01-08',11.00,'consegnato','2019-01-16','12:00:00','v.sammartino@studenti.unisa.it','Striscia',14,83050,'Avellino','0000000000000001');
 
 insert into libriAcquistati(prezzoAcquisto,quantità,titolo,ordine,libro)
 values(8.40,1,'Dieci piccoli indiani','1','9788804679622');
